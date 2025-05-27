@@ -1,2 +1,2 @@
-# wirtschaftsmathematik
+# Wirtschaftsmathematik
 Unterlagen zur Wirtschaftsmathematik
