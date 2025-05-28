@@ -17,7 +17,111 @@ knitr::opts_chunk$set(echo=TRUE, message=FALSE, warning=FALSE, cache=FALSE,
 
 # Einführung in die Finanzmathematik
 
-## Zins und Zinseszins
+## Leitgedanken der Finanzmathematik
+1. Der Wert einer Zahlung ist **abhängig vom Zeitpunkt**, zu dem diese zu leisten ist.
+2. Es gilt stets das **Äquivalenzprinzip**.
+3. Das Gerüst der klassischen Finanzmathematik wird aus **ganz wenigen Formeln** gebildet.
+4. In der klassischen Finanzmathematik gibt es einfache, mittelschwere und relativ kompliziert zu lösende Probleme. Die größte Schwierigkeit ist in der Regel die **Modellierung**.
+5. Ein **grafisches Schema** bringt fast immer Klarheit.
+6. Das wichtigste Konzept ist das der **Rendite**, auch **Effektiv- oder Realzins** genannt.
+7. Die klassische Finanzmathematik läßt sich klar umreißen. Das wichtigste Konzept ist das des **Zinssatzes**.
+	
+## Begriffe
+Kapital
+: Geldbetrag, der angelegt bzw. jemand anderem überlassen wird.
+
+Laufzeit
+: Dauer der Überlassung/Anlage
+
+Zinsen
+: Vergütung für die Kapitalüberlassung innerhalb einer Zinsperiode
+
+Zinsperiode
+: er vereinbarten Verzinsung zugrunde liegender Zeitrahmen; meist ein Jahr, oftmals kürzer (Monat, Quartal, Halbjahr), selten länger
+
+Zinssatz
+: insbetrag in Geldeinheiten (GE), der für ein Kapital von 100 GE in einer Zinsperiode zu zahlen ist; auch **Zinsfuß** genannt.
+
+Zeitwert
+: der von der Zeit abhängige Wert des Kapitals
+
+## Notation
+Folgende Notation wird (in der Regel) im folgenden benutzt:
+
+Kapital
+: $K_{t}$ ist das Kapital zum Zeitpunkt $t$
+
+Zinssatz
+: $i = \frac{P}{100}$, wobei $p$ der Zinssatz/Zinsfuß in Prozent ist
+
+Aufzinsungsfaktor
+: $q = \left( 1+i \right) = \left(1 + \frac{p}{100}\right)$
+
+Zinsen
+: $Z_{t}$ Zinsen für den Zeitraum $t$.
+```{=latex}
+		\begin{center}
+		Damit gelten folgende Zusammenhänge:
+		\begin{tabular}{|c||c|c|c|}
+				\hline \rule[-2ex]{0pt}{5.5ex}  & $p$ & $i$ & $q$ \\ 
+				\hline \hline \rule[-2ex]{0pt}{5.5ex} $p$ & $p$ & $100 i$ & $100(q-1)$ \\ 
+				\hline \rule[-2ex]{0pt}{5.5ex} $i$ & $\frac{p}{100}$ & $i$ & $q-1$ \\ 
+				\hline \rule[-2ex]{0pt}{5.5ex} $q$ & $1+\frac{p}{100}$ & $1+i$ & $q$ \\ 
+				\hline 
+			\end{tabular}
+		\end{center}
+```
+
+## Lineare Verzinsung
+Zinsformel
+: Zinsen hängen proportional vom Kapital $K$, der Laufzeit $t$ und dem Zinssatz $i$ ab:
+
+$$
+Z_{t} = K \cdot i \cdot t
+$$
+
+
+Laufzeit
+: In Deutschland wird meist das Jahr zu 360 Tagen und der Monat zu 30 Zinstagen gerechnet. Daher kann man meist $t = \frac{T}{360}$ setzen, wobei $T$ die Anzahl an Tagen ist.
+
+$$
+Z_{T} = K \cdot i \cdot \frac{T}{360}
+$$
+
+## Beispiele (1/3)
+Frage
+: Welche Zinsen fallen an, wenn ein Kapital von 3500 € vom 3. März bis zum 18. August eines Jahres bei einem Zinssatz von 3.25 \% p.a. angelegt wird?	 
+
+Antwort
+: Da $165=27+30+30+30+30+18$ Zinstage zugrunde zu legen sind, ergibt sich aus der Zinsformel
+
+$$
+Z_{165} = 3500\mbox{€} \cdot \frac{3.25}{100} \frac{165}{360} = 52.135416667 \mbox{€} \approx 52.14 \mbox{€}
+$$ 
+
+## Beispiele (2/3)
+
+Frage
+: Wie hoch ist ein Kredit, für den in einem halben Jahr bei 8 \% Jahreszinsen 657.44 € Zinsen zu zahlen sind?
+
+Antwort
+: Durch Umstellen der Zinsformel ermittelt man:
+
+$$
+K=Z_{T} \frac{100}{p} \frac{360}{T} = 657.44 \mbox{ €} \cdot \frac{100}{8} \frac{360}{180} = 16 436 \mbox{ €}
+$$
+		
+## Beispiele (3/3)
+Frage
+: Ein Wertpapier über 5000 €, das mit einem Kupon (Nominalzins) von 6.25 \% ausgestattet ist, wurde einige Zeit nach dem Emissionsdatum erworben. Es sind Stückzinsen in Höhe von 36.46 € zu zahlen. Wieviele Zinstage wurden dabei berechnet?
+
+Antwort
+: Umstellen der Zinsformel führt auf
+
+$$
+T = \frac{Z_{T} \cdot 100 \cdot 360}{K \cdot p} = \frac{36.46 \cdot 100 \cdot 360}{5000 \cdot 6.25} = 42 \mbox{ (Tage)}
+$$ 
+
 
 ## Rentenrechnung
 
