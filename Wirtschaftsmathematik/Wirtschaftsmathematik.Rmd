@@ -122,6 +122,30 @@ $$
 T = \frac{Z_{T} \cdot 100 \cdot 360}{K \cdot p} = \frac{36.46 \cdot 100 \cdot 360}{5000 \cdot 6.25} = 42 \mbox{ (Tage)}
 $$ 
 
+## Zeitwert 
+
+Zeitwert
+: Da sich das Kapital $K_{t}$ zum Zeitpunkt $t$ aus dem Anfangskapital $K_{0}$ zuzüglich der im Zeitraum $t$ angefallenen Zinsen $Z_{t}$ ergibt, also 
+
+$$
+K_{t} = K_{0} + Z_{t}
+
+$$
+  
+gilt, folgt aus der Zinsformel eine sehr wichtige Formel der Finanzmathematik, die **Endwertformel bei linearer Verzinsung**
+
+$$
+K_{t} = K_{0} + Z_{t} = K_{0} + K_{0} \cdot i \cdot t = K_{0} \left( 1 + i \cdot t \right) = K_{0} \left( 1 + \frac{p}{100} \cdot t \right)
+$$
+Barwert
+: Man kann durch Umstellen der Endwertformel auch den **Barwert** $K_{0}$ einer zukünftigen Zahlung $K_{t}$ berechnen
+
+$$
+K_{0} = \frac{K_{t}}{1+i \cdot t}
+$$
+
+
+
 
 ## Rentenrechnung
 
@@ -161,24 +185,7 @@ $$
 
 ## Allgemeines lineares Optimierungsproblem
 
-
-
-
-# Intro
-
-## Slide with bullets
-
-- Bullet 1
-- Bullet 2
-- Bullet 3
-
 Use `\alert` to \alert{highlight} some text
-
-### Some enumeration
-
-1. The first item
-1. Stuff
-1. Nonsense
 
 ## Squared Paper
 
@@ -192,18 +199,10 @@ Use `\alert` to \alert{highlight} some text
 
 \lined{14}
 
-# Using R
-
 ## Slide with R output
 
 ```{r cars, echo = TRUE}
 summary(cars)
-```
-
-## Slide with graphics
-
-```{r pressure}
-plot(pressure)
 ```
 
 ## Slide with mathematics
@@ -224,38 +223,6 @@ Average score over all percentiles gives the best distribution forecast:
 \[
   QS = \frac{1}{99T}\sum_{p=1}^{99}\sum_{t=1}^T S(q_t(p),y_t)
 \]
-
-# RMarkdown Examples
-
-## R Figure
-
-The following code generates the plot on the next slide (taken from
-`help(bxp)` and modified slightly):
-
-\small
-
-```{r pressureCode, eval=FALSE, echo=TRUE}
-library(stats)
-set.seed(753)
-bx.p <- boxplot(split(rt(100, 4),
-                      gl(5, 20)), plot=FALSE)
-bxp(bx.p, notch = FALSE, boxfill = "orange",
-    frame = FALSE, outl = TRUE,
-    main = "Example from help(bxp)")
-```
-
-
-## R Figure
-
-```{r pressureFig, echo=FALSE}
-library(stats)
-set.seed(753)
-bx.p <- boxplot(split(rt(100, 4),
-                      gl(5, 20)), plot=FALSE)
-bxp(bx.p, notch = FALSE, boxfill = "orange",
-    frame = FALSE, outl = TRUE,
-    main = "Example from help(bxp)")
-```
 
 ## R Table
 
