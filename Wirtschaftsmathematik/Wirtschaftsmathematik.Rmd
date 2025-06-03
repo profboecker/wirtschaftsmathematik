@@ -144,7 +144,80 @@ $$
 K_{0} = \frac{K_{t}}{1+i \cdot t}
 $$
 
+## Beispiele 
+Frage
+: In einem halben Jahr ist eine Forderung von 8000 € fällig. Wie viel ist bei einer Sofortzahlung zu leisten, wenn mit einem kalkulatorischen Zins von i= 5 \% gerechnet wird?
 
+Antwort
+: Aus der Barwertformel ergibt sich
+
+$$
+K_{0} = \frac{8000}{1+0.05 \cdot \frac{1}{2}} \mbox{ €} = 7804.88 \mbox{ €}
+$$
+
+## Äquivalenzprinzip und Barwert
+
+### Äquivalenzprinzip
+
+Das **Äquivalenzprinzip** nutzt man in der Finanzmathematik meist in der Form eines **Barwert-Vergleichs**, indem die Barwerte von Zahlungen, die zu verschiedenen Zeitpunkten geleistet werden, berechnet werden. 
+
+
+## Beispiel: Äquivalenzprinzip und Barwert (1/2)
+
+Aufgabe
+: Beim Verkauf einer Maschine werden dem Käufer zwei Angebote gemacht: Entweder 9000 € in 30 Tagen oder 9085 € in 90 Tagen. Welches Angebot ist günstiger, wenn jährlich mit 6 \% bzw. mit 3 \% verzinst wird? Bei welchem Zinssatz ergibt sich Gleichheit?
+
+Lösung (1/2)
+: 
+
+Bei einer Verzinsung von 6 \% ergeben sich folgende Barwerte:
+
+$$
+K_{0}^{30} = \frac{9000}{1+0.06 \cdot \frac{30}{360}} = 8955.22 \qquad 			K_{0}^{90} = \frac{9085}{1+0.06 \cdot \frac{90}{360}} = 8950.74 $$ 
+
+Das zweite Angebot ist also bei 6 \% günstiger.
+
+Bei einer Verzinsung von 3 \% ergeben sich folgende Barwerte:
+
+$$
+K_{0}^{30} = \frac{9000}{1+0.03 \cdot \frac{30}{360}} = 8977.55 \qquad 			K_{0}^{90} = \frac{9085}{1+0.03 \cdot \frac{90}{360}} = 9017.37 $$ 
+
+Das erste Angebot ist also bei 3 \% günstiger.
+
+## Beispiel: Äquivalenzprinzip und Barwert (2/2)
+
+Lösung (2/2)
+: Gleichheit der Angebote
+
+Gleichwertigkeit beider Angebote bedeutet Gleichheit der Barwerte und führt so auf die Gleichung 
+
+$$
+\frac{9000}{1+i \cdot \frac{30}{360}} = \frac{9085}{1+i \cdot \frac{90}{360}} \Leftrightarrow 9000 \cdot \left( 1 + i \frac{1}{4} \right) = 9085 \left( 1 + i \frac{1}{12} \right) 	
+$$
+
+Daraus folgt $i = 0.0569 = 5.69 \%$
+
+## Berechnung von Zinssatz und Laufzeit
+
+
+### Zinssatz- und Laufzeitberechnung
+Man kann aus der Endwertformel bei linearer Verzinsung sowohl den Zinssatz als auch die Laufzeit berechnen:
+
+$$
+i = \frac{1}{t} \left( \frac{K_{t}}{K_{0}} - 1\right) \qquad t = \frac{1}{i} \left( \frac{K_{t}}{K_{0}} - 1\right)
+$$
+
+### Beispiel
+
+Frage
+: In welcher Zeit wächst eine Spareinlage von 1200 € bei 2.8 \% jährlicher Verzinsung auf 1225.20 € an?
+
+Antwort
+: 
+
+$$
+t = \frac{1}{0.028} \left( \frac{1225.20}{1200} - 1 \right) = 0.75 = \frac{3}{4}
+$$
 
 
 ## Rentenrechnung
