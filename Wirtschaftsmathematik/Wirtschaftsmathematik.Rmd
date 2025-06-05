@@ -37,6 +37,12 @@ knitr::opts_chunk$set(echo=TRUE, message=FALSE, warning=FALSE, cache=FALSE,
 - Dauer: 90 Minuten (Regelfall)
 - Erlaubte Hilfsmittel: **Nicht-**Programmierbarer Taschenrechner
 
+## Unterlagen / Voraussetzungen
+
+### Unterlagen und Informationen zum Modul Wirtschaftsmathematik 
+- Es gibt einen Moodle-Kurs zu Modul Wirtschaftsmathematik
+  [https://profboecker.eu](https://profboecker.eu)
+
 # Einführung in die Finanzmathematik
 
 ## Leitgedanken der Finanzmathematik
