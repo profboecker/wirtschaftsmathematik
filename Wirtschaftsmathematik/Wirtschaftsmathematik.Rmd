@@ -278,12 +278,43 @@ $$
 t = \frac{1}{0.028} \left( \frac{1225.20}{1200} - 1 \right) = 0.75 = \frac{3}{4}
 $$
 
+<<<<<<< HEAD
+=======
+
+## Cash Flow Diagram
+```{r}
+library(tidyverse)
+df <- data.frame(time=c(1, 2, 3), positiv=c(5, 0, 4), negativ=c(-2, -3, 0))
+
+ggplot(df, aes(time, xend = time)) + 
+  geom_segment(aes(y = 0, yend = positiv, colour = "positiv"),
+    position = "stack", arrow = arrow()) + 
+  geom_segment(aes(y = 0, yend = negativ, colour = "negativ"), 
+    position = "stack", arrow = arrow()) + 
+  scale_colour_manual("Cash Flussrichtung", 
+    values = c("negativ" = "red", "positiv" = "blue"))
+
+
+ggplot(df, aes(time, xend = time)) +    
+  geom_rect(aes(xmin=time, xmax=time+1, ymin = 0, ymax = positiv, fill = "positiv")) +    
+  geom_rect(aes(xmin=time, xmax=time+1, ymin = 0, ymax = negativ, fill = "negativ")) +    
+  scale_fill_manual("Direction",      values = c("negativ" = "red", "positiv" = "black"))
+```
+
+
+>>>>>>> af4181d76d30dbedd1dfcafe5ed637b636806442
 ## Rentenrechnung
 
 ## Tilgungsrechnung
 
 ## Investitionsrechnung
 
+<<<<<<< HEAD
+=======
+
+
+
+>>>>>>> af4181d76d30dbedd1dfcafe5ed637b636806442
 # Funktionen
 
 ## Funktionsbegriff
@@ -298,6 +329,9 @@ $$
 
 ## Ableitung einer Funktion
 
+
+
+
 # Lineare Gleichungssysteme
 
 ## Grundlagen zu linearen Gleichungssystemen
@@ -306,6 +340,12 @@ $$
 
 ## Matrizenrechnung
 
+<<<<<<< HEAD
+=======
+
+
+
+>>>>>>> af4181d76d30dbedd1dfcafe5ed637b636806442
 # Lineare Optimierung
 
 ## Problemdarstellung und grafische Lösung
