@@ -1,0 +1,105 @@
+---
+title: Hinweise zur neuen Fachprüfungsordnung / Wechsel der FPO
+author: Prof. Dr. Stefan Böcker, FRM
+date: \today
+toc: true
+output: fhswf::presentation
+knit: fhswf::render_presentation
+german: true # German Dummy Text
+lang: de-de   # Text Language: en-gb, en-us, de-de
+---
+
+```{r setup, include=FALSE}
+options(digits = 4)
+knitr::opts_chunk$set(echo=TRUE, message=FALSE, warning=FALSE, cache=FALSE, 
+                      dev.args=list(pointsize=11), size="scriptsize")
+```
+
+## Neue Fachprüfungsordnung für neu eingeschrieben Studierende ab WS 2025/2026
+
+Die Fachprüfungsordnungen (FPO) für die Präsenz-Bachelor-Studiengänge
+
+- Betriebswirtschaftslehre 
+- Internationale Business Administration
+- Wirtschaftsingenieurwesen
+- Wirtschaftsinformatik
+
+wird durch die [am 25. Februar 2025 verkündete Fachprüfungsordnung](https://publikationen.fhb.fh-swf.de/receive/fhswf_mods_00002717) (FPO) abgelöst und gilt
+
+- grundsätzlich für alle **ab Wintersemester 2025/2026 neu** eingeschriebenen Studierenden.
+- für Studierende, die **explizit** in diese FPO **wechseln**.
+
+## Auslaufen von Studiengängen
+
+In die Studiengänge 
+
+- International Business Administration with Engineering
+- International Business Administration with Informatics
+- Wirtschaftsingenieurwesen Energie und Gebäude und
+- Wirtschaftsingenieurwesen Energie und Gebäude (Teilzeit)
+
+ist eine **Neueinschreibung** nicht mehr möglich! 
+
+Für **bereits eingeschriebene** Studierende
+
+- gilt weiter die **bisherige** FPO und
+- es besteht die Möglichkeit, das Studium **im Rahmen des Auslaufens der bisherigen FPO** abzuschließen (siehe nächste Folie)
+-  besteht (außer für die auf dieser Folie genannten Studiengänge), die Möglichkeit, in die neue FPO zu wechseln (siehe aber die Hinweise später).
+
+## Modulangebot der **bisherigen** FPOs
+
+Die Einführung der *neuen* FPO führt, beginnend mit dem WS 2025/26, zur schrittweisen Einstellung des Modul- und Prüfungsangebotes nach den *bisherigen* FPO.
+
+Beispielsweise können/konnten 
+
+- Module des 1. Fachsemesters gemäß der alten FPO letzmalig im Wintersemester 2024/2025 besucht werden, **Prüfungen** zu diesen Modulen werden jedoch letztmalig noch im Wintersemester 2026/2027 angeboten und
+- Module des 2. Fachsemesters gemäß der alten FPO nur noch im laufenden Semester (Sommersemester 2025) besucht werden, **Prüfungen** zu diesen Modulen werden jedoch letztmalig noch im Sommersemester 2027 angeboten und
+- Module des 3. Fachsemesters gemäß der alten FPO nur noch im Wintersemester 2025/2026 besucht werden, **Prüfungen** zu diesen Modulen werden jedoch letztmalig noch im Wintersemester 2027/2028 angeboten,
+- usw.
+
+Beachten Sie hierzu insbesondere die den §22 (2) und §22 (3), in denen geregelt ist, wann Prüfungen gemäß der auslaufenden Prüfungsordnungen letztmalig angeboten werden.
+
+## Modulangebot der **neuen** FPO
+
+Das Modulangebot der **neuen FPO** wächst auf, das heißt
+
+- Module und Modulprüfungen des 1. Semesters der neuen FPO werden erstmalig im WS 2025/2026 
+- Module und Modulprüfungen des 2. Semesters der neuen FPO werden erstmalig im SoSe 2026 
+- Module und Modulprüfungen des 3. Semesters der neuen FPO werden erstmalig im WS 2026/2027
+- usw.
+
+angeboten.
+
+## Hinweise zu einem Wechsel der FPO (1/2)
+
+Studierende, die unter der **bisherigen** FPO eingeschrieben sind und in die **neue** FPO **wechseln** möchten, sollten folgende Hinweise bei der Wechselplanung beachten:
+
+- Durch Aufwachsen der **neuen** FPO werden einzelne *neue* Pflicht-Module der **neuen** FPO entsprechend *spät* angeboten 
+- Ein Modul/eine Prüfungsleistung der **alten** FPO kann für die neue FPO **anerkannt** werden
+  - wenn die Module identisch sind (sofern die ECTS nicht signifikant abweicht)
+  - wenn für das Modul eine bekannte Anerkennung vorliegt
+  - aber gegebenfalls auch die Kombination mehrerer Module betreffen (z.B. Mathematik 1 und 2)
+  - wenn das Modul einem Wahlpflichtmodul des 5. oder 6. Semesters der **neuen** FPO zugeordnet werden kann (*Anerkennungstablle*)
+- Bei einem Wechsel der FPO werden auch **Fehlversuche** übertragen, 
+  - sofern die Module identisch sind (und die ECTS nicht signifikant abweicht)
+  - sofern für eine bekannte Anerkennung eine entsprechende Übertragung bereits abgelegter Prüfungsversuche vorgesehen ist.
+
+## Hinweise zu einem Wechsel der FPO (2/2)
+
+- Zum Wechsel ist (innerhalb der Rückmeldefrist des Semesters, zu dem der Wechsel gewünscht wird) schriftlich ein formloser Antrag an das Studierendenservicebüro Hagen zu senden.
+- Der Prüfungsausschuss kann 
+  - **keine** Empfehlungen sowie
+  - **keine** Vorabprüfungen
+  - wohl aber allgemeine Beratung
+  
+  zum Wechsel der FPO geben, da hier in der Regel individuelle Entscheidungen notwendig sind.
+  
+- Für Studierende in einem niedrigen Semester $\leq 2$ mit wenigen bereits bestandenen Prüfungsleistungen  **kann** ein Wechsel der FPO **sinnvoll** sein.
+- Für Studierende in einem hohen Semester, die innerhalb der nächsten zwei bis drei Semester ihren Abschluss absehen können, ist ein Wechsel **in der Regel** vermutlich **nicht sinnvoll**.
+
+## Weitere Hinweise 
+
+Für in einem Studiengang eingeschriebene Studierende gilt **genau eine** FPO, das heißt
+
+- es können nur Prüfungen der für den/die Studierende(n) anzuwendenden FPO angemeldet werden
+- Prüfungen einer anderen als der *eigenen* (s.o.) FPO können nur als Zusatzmodule belegt werden und gegebenenfalls bei einem Wechsel anerkannt werden.

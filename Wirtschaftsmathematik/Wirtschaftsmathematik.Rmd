@@ -17,167 +17,194 @@ knitr::opts_chunk$set(echo=TRUE, message=FALSE, warning=FALSE, cache=FALSE,
 
 # Organisatorisches
 
-## Vorstellung und Kontaktdetails 
+## Vorstellung und Kontaktdetails
 
 ### Prof. Dr. Stefan Böcker
-- Professur für Wirtschaftsinformatik, Datenbanken und mobile Technologien
-- aktuell Studiendekan und Prüfungsausschussvorsitzender des Fachbereichs Technische Betriebswirtschaft
-- Vorlesung 
-- **Email:** boecker.stefan@fh-swf.de
+
+-   Professur für Wirtschaftsinformatik, Datenbanken und mobile Technologien
+-   aktuell Studiendekan und Prüfungsausschussvorsitzender des Fachbereichs Technische Betriebswirtschaft
+-   Vorlesung
+-   **Email:** [boecker.stefan\@fh-swf.de](mailto:boecker.stefan@fh-swf.de){.email}
 
 ### Dipl.-Math. Silke Beckmann
-- Übungen zur Vorlesung Wirtschaftsmathematik
-- **Email:** beckmann.silke@fh-swf.de
+
+-   Übungen zur Vorlesung Wirtschaftsmathematik
+-   **Email:** [beckmann.silke\@fh-swf.de](mailto:beckmann.silke@fh-swf.de){.email}
 
 ## Formalia
 
 ### Klausur
 
-- deckt den Stoff des Semesters ab
-- Dauer: 90 Minuten (Regelfall)
-- Erlaubte Hilfsmittel: **Nicht-**Programmierbarer Taschenrechner
+-   deckt den Stoff des Semesters ab
+-   Dauer: 90 Minuten (Regelfall)
+-   Erlaubte Hilfsmittel: **Nicht-**Programmierbarer Taschenrechner
 
 ## Unterlagen / Voraussetzungen
 
-### Unterlagen und Informationen zum Modul Wirtschaftsmathematik 
-- Es gibt einen Moodle-Kurs zu Modul Wirtschaftsmathematik
-  [https://profboecker.eu](https://profboecker.eu)
+### Unterlagen und Informationen zum Modul Wirtschaftsmathematik
+
+-   Es gibt einen Moodle-Kurs zu Modul Wirtschaftsmathematik <https://profboecker.eu>
 
 # Einführung in die Finanzmathematik
 
 ## Leitgedanken der Finanzmathematik
-1. Der Wert einer Zahlung ist **abhängig vom Zeitpunkt**, zu dem diese zu leisten ist.
-2. Es gilt stets das **Äquivalenzprinzip**.
-3. Das Gerüst der klassischen Finanzmathematik wird aus **ganz wenigen Formeln** gebildet.
-4. In der klassischen Finanzmathematik gibt es einfache, mittelschwere und relativ kompliziert zu lösende Probleme. Die größte Schwierigkeit ist in der Regel die **Modellierung**.
-5. Ein **grafisches Schema** bringt fast immer Klarheit.
-6. Das wichtigste Konzept ist das der **Rendite**, auch **Effektiv- oder Realzins** genannt.
-7. Die klassische Finanzmathematik läßt sich klar umreißen. Das wichtigste Konzept ist das des **Zinssatzes**.
-	
+
+1.  Der Wert einer Zahlung ist **abhängig vom Zeitpunkt**, zu dem diese zu leisten ist.
+2.  Es gilt stets das **Äquivalenzprinzip**.
+3.  Das Gerüst der klassischen Finanzmathematik wird aus **ganz wenigen Formeln** gebildet.
+4.  In der klassischen Finanzmathematik gibt es einfache, mittelschwere und relativ kompliziert zu lösende Probleme. Die größte Schwierigkeit ist in der Regel die **Modellierung**.
+5.  Ein **grafisches Schema** bringt fast immer Klarheit.
+6.  Das wichtigste Konzept ist das der **Rendite**, auch **Effektiv- oder Realzins** genannt.
+7.  Die klassische Finanzmathematik läßt sich klar umreißen. Das wichtigste Konzept ist das des **Zinssatzes**.
+
 ## Begriffe
+
 Kapital
-: Geldbetrag, der angelegt bzw. jemand anderem überlassen wird.
+
+:   Geldbetrag, der angelegt bzw. jemand anderem überlassen wird.
 
 Laufzeit
-: Dauer der Überlassung/Anlage
+
+:   Dauer der Überlassung/Anlage
 
 Zinsen
-: Vergütung für die Kapitalüberlassung innerhalb einer Zinsperiode
+
+:   Vergütung für die Kapitalüberlassung innerhalb einer Zinsperiode
 
 Zinsperiode
-: er vereinbarten Verzinsung zugrunde liegender Zeitrahmen; meist ein Jahr, oftmals kürzer (Monat, Quartal, Halbjahr), selten länger
+
+:   er vereinbarten Verzinsung zugrunde liegender Zeitrahmen; meist ein Jahr, oftmals kürzer (Monat, Quartal, Halbjahr), selten länger
 
 Zinssatz
-: insbetrag in Geldeinheiten (GE), der für ein Kapital von 100 GE in einer Zinsperiode zu zahlen ist; auch **Zinsfuß** genannt.
+
+:   insbetrag in Geldeinheiten (GE), der für ein Kapital von 100 GE in einer Zinsperiode zu zahlen ist; auch **Zinsfuß** genannt.
 
 Zeitwert
-: der von der Zeit abhängige Wert des Kapitals
+
+:   der von der Zeit abhängige Wert des Kapitals
 
 ## Notation
+
 Folgende Notation wird (in der Regel) im folgenden benutzt:
 
 Kapital
-: $K_{t}$ ist das Kapital zum Zeitpunkt $t$
+
+:   $K_{t}$ ist das Kapital zum Zeitpunkt $t$
 
 Zinssatz
-: $i = \frac{P}{100}$, wobei $p$ der Zinssatz/Zinsfuß in Prozent ist
+
+:   $i = \frac{P}{100}$, wobei $p$ der Zinssatz/Zinsfuß in Prozent ist
 
 Aufzinsungsfaktor
-: $q = \left( 1+i \right) = \left(1 + \frac{p}{100}\right)$
+
+:   $q = \left( 1+i \right) = \left(1 + \frac{p}{100}\right)$
 
 Zinsen
-: $Z_{t}$ Zinsen für den Zeitraum $t$.
-```{=latex}
-		\begin{center}
-		Damit gelten folgende Zusammenhänge:
-		\begin{tabular}{|c||c|c|c|}
-				\hline \rule[-2ex]{0pt}{5.5ex}  & $p$ & $i$ & $q$ \\ 
-				\hline \hline \rule[-2ex]{0pt}{5.5ex} $p$ & $p$ & $100 i$ & $100(q-1)$ \\ 
-				\hline \rule[-2ex]{0pt}{5.5ex} $i$ & $\frac{p}{100}$ & $i$ & $q-1$ \\ 
-				\hline \rule[-2ex]{0pt}{5.5ex} $q$ & $1+\frac{p}{100}$ & $1+i$ & $q$ \\ 
-				\hline 
-			\end{tabular}
-		\end{center}
-```
+
+:   $Z_{t}$ Zinsen für den Zeitraum $t$.
+
+    ```{=latex}
+        \begin{center}
+        Damit gelten folgende Zusammenhänge:
+        \begin{tabular}{|c||c|c|c|}
+                \hline \rule[-2ex]{0pt}{5.5ex}  & $p$ & $i$ & $q$ \\ 
+                \hline \hline \rule[-2ex]{0pt}{5.5ex} $p$ & $p$ & $100 i$ & $100(q-1)$ \\ 
+                \hline \rule[-2ex]{0pt}{5.5ex} $i$ & $\frac{p}{100}$ & $i$ & $q-1$ \\ 
+                \hline \rule[-2ex]{0pt}{5.5ex} $q$ & $1+\frac{p}{100}$ & $1+i$ & $q$ \\ 
+                \hline 
+            \end{tabular}
+        \end{center}
+    ```
 
 ## Lineare Verzinsung
+
 Zinsformel
-: Zinsen hängen proportional vom Kapital $K$, der Laufzeit $t$ und dem Zinssatz $i$ ab:
+
+:   Zinsen hängen proportional vom Kapital $K$, der Laufzeit $t$ und dem Zinssatz $i$ ab:
 
 $$
 Z_{t} = K \cdot i \cdot t
 $$
 
-
 Laufzeit
-: In Deutschland wird meist das Jahr zu 360 Tagen und der Monat zu 30 Zinstagen gerechnet. Daher kann man meist $t = \frac{T}{360}$ setzen, wobei $T$ die Anzahl an Tagen ist.
+
+:   In Deutschland wird meist das Jahr zu 360 Tagen und der Monat zu 30 Zinstagen gerechnet. Daher kann man meist $t = \frac{T}{360}$ setzen, wobei $T$ die Anzahl an Tagen ist.
 
 $$
 Z_{T} = K \cdot i \cdot \frac{T}{360}
 $$
 
 ## Beispiele (1/3)
+
 Frage
-: Welche Zinsen fallen an, wenn ein Kapital von 3500 € vom 3. März bis zum 18. August eines Jahres bei einem Zinssatz von 3.25 \% p.a. angelegt wird?	 
+
+:   Welche Zinsen fallen an, wenn ein Kapital von 3500 € vom 3. März bis zum 18. August eines Jahres bei einem Zinssatz von 3.25 % p.a. angelegt wird?
 
 Antwort
-: Da $165=27+30+30+30+30+18$ Zinstage zugrunde zu legen sind, ergibt sich aus der Zinsformel
+
+:   Da $165=27+30+30+30+30+18$ Zinstage zugrunde zu legen sind, ergibt sich aus der Zinsformel
 
 $$
 Z_{165} = 3500\mbox{€} \cdot \frac{3.25}{100} \frac{165}{360} = 52.135416667 \mbox{€} \approx 52.14 \mbox{€}
-$$ 
+$$
 
 ## Beispiele (2/3)
 
 Frage
-: Wie hoch ist ein Kredit, für den in einem halben Jahr bei 8 \% Jahreszinsen 657.44 € Zinsen zu zahlen sind?
+
+:   Wie hoch ist ein Kredit, für den in einem halben Jahr bei 8 % Jahreszinsen 657.44 € Zinsen zu zahlen sind?
 
 Antwort
-: Durch Umstellen der Zinsformel ermittelt man:
+
+:   Durch Umstellen der Zinsformel ermittelt man:
 
 $$
 K=Z_{T} \frac{100}{p} \frac{360}{T} = 657.44 \mbox{ €} \cdot \frac{100}{8} \frac{360}{180} = 16 436 \mbox{ €}
 $$
-		
+
 ## Beispiele (3/3)
+
 Frage
-: Ein Wertpapier über 5000 €, das mit einem Kupon (Nominalzins) von 6.25 \% ausgestattet ist, wurde einige Zeit nach dem Emissionsdatum erworben. Es sind Stückzinsen in Höhe von 36.46 € zu zahlen. Wieviele Zinstage wurden dabei berechnet?
+
+:   Ein Wertpapier über 5000 €, das mit einem Kupon (Nominalzins) von 6.25 % ausgestattet ist, wurde einige Zeit nach dem Emissionsdatum erworben. Es sind Stückzinsen in Höhe von 36.46 € zu zahlen. Wieviele Zinstage wurden dabei berechnet?
 
 Antwort
-: Umstellen der Zinsformel führt auf
+
+:   Umstellen der Zinsformel führt auf
 
 $$
 T = \frac{Z_{T} \cdot 100 \cdot 360}{K \cdot p} = \frac{36.46 \cdot 100 \cdot 360}{5000 \cdot 6.25} = 42 \mbox{ (Tage)}
-$$ 
+$$
 
-## Zeitwert 
+## Zeitwert
 
 Zeitwert
-: Da sich das Kapital $K_{t}$ zum Zeitpunkt $t$ aus dem Anfangskapital $K_{0}$ zuzüglich der im Zeitraum $t$ angefallenen Zinsen $Z_{t}$ ergibt, also 
 
-$$
-K_{t} = K_{0} + Z_{t}
+:   Da sich das Kapital $K_{t}$ zum Zeitpunkt $t$ aus dem Anfangskapital $K_{0}$ zuzüglich der im Zeitraum $t$ angefallenen Zinsen $Z_{t}$ ergibt, also
 
-$$
-  
+\$\$ K\_{t} = K\_{0} + Z\_{t}
+
+\$\$
+
 gilt, folgt aus der Zinsformel eine sehr wichtige Formel der Finanzmathematik, die **Endwertformel bei linearer Verzinsung**
 
 $$
 K_{t} = K_{0} + Z_{t} = K_{0} + K_{0} \cdot i \cdot t = K_{0} \left( 1 + i \cdot t \right) = K_{0} \left( 1 + \frac{p}{100} \cdot t \right)
-$$
-Barwert
-: Man kann durch Umstellen der Endwertformel auch den **Barwert** $K_{0}$ einer zukünftigen Zahlung $K_{t}$ berechnen
+$$ Barwert : Man kann durch Umstellen der Endwertformel auch den **Barwert** $K_{0}$ einer zukünftigen Zahlung $K_{t}$ berechnen
 
 $$
 K_{0} = \frac{K_{t}}{1+i \cdot t}
 $$
 
-## Beispiele 
+## Beispiele
+
 Frage
-: In einem halben Jahr ist eine Forderung von 8000 € fällig. Wie viel ist bei einer Sofortzahlung zu leisten, wenn mit einem kalkulatorischen Zins von i= 5 \% gerechnet wird?
+
+:   In einem halben Jahr ist eine Forderung von 8000 € fällig. Wie viel ist bei einer Sofortzahlung zu leisten, wenn mit einem kalkulatorischen Zins von i= 5 % gerechnet wird?
 
 Antwort
-: Aus der Barwertformel ergibt sich
+
+:   Aus der Barwertformel ergibt sich
 
 $$
 K_{0} = \frac{8000}{1+0.05 \cdot \frac{1}{2}} \mbox{ €} = 7804.88 \mbox{ €}
@@ -187,48 +214,50 @@ $$
 
 ### Äquivalenzprinzip
 
-Das **Äquivalenzprinzip** nutzt man in der Finanzmathematik meist in der Form eines **Barwert-Vergleichs**, indem die Barwerte von Zahlungen, die zu verschiedenen Zeitpunkten geleistet werden, berechnet werden. 
-
+Das **Äquivalenzprinzip** nutzt man in der Finanzmathematik meist in der Form eines **Barwert-Vergleichs**, indem die Barwerte von Zahlungen, die zu verschiedenen Zeitpunkten geleistet werden, berechnet werden.
 
 ## Beispiel: Äquivalenzprinzip und Barwert (1/2)
 
 Aufgabe
-: Beim Verkauf einer Maschine werden dem Käufer zwei Angebote gemacht: Entweder 9000 € in 30 Tagen oder 9085 € in 90 Tagen. Welches Angebot ist günstiger, wenn jährlich mit 6 \% bzw. mit 3 \% verzinst wird? Bei welchem Zinssatz ergibt sich Gleichheit?
+
+:   Beim Verkauf einer Maschine werden dem Käufer zwei Angebote gemacht: Entweder 9000 € in 30 Tagen oder 9085 € in 90 Tagen. Welches Angebot ist günstiger, wenn jährlich mit 6 % bzw. mit 3 % verzinst wird? Bei welchem Zinssatz ergibt sich Gleichheit?
 
 Lösung (1/2)
-: 
 
-Bei einer Verzinsung von 6 \% ergeben sich folgende Barwerte:
+:   
 
-$$
-K_{0}^{30} = \frac{9000}{1+0.06 \cdot \frac{30}{360}} = 8955.22 \qquad 			K_{0}^{90} = \frac{9085}{1+0.06 \cdot \frac{90}{360}} = 8950.74 $$ 
-
-Das zweite Angebot ist also bei 6 \% günstiger.
-
-Bei einer Verzinsung von 3 \% ergeben sich folgende Barwerte:
+Bei einer Verzinsung von 6 % ergeben sich folgende Barwerte:
 
 $$
-K_{0}^{30} = \frac{9000}{1+0.03 \cdot \frac{30}{360}} = 8977.55 \qquad 			K_{0}^{90} = \frac{9085}{1+0.03 \cdot \frac{90}{360}} = 9017.37 $$ 
+K_{0}^{30} = \frac{9000}{1+0.06 \cdot \frac{30}{360}} = 8955.22 \qquad          K_{0}^{90} = \frac{9085}{1+0.06 \cdot \frac{90}{360}} = 8950.74 $$
 
-Das erste Angebot ist also bei 3 \% günstiger.
+Das zweite Angebot ist also bei 6 % günstiger.
+
+Bei einer Verzinsung von 3 % ergeben sich folgende Barwerte:
+
+$$
+K_{0}^{30} = \frac{9000}{1+0.03 \cdot \frac{30}{360}} = 8977.55 \qquad          K_{0}^{90} = \frac{9085}{1+0.03 \cdot \frac{90}{360}} = 9017.37 $$
+
+Das erste Angebot ist also bei 3 % günstiger.
 
 ## Beispiel: Äquivalenzprinzip und Barwert (2/2)
 
 Lösung (2/2)
-: Gleichheit der Angebote
 
-Gleichwertigkeit beider Angebote bedeutet Gleichheit der Barwerte und führt so auf die Gleichung 
+:   Gleichheit der Angebote
+
+Gleichwertigkeit beider Angebote bedeutet Gleichheit der Barwerte und führt so auf die Gleichung
 
 $$
-\frac{9000}{1+i \cdot \frac{30}{360}} = \frac{9085}{1+i \cdot \frac{90}{360}} \Leftrightarrow 9000 \cdot \left( 1 + i \frac{1}{4} \right) = 9085 \left( 1 + i \frac{1}{12} \right) 	
+\frac{9000}{1+i \cdot \frac{30}{360}} = \frac{9085}{1+i \cdot \frac{90}{360}} \Leftrightarrow 9000 \cdot \left( 1 + i \frac{1}{4} \right) = 9085 \left( 1 + i \frac{1}{12} \right)  
 $$
 
 Daraus folgt $i = 0.0569 = 5.69 \%$
 
 ## Berechnung von Zinssatz und Laufzeit
 
-
 ### Zinssatz- und Laufzeitberechnung
+
 Man kann aus der Endwertformel bei linearer Verzinsung sowohl den Zinssatz als auch die Laufzeit berechnen:
 
 $$
@@ -238,22 +267,22 @@ $$
 ### Beispiel
 
 Frage
-: In welcher Zeit wächst eine Spareinlage von 1200 € bei 2.8 \% jährlicher Verzinsung auf 1225.20 € an?
+
+:   In welcher Zeit wächst eine Spareinlage von 1200 € bei 2.8 % jährlicher Verzinsung auf 1225.20 € an?
 
 Antwort
-: 
+
+:   
 
 $$
 t = \frac{1}{0.028} \left( \frac{1225.20}{1200} - 1 \right) = 0.75 = \frac{3}{4}
 $$
-
 
 ## Rentenrechnung
 
 ## Tilgungsrechnung
 
 ## Investitionsrechnung
-
 
 # Funktionen
 
@@ -277,7 +306,6 @@ $$
 
 ## Matrizenrechnung
 
-
 # Lineare Optimierung
 
 ## Problemdarstellung und grafische Lösung
@@ -290,13 +318,13 @@ Use `\alert` to \alert{highlight} some text
 
 ## Squared Paper
 
-- `\squared{}` (or `\kariert{}`) can be used to produce squared paper
+-   `\squared{}` (or `\kariert{}`) can be used to produce squared paper
 
 \squared{16}
 
 ## Squared Paper
 
-- `\lined{}` (or `\liniert{}`) can be used to produce lined paper
+-   `\lined{}` (or `\liniert{}`) can be used to produce lined paper
 
 \lined{14}
 
@@ -320,10 +348,9 @@ Quantile score for observation $y$. For $0<p<1$:
   \]
 \end{block}
 
-Average score over all percentiles gives the best distribution forecast:
-\[
+Average score over all percentiles gives the best distribution forecast: $$
   QS = \frac{1}{99T}\sum_{p=1}^{99}\sum_{t=1}^T S(q_t(p),y_t)
-\]
+$$
 
 ## R Table
 
@@ -339,6 +366,7 @@ knitr::kable(mtcars[1:4, 1:7],
 ## Resources
 
 ### For more information:
-- See the [RMarkdown repository](https://github.com/rstudio/rmarkdown) for more on RMarkdown
-- See the [binb repository](https://github.com/eddelbuettel/binb) for more on binb
-- See the [binb vignettes](https://github.com/eddelbuettel/binb/vignettes) for more examples.
+
+-   See the [RMarkdown repository](https://github.com/rstudio/rmarkdown) for more on RMarkdown
+-   See the [binb repository](https://github.com/eddelbuettel/binb) for more on binb
+-   See the [binb vignettes](https://github.com/eddelbuettel/binb/vignettes) for more examples.
