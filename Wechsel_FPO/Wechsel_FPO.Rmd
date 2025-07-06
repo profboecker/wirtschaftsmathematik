@@ -15,7 +15,7 @@ knitr::opts_chunk$set(echo=TRUE, message=FALSE, warning=FALSE, cache=FALSE,
                       dev.args=list(pointsize=11), size="scriptsize")
 ```
 
-## Neue Fachprüfungsordnung für neu eingeschrieben Studierende ab WS 2025/2026
+## Neue Fachprüfungsordnung für neu eingeschriebe Studierende ab WS 2025/2026
 
 Die Fachprüfungsordnungen (FPO) für die Präsenz-Bachelor-Studiengänge
 
@@ -24,7 +24,7 @@ Die Fachprüfungsordnungen (FPO) für die Präsenz-Bachelor-Studiengänge
 - Wirtschaftsingenieurwesen
 - Wirtschaftsinformatik
 
-wird durch die [am 25. Februar 2025 verkündete Fachprüfungsordnung](https://publikationen.fhb.fh-swf.de/receive/fhswf_mods_00002717) (FPO) abgelöst und gilt
+werden durch die [am 25. Februar 2025 verkündete Fachprüfungsordnung](https://publikationen.fhb.fh-swf.de/receive/fhswf_mods_00002717) (FPO) abgelöst und diese gilt
 
 - grundsätzlich für alle **ab Wintersemester 2025/2026 neu** eingeschriebenen Studierenden.
 - für Studierende, die **explizit** in diese FPO **wechseln**.
@@ -33,8 +33,8 @@ wird durch die [am 25. Februar 2025 verkündete Fachprüfungsordnung](https://pu
 
 In die Studiengänge 
 
-- International Business Administration with Engineering
-- International Business Administration with Informatics
+- International Business Administration and Engineering
+- International Business Administration and Informatics
 - Wirtschaftsingenieurwesen Energie und Gebäude und
 - Wirtschaftsingenieurwesen Energie und Gebäude (Teilzeit)
 
@@ -77,16 +77,16 @@ Studierende, die unter der **bisherigen** FPO eingeschrieben sind und in die **n
 - Durch Aufwachsen der **neuen** FPO werden einzelne *neue* Pflicht-Module der **neuen** FPO entsprechend *spät* angeboten 
 - Ein Modul/eine Prüfungsleistung der **alten** FPO kann für die neue FPO **anerkannt** werden
   - wenn die Module identisch sind (sofern die ECTS nicht signifikant abweicht)
-  - wenn für das Modul eine bekannte Anerkennung vorliegt
-  - aber gegebenfalls auch die Kombination mehrerer Module betreffen (z.B. Mathematik 1 und 2)
-  - wenn das Modul einem Wahlpflichtmodul des 5. oder 6. Semesters der **neuen** FPO zugeordnet werden kann (*Anerkennungstablle*)
+  - wenn für das Modul eine bekannte Anerkennung vorliegt (*Anerkennungstablle*)
+  - aber gegebenfalls auch die Kombination mehrerer Module betreffen
+  - wenn das Modul einem Wahlpflichtmodul des 5. oder 6. Semesters der **neuen** FPO zugeordnet werden kann (*Anerkennungsverfahren* gegebenenfalls zu einem späteren Zeitpunkt)
 - Bei einem Wechsel der FPO werden auch **Fehlversuche** übertragen, 
   - sofern die Module identisch sind (und die ECTS nicht signifikant abweicht)
   - sofern für eine bekannte Anerkennung eine entsprechende Übertragung bereits abgelegter Prüfungsversuche vorgesehen ist.
 
 ## Hinweise zu einem Wechsel der FPO (2/2)
 
-- Zum Wechsel ist (innerhalb der Rückmeldefrist des Semesters, zu dem der Wechsel gewünscht wird) schriftlich ein formloser Antrag an das Studierendenservicebüro Hagen zu senden.
+- Zum Wechsel ist schriftlich ein formloser Antrag an das Studierendenservicebüro Hagen zu senden (Fristen siehe Folie 9)
 - Der Prüfungsausschuss kann 
   - **keine** Empfehlungen sowie
   - **keine** Vorabprüfungen
@@ -102,4 +102,14 @@ Studierende, die unter der **bisherigen** FPO eingeschrieben sind und in die **n
 Für in einem Studiengang eingeschriebene Studierende gilt **genau eine** FPO, das heißt
 
 - es können nur Prüfungen der für den/die Studierende(n) anzuwendenden FPO angemeldet werden
-- Prüfungen einer anderen als der *eigenen* (s.o.) FPO können nur als Zusatzmodule belegt werden und gegebenenfalls bei einem Wechsel anerkannt werden.
+- Prüfungen einer anderen als der *eigenen* (s.o.) FPO können nur als Zusatzmodule belegt werden (und gegebenenfalls bei einem Wechsel anerkannt werden), wenn sie in der *eigenen* FPO nicht vorgesehen sind.
+
+## Antrag auf Wechsel der Prüfungsordnung
+
+- Der Antrag auf Wechsel der Prüfungsordnung kann immer ab Beginn der Rückmeldefrist für das Wintersemester bis zum 15.09. bzw. für das Sommersemester bis zum 15.03. abgegeben werden.
+-  Wenn der Antrag einmal gestellt ist, kann er nicht zurückgezogen werden und auch ein Wechsel später zurück in die "alte" Prüfungsordnung ist nicht möglich..
+
+*§22 der FPO 5) Auf Antrag der Studierenden können sie ihr Studium nach dieser Prüfungsordnung vom
+25.02.2025 fortsetzen. Dieser Antrag ist unwiderruflich. Über die Genehmigung des An-
+trags entscheidet der Prüfungsausschuss.
+*
