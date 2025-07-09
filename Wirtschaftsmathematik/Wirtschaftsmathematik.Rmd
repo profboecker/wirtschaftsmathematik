@@ -93,7 +93,7 @@ Kapital
 
 Zinssatz
 
-:   $i = \frac{P}{100}$, wobei $p$ der Zinssatz/Zinsfuß in Prozent ist
+:   $i = \frac{P}{100}$, wobei $p$ der Zinssatz/Zinsfuss in Prozent ist
 
 Aufzinsungsfaktor
 
@@ -278,9 +278,6 @@ $$
 t = \frac{1}{0.028} \left( \frac{1225.20}{1200} - 1 \right) = 0.75 = \frac{3}{4}
 $$
 
-<<<<<<< HEAD
-=======
-
 ## Cash Flow Diagram
 ```{r}
 library(tidyverse)
@@ -302,19 +299,12 @@ ggplot(df, aes(time, xend = time)) +
 ```
 
 
->>>>>>> af4181d76d30dbedd1dfcafe5ed637b636806442
 ## Rentenrechnung
 
 ## Tilgungsrechnung
 
 ## Investitionsrechnung
 
-<<<<<<< HEAD
-=======
-
-
-
->>>>>>> af4181d76d30dbedd1dfcafe5ed637b636806442
 # Funktionen
 
 ## Funktionsbegriff
@@ -340,12 +330,7 @@ ggplot(df, aes(time, xend = time)) +
 
 ## Matrizenrechnung
 
-<<<<<<< HEAD
-=======
 
-
-
->>>>>>> af4181d76d30dbedd1dfcafe5ed637b636806442
 # Lineare Optimierung
 
 ## Problemdarstellung und grafische Lösung
