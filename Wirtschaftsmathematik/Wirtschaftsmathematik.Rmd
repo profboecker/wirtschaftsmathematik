@@ -279,6 +279,7 @@ t = \frac{1}{0.028} \left( \frac{1225.20}{1200} - 1 \right) = 0.75 = \frac{3}{4}
 $$
 
 ## Cash Flow Diagram
+
 ```{r}
 library(tidyverse)
 df <- data.frame(time=c(1, 2, 3), positiv=c(5, 0, 4), negativ=c(-2, -3, 0))
@@ -297,7 +298,6 @@ ggplot(df, aes(time, xend = time)) +
   geom_rect(aes(xmin=time, xmax=time+1, ymin = 0, ymax = negativ, fill = "negativ")) +    
   scale_fill_manual("Direction",      values = c("negativ" = "red", "positiv" = "black"))
 ```
-
 
 ## Rentenrechnung
 
@@ -319,9 +319,6 @@ ggplot(df, aes(time, xend = time)) +
 
 ## Ableitung einer Funktion
 
-
-
-
 # Lineare Gleichungssysteme
 
 ## Grundlagen zu linearen Gleichungssystemen
@@ -329,7 +326,6 @@ ggplot(df, aes(time, xend = time)) +
 ## Gauß-Algorithmus
 
 ## Matrizenrechnung
-
 
 # Lineare Optimierung
 
