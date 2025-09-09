@@ -278,32 +278,121 @@ $$
 t = \frac{1}{0.028} \left( \frac{1225.20}{1200} - 1 \right) = 0.75 = \frac{3}{4}
 $$
 
-## Cash Flow Diagram
+## Mehrfache konstante Zahlungen - vorschüssig
 
-```{r}
-library(tidyverse)
-df <- data.frame(time=c(1, 2, 3), positiv=c(5, 0, 4), negativ=c(-2, -3, 0))
+Frage
 
-ggplot(df, aes(time, xend = time)) + 
-  geom_segment(aes(y = 0, yend = positiv, colour = "positiv"),
-    position = "stack", arrow = arrow()) + 
-  geom_segment(aes(y = 0, yend = negativ, colour = "negativ"), 
-    position = "stack", arrow = arrow()) + 
-  scale_colour_manual("Cash Flussrichtung", 
-    values = c("negativ" = "red", "positiv" = "blue"))
+:   Welcher Endbetrag ergibt sich am Ende eines Jahres, wenn monatlich am *Anfang* eines Monats *(vorschüssig)* ein stets gleichbleibender Betrag $r$ bei einem Zinssatz von $i$ angelegt wird?
+
+Antwort
+
+:   Die erste Zahlung wird 12 Monate lang verzinst, wächst also mit dem Faktor $1+i\frac{12}{12}$, die zweite nur 11 Monate, wächst also mit dem Faktor $1+i\frac{11}{12}$ usw. Alle Zahlungen gemeinsam ergeben damit die Gesamtsumme[^1]
+
+[^1]: Darin kommt die Gaußsche Summenformel vor, vielleicht erinnern Sie sich?
+
+\begin{align*}
+R & = r \left( 1 + i \frac{12}{12} + 1 + i\frac{11}{12} + 1 + i \frac{10}{12} +\cdots + 1 + i \frac{1}{12} \right) \\
+& = r \left( 12 + \frac{i}{12} \left( 12 + 11 + 10 + \cdots + 1 \right) \right) \\
+& = r \left( 12 + \frac{i}{12}  \frac{13 \cdot 12}{2}\right) = r \left( 12 + 6.5 i \right)
+\end{align*}
 
 
-ggplot(df, aes(time, xend = time)) +    
-  geom_rect(aes(xmin=time, xmax=time+1, ymin = 0, ymax = positiv, fill = "positiv")) +    
-  geom_rect(aes(xmin=time, xmax=time+1, ymin = 0, ymax = negativ, fill = "negativ")) +    
-  scale_fill_manual("Direction",      values = c("negativ" = "red", "positiv" = "black"))
-```
+## Mehrfache konstante Zahlungen - nachschüssig
 
-## Rentenrechnung
+Frage
 
-## Tilgungsrechnung
+:   Welcher Endbetrag ergibt sich am Ende eines Jahres, wenn monatlich am *Ende* eines Monats *(nachschüssig)* ein stets gleichbleibender Betrag $r$ bei einem Zinssatz von $i$ angelegt wird?
 
-## Investitionsrechnung
+Antwort
+
+:   Die erste Zahlung wird 11 Monate lang verzinst, wächst also mit dem Faktor $1+i\frac{11}{12}$, die zweite nur 10 Monate, wächst also mit dem Faktor $1+i\frac{10}{12}$ usw. Alle Zahlungen gemeinsam ergeben damit die Gesamtsumme[^2]
+
+[^2]: Darin kommt wieder die Gaußsche Summenformel, diesmal nur mit Indexverschiebung, vor!
+
+\begin{align*}
+R & = r \left( 1 + i \frac{11}{12} + 1 + i\frac{10}{12} + 1 + i \frac{9}{12} +\cdots + 1 + i \frac{0}{12} \right) \\
+& = r \left( 12 + \frac{i}{12} \left( 11 + 10 + \cdots + 0 \right) \right) \\
+& = r \left( 12 + \frac{i}{12}  \frac{12 \cdot 11}{2}\right) = r \left( 12 + 5.5 i \right)
+\end{align*}
+
+## Mehrfache konstante Zahlungen - beliebige Zahlungsfrequenz - Jahresersatzrate
+
+Wird allgemein ein Jahr in $m$ kürzere Perioden der Länge $\frac{1}{m}$ aufgeteilt und zu jedem Zeitpunkt $\frac{k}{m}$ mit $k=0, 1, \ldots, m-1$, also vorschüssig eine Zahlung $r$ geleistet, so ergibt sich am Ende des Jahres ein Betrag von
+$$
+R^{\text{vor}} = r \left( \sum_{k=0}^{m-1} 1 + i \cdot \frac{k+1}{m} \right) = r \left( \sum_{k=1}^{m} 1 + i \cdot \frac{k}{m} \right) = r \left( m + \frac{m+1}{2} \underset{=i}{\underbrace{\frac{p}{100}}} \right)
+$$
+
+Werden die Zahlungen zu den Zeitpunkten $\frac{k}{m}$ mit $k=1, 2, \ldots, m$, also nachschüssig geleistet, so gilt
+$$
+R^{\text{nach}} = r \left( \sum_{k=0}^{m-1} 1 + i \cdot \frac{k}{m} \right) = r \left( m + \frac{m-1}{2} \underset{=i}{\underbrace{\frac{p}{100}}} \right)
+$$
+
+Die Beträge $R^{^\text{vor}}$ und $R^{^\text{nach}}$ heißen \textbf{vorschüssige} bzw. \textbf{nachschüssige Jahresersatzrate}. Sie geben den Wert einer jährlichen Zahlung an, die den m vor- bzw. nachschüssigen $\frac{1}{m}$-periodischen Zahlungen r äquivalent ist.
+
+## Jahresersatzrate - Beispiel
+
+Frage
+
+: Ein Student schließt einen Sparplan über die Laufzeit von einem Jahr mit folgenden Konditionen ab: Einzahlungen von 75 € jeweils zu Monatsbeginn (Monatsende), Verzinsung mit 4 \% p.a., Bonus am Jahresende in Höhe von 1 \% aller Einzahlungen. Über welche Summe kann der Student am Ende des Jahres verfügen? 
+
+Antwort
+
+: In der Formel für die Jahresersatzrate ist hier $m=12$ und damit für den Endwert $E$ der Zahlungen ohne Bonus
+
+\begin{align*}
+E^{\text{vor}} &  = 75 \cdot \left( 12+6.5 \cdot 0.04 \right) = 919.50 \text{ bei vorschüssiger Zahlung am Monatsanfang} \\
+E^{\text{nach}} &  = 75 \cdot \left( 12+5.5 \cdot 0.04 \right) = 916.50 \text{ bei nachschüssiger Zahlung am Monatsende}
+\end{align*}
+
+Die Bonuszahlung beträgt $12 \cdot 75 \cdot 0.01 = 9.00$, woraus sich die Gesamtbeträge
+
+\begin{align*}
+E^{\text{vor}}_{\text{gesamt}} & = 919.50 + 9.00 = 928.50 \text{ bei vorschüssiger Zahlung am Monatsanfang} \\
+E^{\text{nach}}_{\text{gesamt}} & = 916.50 + 9.00 = 925.50 \text{ bei nachschüssiger Zahlung am Monatsende}
+\end{align*}
+
+## Skonto(abzug)
+
+Bei sofortiger Bezahlung von Waren bzw. Dienstleistungen vor dem Fälligkeitstermin der Rechnung wird oft ein Nachlass (\textbf{Skonto}) gewährt. Bezeichnet $s$ die Größe des Skontos, $R$ den Rechnungsbetrag und $T$ die Differenztage der Zahlungsziele, so zahlt man also bei Sofortbezahlung nur den Betrag
+
+$$
+\left(1-s\right) R
+$$
+
+Den zugehörigen \textbf{Effektivzinssatz} $i_{\text{eff}}$ kann man dann mit Hilfe der Barwertformel berechnen
+
+$$
+\left(1-s\right) R = \frac{R}{1+i_{\text{eff}}\cdot\frac{T}{360}} \qquad \Leftrightarrow \qquad i = \frac{s}{1-s} \cdot \frac{360}{T}
+$$
+
+## Skonto(abzug) - Beispiel
+
+Auf einer Handwerkerrechnung über die Summe $R$ lauten die Zahlungsbedingungen:
+*Bei Zahlung innerhalb von 10 Tagen gewähren wir 2 \% Skonto. Zahlung innerhalb von 30 Tagen ohne Abzug.*
+	 
+Für den Effektivzins ergibt sich hier:
+$$
+i_{\text{eff}} = \frac{0.02}{0.98} \cdot \frac{360}{20} = 0,3673469388
+$$
+
+Man sollte also von der Möglichkeit des Skontos Gebrauch machen, da dies einer Verzinsung des Kapitals mit 36.73 \% entspricht.
+
+## Ratenzahlungen
+
+Oft besteht die Möglichkeit, Zahlungen entweder direkt oder als Ratenzahlungen mit gewissen Aufschlägen zu leisten.
+
+Beispielsweise können Autoversicherungen entweder am Jahresanfang oder in zwei Raten mit jeweils 5 \% Aufschlag zum Jahresbeginn und nach einem halben Jahr gezahlt werden.
+
+Für den Effektivzins gilt dann nach dem Äquivalenzprinzip:
+$$
+R =  \frac{1.05 \cdot R}{2} +  \frac{1.05 \cdot R}{2} \frac{1}{1+\frac{i}{2}}
+$$
+
+Nach Kürzen von $R$ und Auflösen nach dem Zinssatz $i$ ergibt sich ein Wert von $i=0.210526$, also 21.0526 \%. Da dieser Zinssatz relativ hoch ist, sollte man sich für die Bezahlung am Jahresanfang entscheiden.
+
+## Zinseszinsrechnung
+
+
 
 # Funktionen
 
