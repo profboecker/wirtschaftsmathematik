@@ -43,7 +43,9 @@ knitr::opts_chunk$set(echo=TRUE, message=FALSE, warning=FALSE, cache=FALSE,
 
 ### Unterlagen und Informationen zum Modul Wirtschaftsmathematik
 
--   Es gibt einen Moodle-Kurs zu Modul Wirtschaftsmathematik <https://profboecker.eu>
+-   Es gibt einen Moodle-Kurs zum Modul [Wirtschaftsmathematik WiSe25/26](https://elearning.fh-swf.de/course/view.php?id=26721)
+- **Wichtig:** Es gibt auch einen Kurs zu Terminen und Links mit allgemeinen Informationen:
+[Informationen und Mitteilungen Fachbereich TBW (Präsenzstudium)](https://elearning.fh-swf.de/course/view.php?id=20812)
 
 # Einführung in die Finanzmathematik
 
@@ -392,6 +394,265 @@ Nach Kürzen von $R$ und Auflösen nach dem Zinssatz $i$ ergibt sich ein Wert vo
 
 ## Zinseszinsrechnung
 
+Wird ein Kapital über mehrere Zinsperioden (Jahre) hinweg angelegt und werden dabei jeweils am Jahresende fälligen Zinsen angesammelt und in den folgenden Jahren mitverzinst, entstehen **Zinseszinsen**.
+\begin{align*}
+K_{1} & = K_{0} \left( 1 + i \right) = K_{0} q \text{ mit } q= (1+i) \\
+K_{2} & = K_{1} \left( 1 + i \right) = K_{1} q = K_{0} q \cdot q = K_{0} q^2 \\
+K_{3} & = K_{2} \left( 1 + i \right) = K_{2} q = K_{0} q^2 \cdot q= K_{0} q^3  \\
+K_{n} & = K_{0} q^n
+\end{align*}
+
+Die letztere Formel nennt sich **Endwertformel bei geometrischer Verzinsung** oder **Leibnizsche Zinseszinsformel**.
+
+## Zinseszins - Beispiele
+
+Für einen Sparbrief über 4000 €, der über fünf Jahre hinweg unter Zinsansammlung konstant mit 6 \% verzinst wird erhält man am Ende des 5. Jahres
+$$
+K_{5} = K_{0} \left(1 + 0.06 \right)^5 = 4000 \text{€} \cdot \left( 1.06 \right)^5 = 5352.60 \text{€}
+$$
+### Bemerkung
+
+$K_{5}$ kann man hier auch als Endwert bezeichnen; $K_{0}$ nennt man (auch hier) Barwert (in diesem Falle der Barwert einer Zahlung in Höhe von $K_{5}$, die in fünf Jahren stattfindet). Die Formel für den Barwert ist dann:
+$$
+K_{0} = \frac{K_{n}}{q^{n}}
+$$
+
+## Unterjährige Verzinsung mit Zinseszins
+
+Werden Zinsen auch unterjährig für Zinsperioden gutgeschrieben, die kleiner als ein Jahr sind, also beispielsweise nach $\frac{1}{m}$ Jahren, also $m$-mal im Jahr, so gilt analog zur Endwertformel
+\begin{align*}
+K_{1} & = K_{0} \left( 1 + \frac{i}{m}\right) = K_{0} q \text{ mit } q= (1+\frac{i}{m}) \\
+K_{2} & = K_{1} \left( 1 + \frac{i}{m} \right) = K_{1} q = K_{0} q \cdot q = K_{0} q^2 \\
+K_{3} & = K_{2} \left( 1 + i \right) = K_{2} q = K_{0} q^2 \cdot q= K_{0} q^3  \\
+K_{n\cdot m} & = K_{0} q^{n \cdot m} = K_{0} \left( 1+ \frac{i}{m} \right)^{n \cdot m}
+\end{align*}
+
+Hier bezeichnet der Index $i$ am Kapital $K_{i}$ die Anzahl der Zinsperioden; da es $m$ Zinsperioden pro Jahr gibt, hat man nach $n$ Jahren $n \cdot m$ Zinsperioden verzinst. Dafür enthält der Aufzinsungsfaktor $q = \left( 1+ \frac{i}{m} \right)$ nur den $m$-ten Teil ($\frac{1}{m}$) der Zinsen p.a.
+
+## Unterjährige Verzinsung mit Zinseszins
+
+### Bemerkung
+
+In der Formel für die unterjährige Verzinsung mit Zinseszins
+
+$$
+K_{n \text{ Jahre}} = K_{n \cdot m} = K_{0} \left(  1+ \frac{i}{m}\right)^{n \cdot m}
+$$
+
+könnte man die Anzahl $m$ der Zinsperioden pro Jahr beliebig groß wählen; die einzelnen Zinsperioden werden dann immer kürzer ($\frac{1}{m}$ Jahre). Betrachtet man dann den Grenzwert unendlich vieler Zinsperioden
+$$
+K_{n \text{ Jahre}} = \lim_{m \to \infty} K_{0} \left(  1+ \frac{i}{m}\right)^{n \cdot m} = K_{0} \lim_{m \to \infty} \left(  1+ \frac{i}{m}\right)^{n \cdot m} = K_{0} e^{i \cdot n} 
+$$
+
+so ergibt sich die Formel für \textbf{exponentielle Verzinsung}, wobei $e$ die Basis des natürlichen Logarithmus $\ln$ ist.
+
+## Effektiver Jahrszins
+
+Da der Endwert des Kapitals von der Anzahl der Zinsperioden (bei gleichem Zinssatz) abhängt, kann man sich fragen, was der äquivalente Zinssatz p.a. bei jährlicher Verzinsung wäre.
+
+Dazu vergleicht man den Endwert bei jährlicher Verzinsung mit einem Zinssatz $i_{\text{eff}}$ mit dem Endwert bei m-periodischer Verzinsung mit dem Zinssatz $i$:
+\begin{align*}
+K_{0} \left( 1+i_{\text{eff}} \right)^{n}  & = K_{0} \left( 1+\frac{i}{m} \right)^{n \cdot m} \\
+\Leftrightarrow i_{\text{eff}} & = \left( \left( 1+\frac{i}{m}  \right)^{m} -1 \right) 
+\end{align*}
+
+### Bemerkung
+
+Der **effektive Jahreszins** (auch **Rendite** genannt) $i_{\text{eff}}$ ergibt sich als Zinssatz, mit dem das Anfangskapital $K_{0}$ nachschüssig am Jahresende verzinst werden müsste, um denselben Endbetrag zu erzielen wie bei einer unterjährig m-mal mit Zinseszins verzinsten Anlageform.
+
+## Gemischte Verzinsung
+
+### Bemerkung
+
+Nur selten beginnt eine Anlage genau am Anfang einer Zinsperiode (z.B. bei jährlicher Verzinsung am Jahresanfang). Ebenso selten endet eine Anlage genau am Ende eines Zinsperiode (z.B. am Ende eines Jahres bei jährlicher Verzinsung),
+
+In der Regel verwendet mal also eine \textbf{gemischte Verzinsung}.
+
+### Beispiel
+Welchen Endwert hat eine Anlage von 10000 € vom 15. August 2015 zu einem Zinssatz von 12 \% am 16. März 2019?
+
+Die erste Zinsperiode ist kein ganzes Jahr, sondern nur 135 Tage. Danach kommen 3 volle Jahre, danach nochmal 76 Tage, also:
+$$
+K_{\text{16. März 2019}} = \left( 1+0.12\cdot\frac{135}{360}  \right) \cdot \left( 1+0.12 \right)^{3} \cdot \left( 1+0.12\frac{76}{360} \right) \approx 15053.43
+$$
+
+## Zinskurveneffekte
+
+### Bemerkung
+
+Nur selten sind die Zinssätze, zu denen Geld angelegt oder geliehen werden kann, unabhängig vom Anlagezeitraum. 
+
+Eine **normale Zinskurve** zeigt vielmehr mit der Laufzeit der Anlage steigende Zinssätze.
+Zudem kann das Kapital im Laufe seines Anlagezeitraums unterschiedliche Zinssätze erfahren.
+
+### Beispiel
+
+Ein Anfangskapital von 10000 € wird zunächst 2 Jahre lang mit 6 \% , danach 5 Jahre lang mit 7 \% und anschließend 3 Jahre lang mit 4 \% verzinst. 
+
+\textbf{Auf welchen Endwert ist das Kapital angewachsen und welchem Effektivzins entspricht die Anlage?}
+ 
+$$
+K = K_{0} \left( 1+0.06 \right)^{2} \cdot \left( 1+0.07 \right)^{5} \cdot \left( 1+0.04 \right)^{3} 
+$$
+
+Für den Effektivzins gilt:
+$$
+\left(1+i_{\text{eff}}\right)^{10} = \left( 1+0.06 \right)^{2} \cdot \left( 1+0.07 \right)^{5} \cdot \left( 1+0.04 \right)^{3}
+$$
+
+## Laufzeitberechnungen
+
+### Beispiel
+
+In welchem Zeitraum verdreitfacht sich ein Kapital bei einem Zinssatz (mit Zinseszins) von 5 \% p.a.?
+
+Gesucht ist die Anzahl an Jahren $n$ in der Zinseszinsformel:
+$$
+K_{n} = 3 \cdot K_{0} = K_{0} \cdot \left( 1+0.05 \right)^{n}
+$$
+
+Diese Gleichung hat die Lösung
+$$
+n = \frac{\log 3}{\log 1.05} = 22,517085304
+$$
+
+Also verdreifacht sich das Kapital bei einem Zinssatz von 5\% in etwa 22,5 Jahren.
+
+## Zinseszinsformel
+
+### Bemerkung
+
+Falls man in der Zinseszinsformel mit den Aufzinsungsfaktoren rechnet, wird vieles einfacher:
+\begin{align*}
+K_{1} & = K_{0} \cdot (1+i) = K_{0} \cdot q \\
+K_{n} & = K_{0} \cdot (1+i)^{n} = K_{0} \cdot q^{n}
+\end{align*}
+
+Das gilt auch, wenn die Zinssätze verschieden sind:
+\begin{align*}
+K_{1} & = K_{0} \cdot (1+i_{1}) = K_{0} \cdot q_{1} \\
+K_{n} & = K_{0} \cdot (1+i_{1}) \cdot (1+i_{2}) \cdot \ldots \cdot (1+i_{n}) = K_{0} \cdot q_{1} \cdot q_{2} \cdot q_{3} \cdot \ldots \cdot q_{n}
+\end{align*}
+
+Damit gilt für den Effektivzins:
+\begin{align*}
+K_{n} = K_{0} \underset{=: q_{\text{eff}}}{\underbrace{(1 + i_{\text{eff}})}}^{n} & = K_{0} q_{1} q_{2} \cdots q_{n} \\
+q_{\text{eff}}^{n} & = q_{1} q_{2} \cdots q_{n} \\
+q_{\text{eff}} & = \sqrt[n]{q_{1} q_{2} \cdots q_{n}}
+\end{align*}
+
+Der Effektivzins ist also über das \textbf{geometrische Mittel} der Aufzinsungsfaktoren zu berechnen.
+
+## Rentenrechnung
+
+### Definition
+
+Eine **Rente** bezeichnet eine regelmäßige, in gleichen Abständen fällige Zahlung.
+
+Die einzelnen Zahlungen nennt man **Rentenraten**.
+
+Wie bei den Zinsen sind
+
+- bei einer **vorschüssigen Rente** die Zahlungen zu Beginn einer Periode und
+- bei einer **nachschüssigen Rente** die Zahlungen am Ende einer Periode 
+
+fällig.
+
+## Endwert einer nachschüssigen Rente
+
+Frage
+
+: Welchen Wert hat eine Rente mit der nachschüssigen (N) Rentenrate $R$, die über $n$ Jahre gezahlt wird, am Ende der Laufzeit?
+
+\begin{tabular}{|c|c|c|c|}
+\hline Jahr & nachschüssige Rate & verbleibender Zeitraum & Endwert der Rate \\ 
+\hline $1$ & $R$ & $n-1$ & $Rq^{n-1}$ \\ 
+\hline $2$ & $R$ & $n-2$ & $Rq^{n-2}$ \\ 
+\hline $3$ & $R$ & $n-3$ & $Rq^{n-3}$ \\ 
+\hline \vdots & \vdots & \vdots & \vdots \\ 
+\hline $n-2$ & $R$ & $2$ & $Rq^{2}$ \\ 
+\hline $n-1$ & $R$ & $1$ & $Rq$ \\ 
+\hline $n$ & $R$ & $0$ & $R$ \\ 
+\hline 
+\end{tabular}
+
+Damit ist:
+$$
+R_{n}^{N} = R + Rq + Rq^{2} + R q^{3} + \ldots + Rq^{n-1} = \sum\limits_{i=1}^{n} Rq^{i-1} = R \sum\limits_{i=1}^{n} q^{i-1} = R \frac{q^{n}-1}{q-1}
+$$ 
+
+## Barwert einer nachschüssigen Rente
+
+Frage
+
+: Welchen Wert hat eine Rente mit der nachschüssigen (N) Rentenrate $R$, die über $n$ Jahre gezahlt wird, heute/aus heutiger Sicht?
+
+\begin{tabular}{|c|c|c|c|}
+\hline Jahr & nachschüssige Rate & verbleibender Zeitraum & Barwert der Rate \\ 
+\hline $1$ & $R$ & $n-1$ & $\frac{R}{q}$ \\ 
+\hline $2$ & $R$ & $n-2$ & $\frac{R}{q^{2}}$ \\ 
+\hline $3$ & $R$ & $n-3$ & $\frac{R}{q^{3}}$ \\ 
+\hline \vdots & \vdots & \vdots & \vdots \\ 
+\hline $n-2$ & $R$ & $2$ & $\frac{R}{q^{n-2}}$ \\ \hline $n-1$ & $R$ & $1$ & $\frac{R}{q^{n-1}}$ \\ \hline $n$ & $R$ & $0$ & $\frac{R}{q^{n}}$ \\ 
+\hline 
+\end{tabular}
+
+Damit ist
+$$
+B_{n}^{N} = \frac{R}{q} + \frac{R}{q^{2}} + \frac{R}{q^{3}} + \ldots + \frac{R}{q^{n}} = \frac{R}{q^{n}} \left( q^{n-1} + q^{n-2} + \ldots + q + 1 \right) = R \cdot \frac{1}{q^{n}} \cdot \frac{q^n-1}{q-1}
+$$
+
+## Endwert einer vorschüssigen Rente
+
+Frage
+
+: Welchen Wert hat eine Rente mit der vorschüssigen (V) Rentenrate $R$, die über $n$ Jahre gezahlt wird, heute/aus heutiger Sicht?
+
+\begin{tabular}{|c|c|c|c|}
+\hline Jahr & vorschüssige Rate & verbleibender Zeitraum & Endwert der Rate \\ 
+\hline $1$ & $R$ & $n$ & $Rq^{n}$ \\ 
+\hline $2$ & $R$ & $n-1$ & $Rq^{n-1}$ \\ 
+\hline $3$ & $R$ & $n-2$ & $Rq^{n-2}$ \\ 
+\hline \vdots & \vdots & \vdots & \vdots \\ 
+\hline $n-2$ & $R$ & $3$ & $Rq^{3}$ \\ 
+\hline $n-1$ & $R$ & $2$ & $Rq^{2}$ \\ 
+\hline $n$ & $R$ & $1$ & $Rq$ \\ 
+\hline 
+\end{tabular}
+
+Damit ist
+$$
+R_{n}^{V} = Rq + Rq^{2} + Rq^{3} + R q^{4} + \ldots + Rq^{n} = \sum\limits_{i=1}^{n} Rq^{i} = Rq \sum\limits_{i=1}^{n} q^{i-1} = Rq \frac{q^{n}-1}{q-1}
+$$
+
+## Barwert einer vorschüssigen Rente
+
+Frage
+
+: Welchen Wert hat eine Rente mit der vorschüssigen (V) Rentenrate $R$, die über $n$ Jahre gezahlt wird, heute/aus heutiger Sicht?
+
+\begin{tabular}{|c|c|c|c|}
+\hline Jahr & vorschüssige Rate & verbleibender Zeitraum & Barwert der Rate \\ 
+\hline $1$ & $R$ & $n-1$ & $R$ \\ 
+\hline $2$ & $R$ & $n-2$ & $\frac{R}{q}$ \\ 
+\hline $3$ & $R$ & $n-3$ & $\frac{R}{q^{2}}$ \\ 
+\hline \vdots & \vdots & \vdots & \vdots \\ 
+\hline $n-2$ & $R$ & $2$ & $\frac{R}{q^{n-3}}$ \\ \hline $n-1$ & $R$ & $1$ & $\frac{R}{q^{n-2}}$ \\ \hline $n$ & $R$ & $0$ & $\frac{R}{q^{n-1}}$ \\ 
+\hline 
+\end{tabular}
+
+Damit ist
+\begin{align*}
+B_{n}^{V} = R + \frac{R}{q} + \frac{R}{q^{2}} + \frac{R}{q^{3}} + \ldots + \frac{R}{q^{n-1}} & = \frac{R}{q^{n-1}} \left( q^{n-1} + q^{n-2} + \ldots + q + 1 \right) \\  & = R \cdot \frac{1}{q^{n}} \cdot q \frac{q^{n}-1}{q-1}
+\end{align*}
+
+## Zusammenfassung der zentralen Rentenformeln
+
+\begin{tabular}{|c||c|c|}
+\hline End-/Barwert & Rate vorschüssig & Rate nachschüssig \\ \hline
+\hline Barwert& $Rq\frac{1}{q^n}\frac{q^n -1}{q-1}$ & $R\frac{1}{q^n}\frac{q^n -1}{q-1}$ \\ \hline Endwert & $Rq\frac{q^n -1}{q-1}$ & $R\frac{q^n -1}{q-1}$ \\ 
+\hline 
+\end{tabular}
 
 
 # Funktionen
@@ -424,59 +685,3 @@ Nach Kürzen von $R$ und Auflösen nach dem Zinssatz $i$ ergibt sich ein Wert vo
 
 ## Allgemeines lineares Optimierungsproblem
 
-Use `\alert` to \alert{highlight} some text
-
-## Squared Paper
-
--   `\squared{}` (or `\kariert{}`) can be used to produce squared paper
-
-\squared{16}
-
-## Squared Paper
-
--   `\lined{}` (or `\liniert{}`) can be used to produce lined paper
-
-\lined{14}
-
-## Slide with R output
-
-```{r cars, echo = TRUE}
-summary(cars)
-```
-
-## Slide with mathematics
-
-Quantile score for observation $y$. For $0<p<1$:
-
-\begin{block}{}
-  \[
-    S(y_t,q_t(p)) = \left\{
-      \begin{array}{rl}
-            p(y_t-q_t(p)) & \text{if $y_t \ge q_t(p)$}\\
-        (1-p)(q_t(p)-y_t) & \text{if $y_t < q_t(p)$}
-      \end{array}\right.
-  \]
-\end{block}
-
-Average score over all percentiles gives the best distribution forecast: $$
-  QS = \frac{1}{99T}\sum_{p=1}^{99}\sum_{t=1}^T S(q_t(p),y_t)
-$$
-
-## R Table
-
-A simple `knitr::kable` example:
-
-\small
-
-```{r kableEx, echo=TRUE}
-knitr::kable(mtcars[1:4, 1:7],
-       caption="(Parts of) the mtcars dataset")
-```
-
-## Resources
-
-### For more information:
-
--   See the [RMarkdown repository](https://github.com/rstudio/rmarkdown) for more on RMarkdown
--   See the [binb repository](https://github.com/eddelbuettel/binb) for more on binb
--   See the [binb vignettes](https://github.com/eddelbuettel/binb/vignettes) for more examples.
