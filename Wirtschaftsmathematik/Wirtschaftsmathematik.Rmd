@@ -674,8 +674,6 @@ $$
 
 ## Darstellung von Funktionen
 
-
-
 ## Einige Beispiele
 
 ## Eigenschaften von reellen Funktionen
