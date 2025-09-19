@@ -659,7 +659,22 @@ B_{n}^{V} = R + \frac{R}{q} + \frac{R}{q^{2}} + \frac{R}{q^{3}} + \ldots + \frac
 
 ## Funktionsbegriff
 
+### Definition
+
+Eine Funktion $f$ ist eine Vorschrift
+
+$$
+f : D(f) \subset \mathbb{R} \rightarrow \mathbb{R}
+$$
+die gewissen reellen Zahlen (denen aus dem Definitionsbereich $D(f)$) jeweils eindeutig eine weitere reelle Zahl zuordnet:
+
+$$
+f : x \mapsto f(x)
+$$
+
 ## Darstellung von Funktionen
+
+
 
 ## Einige Beispiele
 
