@@ -1,0 +1,95 @@
+---
+title: Hinweise zur Fachprüfungsordnung (FPO)
+author: Prof. Dr. Stefan Böcker, FRM
+date: \today
+toc: true
+output: fhswf::presentation
+knit: fhswf::render_presentation
+german: true # German Dummy Text
+lang: de-de   # Text Language: en-gb, en-us, de-de
+---
+
+```{r setup, include=FALSE}
+options(digits = 4)
+knitr::opts_chunk$set(echo=TRUE, message=FALSE, warning=FALSE, cache=FALSE, 
+                      dev.args=list(pointsize=11), size="scriptsize")
+```
+
+## Neue Fachprüfungsordnung für neu eingeschriebe Studierende ab WS 2025/2026
+
+Die Fachprüfungsordnungen (FPO) für die Präsenz-Bachelor-Studiengänge
+
+- Betriebswirtschaftslehre 
+- International Business
+- Wirtschaftsingenieurwesen
+- Wirtschaftsinformatik
+
+werden durch die [am 25. Februar 2025 verkündete Fachprüfungsordnung](https://publikationen.fhb.fh-swf.de/receive/fhswf_mods_00002717) (FPO) abgelöst und diese gilt grundsätzlich für alle **ab Wintersemester 2025/2026 neu** eingeschriebenen Studierenden.
+
+## Modulangebot der **neuen** FPO
+
+Das Modulangebot der **neuen FPO** wächst auf, das heißt
+
+- Module und Modulprüfungen des 1. Semesters der neuen FPO werden erstmalig im WS 2025/2026 
+- Module und Modulprüfungen des 2. Semesters der neuen FPO werden erstmalig im SoSe 2026 
+- Module und Modulprüfungen des 3. Semesters der neuen FPO werden erstmalig im WS 2026/2027
+- usw.
+
+angeboten.
+
+## Prüfungstermine und -fristen
+
+Die Prüfungszeiträume für die Module mit semesterabschließenden Prüfungsformen (insbes. Klausuren) liegen im Wintersemester 2025/2026 wie folgt:
+
+1. Prüfungsblock: 26.01.2026 - 06.02.2026
+2. Prüfungsblock: 16.03.2026 - 28.03.2026
+
+Die entsprechenden Anmeldezeiträume/Fristen sind:
+
+- *Klausur*anmeldezeitraum: 06.10.2025 - 12.01.2026
+- Anmeldezeitraum für *alle anderen Prüfungsformen* (z.B. Portfolio, Hausarbeiten): 06.10.2025 - 27.10.2025 (Rücktrittsfrist 10.11.2025)
+
+Die konkreten modulscharfen Prüfungstermine, Prüfungsräume und Uhrzeiten erfahren Sie nach Planung im System [Pryfis](https://obelix.fh-swf.de/pryfis/pryfung/pruefung/list/)
+
+## Hinweise
+
+Beachten Sie *dringend* folgende Hinweise:
+
+- Es werden **keine weiteren gesonderten Ankündigungen** gemacht. 
+- Die Erinnerung und die Einhaltung der oben genannten Termine liegt allein in der Verantwortung der Studierenden.  
+- Die Anmeldung ist **nur über das [Hochschulportal](https://hochschulportal.fh-swf.de/)** möglich!
+- Eine Prüfungsanmeldung **außerhalb der jeweils gültigen Fristen** ist **nicht** möglich!
+- Ein Rücktritt von semesterabschließenden Prüfungen (Klausuren) ist bis **spätestens eine Woche vor der Klausur** möglich; danach nur noch durch Vorlage eines Attestes, das die Prüfungsunfähigkeit bescheinigt.
+- Für den Rücktritt von semesterbegleitenden Prüfungen gelten andere Fristen (siehe oben)
+
+
+**Wichtig:**
+Sofern Sie bei der Anmeldung bzw. Abmeldung technische Probleme haben, melden Sie diese umgehend mit einem Beleg (Screenshot o. Ä.) und **innerhalb der Anmeldefristen** beim *Studierendenservicebüro*. Anmeldungen außerhalb der genannten Zeiträume sind nicht möglich!
+
+## Weitere Hinweise
+
+- Die Prüfungsanmeldung ist in der Regel unabhängig von 
+  - der Teilnahme an einer Lehrveranstaltug und 
+  - von der Belegung eines Moduls in VPIS  
+- Einzige Ausnahme:
+  - Für Module mit **Studienvorleistung** ist das Erbringen dieser Studienvorleistung **notwendig** für die Teilnahme an der Prüfung!
+- Unabhängig davon müssen Sie sich für **alle** Prüfungen anmelden, auch dann, wenn Sie die Lehrveranstaltung besuchen oder belegt haben.
+
+Zusammengefasst:
+
+- Die Teilnahme an einer Lehrveranstaltung allein berechtigt nicht zur Teilnahme an der Prüfung.
+- Die Prüfungsanmeldung allein berechtigt nicht zur Teilnahme an der Lehrveranstaltung!
+
+## Hinweise zu Hilfsmitteln bei Prüfungen
+
+Informieren Sie sich rechtzeitig (z.B. bei den Lehrenden) 
+
+- über die Prüfungstermine für semesterbegleitende Prüfungen
+- über die erlaubten Hilfsmittel während der jeweiligen Prüfung(en)
+
+Die Verwendung nicht zugelassener Hilfsmittel führt in der Regel zur Verbuchung eines Täuschungsversuches, aus dem insbesondere 
+
+- das Nicht-Bestehen des Moduls sowie 
+- gegebenenfalls weitere Maßnahmen 
+
+folgen.
