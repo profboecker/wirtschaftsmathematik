@@ -659,6 +659,19 @@ B_{n}^{V} = R + \frac{R}{q} + \frac{R}{q^{2}} + \frac{R}{q^{3}} + \ldots + \frac
 
 ## Funktionsbegriff
 
+### Definition
+
+Eine Funktion $f$ ist eine Vorschrift
+
+$$
+f : D(f) \subset \mathbb{R} \rightarrow \mathbb{R}
+$$
+die gewissen reellen Zahlen (denen aus dem Definitionsbereich $D(f)$) jeweils eindeutig eine weitere reelle Zahl zuordnet:
+
+$$
+f : x \mapsto f(x)
+$$
+
 ## Darstellung von Funktionen
 
 ## Einige Beispiele
@@ -676,46 +689,6 @@ B_{n}^{V} = R + \frac{R}{q} + \frac{R}{q^{2}} + \frac{R}{q^{3}} + \ldots + \frac
 ## Gauß-Algorithmus
 
 ## Matrizenrechnung
-
-## Markov-Ketten-Beispiel
-```{julia}
-#import Pkg; Pkg.add("StatsBase")
-using LinearAlgebra, StatsBase
-
-# Transition probability matrix
-P = [0.5 0.4 0.1;
-     0.3 0.2 0.5;
-     0.5 0.3 0.2]
-
-# First way (as a limit)
-piProb1 = (P^100)[1,:]
-
-# Second way (solution to linear system)
-A = vcat( (P' - I)[1:2,:], ones(3)' )
-b = [0 0 1]'  
-piProb2 = A\b
-
-# Third way (Perron Frobenius eigenvector)
-eigVecs = eigvecs(copy(P'))
-highestVec = eigVecs[:,findmax(abs.(eigvals(P)))[2]]
-piProb3 = Array{Float64}(highestVec)/norm(highestVec, 1)
-
-# Fourth way (Monte Carlo simulation)
-numInState = zeros(Int,3)
-state = 1
-N = 10^6
-for t in 1:N
-  numInState[state] += 1
-  global state = sample(1:3, weights(P[state,:]))
-end
-piProb4 = numInState/N
-
-display([piProb1, piProb2, piProb3, piProb4])
-
-```
-
-
-
 
 # Lineare Optimierung
 
