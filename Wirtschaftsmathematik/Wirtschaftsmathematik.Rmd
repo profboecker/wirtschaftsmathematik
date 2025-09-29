@@ -31,6 +31,30 @@ knitr::opts_chunk$set(echo=TRUE, message=FALSE, warning=FALSE, cache=FALSE,
 -   Übungen zur Vorlesung Wirtschaftsmathematik
 -   **Email:** [beckmann.silke\@fh-swf.de](mailto:beckmann.silke@fh-swf.de){.email}
 
+## Lernzentrum
+
+Das Lernzentrum bietet Unterstützung in 
+
+- **Mathematik**
+- Physik
+- Elektrotechnik
+
+Details:
+
+- Raum: H.412
+- Öffnungszeiten: montags bis freitags von 09:00h bis 17:00h 
+- erreichbar auch online: [Lernzentrum Online](https://elearning.fh-swf.de/course/view.php?id=1570)
+
+## Lernzentrum Mitarbeiter
+
+### Jacqueline Grohs, M. Eng. ![Jacqueline Grohs, M. Eng.](./bilder/Jacqueline Grohs_8723.jpg)
+
+## Lernzentrum Mitarbeiter
+
+### Fabian Zmarowski, M. Eng. ![Fabian Zmarowski, M. Eng.](./bilder/Fabian_Zmarowski.jpg)
+
+- Studentische Hilfskraft: Steven Gramsch
+
 ## Formalia
 
 ### Klausur
