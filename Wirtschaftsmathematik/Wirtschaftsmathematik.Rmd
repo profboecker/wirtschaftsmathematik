@@ -696,11 +696,33 @@ $$
 f : x \mapsto f(x)
 $$
 
-## Darstellung von Funktionen
+## Eigenschaften von reellen Funktionen - Nullstellen
 
-## Einige Beispiele
+### Nullstellen
 
-## Eigenschaften von reellen Funktionen
+Die Funktion $y=f(x)$ besitzt an der Stelle $x_{0}$ eine **Nullstelle**, wenn
+$$
+f(x_{0}) = 0
+$$
+ist.
+
+## Eigenschaften von reellen Funktionen - Symmetrie
+
+### Achsensymmetrie - Gerade Funktionen
+Eine Funktion f heißt **gerade** bzw. **achsensymmetrisch**, wenn  die Bedingung
+$$
+f(x) = f(-x) \qquad \forall x \in D(f)
+$$
+erfüllt ist.
+
+### Punktsymmetrie - Ungerade Funktionen
+Eine Funktion f heißt **ungerade** bzw. **punktsymmetrisch**, wenn  die Bedingung
+$$
+f(x) = -f(-x) \qquad \forall x \in D(f)
+$$
+erfüllt ist.
+
+
 
 ## Wichtige Funktionen
 
