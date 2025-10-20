@@ -706,6 +706,23 @@ f(x_{0}) = 0
 $$
 ist.
 
+## Eigenschaften von reellen Funktionen - Nullstellen
+
+Anschaulich sind die Nullstellen die Schnittpunkte des Funktionsgraphen mit der x-Achse:
+```{r echo = FALSE}
+rm(list = ls())
+x <- seq(-2, 4, 0.1)
+
+f <- function(x) {
+  x^2 - 4 * x + 3
+}
+plot(x,f(x), type = "l", axes = FALSE, main = "f(x) = x^2-4x+3")
+axis(1, pos = 0)
+axis(2, pos = 0)
+
+```
+
+
 ## Eigenschaften von reellen Funktionen - Symmetrie
 
 ### Achsensymmetrie - Gerade Funktionen
@@ -715,6 +732,7 @@ f(x) = f(-x) \qquad \forall x \in D(f)
 $$
 erfüllt ist.
 
+
 ### Punktsymmetrie - Ungerade Funktionen
 Eine Funktion f heißt **ungerade** bzw. **punktsymmetrisch**, wenn  die Bedingung
 $$
@@ -722,6 +740,82 @@ f(x) = -f(-x) \qquad \forall x \in D(f)
 $$
 erfüllt ist.
 
+
+## Achsensymmetrie - Beispiel
+
+BeispieL: $f(x)=x^4 - 3x^2 - 3$
+```{r echo = FALSE}
+rm(list = ls())
+x <- seq(-2.5, 2.5, 0.1)
+
+f <- function(x) {
+  x^4 - 3 * x^2 - 3
+}
+plot(x,f(x), type = "l", axes = FALSE)
+axis(1, pos = 0)
+axis(2, pos = 0)
+
+```
+
+
+## Punktsymmetrie - Beispiel
+
+BeispieL: $f(x)=x^3 - 3x$
+```{r echo = FALSE}
+rm(list = ls())
+x <- seq(-2.5, 2.5, 0.1)
+
+f <- function(x) {
+  x^3 - 3 * x 
+}
+plot(x,f(x), type = "l", axes = FALSE)
+axis(1, pos = 0)
+axis(2, pos = 0)
+
+```
+
+## Eigenschaften von Funktionen - Monotonie
+
+### Monotonie
+Eine Funktion $y=f(x)$ heißt 
+- **monoton wachsend**, wenn 
+$$
+\forall  x_{1}, x_{2} \in D(f) \mbox{ mit } x_{1} < x_{2}  \qquad f(x_{1}) \leq f(x_{2})
+$$
+- **streng monoton wachsend**, wenn 
+$$
+\forall  x_{1}, x_{2} \in D(f) \mbox{ mit } x_{1} < x_{2}  \qquad f(x_{1}) < f(x_{2})
+$$
+- **monoton fallend**, wenn 
+$$
+\forall  x_{1}, x_{2} \in D(f) \mbox{ mit } x_{1} < x_{2}  \qquad f(x_{1}) \geq f(x_{2})
+$$
+- **streng monoton fallend**, wenn 
+$$
+\forall  x_{1}, x_{2} \in D(f) \mbox{ mit } x_{1} < x_{2}  \qquad f(x_{1}) > f(x_{2})
+$$
+
+## Monotonie - Alternative Definition
+
+### Monotonie
+Eine Funktion $y=f(x)$ heißt 
+- **monoton wachsend**, wenn 
+$$
+\frac{f(x_{2}) - f(x_{1})}{x_{2} - x_{1}} \geq 0
+$$
+- **streng monoton wachsend**, wenn 
+$$
+\frac{f(x_{2}) - f(x_{1})}{x_{2} - x_{1}} > 0
+$$
+- **monoton fallend**, wenn 
+$$
+\frac{f(x_{2}) - f(x_{1})}{x_{2} - x_{1}} \leq 0
+$$
+- **streng monoton fallend**, wenn 
+$$
+\frac{f(x_{2}) - f(x_{1})}{x_{2} - x_{1}} < 0
+$$
+$\forall  x_{1}, x_{2} \in D(f)$.
 
 
 ## Wichtige Funktionen
