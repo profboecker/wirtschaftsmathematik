@@ -11,7 +11,7 @@ lang: de-de   # Text Language: en-gb, en-us, de-de
 
 ```{r setup, include=FALSE}
 options(digits = 4)
-knitr::opts_chunk$set(echo=TRUE, message=FALSE, warning=FALSE, cache=FALSE, 
+knitr::opts_chunk$set(echo=FALSE, message=FALSE, warning=FALSE, cache=FALSE, 
                       dev.args=list(pointsize=11), size="scriptsize")
 ```
 
@@ -54,6 +54,7 @@ Details:
 ### Fabian Zmarowski, M. Eng. ![Fabian Zmarowski, M. Eng.](./bilder/Fabian_Zmarowski.jpg)
 
 - Studentische Hilfskraft: Steven Gramsch
+
 
 ## Formalia
 
@@ -678,7 +679,6 @@ B_{n}^{V} = R + \frac{R}{q} + \frac{R}{q^{2}} + \frac{R}{q^{3}} + \ldots + \frac
 \hline 
 \end{tabular}
 
-
 # Funktionen
 
 ## Funktionsbegriff
@@ -709,7 +709,8 @@ ist.
 ## Eigenschaften von reellen Funktionen - Nullstellen
 
 Anschaulich sind die Nullstellen die Schnittpunkte des Funktionsgraphen mit der x-Achse:
-```{r echo = FALSE}
+
+```{r echo=FALSE}
 rm(list = ls())
 x <- seq(-2, 4, 0.1)
 
@@ -719,8 +720,9 @@ f <- function(x) {
 plot(x,f(x), type = "l", axes = FALSE, main = "f(x) = x^2-4x+3")
 axis(1, pos = 0)
 axis(2, pos = 0)
-
 ```
+
+
 
 
 ## Eigenschaften von reellen Funktionen - Symmetrie
@@ -817,10 +819,117 @@ $$
 $$
 $\forall  x_{1}, x_{2} \in D(f)$.
 
+## Stetigkeit
 
-## Wichtige Funktionen
+Die meisten in Anwendungen vorkommenden Funktionen verlaufen glatt und ohne irgendwelche Sprünge.
+
+In der Mathematik nennt man solche Funktionen **stetig**.
+
+Manchmal treten allerdings Unstetigkeiten auf:
+
+## Beispiel: Unstetigkeit einer Funktion
+```{r echo=FALSE}
+rm(list = ls())
+x <- seq(-5, 5, 0.01)
+
+f <- function(x) {
+  0.5 * (x + abs(x)) / x
+}
+plot(x,f(x), type = "l", axes = FALSE, col = "red")
+axis(1, pos = 0)
+axis(2, pos = 0)
+```
+
+## Verhalten einer Funktion im Unendlichen
+
+Oft interessiert man sich dafür, wie sich eine Funktion *im Unendlichen* verhält:
+
+- Was passiert mit den Funktionswerten $f(x)$, 
+  - wenn $x$ immer größer wird (in Zeichen:  $x \to \infty$ ) 
+  - wenn $x$ immer kleiner wird (in Zeichen:  $x \to - \infty$ ) 
+ 
+## Beispiel: Verhalten einer Funktion im Unendlichen
+
+Für $f(x)=x$ wächst $f(x)$ für $x \to \infty$ ebenfalls gegen Unendlich und für $x \to -\infty$ gegen "minus Unendlich"
+
+```{r echo=FALSE}
+rm(list = ls())
+x <- seq(-3, 3, 0.1)
+
+f <- function(x) {
+  x
+}
+plot(x,f(x), type = "l", axes = FALSE)
+axis(1, pos = 0)
+axis(2, pos = 0)
+```
+
+## 2. Beispiel: Verhalten einer Funktion im Unendlichen
+
+Für $f(x)=\frac{1}{x}$ wird $f(x)$ gegen 0 gehen und für $x \to 0$ gegen "plus Unendlich"
+
+```{r echo=FALSE}
+rm(list = ls())
+x <- seq(-3, 3, 0.1)
+
+f <- function(x) {
+  1/x
+}
+plot(x,f(x), type = "l", axes = FALSE)
+axis(1, pos = 0)
+axis(2, pos = 0)
+```
+
+## Wichtige Funktionen: Ganz-rationale Funktionen
+
+Ein Polynom vom Grad $n$ ist eine Funktion der Form
+$$
+f(x) = a_{n} x^n + a_{n-1} x^{n-1} + \cdots + a_{1} x + a_{0}
+$$
+mit $a_{n} \neq 0$. Man nennt eine solche **Polynomfunktion** auch **ganz-rationale Funktion**.
+
+## Nullstellen ganz-rationaler Funktionen
+
+Für lineare Funktionen $f(x) = mx + b$ oder quadratische Polynomfunktionen $f(x) = ax^2 +bx +c$ ist es leicht, die Nullstellen zu berechnen:
+
+- für lineare Funktionen ist $x_0 = -\frac{b}{m}$ die einzige Nullstelle (falls $m \neq 0$ ist)
+- für die quadratische Polynomfunktion $f(x) = ax^2 +bx +c$ sind
+$$
+x_1 = \frac{-b + \sqrt{b^2 - 4ac}}{2a} \qquad \mbox{und} \qquad x_2 = \frac{-b - \sqrt{b^2 - 4ac}}{2a}  
+$$
+die beiden Lösungen.
+
+Dabei heißt $b^2 -4ac$ die *Diskriminante*. Sie bestimmt, wieviele reelle Lösungen die Gleichung hat:
+
+- wenn $b^2 -4ac > 0$: zwei verschiedene reelle Lösungen
+- wenn $b^2 -4ac = 0$: eine (doppelte) reelle Lösung
+- wenn $b^2 -4ac < 0$: keine reellen Lösungen
+
+## Nullstellen ganz-rationaler Funktionen vom Grad $\geq 3$
+
+Für ganz-rationale Funktionen vom Grad $\geq 3$ gibt es keine oder nur sehr komplizierte Formeln, aber es hilft der:
+
+### Satz über Nullstellen ganz-rationaler Funktionen
+
+Ist $x_0$ eine Nullstelle eines Polynoms $P(x)$ vom Grad $n$, das heißt eine Lösung der Polynomgleichung $P(x_0 ) = 0$, dann besitzt das Polynom $P(x)$ eine *Linearfaktorzerlegung* der Form
+$$
+P(x) = (x-x_0 ) Q(x)
+$$
+mit einem Polynom $Q(x)$ vom Grad $n-1$.
+
+## Gebrochen-rationale Funktionen
+
 
 ## Ableitung einer Funktion
+
+## Ableitungsbegriff
+
+## Technik des Differenzierens
+
+## Extremwerte und höhere Ableitungen
+
+
+
 
 # Lineare Gleichungssysteme
 
@@ -837,4 +946,5 @@ $\forall  x_{1}, x_{2} \in D(f)$.
 ## Simplex-Algorithmus
 
 ## Allgemeines lineares Optimierungsproblem
+
 
