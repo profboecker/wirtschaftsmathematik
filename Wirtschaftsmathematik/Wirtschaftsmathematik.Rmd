@@ -917,14 +917,115 @@ P(x) = (x-x_0 ) Q(x)
 $$
 mit einem Polynom $Q(x)$ vom Grad $n-1$.
 
+## Beispiel: Linearfaktorzerlegung / Nullstellenbestimmung
+Die Funktion
+$$
+f(x) = x^3 -9x^2 +27 x -27
+$$
+hat an der Stelle $x_0 = 3$ eine (und vielleicht nicht einzige) Nullstelle.
+
+Eine Polynomdivision ergibt:
+$$
+(x^3 -9x^2 +27 x -27) : (x-3) = x^2 -6x + 9
+$$
+Für das verbleibende Polynom $Q(x)=x^2 -6x + 9$ ergibt sich (z.B. mittels der p-q-Formel) die doppelte Nullstelle $x_1 = 3$ und daher
+$$
+f(x) = x^3 -9x^2 +27 x -27 = (x-3)\cdot(x-3)\cdot(x-3) = (x-3)^3
+$$
+also faktisch eine dreifache Nullstelle bei $x=3$.
+
 ## Gebrochen-rationale Funktionen
+
+### Gebrochen-rationale Funktionen
+Eine Funktion der Form
+$$
+y = f(x) = \frac{a_n x^n + a_{n-1} x^{n-1} + a_{n-2}x^{n-2} + \cdots + a_2 x^2 + a_1 x + a_0}{b_m x^m + b_{m-1} x^{m-1} + b_{m-2}x^{m-2} + \cdots + b_2 x^2 + b_1 x + b_0} = \frac{Z(x)}{N(x)}
+$$
+mit reellen *Koeffizienten* $a_{i}, b_i \in \mathbb{R}$ und $m\geq 1$ heißt **gebrochen-rationale Funktion**.
+Die Funktionen $Z(x)$ ist ein Polynom vom Grad $n$ und heißt **Zählerpolynom**, die Funktion $N(x)$ ist ein Polynom vom Grad $m$ und heißt **Nennerpolynom**.
+
+Der Definitionsbereich einer gebrochen-rationale Funktion enthält alle $x \in \mathbb{R}$ mit $N(x)\neq 0$:
+$$
+D(f) = \mathbb{R} \setminus \{ x \, | \, N(x) = 0 \}
+$$
+
+## Gebrochen-rationale Funktionen: Unecht und echt gebrochen rationale Funktionen
+
+Die Funktion heißt **echt gebrochen**, wenn der Grad des Zählerpolynoms $n$ kleiner als der Grad $m$ des Nennerpolynoms ist. Andernfalls heißt die gebrochen-rationale Funktion **unecht-gebrochen**.
+
+1. Beispiel: Die Funktion
+$$
+f(x) = \frac{5x^2 +4x +3}{x^3 -x + 1}
+$$
+ist eine *echt gebrochen-rationale* Funktion.
+2. Beispiel: Die Funktion
+$$
+f(x) = \frac{2x^3 +2x -3}{x^3 +5x^2}
+$$
+ist eine *unecht gebrochen-rationale* Funktion.
+
+## Unecht gebrochen-rationale Funktionen: Zerlegung durch Polynomdivision
+
+Jede unecht gebrochen-rationale Funktion kann durch Polynomdivision in die Summe eine ganz-rationalen Funktion und einer echt gebrochen-rationale Funktion zerlegt werden.
+
+Beispiel: Die unecht gebrochen-rationale Funktion
+$$
+f(x) = \frac{x^3 - 3x +5}{x-2} = \left(x^2 +2x + 1 \right) + \frac{7}{x-2}
+$$
+lässt sich durch Polynomdivision in eine ganz-rationalen Teil $x^2+2x+1$ und eine echt gebrochen-rationalen Teil $\frac{7}{x-2}$ zerlegen.
+
+## Nullstellen gebrochen-rationaler Funktionen
+
+Die *Nullstellen* gebrochen-rationaler Funktionen ergeben sich als diejenigen Nullstellen $x$ des Zählerpolynoms $Z(x)$, für die die Funktion $f$ überhaupt definiert ist, also für die $x \in D(f)$ ist. 
+
 
 
 ## Ableitung einer Funktion
 
-## Ableitungsbegriff
+### Definition der Ableitung
+Existiert für eine (mindestens stetige) Funktion $y=f(x)$ an der Stelle $x_{0}$ der Grenzwert
+$$
+\lim_{\Delta x \to 0} \frac{\Delta y(x_{0})}{\Delta x} = \lim_{\Delta x \to 0} \frac{f(x_{0}+\Delta x)-f(x_{0})}{\Delta x} = \frac{dy(x_{0})}{dx} =: f' (x_{0}) =: y' (x_{0}) 
+$$
+
+so heißt dieser Grenzwert die **Ableitung von $f$** oder der **Differenzialquotient von $f$ an der Stelle $x_{0}$**.
+	
+Die Funktion heißt dann \textbf{differenzierbar an der Stelle $x_{0}$}.
+
+Wenn die Ableitung an allen Stellen $x \in D(f)$ existiert, kann man die Ableitung als eine Funktion $f'$ betrachten
+$$
+f'(x) := \lim_{\Delta x \to 0 } \frac{f(x+\Delta x)-f(x)}{\Delta x}  
+$$ 
+
+## Geometrische Deutung der Ableitung
+
+Die erste Ableitung $f'(x_{0})$ gibt die Steigung der Tangente an den Graphen der Funktion $f$ an der Stelle $x_{0}$ an. 
+
+Damit können also Aussagen gemacht werden über
+
+- das Monotonieverhalten der Funktion $f$ und damit auch über
+- evtl. Maxima und Minima der Funktion $f$.
+Denn für den Differentialquotienten gilt ja:
+$$
+f'(x_{0}) = \lim_{x \to x_{0}} \frac{f(x)-f(x_{0})}{x-x_{0}} 
+$$
+	und die rechte Seite ist 
+	
+	- strikt positiv, wenn $f$ streng monoton wachsend
+	- positiv, wenn $f$ monoton wachsend
+	- strikt negativ, wenn $f$ streng monoton fallend bzw. 
+	- negativ, wenn $f$ monoton fallend ist.
+	
 
 ## Technik des Differenzierens
+
+## Summenregel und Faktorregel
+
+## Produktregel
+
+## Quotientenregel
+
+## Kettenregel
 
 ## Extremwerte und höhere Ableitungen
 
