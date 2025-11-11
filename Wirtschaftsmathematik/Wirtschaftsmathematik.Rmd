@@ -1016,16 +1016,69 @@ $$
 	- strikt negativ, wenn $f$ streng monoton fallend bzw. 
 	- negativ, wenn $f$ monoton fallend ist.
 	
+## Ableitung elementarer Funktionen
 
-## Technik des Differenzierens
+### Ableitung elementarer Funktionen
+\begin{align*}
+&f(x)  &f'(x)  \\ \hline
+&f(x) = a   &f'(x) = 0 \\
+&f(x) = x^r  &f'(x) = rx^{r-1} \\
+&f(x) = e^x   &f'(x) = e^x \\
+&f(x) = \ln(x)   &f'(x) = \frac{1}{x} \\
+\end{align*}
 
-## Summenregel und Faktorregel
 
-## Produktregel
+## Ableitungsregeln
 
-## Quotientenregel
+### Summen-/Differenzregel
+Für die Summe und die Differenz zweier Funktionen gilt:
 
-## Kettenregel
+1. Ist $f(x) = g(x) + h(x)$, so gilt: $f'(x) = g'(x) + h'(x)$.
+2. Ist $f(x) = g(x) - h(x)$, so gilt: $f'(x) = g'(x) - h'(x)$.
+
+### Faktorregel 
+Kennt man die Ableitung $f'(x)$ einer Funktion $f(x)$, so gilt für die Funktion $g(x) = a \cdot f(x)$ mit $a \in \mathbb{R}$:
+$$
+g'(x) = a \cdot f'(x)
+$$
+
+
+## Ableitungsregeln
+
+### Produktregel
+
+Für das Produkt zweier Funktionen $g$ und $h$ gilt:
+
+Ist $f(x) = g(x) \cdot h(x)$, dann ist:
+$$
+f'(x) = g'(x) \cdot h(x) + g(x) \cdot h'(x)
+$$
+oder in Kurzform: $f' = g'\cdot h +g\cdot h'$
+
+## Ableitungsregeln
+
+### Quotientenregel
+
+Für den Quotienten zweier Funktionen $g$ und $h$ gilt:
+
+Ist $f(x) = \frac{g(x)}{h(x)}$, dann ist:
+$$
+f'(x) = \frac{g'(x) \cdot h(x) - g(x) \cdot h'(x)}{(h (x))^2}
+$$
+oder in Kurzform: $f' = \frac{g'\cdot h - g\cdot h'}{h^2}$
+
+## Ableitungsregeln
+
+### Kettenregel
+
+Für die Ableitung zweiter verketteter Funktionen $g$ und $h$ gilt:
+
+Ist $f(x) = g(h(x))$ eine verkettete (zusammengesetzte) Funktion, dann ist:
+$$
+f'(x) = g'(h(x)) \cdot h'(x)
+$$
+Man nennt dabei $g'(h(x))$ die **äußere Ableitung** und $h'(x)$ die **innere Ableitung**. *Beachten Sie, dass in die Ableitung von $g$ der Funktionswert $h(x)$ eingesetzt wird!*
+
 
 ## Extremwerte und höhere Ableitungen
 
