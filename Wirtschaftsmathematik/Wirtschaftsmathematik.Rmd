@@ -1082,8 +1082,73 @@ Man nennt dabei $g'(h(x))$ die **äußere Ableitung** und $h'(x)$ die **innere A
 
 ## Extremwerte und höhere Ableitungen
 
+### Bestimmung von Extremwerten - Beispiel
+Die bedeutendsten Anwendungen der Differentialrechnung betreffen die Bestimmung von Extrema.
+
+Beispiel:
+Die Unternehmerin I. bietet exklusiv ein neues Produkt P an. (Sie ist also Monopolistin.)
+
+Die Preisabsatzfunktion $p(x)$ und die Kostenfunktion $K(x)$ des neuen Produktes kennt sie:
+$$
+p(x) = 6 - \frac{1}{2} x \qquad K(x) = 2x^2 -14x + 25
+$$
+wobei $x$ einer Einheit von 1000 Tonnen entspricht.
+
+Die zugehörige Gewinnfunktion ist bekanntlich die Differenz aus Umsatz $U(x)$ und Kosten $K(x)$:
+$$
+G(x) = U(x) - K(X)
+$$
+mit dem Umsatz $U(x) = x\cdot p(x)$ wird daher der Gewinn:
+$$
+G(x) = U(x) - K(x) = x p(x) -K(x) = 6x - \frac{1}{2}x^2 - (2x^2 -14x +25) = \frac{-5}{2}x^2 +20 x - 25
+$$
 
 
+## Extremwerte und höhere Ableitungen
+
+### Bestimmung von Extremwerten - Beispiel
+
+Die Gewinnfunktion 
+$$
+G(x) = \frac{-5}{2} x^2 +20x -25
+$$
+hat offensichtlich ein Maximum bei $x=4$ (und damit einem Gewinn von $G(4)=15$)
+```{r}
+rm(list = ls())
+x <- seq(0, 8, 0.1)
+G <- -5/2 * x^2 +20 * x -25
+plot(x,G, type = "l", axes = FALSE)
+axis(1, pos = 0)
+axis(2, pos = 0)
+
+```
+
+## Bestimmung von Extremwerten
+
+### Satz (Bestimmung von Extrema)
+Sei $f$ eine Funktion, die an der Stelle $x_E$ zweimal stetig differenzierbar ist. Dann besitzt $f$ in $x_E$
+
+1. ein **lokales Maximum**, wenn gilt:
+$$
+f'(x_{E}) = 0 \qquad \mbox{und} \qquad f''(x_{E}) < 0
+$$
+2. ein **lokales Minimum**, wenn gilt:
+$$
+f'(x_{E}) = 0 \qquad \mbox{und} \qquad f''(x_{E}) >  0
+$$
+
+
+## Elastizität
+
+Die Ableitung einer Funktion $f$ an der Stelle $x_0$ gibt *näherungsweise* an, um wieviel sich $f$ verändert, wenn man $x_0$ um eine Einheit erhöht.
+
+### Elastizität 
+
+Die **Elastizität** $\varepsilon_{f}(x_0)$ der Funktion $f$ an der Stelle $x_0$ ist definiert als
+$$
+\varepsilon_{f}(x_0) = \frac{f'(x_0)}{f(x_0)} \cdot x_0
+$$
+und gibt an, um wieviel *Prozent* sich die Funktionswerte von $f$ ändern, wenn man $x_0$ um *ein Prozent* erhöht.
 
 # Lineare Gleichungssysteme
 
