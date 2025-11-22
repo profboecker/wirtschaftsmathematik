@@ -1152,6 +1152,80 @@ und gibt an, um wieviel *Prozent* sich die Funktionswerte von $f$ ändern, wenn 
 
 # Lineare Gleichungssysteme
 
+## Beispiel zum Einstieg in lineare Gleichungssysteme
+
+### Beispiel
+
+- Ein Bauer hat 100 Tiere (Schweine und Hühner). 
+- Die Tiere haben zusammen 320 Beine.
+
+Wieviele Schweine und Hühner hat der Bauer? 
+
+## Beispiel zum Einstieg in lineare Gleichungssysteme
+
+### Beispiel
+
+- Ein Bauer hat 100 Tiere (Schweine und Hühner). 
+- Die Tiere haben zusammen 320 Beine.
+
+### Lösung
+
+- Gesucht: $x$ (Anzahl der Schweine) und $y$ (Anzahl der Hühner).
+
+- Gegeben: Anzahl der Beine (320) und Anzahl der Tiere (100)
+  - $4x + 2y = 320$
+  - $x + y = 100$
+  
+\begin{align}
+4x &+ 2y &= 320 \\
+x &+ y &= 100
+\end{align}
+
+## Lösungsmöglichkeiten
+
+### Einsetzungsverfahren
+Aus der zweiten Gleichung folgt
+$$
+x + y = 100 \Leftrightarrow y = 100 - x
+$$
+und dies eingesetzt in die erste Gleichung ergibt:
+$$
+4x + 2y = 320 \stackrel{y=100-x}{\longrightarrow} 4x +2(100-x) \Leftrightarrow 2x + 200 = 320 \Leftrightarrow x = 60
+$$
+und daher 
+$$
+y = 100 - x = 100 - 60 = 40
+$$
+Also hat der Bauer 60 Schweine und 40 Hühner.
+
+### Probe der Lösung
+60 Schweine und 40 Hühner sind 100 Tiere. 60 Schweine haben $60 \cdot 4 = 240$ Beine und 40 Hühner haben $40 \cdot 2 = 80$ Beine, also zusammen $240 + 80 = 320$ Beine.
+
+
+## Lösungsmöglichkeiten
+
+### Additionsverfahren
+
+Durch Multiplikation der zweiten Gleichung mit $-2$
+\begin{align*}
+4x &+ 2y &= 320 \\
+x &+ y &= 100
+\end{align*}
+ergibt sich
+\begin{align}
+4x &+ 2y &= 320 \\
+-2x &- 2y &= -200
+\end{align}
+und durch Addition der zweiten zur ersten Gleichung damit
+$$
+(4x -2x) +(2y-2y) = 320 - 200
+$$
+also 
+$$
+2x = 120 \Leftrightarrow x = 60
+$$
+und daher $y = 100 - x = 100 - 60 = 40$. 
+
 ## Grundlagen zu linearen Gleichungssystemen
 
 ## Gauß-Algorithmus
