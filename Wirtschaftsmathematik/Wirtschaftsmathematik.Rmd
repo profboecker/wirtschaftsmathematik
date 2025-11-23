@@ -1226,11 +1226,559 @@ $$
 $$
 und daher $y = 100 - x = 100 - 60 = 40$. 
 
+## Lösungsmöglichkeiten
+
+### Grafische Lösungsverfahren
+
+Durch Umstellen der beiden Gleichungen
+\begin{align*}
+4x &+ 2y &= 320 \\
+x &+ y &= 100
+\end{align*}
+nach $y$ ergibt sich:
+\begin{align*}
+y &= 160 - 2 \cdot x \\
+y &= 100 - x
+\end{align*}
+
+## Lösungsmöglichkeiten
+
+
+```{r}
+rm(list = ls())
+library(ggplot2)
+
+# Definition der zwei Geraden: y = m1*x + b1 und y = m2*x + b2
+m1 <- -2
+b1 <- 160
+m2 <- -1
+b2 <- 100
+
+# Berechnung des Schnittpunkts
+x_intersect <- (b2 - b1) / (m1 - m2)
+y_intersect <- m1 * x_intersect + b1
+
+# Daten für die Geraden (für Plot-Bereich x von 0 bis 5)
+df <- data.frame(
+  x = rep(seq(0, 100, length.out = 100), 2),
+  y = c(m1 * seq(0, 100, length.out = 100) + b1,
+        m2 * seq(0, 100, length.out = 100) + b2),
+  line = factor(rep(c("Anzahl Beine", "Anzahl Tiere"), each = 100))
+)
+
+# Plot mit zwei Linien und Schnittpunkt als Punkt
+ggplot(df, aes(x = x, y = y, color = line)) +
+  geom_line(size = 1) +
+  geom_point(aes(x = x_intersect, y = y_intersect), color = "black", size = 3) +
+  annotate("text", x = x_intersect, y = y_intersect, label = paste0("Schnittpunkt\n(", round(x_intersect, 2), ", ", round(y_intersect, 2), ")"),
+           hjust = -0.1, vjust = 1.5) +
+  theme_minimal() +
+  labs(title = "Graph der beiden Geraden mit Schnittpunkt", 
+       x = "x-Achse (Anzahl Schweine)", 
+       y = "y-Achse (Anzahl Hühner)",
+       color = "Bedingungsgerade") 
+
+```
+
 ## Grundlagen zu linearen Gleichungssystemen
+
+### Grundtatsache zu **linearen** Gleichungssystemen
+
+Ein lineares Gleichungssystem besitzt entweder
+- **genau eine** Lösung oder
+- **keine** Lösung oder
+- **unendlich viele** Lösungen
+
+Insbesondere kann ein lineares Gleichungssystem also nicht zum Beispiel *genau zwei* Lösungen haben.
+
+## Grundlagen zu linearen Gleichungssystemen - Unendlich viele Lösungen
+
+$$
+2x - y = 1 \qquad \wedge \qquad 4x -2y = 2
+$$
+
+```{r}
+rm(list = ls())
+library(ggplot2)
+
+# Definition der zwei Geraden: y = m1*x + b1 und y = m2*x + b2
+m1 <- 2
+b1 <- -1
+m2 <- 2
+b2 <- -1.1
+
+# Berechnung des Schnittpunkts
+x_intersect <- (b2 - b1) / (m1 - m2)
+y_intersect <- m1 * x_intersect + b1
+
+# Daten für die Geraden (für Plot-Bereich x von 0 bis 5)
+df <- data.frame(
+  x = rep(seq(-4, 4, length.out = 100), 2),
+  y = c(m1 * seq(-4, 4, length.out = 100) + b1,
+        m2 * seq(-4, 4, length.out = 100) + b2),
+  line = factor(rep(c("Gleichung 1", "Gleichung 2"), each = 100))
+)
+
+# Plot mit zwei Linien und Schnittpunkt als Punkt
+ggplot(df, aes(x = x, y = y, color = line)) +
+  geom_line(size = 1) +
+  geom_point(aes(x = x_intersect, y = y_intersect), color = "black", size = 3) +
+  annotate("text", x = x_intersect, y = y_intersect, label = paste0("Schnittpunkt\n(", round(x_intersect, 2), ", ", round(y_intersect, 2), ")"),
+           hjust = -0.1, vjust = 1.5) +
+  theme_minimal() +
+  labs(title = "Graph der beiden Geraden", 
+       x = "x-Achse", 
+       y = "y-Achse",
+       color = "Gerade") 
+
+```
+
+## Grundlagen zu linearen Gleichungssystemen - Keine Lösung
+
+$$
+2x -y = 1 \qquad \wedge \qquad 4x-2y=3
+$$
+
+
+```{r}
+rm(list = ls())
+library(ggplot2)
+
+# Definition der zwei Geraden: y = m1*x + b1 und y = m2*x + b2
+m1 <- 2
+b1 <- -1
+m2 <- 2
+b2 <- -1.5
+
+# Berechnung des Schnittpunkts
+x_intersect <- (b2 - b1) / (m1 - m2)
+y_intersect <- m1 * x_intersect + b1
+
+# Daten für die Geraden (für Plot-Bereich x von 0 bis 5)
+df <- data.frame(
+  x = rep(seq(-4, 4, length.out = 100), 2),
+  y = c(m1 * seq(-4, 4, length.out = 100) + b1,
+        m2 * seq(-4, 4, length.out = 100) + b2),
+  line = factor(rep(c("Gleichung 1", "Gleichung 2"), each = 100))
+)
+
+# Plot mit zwei Linien und Schnittpunkt als Punkt
+ggplot(df, aes(x = x, y = y, color = line)) +
+  geom_line(size = 1) +
+  geom_point(aes(x = x_intersect, y = y_intersect), color = "black", size = 3) +
+  annotate("text", x = x_intersect, y = y_intersect, label = paste0("Schnittpunkt\n(", round(x_intersect, 2), ", ", round(y_intersect, 2), ")"),
+           hjust = -0.1, vjust = 1.5) +
+  theme_minimal() +
+  labs(title = "Graph der beiden Geraden", 
+       x = "x-Achse", 
+       y = "y-Achse",
+       color = "Gerade") 
+
+```
+
+## Grundlagen zu linearen Gleichungssystemen - Genau eine Lösung
+
+$$
+2x - y =1 \qquad \wedge \qquad 4x +2y = 3
+$$
+
+
+```{r}
+rm(list = ls())
+library(ggplot2)
+
+# Definition der zwei Geraden: y = m1*x + b1 und y = m2*x + b2
+m1 <- 2
+b1 <- -1
+m2 <- -2
+b2 <- 1.5
+
+# Berechnung des Schnittpunkts
+x_intersect <- (b2 - b1) / (m1 - m2)
+y_intersect <- m1 * x_intersect + b1
+
+# Daten für die Geraden (für Plot-Bereich x von 0 bis 5)
+df <- data.frame(
+  x = rep(seq(-4, 4, length.out = 100), 2),
+  y = c(m1 * seq(-4, 4, length.out = 100) + b1,
+        m2 * seq(-4, 4, length.out = 100) + b2),
+  line = factor(rep(c("Gleichung 1", "Gleichung 2"), each = 100))
+)
+
+# Plot mit zwei Linien und Schnittpunkt als Punkt
+ggplot(df, aes(x = x, y = y, color = line)) +
+  geom_line(size = 1) +
+  geom_point(aes(x = x_intersect, y = y_intersect), color = "black", size = 3) +
+  annotate("text", x = x_intersect, y = y_intersect, label = paste0("Schnittpunkt\n(", round(x_intersect, 3), ", ", round(y_intersect, 3), ")"),
+           hjust = -0.1, vjust = 1.5) +
+  theme_minimal() +
+  labs(title = "Graph der beiden Geraden mit Schnittpunkt", 
+       x = "x-Achse", 
+       y = "y-Achse",
+       color = "Gerade") 
+
+```
+
 
 ## Gauß-Algorithmus
 
-## Matrizenrechnung
+### Idee und Ziel des Gauß-Algorithmus
+Das (Lösungs-)Ziel bei linearen Gleichungssystemen ist es, ein *allgemeingültiges*, *detailliertes* und *endliches* Lösungsverfahren (einen **Algorithmus**) für diese zu finden.
+
+Dieser Algorithmus muss folgende Fragen beantworten können:
+
+- Wieviele Lösungen gibt es, d.h. gibt es *keine* Lösung, *genau eine* Lösung oder *unendlich viele* Lösungen?
+- Wie berechne ich die/alle Lösungen, sofern es welche gibt?
+
+Der **Gauß-Algorithmus** ist eine Verallgemeinerung des Additionsverfahrens, d.h. er basiert darauf, dass in geschickter Weise Gleichungen so addiert und voneinander subtrahiert werden, dass alle Lösungen leicht abgelesen werden können.
+
+## Gauß-Algorithmus - Beispiel vorab
+
+Gegeben sei das folgende lineare Gleichungssystem
+
+\renewcommand{\theequation}{\Roman{equation}}
+\setcounter{equation}{0}
+\begin{align}
+x_1 - 2x_2 + x_3 &= 5 \\
+-5 x_1 -2 x_2 - x_3 &= -21 \\
+6 x_1 +2 x_2 - x_3 &= 16
+\end{align}
+
+Wir versuchen nun zuerst, das $x_1$ in der zweiten und dritten Gleichung *verschwinden* zu lassen.
+Dazu
+- addiert man das 5-fache der ersten Gleichung zur zweiten (und erhält so eine neue zweite Gleichung)
+- subtrahiert man das 6-fache der ersten Gleichung von der dritten (und erhält so eine neue dritte Gleichung)
+
+\setcounter{equation}{0}
+\begin{align*}
+x_1  -2x_2 + x_3 &= 5 & \mbox{(I)} \\
+ -12 x_2 + 4 x_3 &= 4 & \mbox{(II + 5 I)} \\
+ 14 x_2 - 7 x_3 &= -14 & \mbox{(III - 6 I)} 
+\end{align*}
+
+## Gauß-Algorithmus - Beispiel vorab
+
+Um in dem Gleichungssystem 
+
+\renewcommand{\theequation}{\Roman{equation}}
+\setcounter{equation}{0}
+\begin{align}
+x_1  -2x_2 + x_3 &= 5 & \\
+ -12 x_2 + 4 x_3 &= 4 &  \\
+ 14 x_2 - 7 x_3 &= -14 &  
+\end{align}
+
+in der zweiten Zeile nun eine $1$ und keine $-12$ vor dem $x_2$ stehen zu haben, dividiert man die zweite Zeile durch $-12$.
+
+\setcounter{equation}{0}
+\begin{align*}
+x_1  -2x_2 + x_3 &= 5 & \mbox{(I)} \\
+  x_2 - \frac{1}{3} x_3 &= -\frac{1}{3} & \mbox{(II : (-12))} \\
+ 14 x_2 - 7 x_3 &= -14 & \mbox{(III)} 
+\end{align*}
+
+## Gauß-Algorithmus - Beispiel vorab
+
+Damit nun in dem verbleibenden Gleichungssystem 
+
+\renewcommand{\theequation}{\Roman{equation}}
+\setcounter{equation}{0}
+\begin{align}
+x_1  -2x_2 + x_3 &= 5   \\
+  x_2 - \frac{1}{3} x_3 &= -\frac{1}{3}  \\
+ 14 x_2 - 7 x_3 &= -14  
+\end{align}
+
+in der dritten Zeile das $x_2$ verschwindet, subtrahiert man das 14-fache der zweiten Zeile von der dritten Zeile:
+\begin{align*}
+x_1  -2x_2 + x_3 &= 5 & \mbox{(I)}  \\
+  x_2 - \frac{1}{3} x_3 &= -\frac{1}{3} & \mbox{(II)} \\
+  -\frac{7}{3} x_3 &= -\frac{28}{3} & \mbox{(III - 14 II)}  
+\end{align*}
+
+und aus der letzten Gleichung folgt $x_3 = 4$, durch Einsetzen in die zweite Gleichung damit $x_2 = 1$ und daraus durch Einsetzen in die erste Gleichung $x_1 = 3$.
+
+## Gauß-Algorithmus - Matrix-Schreibweise
+
+In dem obigen Beispiel haben wir immer wieder die Variablen $x_1$, $x_2$ und $x_3$ hinschreiben müssen, obwohl die **relevanten** Informationen eigentlich nur in den Vorfaktoren (**Koeffizienten**) und der *rechten Seite* des Gleichungssystems stecken.
+
+Daher nutzen wir ab sofort eine verkürzte Schreibweise, die nur die Koeffizienten und die rechte Seite des linearen Gleichungssystems (in einer **Matrix**) abbildet:
+$$
+\left(
+\begin{array}{ccc|c}
+1 & -2 & 1 & 5 \\
+-5 & -2 & -1 & -21 \\
+6 & 2 & -1 & 16
+\end{array}
+\right)
+$$
+
+Man nennt diese **Matrix** oder **Systemmatrix** oder auch **Tableau**.
+
+Jeder der Zeilen der Matrix entspricht eine der Zeilen des LGS, jeder Spalte (vor dem senkrechten Strich) eine Unbekannte des LGS und der rechten Seite die rechte Seite des LGS.
+
+## Gauß-Algorithmus
+
+Betrachtet man nun ein allgemeines lineares Gleichungssystem mit $m$ Gleichungen und $n$ Unbekannten:
+\begin{align*}
+a_{11} x_{1} + a_{12} x_{2} + a_{13} x_{3} + \ldots + a_{1n} x_{n}  & =   b_{1} \\
+a_{21} x_{1} + a_{22} x_{2} + a_{23} x_{3} + \ldots + a_{2n} x_{n}  & =   b_{2} \\
+a_{31} x_{1} + a_{32} x_{2} + a_{33} x_{3} + \ldots + a_{3n} x_{n}  & =   b_{3} \\
+\vdots \qquad &  \\
+a_{m1} x_{1} + a_{m2} x_{2} + a_{m3} x_{3} + \ldots + a_{mn} x_{n}  & =   b_{m}
+\end{align*}
+
+Dieses sieht in Matrix-Schreibweise so aus:
+$$
+\left(
+\begin{array}{ccccc|c}
+a_{11} & a_{12} & a_{13} & \cdots & a_{1n} & b_1 \\
+a_{21} & a_{22} & a_{23} & \cdots & a_{2n} & b_2 \\
+a_{31} & a_{32} & a_{33} & \cdots & a_{3n} & b_3 \\
+\vdots & \vdots & \vdots  & \ddots & \vdots & \vdots \\
+a_{m1} & a_{m2} & a_{m3} & \cdots & a_{mn} & b_m
+\end{array}
+\right)
+$$
+
+## Gauß-Algorithmus - Notation und Begriffe
+
+In der Matrix-Schreibweise
+$$
+\left(
+\begin{array}{ccccc|c}
+a_{11} & a_{12} & a_{13} & \cdots & a_{1n} & b_1 \\
+a_{21} & a_{22} & a_{23} & \cdots & a_{2n} & b_2 \\
+a_{31} & a_{32} & a_{33} & \cdots & a_{3n} & b_3 \\
+\vdots & \vdots & \vdots  & \ddots & \vdots & \vdots \\
+a_{m1} & a_{m2} & a_{m3} & \cdots & a_{mn} & b_m
+\end{array}
+\right)
+$$
+sind die $a_{ij}$ die **Koeffizienten** des linearen Gleichungssystems (und bilden ohne die rechte Seite die sogenannte **Koeffizienten-Matrix**), die $b_i$ bilden die **rechte Seite**. Von Indizes $i$ und $j$ heißen der erste **Zeilenindex** (hier $i$) und der zweite **Spaltenindex** (hier $j$). 
+
+## Gauß-Algorithmus - Ziel und Verfahren
+
+### Gauß-Verfahren
+Die im **Gauß-Verfahren** (oder auch **Gauß-Algorithmus** erlaubten Schritte sind
+
+- Addieren oder Subtrahieren eines beliebigen (von 0 verschiedenen) Vielfachen einer Zeile zu/von einer anderen Zeile
+- Vertauschen zweier Zeilen
+- Multiplikation einer Zeile mit einer beliebigen (von 0 verschiedenen) Zahl.
+
+
+### Ziel des Gauß-Verfahrens
+Sofern man es schafft, ein Gleichungssystem in folgende Form zu überführen
+$$
+\left(
+\begin{array}{ccccc|c}
+1 & 0 & 0 & \cdots & 0 & b_1 \\
+0 & 1 & 0 & \cdots & 0 & b_2 \\
+0 & 0 & 1 & \cdots & 0 & b_3 \\
+\vdots & \vdots & \vdots  & \ddots & \vdots & \vdots \\
+0 & 0 & 0 & \cdots & 1 & b_n
+\end{array}
+\right)
+$$
+
+zu überführen, so hat man das Gleichungssystem gelöst. (Warum?)
+
+Leider ist das nicht immer bzw. so gut wie nie möglich!
+
+## Gauß-Verfahren - Beispiel unendlich vieler Lösungen
+
+Das lineare Gleichungssystem
+$$
+\left(
+\begin{array}{ccc|c}
+0 & 1 & 2 & 9 \\
+-2 & 2 & 1 & 3 \\
+2 & -1 & 1 & 6 
+\end{array}
+\right)
+$$
+
+führt mit dem Gauß-Algorithmus zu folgender Matrix
+$$
+\left(
+\begin{array}{ccc|c}
+2 & -1 & 1 & 6 \\
+0 & 1 & 2 & 9 \\
+0 & 0 & 0 & 0 
+\end{array}
+\right)
+$$
+
+Die letzte Zeile bedeutet dabei $0 x_1 + 0x_2 + 0x_3 = 0$ und ist *immer* korrekt und liefert damit keine weitere Bedingung. Daher kann man hier zum Beispiel die dritte Variable $x_3$ beliebig wählen.
+
+\tiny Gauß-Algorithmus: Tausche erste und dritte Zeile, addiere dann die erste zur zweiten, subtrahiere dann die zweite von der dritten.
+\normalsize
+
+## Gauß-Verfahren - Beispiel unendlich vieler Lösungen
+
+In der aus dem Gauß-Verfahren resultierenden Matrix
+
+$$
+\left(
+\begin{array}{ccc|c}
+2 & -1 & 1 & 6 \\
+0 & 1 & 2 & 9 \\
+0 & 0 & 0 & 0 
+\end{array}
+\right)
+$$
+
+kann man also auch die letzte Zeile weglassen (weil sie keine Information liefert) 
+
+$$
+\left(
+\begin{array}{ccc|c}
+2 & -1 & 1 & 6 \\
+0 & 1 & 2 & 9
+\end{array}
+\right)
+$$
+
+und dann zum Beispiel $x_3 = t \in \mathbb{R}$ beliebig setzen.
+
+Aus der zweiten Zeile ergibt sich dann
+$$
+x_2 + 2t = 9 \qquad \Leftrightarrow \qquad x_2 = 9 - 2t \qquad \mbox{mit beliebigem } t\in \mathbb{R}
+$$
+
+und entsprechend aus der ersten Zeile
+$$
+2x_1 - (9 - 2t)  + t = 6 \qquad \Leftrightarrow \qquad x_1 = \frac{15}{2} - \frac{3}{2}t \qquad \mbox{mit beliebigem } t\in \mathbb{R}
+$$
+
+## Gauß-Verfahren - Beispiel mit genau einer (eindeutigen) Lösung
+
+Das lineare Gleichungssystem
+$$
+\left(
+\begin{array}{ccc|c}
+1 & -1 & 2 & 9 \\
+2 & 1 & 0 & 3 \\
+1 & 2 & 1 & -3
+\end{array}
+\right)
+$$
+
+führt mit dem Gauß-Algorithmus zu folgender Matrix
+$$
+\left(
+\begin{array}{ccc|c}
+1 & -1 & 2 & 9 \\
+0 & 3 & -4 & -15 \\
+0 & 0 & 1 & 3
+\end{array}
+\right)
+$$
+
+Man könnte hier aufhören und *rückwärts* einsetzen. Man kann aber auch weiterrechnen.
+
+\tiny Gauß-Algorithmus: Zweite minus 2-mal erste und dritte minus erste, danach dritte minus zweite.
+\normalsize
+
+## Gauß-Verfahren - Beispiel mit genau einer (eindeutigen) Lösung
+Wenn man weiterrechnet, wird aus der Zwischenmatrix
+$$
+\left(
+\begin{array}{ccc|c}
+1 & -1 & 2 & 9 \\
+0 & 3 & -4 & -15 \\
+0 & 0 & 1 & 3
+\end{array}
+\right)
+$$
+
+mit Gauß-Schritten *von unten nach oben*
+$$
+\left(
+\begin{array}{ccc|c}
+1 & 0 & 0 & 2 \\
+0 & 1 & 0 & -1 \\
+0 & 0 & 1 & 3
+\end{array}
+\right)
+$$
+
+Also die (bereits bekannte) Lösung $x_1 = 2$, $x_2 = -1$ und $x_3 = 3$.
+
+\tiny Gauß-Algorithmus: Zweite plus viermal dritte Zeile und die zweite durch 3 teilen, erste minus zweimal die dritte Zeile, und danach noch die zweite zur ersten addieren.
+\normalsize
+
+## Gauß-Verfahren - Beispiel ohne Lösung
+
+Das lineare Gleichungssystem
+$$
+\left(
+\begin{array}{ccc|c}
+2 & -1 & 1 & 6 \\
+-2 & 2 & 1 & 3 \\
+0 & 1 & 2 & 8
+\end{array}
+\right)
+$$
+
+führt mit Gauß-Schritten auf
+$$
+\left(
+\begin{array}{ccc|c}
+2 & -1 & 1 & 6 \\
+0 & 1 & 2 & 9 \\
+0 & 0 & 0 & -1
+\end{array}
+\right)
+$$
+
+Hierbei steht in der dritten Zeile nun die (unerfüllbare) Gleichung
+$$
+0\cdot x_1 + 0 \cdot x_2 + 0 \cdot x_3 = -1
+$$
+Daher hat dieses Gleichungssystem **keine** Lösung, weil es gewissermaßen widersprüchliche Anforderungen an die Unbekannten stellt, und dieser Widerspruch wird in der letzten Zeile sichtbar.
+
+\tiny Gauß-Algorithmus: Da unten bereits eine Null steht: Erste Zeile zur zweiten addieren, danach zweite von der dritten subtrahieren.
+\normalsize
+
+## Gauß-Algorithmus - Anmerkungen
+
+- Das Durchführen des Gauß-Algorithmus per Hand ist (leider) sehr fehleranfällig.
+- Bei manuellen Berechnungen sollte man auf *günstige*, *leichte* Zahlenkombinationen achten.
+- Verschiedene Rechenwege führen zum Ziel, die Reihenfolge der Zeilenoperationen ist nicht eindeutig bestimmt.
+- Es sind **ausschließlich** Zeilenoperationen erlaubt; Spaltenoperationen gibt es im Gauß-Verfahren nicht!
+
+## Gauß-Algorithmus - Stufen- oder Treppenform
+
+Für den Fall, dass das Gauß-Verfahren beispielsweise folgende Lösungsmatrix liefert,
+$$
+\left(
+\begin{array}{cccccc|c}
+1 & 0 & 1 & 0 & 0 & 0 & 1 \\
+0 & 1 & 2 & 3 & 0 & 0 & 2 \\
+0 & 0 & 0 & 0 & 1 & 0 & 3 \\
+0 & 0 & 0 & 0 & 0 & 1 & 4
+\end{array}
+\right)
+$$
+
+spricht man von einer Stufen- oder Treppenform der Lösungsmatrix mit Stufen in den Spalten 1, 2, 5 und 6. Die Spalten 3 und 4 haben keine Stufen und daher sind die Variablen $x_3$ und $x_4$ frei wählbar.
+
+## Rechnen mit Matrizen und Vektoren - Matrizen, Spalten- und Zeilenvektoren
+
+## Rechnen mit Matrizen und Vektoren - Summen von Vektoren und Matrizen
+
+## Rechnen mit Matrizen und Vektoren - Skalarprodukt zweier Vektoren
+
+## Rechnen mit Matrizen und Vektoren - Produkt zweier Matrizen
+
+## Rechnen mit Matrizen und Vektoren - Beispiel Wählerwanderung
+
+## Rechnen mit Matrizen und Vektoren - Lineare Gleichungssysteme und Matrizenmultiplikation
+
+## Rechnen mit Matrizen und Vektoren - Übergangsmatrizen und Matrizenmultiplikation
+
+
 
 # Lineare Optimierung
 
