@@ -1,0 +1,143 @@
+---
+title: "Simplex"
+author: "Prof. Dr. Stefan Böcker"
+date: "2025-11-28"
+output: pdf_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+```{r}
+
+## Beispiel:
+## max z = 3 x1 + 2 x2
+## s.t.  x1 + x2 <= 4
+##      2x1 + x2 <= 5
+##      x1, x2 >= 0
+
+# Koeffizientenmatrix der Nebenbedingungen (inkl. Schlupfvariablen)
+A <- matrix(c(1, 1, 1, 0,
+              2, 1, 0, 1),
+            nrow = 2, byrow = TRUE)
+
+# Rechte Seiten
+b <- c(4, 5)
+
+# Zielfunktion: 3 x1 + 2 x2  (Slack-Koeffizienten = 0)
+c_vec <- c(3, 2, 0, 0)
+
+# Hilfsfunktion: Simplex-Tableau ausgeben
+print_tableau <- function(A, b, c_vec, z0 = 0, basis_idx, iter = 0) {
+  m <- nrow(A)
+  n <- ncol(A)
+  cat("===== Simplex-Tableau, Iteration", iter, "=====\n")
+  tab <- cbind(A, b)
+  colnames(tab) <- c(paste0("x", 1:n), "RHS")
+  rownames(tab) <- paste0("B", 1:m)
+  print(round(tab, 3))
+  z_row <- c(-c_vec, z0)  # übliche Schul-Notation: Zielfunktion negiert
+  names(z_row) <- c(paste0("x", 1:n), "RHS")
+  cat("Zielfunktion (z-Zeile):\n")
+  print(round(z_row, 3))
+  cat("Basisvariablen:", paste(paste0("x", basis_idx), collapse = ", "), "\n\n")
+}
+
+
+simplex_step <- function(A, b, c_vec, basis_idx, z0 = 0, iter = 0) {
+  m <- nrow(A)
+  n <- ncol(A)
+
+  # Tableau ausgeben
+  print_tableau(A, b, c_vec, z0, basis_idx, iter)
+
+  # reduzierte Kosten (hier in Schul-Notation einfach -c)
+  red_costs <- -c_vec
+
+  # Optimalitätstest: keine negativen reduzierten Kosten in Nichtbasis
+  nonbasis_idx <- setdiff(1:n, basis_idx)
+  if (all(red_costs[nonbasis_idx] >= -1e-9)) {
+    cat("Optimalität erreicht.\n")
+    return(list(A = A, b = b, c = c_vec, basis = basis_idx, z0 = z0,
+                optimal = TRUE))
+  }
+
+  # Eintrittsvariable: Spalte mit minimalem reduzierten Kostenwert
+  entering <- nonbasis_idx[which.min(red_costs[nonbasis_idx])]
+
+  # Quotiententest
+  col_enter <- A[, entering]
+  valid <- col_enter > 1e-9
+  if (!any(valid)) {
+    stop("Problem unbeschränkt (keine gültige Pivotzeile).")
+  }
+  ratios <- b[valid] / col_enter[valid]
+  pivot_row <- which(valid)[which.min(ratios)]
+
+  cat("Eintrittsvariable: x", entering,
+      "  (Spalte ", entering, ")\n", sep = "")
+  cat("Austrittsvariable: x", basis_idx[pivot_row],
+      "  (Zeile ", pivot_row, ")\n\n", sep = "")
+
+  # Pivot-Operation
+  pivot <- A[pivot_row, entering]
+  A[pivot_row, ] <- A[pivot_row, ] / pivot
+  b[pivot_row]   <- b[pivot_row]   / pivot
+
+  for (i in seq_len(m)) {
+    if (i == pivot_row) next
+    factor <- A[i, entering]
+    A[i, ] <- A[i, ] - factor * A[pivot_row, ]
+    b[i]   <- b[i]   - factor * b[pivot_row]
+  }
+
+  # Zielfunktion anpassen (einfache Variante)
+  factor_z <- c_vec[entering]
+  c_vec <- c_vec - factor_z * A[pivot_row, ]
+  z0    <- z0 + factor_z * b[pivot_row]
+
+  # Basis aktualisieren
+  basis_idx[pivot_row] <- entering
+
+  list(A = A, b = b, c = c_vec, basis = basis_idx, z0 = z0,
+       optimal = FALSE)
+}
+
+
+# Startbasis: Schlupfvariablen x3, x4
+basis_idx <- c(3, 4)
+
+state <- list(A = A, b = b, c = c_vec,
+              basis = basis_idx, z0 = 0)
+
+iter <- 0
+repeat {
+  res <- simplex_step(state$A, state$b, state$c,
+                      state$basis, state$z0, iter = iter)
+  if (isTRUE(res$optimal)) {
+    state <- res
+    break
+  }
+  state <- res
+  iter <- iter + 1
+}
+
+# Optimale Lösung aus dem finalen Tableau ablesen
+m <- nrow(state$A); n <- ncol(state$A)
+x <- rep(0, n)
+for (i in 1:m) {
+  x[state$basis[i]] <- state$b[i]
+}
+cat("Optimale Variablebelegung:\n")
+print(round(x, 3))
+cat("Optimaler Zielfunktionswert z* =", round(state$z0, 3), "\n")
+
+
+```
+
+|     | x₁  | x₂  | s₁  | s₂  | RHS |
+|-----|-----|-----|-----|-----|-----|
+| s₁  | 1   | 1   | 1   | 0   | 4   |
+| s₂  | 2   | 1   | 0   | 1   | 5   |
+| z   | -3  | -2  | 0   | 0   | 0   |
