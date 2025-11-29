@@ -124,3 +124,18 @@ display([piProb1, piProb2, piProb3, piProb4])
 
 ```
 
+
+
+
+
+
+
+
+# Lineare Optimierung
+
+## Problemdarstellung und grafische Lösung
+
+## Simplex-Algorithmus
+
+## Allgemeines lineares Optimierungsproblem
+
