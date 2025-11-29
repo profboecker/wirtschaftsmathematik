@@ -43,45 +43,6 @@ library(fhswf)
 library(ggplot2)
 ```
 
-# Organisatorisches
-
-## Vorstellung und Kontaktdetails
-
-### Prof. Dr. Stefan Böcker
-
--   Professur für Wirtschaftsinformatik, Datenbanken und mobile
-    Technologien
--   aktuell Studiendekan und Prüfungsausschussvorsitzender des
-    Fachbereichs Technische Betriebswirtschaft
--   Vorlesung
--   **Email:**
-    [boecker.stefan\@fh-swf.de](mailto:boecker.stefan@fh-swf.de){.email}
-
-### Dipl.-Math. Silke Beckmann
-
--   Übungen zur Vorlesung Wirtschaftsmathematik
--   **Email:**
-    [beckmann.silke\@fh-swf.de](mailto:beckmann.silke@fh-swf.de){.email}
-
-## Formalia
-
-### Klausur
-
--   deckt den Stoff des Semesters ab
--   Dauer: 90 Minuten (Regelfall)
--   Erlaubte Hilfsmittel: **Nicht-**Programmierbarer Taschenrechner
-
-## Unterlagen / Voraussetzungen
-
-### Unterlagen und Informationen zum Modul Wirtschaftsmathematik
-
--   Es gibt einen Moodle-Kurs zum Modul [Wirtschaftsmathematik
-    WiSe25/26](https://elearning.fh-swf.de/course/view.php?id=26721)
--   **Wichtig:** Es gibt auch einen Kurs zu Terminen und Links mit
-    allgemeinen Informationen: [Informationen und Mitteilungen
-    Fachbereich TBW
-    (Präsenzstudium)](https://elearning.fh-swf.de/course/view.php?id=20812)
-
 # Einführung in die Finanzmathematik
 
 ## Leitgedanken der Finanzmathematik
