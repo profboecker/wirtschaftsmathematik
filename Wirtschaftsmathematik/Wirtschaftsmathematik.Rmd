@@ -7,6 +7,9 @@ output: fhswf::presentation
 knit: fhswf::render_presentation
 german: true # German Dummy Text
 lang: de-de   # Text Language: en-gb, en-us, de-de
+editor_options: 
+  markdown: 
+    wrap: 72
 ---
 
 ```{r setup, include=FALSE}
@@ -21,40 +24,44 @@ knitr::opts_chunk$set(echo=FALSE, message=FALSE, warning=FALSE, cache=FALSE,
 
 ### Prof. Dr. Stefan Böcker
 
--   Professur für Wirtschaftsinformatik, Datenbanken und mobile Technologien
--   aktuell Studiendekan und Prüfungsausschussvorsitzender des Fachbereichs Technische Betriebswirtschaft
+-   Professur für Wirtschaftsinformatik, Datenbanken und mobile
+    Technologien
+-   aktuell Studiendekan und Prüfungsausschussvorsitzender des
+    Fachbereichs Technische Betriebswirtschaft
 -   Vorlesung
--   **Email:** [boecker.stefan\@fh-swf.de](mailto:boecker.stefan@fh-swf.de){.email}
+-   **Email:**
+    [boecker.stefan\@fh-swf.de](mailto:boecker.stefan@fh-swf.de){.email}
 
 ### Dipl.-Math. Silke Beckmann
 
 -   Übungen zur Vorlesung Wirtschaftsmathematik
--   **Email:** [beckmann.silke\@fh-swf.de](mailto:beckmann.silke@fh-swf.de){.email}
+-   **Email:**
+    [beckmann.silke\@fh-swf.de](mailto:beckmann.silke@fh-swf.de){.email}
 
 ## Lernzentrum
 
-Das Lernzentrum bietet Unterstützung in 
+Das Lernzentrum bietet Unterstützung in
 
-- **Mathematik**
-- Physik
-- Elektrotechnik
+-   **Mathematik**
+-   Physik
+-   Elektrotechnik
 
 Details:
 
-- Raum: H.412
-- Öffnungszeiten: montags bis freitags von 09:00h bis 17:00h 
-- erreichbar auch online: [Lernzentrum Online](https://elearning.fh-swf.de/course/view.php?id=1570)
+-   Raum: H.412
+-   Öffnungszeiten: montags bis freitags von 09:00h bis 17:00h
+-   erreichbar auch online: [Lernzentrum
+    Online](https://elearning.fh-swf.de/course/view.php?id=1570)
 
 ## Lernzentrum Mitarbeiter
 
-### Jacqueline Grohs, M. Eng. ![Jacqueline Grohs, M. Eng.](./bilder/Jacqueline Grohs_8723.jpg)
+### Jacqueline Grohs, M. Eng. ![Jacqueline Grohs, M. Eng.](./bilder/Jacqueline%20Grohs_8723.jpg)
 
 ## Lernzentrum Mitarbeiter
 
 ### Fabian Zmarowski, M. Eng. ![Fabian Zmarowski, M. Eng.](./bilder/Fabian_Zmarowski.jpg)
 
-- Studentische Hilfskraft: Steven Gramsch
-
+-   Studentische Hilfskraft: Steven Gramsch
 
 ## Formalia
 
@@ -68,21 +75,30 @@ Details:
 
 ### Unterlagen und Informationen zum Modul Wirtschaftsmathematik
 
--   Es gibt einen Moodle-Kurs zum Modul [Wirtschaftsmathematik WiSe25/26](https://elearning.fh-swf.de/course/view.php?id=26721)
-- **Wichtig:** Es gibt auch einen Kurs zu Terminen und Links mit allgemeinen Informationen:
-[Informationen und Mitteilungen Fachbereich TBW (Präsenzstudium)](https://elearning.fh-swf.de/course/view.php?id=20812)
+-   Es gibt einen Moodle-Kurs zum Modul [Wirtschaftsmathematik
+    WiSe25/26](https://elearning.fh-swf.de/course/view.php?id=26721)
+-   **Wichtig:** Es gibt auch einen Kurs zu Terminen und Links mit
+    allgemeinen Informationen: [Informationen und Mitteilungen
+    Fachbereich TBW
+    (Präsenzstudium)](https://elearning.fh-swf.de/course/view.php?id=20812)
 
 # Einführung in die Finanzmathematik
 
 ## Leitgedanken der Finanzmathematik
 
-1.  Der Wert einer Zahlung ist **abhängig vom Zeitpunkt**, zu dem diese zu leisten ist.
+1.  Der Wert einer Zahlung ist **abhängig vom Zeitpunkt**, zu dem diese
+    zu leisten ist.
 2.  Es gilt stets das **Äquivalenzprinzip**.
-3.  Das Gerüst der klassischen Finanzmathematik wird aus **ganz wenigen Formeln** gebildet.
-4.  In der klassischen Finanzmathematik gibt es einfache, mittelschwere und relativ kompliziert zu lösende Probleme. Die größte Schwierigkeit ist in der Regel die **Modellierung**.
+3.  Das Gerüst der klassischen Finanzmathematik wird aus **ganz wenigen
+    Formeln** gebildet.
+4.  In der klassischen Finanzmathematik gibt es einfache, mittelschwere
+    und relativ kompliziert zu lösende Probleme. Die größte
+    Schwierigkeit ist in der Regel die **Modellierung**.
 5.  Ein **grafisches Schema** bringt fast immer Klarheit.
-6.  Das wichtigste Konzept ist das der **Rendite**, auch **Effektiv- oder Realzins** genannt.
-7.  Die klassische Finanzmathematik läßt sich klar umreißen. Das wichtigste Konzept ist das des **Zinssatzes**.
+6.  Das wichtigste Konzept ist das der **Rendite**, auch **Effektiv-
+    oder Realzins** genannt.
+7.  Die klassische Finanzmathematik läßt sich klar umreißen. Das
+    wichtigste Konzept ist das des **Zinssatzes**.
 
 ## Begriffe
 
@@ -100,11 +116,13 @@ Zinsen
 
 Zinsperiode
 
-:   er vereinbarten Verzinsung zugrunde liegender Zeitrahmen; meist ein Jahr, oftmals kürzer (Monat, Quartal, Halbjahr), selten länger
+:   er vereinbarten Verzinsung zugrunde liegender Zeitrahmen; meist ein
+    Jahr, oftmals kürzer (Monat, Quartal, Halbjahr), selten länger
 
 Zinssatz
 
-:   insbetrag in Geldeinheiten (GE), der für ein Kapital von 100 GE in einer Zinsperiode zu zahlen ist; auch **Zinsfuß** genannt.
+:   insbetrag in Geldeinheiten (GE), der für ein Kapital von 100 GE in
+    einer Zinsperiode zu zahlen ist; auch **Zinsfuß** genannt.
 
 Zeitwert
 
@@ -147,7 +165,8 @@ Zinsen
 
 Zinsformel
 
-:   Zinsen hängen proportional vom Kapital $K$, der Laufzeit $t$ und dem Zinssatz $i$ ab:
+:   Zinsen hängen proportional vom Kapital $K$, der Laufzeit $t$ und dem
+    Zinssatz $i$ ab:
 
 $$
 Z_{t} = K \cdot i \cdot t
@@ -155,7 +174,9 @@ $$
 
 Laufzeit
 
-:   In Deutschland wird meist das Jahr zu 360 Tagen und der Monat zu 30 Zinstagen gerechnet. Daher kann man meist $t = \frac{T}{360}$ setzen, wobei $T$ die Anzahl an Tagen ist.
+:   In Deutschland wird meist das Jahr zu 360 Tagen und der Monat zu 30
+    Zinstagen gerechnet. Daher kann man meist $t = \frac{T}{360}$
+    setzen, wobei $T$ die Anzahl an Tagen ist.
 
 $$
 Z_{T} = K \cdot i \cdot \frac{T}{360}
@@ -165,11 +186,14 @@ $$
 
 Frage
 
-:   Welche Zinsen fallen an, wenn ein Kapital von 3500 € vom 3. März bis zum 18. August eines Jahres bei einem Zinssatz von 3.25 % p.a. angelegt wird?
+:   Welche Zinsen fallen an, wenn ein Kapital von 3500 € vom 3. März bis
+    zum 18. August eines Jahres bei einem Zinssatz von 3.25 % p.a.
+    angelegt wird?
 
 Antwort
 
-:   Da $165=27+30+30+30+30+18$ Zinstage zugrunde zu legen sind, ergibt sich aus der Zinsformel
+:   Da $165=27+30+30+30+30+18$ Zinstage zugrunde zu legen sind, ergibt
+    sich aus der Zinsformel
 
 $$
 Z_{165} = 3500\mbox{€} \cdot \frac{3.25}{100} \frac{165}{360} = 52.135416667 \mbox{€} \approx 52.14 \mbox{€}
@@ -179,7 +203,8 @@ $$
 
 Frage
 
-:   Wie hoch ist ein Kredit, für den in einem halben Jahr bei 8 % Jahreszinsen 657.44 € Zinsen zu zahlen sind?
+:   Wie hoch ist ein Kredit, für den in einem halben Jahr bei 8 %
+    Jahreszinsen 657.44 € Zinsen zu zahlen sind?
 
 Antwort
 
@@ -193,7 +218,10 @@ $$
 
 Frage
 
-:   Ein Wertpapier über 5000 €, das mit einem Kupon (Nominalzins) von 6.25 % ausgestattet ist, wurde einige Zeit nach dem Emissionsdatum erworben. Es sind Stückzinsen in Höhe von 36.46 € zu zahlen. Wieviele Zinstage wurden dabei berechnet?
+:   Ein Wertpapier über 5000 €, das mit einem Kupon (Nominalzins) von
+    6.25 % ausgestattet ist, wurde einige Zeit nach dem Emissionsdatum
+    erworben. Es sind Stückzinsen in Höhe von 36.46 € zu zahlen.
+    Wieviele Zinstage wurden dabei berechnet?
 
 Antwort
 
@@ -207,17 +235,21 @@ $$
 
 Zeitwert
 
-:   Da sich das Kapital $K_{t}$ zum Zeitpunkt $t$ aus dem Anfangskapital $K_{0}$ zuzüglich der im Zeitraum $t$ angefallenen Zinsen $Z_{t}$ ergibt, also
+:   Da sich das Kapital $K_{t}$ zum Zeitpunkt $t$ aus dem Anfangskapital
+    $K_{0}$ zuzüglich der im Zeitraum $t$ angefallenen Zinsen $Z_{t}$
+    ergibt, also
 
 \$\$ K\_{t} = K\_{0} + Z\_{t}
 
 \$\$
 
-gilt, folgt aus der Zinsformel eine sehr wichtige Formel der Finanzmathematik, die **Endwertformel bei linearer Verzinsung**
+gilt, folgt aus der Zinsformel eine sehr wichtige Formel der
+Finanzmathematik, die **Endwertformel bei linearer Verzinsung**
 
 $$
 K_{t} = K_{0} + Z_{t} = K_{0} + K_{0} \cdot i \cdot t = K_{0} \left( 1 + i \cdot t \right) = K_{0} \left( 1 + \frac{p}{100} \cdot t \right)
-$$ Barwert : Man kann durch Umstellen der Endwertformel auch den **Barwert** $K_{0}$ einer zukünftigen Zahlung $K_{t}$ berechnen
+$$ Barwert : Man kann durch Umstellen der Endwertformel auch den
+**Barwert** $K_{0}$ einer zukünftigen Zahlung $K_{t}$ berechnen
 
 $$
 K_{0} = \frac{K_{t}}{1+i \cdot t}
@@ -227,7 +259,9 @@ $$
 
 Frage
 
-:   In einem halben Jahr ist eine Forderung von 8000 € fällig. Wie viel ist bei einer Sofortzahlung zu leisten, wenn mit einem kalkulatorischen Zins von i= 5 % gerechnet wird?
+:   In einem halben Jahr ist eine Forderung von 8000 € fällig. Wie viel
+    ist bei einer Sofortzahlung zu leisten, wenn mit einem
+    kalkulatorischen Zins von i= 5 % gerechnet wird?
 
 Antwort
 
@@ -241,13 +275,18 @@ $$
 
 ### Äquivalenzprinzip
 
-Das **Äquivalenzprinzip** nutzt man in der Finanzmathematik meist in der Form eines **Barwert-Vergleichs**, indem die Barwerte von Zahlungen, die zu verschiedenen Zeitpunkten geleistet werden, berechnet werden.
+Das **Äquivalenzprinzip** nutzt man in der Finanzmathematik meist in der
+Form eines **Barwert-Vergleichs**, indem die Barwerte von Zahlungen, die
+zu verschiedenen Zeitpunkten geleistet werden, berechnet werden.
 
 ## Beispiel: Äquivalenzprinzip und Barwert (1/2)
 
 Aufgabe
 
-:   Beim Verkauf einer Maschine werden dem Käufer zwei Angebote gemacht: Entweder 9000 € in 30 Tagen oder 9085 € in 90 Tagen. Welches Angebot ist günstiger, wenn jährlich mit 6 % bzw. mit 3 % verzinst wird? Bei welchem Zinssatz ergibt sich Gleichheit?
+:   Beim Verkauf einer Maschine werden dem Käufer zwei Angebote gemacht:
+    Entweder 9000 € in 30 Tagen oder 9085 € in 90 Tagen. Welches Angebot
+    ist günstiger, wenn jährlich mit 6 % bzw. mit 3 % verzinst wird? Bei
+    welchem Zinssatz ergibt sich Gleichheit?
 
 Lösung (1/2)
 
@@ -273,7 +312,8 @@ Lösung (2/2)
 
 :   Gleichheit der Angebote
 
-Gleichwertigkeit beider Angebote bedeutet Gleichheit der Barwerte und führt so auf die Gleichung
+Gleichwertigkeit beider Angebote bedeutet Gleichheit der Barwerte und
+führt so auf die Gleichung
 
 $$
 \frac{9000}{1+i \cdot \frac{30}{360}} = \frac{9085}{1+i \cdot \frac{90}{360}} \Leftrightarrow 9000 \cdot \left( 1 + i \frac{1}{4} \right) = 9085 \left( 1 + i \frac{1}{12} \right)  
@@ -285,7 +325,8 @@ Daraus folgt $i = 0.0569 = 5.69 \%$
 
 ### Zinssatz- und Laufzeitberechnung
 
-Man kann aus der Endwertformel bei linearer Verzinsung sowohl den Zinssatz als auch die Laufzeit berechnen:
+Man kann aus der Endwertformel bei linearer Verzinsung sowohl den
+Zinssatz als auch die Laufzeit berechnen:
 
 $$
 i = \frac{1}{t} \left( \frac{K_{t}}{K_{0}} - 1\right) \qquad t = \frac{1}{i} \left( \frac{K_{t}}{K_{0}} - 1\right)
@@ -295,7 +336,8 @@ $$
 
 Frage
 
-:   In welcher Zeit wächst eine Spareinlage von 1200 € bei 2.8 % jährlicher Verzinsung auf 1225.20 € an?
+:   In welcher Zeit wächst eine Spareinlage von 1200 € bei 2.8 %
+    jährlicher Verzinsung auf 1225.20 € an?
 
 Antwort
 
@@ -309,13 +351,19 @@ $$
 
 Frage
 
-:   Welcher Endbetrag ergibt sich am Ende eines Jahres, wenn monatlich am *Anfang* eines Monats *(vorschüssig)* ein stets gleichbleibender Betrag $r$ bei einem Zinssatz von $i$ angelegt wird?
+:   Welcher Endbetrag ergibt sich am Ende eines Jahres, wenn monatlich
+    am *Anfang* eines Monats *(vorschüssig)* ein stets gleichbleibender
+    Betrag $r$ bei einem Zinssatz von $i$ angelegt wird?
 
 Antwort
 
-:   Die erste Zahlung wird 12 Monate lang verzinst, wächst also mit dem Faktor $1+i\frac{12}{12}$, die zweite nur 11 Monate, wächst also mit dem Faktor $1+i\frac{11}{12}$ usw. Alle Zahlungen gemeinsam ergeben damit die Gesamtsumme[^1]
+:   Die erste Zahlung wird 12 Monate lang verzinst, wächst also mit dem
+    Faktor $1+i\frac{12}{12}$, die zweite nur 11 Monate, wächst also mit
+    dem Faktor $1+i\frac{11}{12}$ usw. Alle Zahlungen gemeinsam ergeben
+    damit die Gesamtsumme[^1]
 
-[^1]: Darin kommt die Gaußsche Summenformel vor, vielleicht erinnern Sie sich?
+[^1]: Darin kommt die Gaußsche Summenformel vor, vielleicht erinnern Sie
+    sich?
 
 \begin{align*}
 R & = r \left( 1 + i \frac{12}{12} + 1 + i\frac{11}{12} + 1 + i \frac{10}{12} +\cdots + 1 + i \frac{1}{12} \right) \\
@@ -323,18 +371,23 @@ R & = r \left( 1 + i \frac{12}{12} + 1 + i\frac{11}{12} + 1 + i \frac{10}{12} +\
 & = r \left( 12 + \frac{i}{12}  \frac{13 \cdot 12}{2}\right) = r \left( 12 + 6.5 i \right)
 \end{align*}
 
-
 ## Mehrfache konstante Zahlungen - nachschüssig
 
 Frage
 
-:   Welcher Endbetrag ergibt sich am Ende eines Jahres, wenn monatlich am *Ende* eines Monats *(nachschüssig)* ein stets gleichbleibender Betrag $r$ bei einem Zinssatz von $i$ angelegt wird?
+:   Welcher Endbetrag ergibt sich am Ende eines Jahres, wenn monatlich
+    am *Ende* eines Monats *(nachschüssig)* ein stets gleichbleibender
+    Betrag $r$ bei einem Zinssatz von $i$ angelegt wird?
 
 Antwort
 
-:   Die erste Zahlung wird 11 Monate lang verzinst, wächst also mit dem Faktor $1+i\frac{11}{12}$, die zweite nur 10 Monate, wächst also mit dem Faktor $1+i\frac{10}{12}$ usw. Alle Zahlungen gemeinsam ergeben damit die Gesamtsumme[^2]
+:   Die erste Zahlung wird 11 Monate lang verzinst, wächst also mit dem
+    Faktor $1+i\frac{11}{12}$, die zweite nur 10 Monate, wächst also mit
+    dem Faktor $1+i\frac{10}{12}$ usw. Alle Zahlungen gemeinsam ergeben
+    damit die Gesamtsumme[^2]
 
-[^2]: Darin kommt wieder die Gaußsche Summenformel, diesmal nur mit Indexverschiebung, vor!
+[^2]: Darin kommt wieder die Gaußsche Summenformel, diesmal nur mit
+    Indexverschiebung, vor!
 
 \begin{align*}
 R & = r \left( 1 + i \frac{11}{12} + 1 + i\frac{10}{12} + 1 + i \frac{9}{12} +\cdots + 1 + i \frac{0}{12} \right) \\
@@ -344,34 +397,45 @@ R & = r \left( 1 + i \frac{11}{12} + 1 + i\frac{10}{12} + 1 + i \frac{9}{12} +\c
 
 ## Mehrfache konstante Zahlungen - beliebige Zahlungsfrequenz - Jahresersatzrate
 
-Wird allgemein ein Jahr in $m$ kürzere Perioden der Länge $\frac{1}{m}$ aufgeteilt und zu jedem Zeitpunkt $\frac{k}{m}$ mit $k=0, 1, \ldots, m-1$, also vorschüssig eine Zahlung $r$ geleistet, so ergibt sich am Ende des Jahres ein Betrag von
-$$
+Wird allgemein ein Jahr in $m$ kürzere Perioden der Länge $\frac{1}{m}$
+aufgeteilt und zu jedem Zeitpunkt $\frac{k}{m}$ mit
+$k=0, 1, \ldots, m-1$, also vorschüssig eine Zahlung $r$ geleistet, so
+ergibt sich am Ende des Jahres ein Betrag von $$
 R^{\text{vor}} = r \left( \sum_{k=0}^{m-1} 1 + i \cdot \frac{k+1}{m} \right) = r \left( \sum_{k=1}^{m} 1 + i \cdot \frac{k}{m} \right) = r \left( m + \frac{m+1}{2} \underset{=i}{\underbrace{\frac{p}{100}}} \right)
 $$
 
-Werden die Zahlungen zu den Zeitpunkten $\frac{k}{m}$ mit $k=1, 2, \ldots, m$, also nachschüssig geleistet, so gilt
-$$
+Werden die Zahlungen zu den Zeitpunkten $\frac{k}{m}$ mit
+$k=1, 2, \ldots, m$, also nachschüssig geleistet, so gilt $$
 R^{\text{nach}} = r \left( \sum_{k=0}^{m-1} 1 + i \cdot \frac{k}{m} \right) = r \left( m + \frac{m-1}{2} \underset{=i}{\underbrace{\frac{p}{100}}} \right)
 $$
 
-Die Beträge $R^{^\text{vor}}$ und $R^{^\text{nach}}$ heißen \textbf{vorschüssige} bzw. \textbf{nachschüssige Jahresersatzrate}. Sie geben den Wert einer jährlichen Zahlung an, die den m vor- bzw. nachschüssigen $\frac{1}{m}$-periodischen Zahlungen r äquivalent ist.
+Die Beträge $R^{^\text{vor}}$ und $R^{^\text{nach}}$ heißen
+\textbf{vorschüssige} bzw. \textbf{nachschüssige Jahresersatzrate}. Sie
+geben den Wert einer jährlichen Zahlung an, die den m vor- bzw.
+nachschüssigen $\frac{1}{m}$-periodischen Zahlungen r äquivalent ist.
 
 ## Jahresersatzrate - Beispiel
 
 Frage
 
-: Ein Student schließt einen Sparplan über die Laufzeit von einem Jahr mit folgenden Konditionen ab: Einzahlungen von 75 € jeweils zu Monatsbeginn (Monatsende), Verzinsung mit 4 \% p.a., Bonus am Jahresende in Höhe von 1 \% aller Einzahlungen. Über welche Summe kann der Student am Ende des Jahres verfügen? 
+:   Ein Student schließt einen Sparplan über die Laufzeit von einem Jahr
+    mit folgenden Konditionen ab: Einzahlungen von 75 € jeweils zu
+    Monatsbeginn (Monatsende), Verzinsung mit 4 % p.a., Bonus am
+    Jahresende in Höhe von 1 % aller Einzahlungen. Über welche Summe
+    kann der Student am Ende des Jahres verfügen?
 
 Antwort
 
-: In der Formel für die Jahresersatzrate ist hier $m=12$ und damit für den Endwert $E$ der Zahlungen ohne Bonus
+:   In der Formel für die Jahresersatzrate ist hier $m=12$ und damit für
+    den Endwert $E$ der Zahlungen ohne Bonus
 
 \begin{align*}
 E^{\text{vor}} &  = 75 \cdot \left( 12+6.5 \cdot 0.04 \right) = 919.50 \text{ bei vorschüssiger Zahlung am Monatsanfang} \\
 E^{\text{nach}} &  = 75 \cdot \left( 12+5.5 \cdot 0.04 \right) = 916.50 \text{ bei nachschüssiger Zahlung am Monatsende}
 \end{align*}
 
-Die Bonuszahlung beträgt $12 \cdot 75 \cdot 0.01 = 9.00$, woraus sich die Gesamtbeträge
+Die Bonuszahlung beträgt $12 \cdot 75 \cdot 0.01 = 9.00$, woraus sich
+die Gesamtbeträge
 
 \begin{align*}
 E^{\text{vor}}_{\text{gesamt}} & = 919.50 + 9.00 = 928.50 \text{ bei vorschüssiger Zahlung am Monatsanfang} \\
@@ -380,13 +444,18 @@ E^{\text{nach}}_{\text{gesamt}} & = 916.50 + 9.00 = 925.50 \text{ bei nachschüs
 
 ## Skonto(abzug)
 
-Bei sofortiger Bezahlung von Waren bzw. Dienstleistungen vor dem Fälligkeitstermin der Rechnung wird oft ein Nachlass (\textbf{Skonto}) gewährt. Bezeichnet $s$ die Größe des Skontos, $R$ den Rechnungsbetrag und $T$ die Differenztage der Zahlungsziele, so zahlt man also bei Sofortbezahlung nur den Betrag
+Bei sofortiger Bezahlung von Waren bzw. Dienstleistungen vor dem
+Fälligkeitstermin der Rechnung wird oft ein Nachlass (\textbf{Skonto})
+gewährt. Bezeichnet $s$ die Größe des Skontos, $R$ den Rechnungsbetrag
+und $T$ die Differenztage der Zahlungsziele, so zahlt man also bei
+Sofortbezahlung nur den Betrag
 
 $$
 \left(1-s\right) R
 $$
 
-Den zugehörigen \textbf{Effektivzinssatz} $i_{\text{eff}}$ kann man dann mit Hilfe der Barwertformel berechnen
+Den zugehörigen \textbf{Effektivzinssatz} $i_{\text{eff}}$ kann man dann
+mit Hilfe der Barwertformel berechnen
 
 $$
 \left(1-s\right) R = \frac{R}{1+i_{\text{eff}}\cdot\frac{T}{360}} \qquad \Leftrightarrow \qquad i = \frac{s}{1-s} \cdot \frac{360}{T}
@@ -394,32 +463,39 @@ $$
 
 ## Skonto(abzug) - Beispiel
 
-Auf einer Handwerkerrechnung über die Summe $R$ lauten die Zahlungsbedingungen:
-*Bei Zahlung innerhalb von 10 Tagen gewähren wir 2 \% Skonto. Zahlung innerhalb von 30 Tagen ohne Abzug.*
-	 
-Für den Effektivzins ergibt sich hier:
-$$
+Auf einer Handwerkerrechnung über die Summe $R$ lauten die
+Zahlungsbedingungen: *Bei Zahlung innerhalb von 10 Tagen gewähren wir 2
+% Skonto. Zahlung innerhalb von 30 Tagen ohne Abzug.*
+
+Für den Effektivzins ergibt sich hier: $$
 i_{\text{eff}} = \frac{0.02}{0.98} \cdot \frac{360}{20} = 0,3673469388
 $$
 
-Man sollte also von der Möglichkeit des Skontos Gebrauch machen, da dies einer Verzinsung des Kapitals mit 36.73 \% entspricht.
+Man sollte also von der Möglichkeit des Skontos Gebrauch machen, da dies
+einer Verzinsung des Kapitals mit 36.73 % entspricht.
 
 ## Ratenzahlungen
 
-Oft besteht die Möglichkeit, Zahlungen entweder direkt oder als Ratenzahlungen mit gewissen Aufschlägen zu leisten.
+Oft besteht die Möglichkeit, Zahlungen entweder direkt oder als
+Ratenzahlungen mit gewissen Aufschlägen zu leisten.
 
-Beispielsweise können Autoversicherungen entweder am Jahresanfang oder in zwei Raten mit jeweils 5 \% Aufschlag zum Jahresbeginn und nach einem halben Jahr gezahlt werden.
+Beispielsweise können Autoversicherungen entweder am Jahresanfang oder
+in zwei Raten mit jeweils 5 % Aufschlag zum Jahresbeginn und nach einem
+halben Jahr gezahlt werden.
 
-Für den Effektivzins gilt dann nach dem Äquivalenzprinzip:
-$$
+Für den Effektivzins gilt dann nach dem Äquivalenzprinzip: $$
 R =  \frac{1.05 \cdot R}{2} +  \frac{1.05 \cdot R}{2} \frac{1}{1+\frac{i}{2}}
 $$
 
-Nach Kürzen von $R$ und Auflösen nach dem Zinssatz $i$ ergibt sich ein Wert von $i=0.210526$, also 21.0526 \%. Da dieser Zinssatz relativ hoch ist, sollte man sich für die Bezahlung am Jahresanfang entscheiden.
+Nach Kürzen von $R$ und Auflösen nach dem Zinssatz $i$ ergibt sich ein
+Wert von $i=0.210526$, also 21.0526 %. Da dieser Zinssatz relativ hoch
+ist, sollte man sich für die Bezahlung am Jahresanfang entscheiden.
 
 ## Zinseszinsrechnung
 
-Wird ein Kapital über mehrere Zinsperioden (Jahre) hinweg angelegt und werden dabei jeweils am Jahresende fälligen Zinsen angesammelt und in den folgenden Jahren mitverzinst, entstehen **Zinseszinsen**.
+Wird ein Kapital über mehrere Zinsperioden (Jahre) hinweg angelegt und
+werden dabei jeweils am Jahresende fälligen Zinsen angesammelt und in
+den folgenden Jahren mitverzinst, entstehen **Zinseszinsen**.
 \begin{align*}
 K_{1} & = K_{0} \left( 1 + i \right) = K_{0} q \text{ mit } q= (1+i) \\
 K_{2} & = K_{1} \left( 1 + i \right) = K_{1} q = K_{0} q \cdot q = K_{0} q^2 \\
@@ -427,24 +503,29 @@ K_{3} & = K_{2} \left( 1 + i \right) = K_{2} q = K_{0} q^2 \cdot q= K_{0} q^3  \
 K_{n} & = K_{0} q^n
 \end{align*}
 
-Die letztere Formel nennt sich **Endwertformel bei geometrischer Verzinsung** oder **Leibnizsche Zinseszinsformel**.
+Die letztere Formel nennt sich **Endwertformel bei geometrischer
+Verzinsung** oder **Leibnizsche Zinseszinsformel**.
 
 ## Zinseszins - Beispiele
 
-Für einen Sparbrief über 4000 €, der über fünf Jahre hinweg unter Zinsansammlung konstant mit 6 \% verzinst wird erhält man am Ende des 5. Jahres
-$$
+Für einen Sparbrief über 4000 €, der über fünf Jahre hinweg unter
+Zinsansammlung konstant mit 6 % verzinst wird erhält man am Ende des 5.
+Jahres $$
 K_{5} = K_{0} \left(1 + 0.06 \right)^5 = 4000 \text{€} \cdot \left( 1.06 \right)^5 = 5352.60 \text{€}
-$$
-### Bemerkung
+$$ \### Bemerkung
 
-$K_{5}$ kann man hier auch als Endwert bezeichnen; $K_{0}$ nennt man (auch hier) Barwert (in diesem Falle der Barwert einer Zahlung in Höhe von $K_{5}$, die in fünf Jahren stattfindet). Die Formel für den Barwert ist dann:
-$$
+$K_{5}$ kann man hier auch als Endwert bezeichnen; $K_{0}$ nennt man
+(auch hier) Barwert (in diesem Falle der Barwert einer Zahlung in Höhe
+von $K_{5}$, die in fünf Jahren stattfindet). Die Formel für den Barwert
+ist dann: $$
 K_{0} = \frac{K_{n}}{q^{n}}
 $$
 
 ## Unterjährige Verzinsung mit Zinseszins
 
-Werden Zinsen auch unterjährig für Zinsperioden gutgeschrieben, die kleiner als ein Jahr sind, also beispielsweise nach $\frac{1}{m}$ Jahren, also $m$-mal im Jahr, so gilt analog zur Endwertformel
+Werden Zinsen auch unterjährig für Zinsperioden gutgeschrieben, die
+kleiner als ein Jahr sind, also beispielsweise nach $\frac{1}{m}$
+Jahren, also $m$-mal im Jahr, so gilt analog zur Endwertformel
 \begin{align*}
 K_{1} & = K_{0} \left( 1 + \frac{i}{m}\right) = K_{0} q \text{ mit } q= (1+\frac{i}{m}) \\
 K_{2} & = K_{1} \left( 1 + \frac{i}{m} \right) = K_{1} q = K_{0} q \cdot q = K_{0} q^2 \\
@@ -452,7 +533,11 @@ K_{3} & = K_{2} \left( 1 + i \right) = K_{2} q = K_{0} q^2 \cdot q= K_{0} q^3  \
 K_{n\cdot m} & = K_{0} q^{n \cdot m} = K_{0} \left( 1+ \frac{i}{m} \right)^{n \cdot m}
 \end{align*}
 
-Hier bezeichnet der Index $i$ am Kapital $K_{i}$ die Anzahl der Zinsperioden; da es $m$ Zinsperioden pro Jahr gibt, hat man nach $n$ Jahren $n \cdot m$ Zinsperioden verzinst. Dafür enthält der Aufzinsungsfaktor $q = \left( 1+ \frac{i}{m} \right)$ nur den $m$-ten Teil ($\frac{1}{m}$) der Zinsen p.a.
+Hier bezeichnet der Index $i$ am Kapital $K_{i}$ die Anzahl der
+Zinsperioden; da es $m$ Zinsperioden pro Jahr gibt, hat man nach $n$
+Jahren $n \cdot m$ Zinsperioden verzinst. Dafür enthält der
+Aufzinsungsfaktor $q = \left( 1+ \frac{i}{m} \right)$ nur den $m$-ten
+Teil ($\frac{1}{m}$) der Zinsen p.a.
 
 ## Unterjährige Verzinsung mit Zinseszins
 
@@ -464,40 +549,55 @@ $$
 K_{n \text{ Jahre}} = K_{n \cdot m} = K_{0} \left(  1+ \frac{i}{m}\right)^{n \cdot m}
 $$
 
-könnte man die Anzahl $m$ der Zinsperioden pro Jahr beliebig groß wählen; die einzelnen Zinsperioden werden dann immer kürzer ($\frac{1}{m}$ Jahre). Betrachtet man dann den Grenzwert unendlich vieler Zinsperioden
-$$
+könnte man die Anzahl $m$ der Zinsperioden pro Jahr beliebig groß
+wählen; die einzelnen Zinsperioden werden dann immer kürzer
+($\frac{1}{m}$ Jahre). Betrachtet man dann den Grenzwert unendlich
+vieler Zinsperioden $$
 K_{n \text{ Jahre}} = \lim_{m \to \infty} K_{0} \left(  1+ \frac{i}{m}\right)^{n \cdot m} = K_{0} \lim_{m \to \infty} \left(  1+ \frac{i}{m}\right)^{n \cdot m} = K_{0} e^{i \cdot n} 
 $$
 
-so ergibt sich die Formel für \textbf{exponentielle Verzinsung}, wobei $e$ die Basis des natürlichen Logarithmus $\ln$ ist.
+so ergibt sich die Formel für \textbf{exponentielle Verzinsung}, wobei
+$e$ die Basis des natürlichen Logarithmus $\ln$ ist.
 
 ## Effektiver Jahrszins
 
-Da der Endwert des Kapitals von der Anzahl der Zinsperioden (bei gleichem Zinssatz) abhängt, kann man sich fragen, was der äquivalente Zinssatz p.a. bei jährlicher Verzinsung wäre.
+Da der Endwert des Kapitals von der Anzahl der Zinsperioden (bei
+gleichem Zinssatz) abhängt, kann man sich fragen, was der äquivalente
+Zinssatz p.a. bei jährlicher Verzinsung wäre.
 
-Dazu vergleicht man den Endwert bei jährlicher Verzinsung mit einem Zinssatz $i_{\text{eff}}$ mit dem Endwert bei m-periodischer Verzinsung mit dem Zinssatz $i$:
-\begin{align*}
+Dazu vergleicht man den Endwert bei jährlicher Verzinsung mit einem
+Zinssatz $i_{\text{eff}}$ mit dem Endwert bei m-periodischer Verzinsung
+mit dem Zinssatz $i$: \begin{align*}
 K_{0} \left( 1+i_{\text{eff}} \right)^{n}  & = K_{0} \left( 1+\frac{i}{m} \right)^{n \cdot m} \\
 \Leftrightarrow i_{\text{eff}} & = \left( \left( 1+\frac{i}{m}  \right)^{m} -1 \right) 
 \end{align*}
 
 ### Bemerkung
 
-Der **effektive Jahreszins** (auch **Rendite** genannt) $i_{\text{eff}}$ ergibt sich als Zinssatz, mit dem das Anfangskapital $K_{0}$ nachschüssig am Jahresende verzinst werden müsste, um denselben Endbetrag zu erzielen wie bei einer unterjährig m-mal mit Zinseszins verzinsten Anlageform.
+Der **effektive Jahreszins** (auch **Rendite** genannt) $i_{\text{eff}}$
+ergibt sich als Zinssatz, mit dem das Anfangskapital $K_{0}$
+nachschüssig am Jahresende verzinst werden müsste, um denselben
+Endbetrag zu erzielen wie bei einer unterjährig m-mal mit Zinseszins
+verzinsten Anlageform.
 
 ## Gemischte Verzinsung
 
 ### Bemerkung
 
-Nur selten beginnt eine Anlage genau am Anfang einer Zinsperiode (z.B. bei jährlicher Verzinsung am Jahresanfang). Ebenso selten endet eine Anlage genau am Ende eines Zinsperiode (z.B. am Ende eines Jahres bei jährlicher Verzinsung),
+Nur selten beginnt eine Anlage genau am Anfang einer Zinsperiode (z.B.
+bei jährlicher Verzinsung am Jahresanfang). Ebenso selten endet eine
+Anlage genau am Ende eines Zinsperiode (z.B. am Ende eines Jahres bei
+jährlicher Verzinsung),
 
 In der Regel verwendet mal also eine \textbf{gemischte Verzinsung}.
 
 ### Beispiel
-Welchen Endwert hat eine Anlage von 10000 € vom 15. August 2015 zu einem Zinssatz von 12 \% am 16. März 2019?
 
-Die erste Zinsperiode ist kein ganzes Jahr, sondern nur 135 Tage. Danach kommen 3 volle Jahre, danach nochmal 76 Tage, also:
-$$
+Welchen Endwert hat eine Anlage von 10000 € vom 15. August 2015 zu einem
+Zinssatz von 12 % am 16. März 2019?
+
+Die erste Zinsperiode ist kein ganzes Jahr, sondern nur 135 Tage. Danach
+kommen 3 volle Jahre, danach nochmal 76 Tage, also: $$
 K_{\text{16. März 2019}} = \left( 1+0.12\cdot\frac{135}{360}  \right) \cdot \left( 1+0.12 \right)^{3} \cdot \left( 1+0.12\frac{76}{360} \right) \approx 15053.43
 $$
 
@@ -505,23 +605,26 @@ $$
 
 ### Bemerkung
 
-Nur selten sind die Zinssätze, zu denen Geld angelegt oder geliehen werden kann, unabhängig vom Anlagezeitraum. 
+Nur selten sind die Zinssätze, zu denen Geld angelegt oder geliehen
+werden kann, unabhängig vom Anlagezeitraum.
 
-Eine **normale Zinskurve** zeigt vielmehr mit der Laufzeit der Anlage steigende Zinssätze.
-Zudem kann das Kapital im Laufe seines Anlagezeitraums unterschiedliche Zinssätze erfahren.
+Eine **normale Zinskurve** zeigt vielmehr mit der Laufzeit der Anlage
+steigende Zinssätze. Zudem kann das Kapital im Laufe seines
+Anlagezeitraums unterschiedliche Zinssätze erfahren.
 
 ### Beispiel
 
-Ein Anfangskapital von 10000 € wird zunächst 2 Jahre lang mit 6 \% , danach 5 Jahre lang mit 7 \% und anschließend 3 Jahre lang mit 4 \% verzinst. 
+Ein Anfangskapital von 10000 € wird zunächst 2 Jahre lang mit 6 % ,
+danach 5 Jahre lang mit 7 % und anschließend 3 Jahre lang mit 4 %
+verzinst.
 
 \textbf{Auf welchen Endwert ist das Kapital angewachsen und welchem Effektivzins entspricht die Anlage?}
- 
+
 $$
 K = K_{0} \left( 1+0.06 \right)^{2} \cdot \left( 1+0.07 \right)^{5} \cdot \left( 1+0.04 \right)^{3} 
 $$
 
-Für den Effektivzins gilt:
-$$
+Für den Effektivzins gilt: $$
 \left(1+i_{\text{eff}}\right)^{10} = \left( 1+0.06 \right)^{2} \cdot \left( 1+0.07 \right)^{5} \cdot \left( 1+0.04 \right)^{3}
 $$
 
@@ -529,57 +632,59 @@ $$
 
 ### Beispiel
 
-In welchem Zeitraum verdreitfacht sich ein Kapital bei einem Zinssatz (mit Zinseszins) von 5 \% p.a.?
+In welchem Zeitraum verdreitfacht sich ein Kapital bei einem Zinssatz
+(mit Zinseszins) von 5 % p.a.?
 
-Gesucht ist die Anzahl an Jahren $n$ in der Zinseszinsformel:
-$$
+Gesucht ist die Anzahl an Jahren $n$ in der Zinseszinsformel: $$
 K_{n} = 3 \cdot K_{0} = K_{0} \cdot \left( 1+0.05 \right)^{n}
 $$
 
-Diese Gleichung hat die Lösung
-$$
+Diese Gleichung hat die Lösung $$
 n = \frac{\log 3}{\log 1.05} = 22,517085304
 $$
 
-Also verdreifacht sich das Kapital bei einem Zinssatz von 5\% in etwa 22,5 Jahren.
+Also verdreifacht sich das Kapital bei einem Zinssatz von 5% in etwa
+22,5 Jahren.
 
 ## Zinseszinsformel
 
 ### Bemerkung
 
-Falls man in der Zinseszinsformel mit den Aufzinsungsfaktoren rechnet, wird vieles einfacher:
-\begin{align*}
+Falls man in der Zinseszinsformel mit den Aufzinsungsfaktoren rechnet,
+wird vieles einfacher: \begin{align*}
 K_{1} & = K_{0} \cdot (1+i) = K_{0} \cdot q \\
 K_{n} & = K_{0} \cdot (1+i)^{n} = K_{0} \cdot q^{n}
 \end{align*}
 
-Das gilt auch, wenn die Zinssätze verschieden sind:
-\begin{align*}
+Das gilt auch, wenn die Zinssätze verschieden sind: \begin{align*}
 K_{1} & = K_{0} \cdot (1+i_{1}) = K_{0} \cdot q_{1} \\
 K_{n} & = K_{0} \cdot (1+i_{1}) \cdot (1+i_{2}) \cdot \ldots \cdot (1+i_{n}) = K_{0} \cdot q_{1} \cdot q_{2} \cdot q_{3} \cdot \ldots \cdot q_{n}
 \end{align*}
 
-Damit gilt für den Effektivzins:
-\begin{align*}
+Damit gilt für den Effektivzins: \begin{align*}
 K_{n} = K_{0} \underset{=: q_{\text{eff}}}{\underbrace{(1 + i_{\text{eff}})}}^{n} & = K_{0} q_{1} q_{2} \cdots q_{n} \\
 q_{\text{eff}}^{n} & = q_{1} q_{2} \cdots q_{n} \\
 q_{\text{eff}} & = \sqrt[n]{q_{1} q_{2} \cdots q_{n}}
 \end{align*}
 
-Der Effektivzins ist also über das \textbf{geometrische Mittel} der Aufzinsungsfaktoren zu berechnen.
+Der Effektivzins ist also über das \textbf{geometrische Mittel} der
+Aufzinsungsfaktoren zu berechnen.
 
 ## Rentenrechnung
 
 ### Definition
 
-Eine **Rente** bezeichnet eine regelmäßige, in gleichen Abständen fällige Zahlung.
+Eine **Rente** bezeichnet eine regelmäßige, in gleichen Abständen
+fällige Zahlung.
 
 Die einzelnen Zahlungen nennt man **Rentenraten**.
 
 Wie bei den Zinsen sind
 
-- bei einer **vorschüssigen Rente** die Zahlungen zu Beginn einer Periode und
-- bei einer **nachschüssigen Rente** die Zahlungen am Ende einer Periode 
+-   bei einer **vorschüssigen Rente** die Zahlungen zu Beginn einer
+    Periode und
+-   bei einer **nachschüssigen Rente** die Zahlungen am Ende einer
+    Periode
 
 fällig.
 
@@ -587,7 +692,8 @@ fällig.
 
 Frage
 
-: Welchen Wert hat eine Rente mit der nachschüssigen (N) Rentenrate $R$, die über $n$ Jahre gezahlt wird, am Ende der Laufzeit?
+:   Welchen Wert hat eine Rente mit der nachschüssigen (N) Rentenrate
+    $R$, die über $n$ Jahre gezahlt wird, am Ende der Laufzeit?
 
 \begin{tabular}{|c|c|c|c|}
 \hline Jahr & nachschüssige Rate & verbleibender Zeitraum & Endwert der Rate \\ 
@@ -601,16 +707,16 @@ Frage
 \hline 
 \end{tabular}
 
-Damit ist:
-$$
+Damit ist: $$
 R_{n}^{N} = R + Rq + Rq^{2} + R q^{3} + \ldots + Rq^{n-1} = \sum\limits_{i=1}^{n} Rq^{i-1} = R \sum\limits_{i=1}^{n} q^{i-1} = R \frac{q^{n}-1}{q-1}
-$$ 
+$$
 
 ## Barwert einer nachschüssigen Rente
 
 Frage
 
-: Welchen Wert hat eine Rente mit der nachschüssigen (N) Rentenrate $R$, die über $n$ Jahre gezahlt wird, heute/aus heutiger Sicht?
+:   Welchen Wert hat eine Rente mit der nachschüssigen (N) Rentenrate
+    $R$, die über $n$ Jahre gezahlt wird, heute/aus heutiger Sicht?
 
 \begin{tabular}{|c|c|c|c|}
 \hline Jahr & nachschüssige Rate & verbleibender Zeitraum & Barwert der Rate \\ 
@@ -622,8 +728,7 @@ Frage
 \hline 
 \end{tabular}
 
-Damit ist
-$$
+Damit ist $$
 B_{n}^{N} = \frac{R}{q} + \frac{R}{q^{2}} + \frac{R}{q^{3}} + \ldots + \frac{R}{q^{n}} = \frac{R}{q^{n}} \left( q^{n-1} + q^{n-2} + \ldots + q + 1 \right) = R \cdot \frac{1}{q^{n}} \cdot \frac{q^n-1}{q-1}
 $$
 
@@ -631,7 +736,8 @@ $$
 
 Frage
 
-: Welchen Wert hat eine Rente mit der vorschüssigen (V) Rentenrate $R$, die über $n$ Jahre gezahlt wird, heute/aus heutiger Sicht?
+:   Welchen Wert hat eine Rente mit der vorschüssigen (V) Rentenrate
+    $R$, die über $n$ Jahre gezahlt wird, heute/aus heutiger Sicht?
 
 \begin{tabular}{|c|c|c|c|}
 \hline Jahr & vorschüssige Rate & verbleibender Zeitraum & Endwert der Rate \\ 
@@ -645,8 +751,7 @@ Frage
 \hline 
 \end{tabular}
 
-Damit ist
-$$
+Damit ist $$
 R_{n}^{V} = Rq + Rq^{2} + Rq^{3} + R q^{4} + \ldots + Rq^{n} = \sum\limits_{i=1}^{n} Rq^{i} = Rq \sum\limits_{i=1}^{n} q^{i-1} = Rq \frac{q^{n}-1}{q-1}
 $$
 
@@ -654,7 +759,8 @@ $$
 
 Frage
 
-: Welchen Wert hat eine Rente mit der vorschüssigen (V) Rentenrate $R$, die über $n$ Jahre gezahlt wird, heute/aus heutiger Sicht?
+:   Welchen Wert hat eine Rente mit der vorschüssigen (V) Rentenrate
+    $R$, die über $n$ Jahre gezahlt wird, heute/aus heutiger Sicht?
 
 \begin{tabular}{|c|c|c|c|}
 \hline Jahr & vorschüssige Rate & verbleibender Zeitraum & Barwert der Rate \\ 
@@ -666,8 +772,7 @@ Frage
 \hline 
 \end{tabular}
 
-Damit ist
-\begin{align*}
+Damit ist \begin{align*}
 B_{n}^{V} = R + \frac{R}{q} + \frac{R}{q^{2}} + \frac{R}{q^{3}} + \ldots + \frac{R}{q^{n-1}} & = \frac{R}{q^{n-1}} \left( q^{n-1} + q^{n-2} + \ldots + q + 1 \right) \\  & = R \cdot \frac{1}{q^{n}} \cdot q \frac{q^{n}-1}{q-1}
 \end{align*}
 
@@ -689,8 +794,8 @@ Eine Funktion $f$ ist eine Vorschrift
 
 $$
 f : D(f) \subset \mathbb{R} \rightarrow \mathbb{R}
-$$
-die gewissen reellen Zahlen (denen aus dem Definitionsbereich $D(f)$) jeweils eindeutig eine weitere reelle Zahl zuordnet:
+$$ die gewissen reellen Zahlen (denen aus dem Definitionsbereich $D(f)$)
+jeweils eindeutig eine weitere reelle Zahl zuordnet:
 
 $$
 f : x \mapsto f(x)
@@ -700,15 +805,15 @@ $$
 
 ### Nullstellen
 
-Die Funktion $y=f(x)$ besitzt an der Stelle $x_{0}$ eine **Nullstelle**, wenn
-$$
+Die Funktion $y=f(x)$ besitzt an der Stelle $x_{0}$ eine **Nullstelle**,
+wenn $$
 f(x_{0}) = 0
-$$
-ist.
+$$ ist.
 
 ## Eigenschaften von reellen Funktionen - Nullstellen
 
-Anschaulich sind die Nullstellen die Schnittpunkte des Funktionsgraphen mit der x-Achse:
+Anschaulich sind die Nullstellen die Schnittpunkte des Funktionsgraphen
+mit der x-Achse:
 
 ```{r echo=FALSE}
 rm(list = ls())
@@ -722,30 +827,26 @@ axis(1, pos = 0)
 axis(2, pos = 0)
 ```
 
-
-
-
 ## Eigenschaften von reellen Funktionen - Symmetrie
 
 ### Achsensymmetrie - Gerade Funktionen
-Eine Funktion f heißt **gerade** bzw. **achsensymmetrisch**, wenn  die Bedingung
-$$
-f(x) = f(-x) \qquad \forall x \in D(f)
-$$
-erfüllt ist.
 
+Eine Funktion f heißt **gerade** bzw. **achsensymmetrisch**, wenn die
+Bedingung $$
+f(x) = f(-x) \qquad \forall x \in D(f)
+$$ erfüllt ist.
 
 ### Punktsymmetrie - Ungerade Funktionen
-Eine Funktion f heißt **ungerade** bzw. **punktsymmetrisch**, wenn  die Bedingung
-$$
-f(x) = -f(-x) \qquad \forall x \in D(f)
-$$
-erfüllt ist.
 
+Eine Funktion f heißt **ungerade** bzw. **punktsymmetrisch**, wenn die
+Bedingung $$
+f(x) = -f(-x) \qquad \forall x \in D(f)
+$$ erfüllt ist.
 
 ## Achsensymmetrie - Beispiel
 
 BeispieL: $f(x)=x^4 - 3x^2 - 3$
+
 ```{r echo = FALSE}
 rm(list = ls())
 x <- seq(-2.5, 2.5, 0.1)
@@ -759,10 +860,10 @@ axis(2, pos = 0)
 
 ```
 
-
 ## Punktsymmetrie - Beispiel
 
 BeispieL: $f(x)=x^3 - 3x$
+
 ```{r echo = FALSE}
 rm(list = ls())
 x <- seq(-2.5, 2.5, 0.1)
@@ -779,55 +880,42 @@ axis(2, pos = 0)
 ## Eigenschaften von Funktionen - Monotonie
 
 ### Monotonie
-Eine Funktion $y=f(x)$ heißt 
-- **monoton wachsend**, wenn 
-$$
+
+Eine Funktion $y=f(x)$ heißt - **monoton wachsend**, wenn $$
 \forall  x_{1}, x_{2} \in D(f) \mbox{ mit } x_{1} < x_{2}  \qquad f(x_{1}) \leq f(x_{2})
-$$
-- **streng monoton wachsend**, wenn 
-$$
+$$ - **streng monoton wachsend**, wenn $$
 \forall  x_{1}, x_{2} \in D(f) \mbox{ mit } x_{1} < x_{2}  \qquad f(x_{1}) < f(x_{2})
-$$
-- **monoton fallend**, wenn 
-$$
+$$ - **monoton fallend**, wenn $$
 \forall  x_{1}, x_{2} \in D(f) \mbox{ mit } x_{1} < x_{2}  \qquad f(x_{1}) \geq f(x_{2})
-$$
-- **streng monoton fallend**, wenn 
-$$
+$$ - **streng monoton fallend**, wenn $$
 \forall  x_{1}, x_{2} \in D(f) \mbox{ mit } x_{1} < x_{2}  \qquad f(x_{1}) > f(x_{2})
 $$
 
 ## Monotonie - Alternative Definition
 
 ### Monotonie
-Eine Funktion $y=f(x)$ heißt 
-- **monoton wachsend**, wenn 
-$$
+
+Eine Funktion $y=f(x)$ heißt - **monoton wachsend**, wenn $$
 \frac{f(x_{2}) - f(x_{1})}{x_{2} - x_{1}} \geq 0
-$$
-- **streng monoton wachsend**, wenn 
-$$
+$$ - **streng monoton wachsend**, wenn $$
 \frac{f(x_{2}) - f(x_{1})}{x_{2} - x_{1}} > 0
-$$
-- **monoton fallend**, wenn 
-$$
+$$ - **monoton fallend**, wenn $$
 \frac{f(x_{2}) - f(x_{1})}{x_{2} - x_{1}} \leq 0
-$$
-- **streng monoton fallend**, wenn 
-$$
+$$ - **streng monoton fallend**, wenn $$
 \frac{f(x_{2}) - f(x_{1})}{x_{2} - x_{1}} < 0
-$$
-$\forall  x_{1}, x_{2} \in D(f)$.
+$$ $\forall  x_{1}, x_{2} \in D(f)$.
 
 ## Stetigkeit
 
-Die meisten in Anwendungen vorkommenden Funktionen verlaufen glatt und ohne irgendwelche Sprünge.
+Die meisten in Anwendungen vorkommenden Funktionen verlaufen glatt und
+ohne irgendwelche Sprünge.
 
 In der Mathematik nennt man solche Funktionen **stetig**.
 
 Manchmal treten allerdings Unstetigkeiten auf:
 
 ## Beispiel: Unstetigkeit einer Funktion
+
 ```{r echo=FALSE}
 rm(list = ls())
 x <- seq(-5, 5, 0.01)
@@ -842,15 +930,17 @@ axis(2, pos = 0)
 
 ## Verhalten einer Funktion im Unendlichen
 
-Oft interessiert man sich dafür, wie sich eine Funktion *im Unendlichen* verhält:
+Oft interessiert man sich dafür, wie sich eine Funktion *im Unendlichen*
+verhält:
 
-- Was passiert mit den Funktionswerten $f(x)$, 
-  - wenn $x$ immer größer wird (in Zeichen:  $x \to \infty$ ) 
-  - wenn $x$ immer kleiner wird (in Zeichen:  $x \to - \infty$ ) 
- 
+-   Was passiert mit den Funktionswerten $f(x)$,
+    -   wenn $x$ immer größer wird (in Zeichen: $x \to \infty$ )
+    -   wenn $x$ immer kleiner wird (in Zeichen: $x \to - \infty$ )
+
 ## Beispiel: Verhalten einer Funktion im Unendlichen
 
-Für $f(x)=x$ wächst $f(x)$ für $x \to \infty$ ebenfalls gegen Unendlich und für $x \to -\infty$ gegen "minus Unendlich"
+Für $f(x)=x$ wächst $f(x)$ für $x \to \infty$ ebenfalls gegen Unendlich
+und für $x \to -\infty$ gegen "minus Unendlich"
 
 ```{r echo=FALSE}
 rm(list = ls())
@@ -866,7 +956,8 @@ axis(2, pos = 0)
 
 ## 2. Beispiel: Verhalten einer Funktion im Unendlichen
 
-Für $f(x)=\frac{1}{x}$ wird $f(x)$ gegen 0 gehen und für $x \to 0$ gegen "plus Unendlich"
+Für $f(x)=\frac{1}{x}$ wird $f(x)$ gegen 0 gehen und für $x \to 0$ gegen
+"plus Unendlich"
 
 ```{r echo=FALSE}
 rm(list = ls())
@@ -882,143 +973,146 @@ axis(2, pos = 0)
 
 ## Wichtige Funktionen: Ganz-rationale Funktionen
 
-Ein Polynom vom Grad $n$ ist eine Funktion der Form
-$$
+Ein Polynom vom Grad $n$ ist eine Funktion der Form $$
 f(x) = a_{n} x^n + a_{n-1} x^{n-1} + \cdots + a_{1} x + a_{0}
-$$
-mit $a_{n} \neq 0$. Man nennt eine solche **Polynomfunktion** auch **ganz-rationale Funktion**.
+$$ mit $a_{n} \neq 0$. Man nennt eine solche **Polynomfunktion** auch
+**ganz-rationale Funktion**.
 
 ## Nullstellen ganz-rationaler Funktionen
 
-Für lineare Funktionen $f(x) = mx + b$ oder quadratische Polynomfunktionen $f(x) = ax^2 +bx +c$ ist es leicht, die Nullstellen zu berechnen:
+Für lineare Funktionen $f(x) = mx + b$ oder quadratische
+Polynomfunktionen $f(x) = ax^2 +bx +c$ ist es leicht, die Nullstellen zu
+berechnen:
 
-- für lineare Funktionen ist $x_0 = -\frac{b}{m}$ die einzige Nullstelle (falls $m \neq 0$ ist)
-- für die quadratische Polynomfunktion $f(x) = ax^2 +bx +c$ sind
-$$
-x_1 = \frac{-b + \sqrt{b^2 - 4ac}}{2a} \qquad \mbox{und} \qquad x_2 = \frac{-b - \sqrt{b^2 - 4ac}}{2a}  
-$$
-die beiden Lösungen.
+-   für lineare Funktionen ist $x_0 = -\frac{b}{m}$ die einzige
+    Nullstelle (falls $m \neq 0$ ist)
+-   für die quadratische Polynomfunktion $f(x) = ax^2 +bx +c$ sind $$
+    x_1 = \frac{-b + \sqrt{b^2 - 4ac}}{2a} \qquad \mbox{und} \qquad x_2 = \frac{-b - \sqrt{b^2 - 4ac}}{2a}  
+    $$ die beiden Lösungen.
 
-Dabei heißt $b^2 -4ac$ die *Diskriminante*. Sie bestimmt, wieviele reelle Lösungen die Gleichung hat:
+Dabei heißt $b^2 -4ac$ die *Diskriminante*. Sie bestimmt, wieviele
+reelle Lösungen die Gleichung hat:
 
-- wenn $b^2 -4ac > 0$: zwei verschiedene reelle Lösungen
-- wenn $b^2 -4ac = 0$: eine (doppelte) reelle Lösung
-- wenn $b^2 -4ac < 0$: keine reellen Lösungen
+-   wenn $b^2 -4ac > 0$: zwei verschiedene reelle Lösungen
+-   wenn $b^2 -4ac = 0$: eine (doppelte) reelle Lösung
+-   wenn $b^2 -4ac < 0$: keine reellen Lösungen
 
 ## Nullstellen ganz-rationaler Funktionen vom Grad $\geq 3$
 
-Für ganz-rationale Funktionen vom Grad $\geq 3$ gibt es keine oder nur sehr komplizierte Formeln, aber es hilft der:
+Für ganz-rationale Funktionen vom Grad $\geq 3$ gibt es keine oder nur
+sehr komplizierte Formeln, aber es hilft der:
 
 ### Satz über Nullstellen ganz-rationaler Funktionen
 
-Ist $x_0$ eine Nullstelle eines Polynoms $P(x)$ vom Grad $n$, das heißt eine Lösung der Polynomgleichung $P(x_0 ) = 0$, dann besitzt das Polynom $P(x)$ eine *Linearfaktorzerlegung* der Form
-$$
+Ist $x_0$ eine Nullstelle eines Polynoms $P(x)$ vom Grad $n$, das heißt
+eine Lösung der Polynomgleichung $P(x_0 ) = 0$, dann besitzt das Polynom
+$P(x)$ eine *Linearfaktorzerlegung* der Form $$
 P(x) = (x-x_0 ) Q(x)
-$$
-mit einem Polynom $Q(x)$ vom Grad $n-1$.
+$$ mit einem Polynom $Q(x)$ vom Grad $n-1$.
 
 ## Beispiel: Linearfaktorzerlegung / Nullstellenbestimmung
-Die Funktion
-$$
-f(x) = x^3 -9x^2 +27 x -27
-$$
-hat an der Stelle $x_0 = 3$ eine (und vielleicht nicht einzige) Nullstelle.
 
-Eine Polynomdivision ergibt:
-$$
+Die Funktion $$
+f(x) = x^3 -9x^2 +27 x -27
+$$ hat an der Stelle $x_0 = 3$ eine (und vielleicht nicht einzige)
+Nullstelle.
+
+Eine Polynomdivision ergibt: $$
 (x^3 -9x^2 +27 x -27) : (x-3) = x^2 -6x + 9
-$$
-Für das verbleibende Polynom $Q(x)=x^2 -6x + 9$ ergibt sich (z.B. mittels der p-q-Formel) die doppelte Nullstelle $x_1 = 3$ und daher
-$$
+$$ Für das verbleibende Polynom $Q(x)=x^2 -6x + 9$ ergibt sich (z.B.
+mittels der p-q-Formel) die doppelte Nullstelle $x_1 = 3$ und daher $$
 f(x) = x^3 -9x^2 +27 x -27 = (x-3)\cdot(x-3)\cdot(x-3) = (x-3)^3
-$$
-also faktisch eine dreifache Nullstelle bei $x=3$.
+$$ also faktisch eine dreifache Nullstelle bei $x=3$.
 
 ## Gebrochen-rationale Funktionen
 
 ### Gebrochen-rationale Funktionen
-Eine Funktion der Form
-$$
-y = f(x) = \frac{a_n x^n + a_{n-1} x^{n-1} + a_{n-2}x^{n-2} + \cdots + a_2 x^2 + a_1 x + a_0}{b_m x^m + b_{m-1} x^{m-1} + b_{m-2}x^{m-2} + \cdots + b_2 x^2 + b_1 x + b_0} = \frac{Z(x)}{N(x)}
-$$
-mit reellen *Koeffizienten* $a_{i}, b_i \in \mathbb{R}$ und $m\geq 1$ heißt **gebrochen-rationale Funktion**.
-Die Funktionen $Z(x)$ ist ein Polynom vom Grad $n$ und heißt **Zählerpolynom**, die Funktion $N(x)$ ist ein Polynom vom Grad $m$ und heißt **Nennerpolynom**.
 
-Der Definitionsbereich einer gebrochen-rationale Funktion enthält alle $x \in \mathbb{R}$ mit $N(x)\neq 0$:
-$$
+Eine Funktion der Form $$
+y = f(x) = \frac{a_n x^n + a_{n-1} x^{n-1} + a_{n-2}x^{n-2} + \cdots + a_2 x^2 + a_1 x + a_0}{b_m x^m + b_{m-1} x^{m-1} + b_{m-2}x^{m-2} + \cdots + b_2 x^2 + b_1 x + b_0} = \frac{Z(x)}{N(x)}
+$$ mit reellen *Koeffizienten* $a_{i}, b_i \in \mathbb{R}$ und $m\geq 1$
+heißt **gebrochen-rationale Funktion**. Die Funktionen $Z(x)$ ist ein
+Polynom vom Grad $n$ und heißt **Zählerpolynom**, die Funktion $N(x)$
+ist ein Polynom vom Grad $m$ und heißt **Nennerpolynom**.
+
+Der Definitionsbereich einer gebrochen-rationale Funktion enthält alle
+$x \in \mathbb{R}$ mit $N(x)\neq 0$: $$
 D(f) = \mathbb{R} \setminus \{ x \, | \, N(x) = 0 \}
 $$
 
 ## Gebrochen-rationale Funktionen: Unecht und echt gebrochen rationale Funktionen
 
-Die Funktion heißt **echt gebrochen**, wenn der Grad des Zählerpolynoms $n$ kleiner als der Grad $m$ des Nennerpolynoms ist. Andernfalls heißt die gebrochen-rationale Funktion **unecht-gebrochen**.
+Die Funktion heißt **echt gebrochen**, wenn der Grad des Zählerpolynoms
+$n$ kleiner als der Grad $m$ des Nennerpolynoms ist. Andernfalls heißt
+die gebrochen-rationale Funktion **unecht-gebrochen**.
 
-1. Beispiel: Die Funktion
-$$
-f(x) = \frac{5x^2 +4x +3}{x^3 -x + 1}
-$$
-ist eine *echt gebrochen-rationale* Funktion.
-2. Beispiel: Die Funktion
-$$
-f(x) = \frac{2x^3 +2x -3}{x^3 +5x^2}
-$$
-ist eine *unecht gebrochen-rationale* Funktion.
+1.  Beispiel: Die Funktion $$
+    f(x) = \frac{5x^2 +4x +3}{x^3 -x + 1}
+    $$ ist eine *echt gebrochen-rationale* Funktion.
+2.  Beispiel: Die Funktion $$
+    f(x) = \frac{2x^3 +2x -3}{x^3 +5x^2}
+    $$ ist eine *unecht gebrochen-rationale* Funktion.
 
 ## Unecht gebrochen-rationale Funktionen: Zerlegung durch Polynomdivision
 
-Jede unecht gebrochen-rationale Funktion kann durch Polynomdivision in die Summe eine ganz-rationalen Funktion und einer echt gebrochen-rationale Funktion zerlegt werden.
+Jede unecht gebrochen-rationale Funktion kann durch Polynomdivision in
+die Summe eine ganz-rationalen Funktion und einer echt
+gebrochen-rationale Funktion zerlegt werden.
 
-Beispiel: Die unecht gebrochen-rationale Funktion
-$$
+Beispiel: Die unecht gebrochen-rationale Funktion $$
 f(x) = \frac{x^3 - 3x +5}{x-2} = \left(x^2 +2x + 1 \right) + \frac{7}{x-2}
-$$
-lässt sich durch Polynomdivision in eine ganz-rationalen Teil $x^2+2x+1$ und eine echt gebrochen-rationalen Teil $\frac{7}{x-2}$ zerlegen.
+$$ lässt sich durch Polynomdivision in eine ganz-rationalen Teil
+$x^2+2x+1$ und eine echt gebrochen-rationalen Teil $\frac{7}{x-2}$
+zerlegen.
 
 ## Nullstellen gebrochen-rationaler Funktionen
 
-Die *Nullstellen* gebrochen-rationaler Funktionen ergeben sich als diejenigen Nullstellen $x$ des Zählerpolynoms $Z(x)$, für die die Funktion $f$ überhaupt definiert ist, also für die $x \in D(f)$ ist. 
-
-
+Die *Nullstellen* gebrochen-rationaler Funktionen ergeben sich als
+diejenigen Nullstellen $x$ des Zählerpolynoms $Z(x)$, für die die
+Funktion $f$ überhaupt definiert ist, also für die $x \in D(f)$ ist.
 
 ## Ableitung einer Funktion
 
 ### Definition der Ableitung
-Existiert für eine (mindestens stetige) Funktion $y=f(x)$ an der Stelle $x_{0}$ der Grenzwert
-$$
+
+Existiert für eine (mindestens stetige) Funktion $y=f(x)$ an der Stelle
+$x_{0}$ der Grenzwert $$
 \lim_{\Delta x \to 0} \frac{\Delta y(x_{0})}{\Delta x} = \lim_{\Delta x \to 0} \frac{f(x_{0}+\Delta x)-f(x_{0})}{\Delta x} = \frac{dy(x_{0})}{dx} =: f' (x_{0}) =: y' (x_{0}) 
 $$
 
-so heißt dieser Grenzwert die **Ableitung von $f$** oder der **Differenzialquotient von $f$ an der Stelle $x_{0}$**.
-	
+so heißt dieser Grenzwert die **Ableitung von** $f$ oder der
+**Differenzialquotient von** $f$ an der Stelle $x_{0}$.
+
 Die Funktion heißt dann \textbf{differenzierbar an der Stelle $x_{0}$}.
 
-Wenn die Ableitung an allen Stellen $x \in D(f)$ existiert, kann man die Ableitung als eine Funktion $f'$ betrachten
-$$
+Wenn die Ableitung an allen Stellen $x \in D(f)$ existiert, kann man die
+Ableitung als eine Funktion $f'$ betrachten $$
 f'(x) := \lim_{\Delta x \to 0 } \frac{f(x+\Delta x)-f(x)}{\Delta x}  
-$$ 
+$$
 
 ## Geometrische Deutung der Ableitung
 
-Die erste Ableitung $f'(x_{0})$ gibt die Steigung der Tangente an den Graphen der Funktion $f$ an der Stelle $x_{0}$ an. 
+Die erste Ableitung $f'(x_{0})$ gibt die Steigung der Tangente an den
+Graphen der Funktion $f$ an der Stelle $x_{0}$ an.
 
 Damit können also Aussagen gemacht werden über
 
-- das Monotonieverhalten der Funktion $f$ und damit auch über
-- evtl. Maxima und Minima der Funktion $f$.
-Denn für den Differentialquotienten gilt ja:
-$$
-f'(x_{0}) = \lim_{x \to x_{0}} \frac{f(x)-f(x_{0})}{x-x_{0}} 
-$$
-	und die rechte Seite ist 
-	
-	- strikt positiv, wenn $f$ streng monoton wachsend
-	- positiv, wenn $f$ monoton wachsend
-	- strikt negativ, wenn $f$ streng monoton fallend bzw. 
-	- negativ, wenn $f$ monoton fallend ist.
-	
+-   das Monotonieverhalten der Funktion $f$ und damit auch über
+
+-   evtl. Maxima und Minima der Funktion $f$. Denn für den
+    Differentialquotienten gilt ja: $$
+    f'(x_{0}) = \lim_{x \to x_{0}} \frac{f(x)-f(x_{0})}{x-x_{0}} 
+    $$ und die rechte Seite ist
+
+    -   strikt positiv, wenn $f$ streng monoton wachsend
+    -   positiv, wenn $f$ monoton wachsend
+    -   strikt negativ, wenn $f$ streng monoton fallend bzw.
+    -   negativ, wenn $f$ monoton fallend ist.
+
 ## Ableitung elementarer Funktionen
 
 ### Ableitung elementarer Funktionen
+
 \begin{align*}
 &f(x)  &f'(x)  \\ \hline
 &f(x) = a   &f'(x) = 0 \\
@@ -1027,21 +1121,21 @@ $$
 &f(x) = \ln(x)   &f'(x) = \frac{1}{x} \\
 \end{align*}
 
-
 ## Ableitungsregeln
 
 ### Summen-/Differenzregel
+
 Für die Summe und die Differenz zweier Funktionen gilt:
 
-1. Ist $f(x) = g(x) + h(x)$, so gilt: $f'(x) = g'(x) + h'(x)$.
-2. Ist $f(x) = g(x) - h(x)$, so gilt: $f'(x) = g'(x) - h'(x)$.
+1.  Ist $f(x) = g(x) + h(x)$, so gilt: $f'(x) = g'(x) + h'(x)$.
+2.  Ist $f(x) = g(x) - h(x)$, so gilt: $f'(x) = g'(x) - h'(x)$.
 
-### Faktorregel 
-Kennt man die Ableitung $f'(x)$ einer Funktion $f(x)$, so gilt für die Funktion $g(x) = a \cdot f(x)$ mit $a \in \mathbb{R}$:
-$$
+### Faktorregel
+
+Kennt man die Ableitung $f'(x)$ einer Funktion $f(x)$, so gilt für die
+Funktion $g(x) = a \cdot f(x)$ mit $a \in \mathbb{R}$: $$
 g'(x) = a \cdot f'(x)
 $$
-
 
 ## Ableitungsregeln
 
@@ -1049,11 +1143,9 @@ $$
 
 Für das Produkt zweier Funktionen $g$ und $h$ gilt:
 
-Ist $f(x) = g(x) \cdot h(x)$, dann ist:
-$$
+Ist $f(x) = g(x) \cdot h(x)$, dann ist: $$
 f'(x) = g'(x) \cdot h(x) + g(x) \cdot h'(x)
-$$
-oder in Kurzform: $f' = g'\cdot h +g\cdot h'$
+$$ oder in Kurzform: $f' = g'\cdot h +g\cdot h'$
 
 ## Ableitungsregeln
 
@@ -1061,11 +1153,9 @@ oder in Kurzform: $f' = g'\cdot h +g\cdot h'$
 
 Für den Quotienten zweier Funktionen $g$ und $h$ gilt:
 
-Ist $f(x) = \frac{g(x)}{h(x)}$, dann ist:
-$$
+Ist $f(x) = \frac{g(x)}{h(x)}$, dann ist: $$
 f'(x) = \frac{g'(x) \cdot h(x) - g(x) \cdot h'(x)}{(h (x))^2}
-$$
-oder in Kurzform: $f' = \frac{g'\cdot h - g\cdot h'}{h^2}$
+$$ oder in Kurzform: $f' = \frac{g'\cdot h - g\cdot h'}{h^2}$
 
 ## Ableitungsregeln
 
@@ -1073,46 +1163,44 @@ oder in Kurzform: $f' = \frac{g'\cdot h - g\cdot h'}{h^2}$
 
 Für die Ableitung zweiter verketteter Funktionen $g$ und $h$ gilt:
 
-Ist $f(x) = g(h(x))$ eine verkettete (zusammengesetzte) Funktion, dann ist:
-$$
+Ist $f(x) = g(h(x))$ eine verkettete (zusammengesetzte) Funktion, dann
+ist: $$
 f'(x) = g'(h(x)) \cdot h'(x)
-$$
-Man nennt dabei $g'(h(x))$ die **äußere Ableitung** und $h'(x)$ die **innere Ableitung**. *Beachten Sie, dass in die Ableitung von $g$ der Funktionswert $h(x)$ eingesetzt wird!*
-
+$$ Man nennt dabei $g'(h(x))$ die **äußere Ableitung** und $h'(x)$ die
+**innere Ableitung**. *Beachten Sie, dass in die Ableitung von* $g$ der
+Funktionswert $h(x)$ eingesetzt wird!
 
 ## Extremwerte und höhere Ableitungen
 
 ### Bestimmung von Extremwerten - Beispiel
-Die bedeutendsten Anwendungen der Differentialrechnung betreffen die Bestimmung von Extrema.
 
-Beispiel:
-Die Unternehmerin I. bietet exklusiv ein neues Produkt P an. (Sie ist also Monopolistin.)
+Die bedeutendsten Anwendungen der Differentialrechnung betreffen die
+Bestimmung von Extrema.
 
-Die Preisabsatzfunktion $p(x)$ und die Kostenfunktion $K(x)$ des neuen Produktes kennt sie:
-$$
+Beispiel: Die Unternehmerin I. bietet exklusiv ein neues Produkt P an.
+(Sie ist also Monopolistin.)
+
+Die Preisabsatzfunktion $p(x)$ und die Kostenfunktion $K(x)$ des neuen
+Produktes kennt sie: $$
 p(x) = 6 - \frac{1}{2} x \qquad K(x) = 2x^2 -14x + 25
-$$
-wobei $x$ einer Einheit von 1000 Tonnen entspricht.
+$$ wobei $x$ einer Einheit von 1000 Tonnen entspricht.
 
-Die zugehörige Gewinnfunktion ist bekanntlich die Differenz aus Umsatz $U(x)$ und Kosten $K(x)$:
-$$
+Die zugehörige Gewinnfunktion ist bekanntlich die Differenz aus Umsatz
+$U(x)$ und Kosten $K(x)$: $$
 G(x) = U(x) - K(X)
-$$
-mit dem Umsatz $U(x) = x\cdot p(x)$ wird daher der Gewinn:
-$$
+$$ mit dem Umsatz $U(x) = x\cdot p(x)$ wird daher der Gewinn: $$
 G(x) = U(x) - K(x) = x p(x) -K(x) = 6x - \frac{1}{2}x^2 - (2x^2 -14x +25) = \frac{-5}{2}x^2 +20 x - 25
 $$
 
-
 ## Extremwerte und höhere Ableitungen
 
 ### Bestimmung von Extremwerten - Beispiel
 
-Die Gewinnfunktion 
-$$
+Die Gewinnfunktion $$
 G(x) = \frac{-5}{2} x^2 +20x -25
-$$
-hat offensichtlich ein Maximum bei $x=4$ (und damit einem Gewinn von $G(4)=15$)
+$$ hat offensichtlich ein Maximum bei $x=4$ (und damit einem Gewinn von
+$G(4)=15$)
+
 ```{r}
 rm(list = ls())
 x <- seq(0, 8, 0.1)
@@ -1126,29 +1214,30 @@ axis(2, pos = 0)
 ## Bestimmung von Extremwerten
 
 ### Satz (Bestimmung von Extrema)
-Sei $f$ eine Funktion, die an der Stelle $x_E$ zweimal stetig differenzierbar ist. Dann besitzt $f$ in $x_E$
 
-1. ein **lokales Maximum**, wenn gilt:
-$$
-f'(x_{E}) = 0 \qquad \mbox{und} \qquad f''(x_{E}) < 0
-$$
-2. ein **lokales Minimum**, wenn gilt:
-$$
-f'(x_{E}) = 0 \qquad \mbox{und} \qquad f''(x_{E}) >  0
-$$
+Sei $f$ eine Funktion, die an der Stelle $x_E$ zweimal stetig
+differenzierbar ist. Dann besitzt $f$ in $x_E$
 
+1.  ein **lokales Maximum**, wenn gilt: $$
+    f'(x_{E}) = 0 \qquad \mbox{und} \qquad f''(x_{E}) < 0
+    $$
+2.  ein **lokales Minimum**, wenn gilt: $$
+    f'(x_{E}) = 0 \qquad \mbox{und} \qquad f''(x_{E}) >  0
+    $$
 
 ## Elastizität
 
-Die Ableitung einer Funktion $f$ an der Stelle $x_0$ gibt *näherungsweise* an, um wieviel sich $f$ verändert, wenn man $x_0$ um eine Einheit erhöht.
+Die Ableitung einer Funktion $f$ an der Stelle $x_0$ gibt
+*näherungsweise* an, um wieviel sich $f$ verändert, wenn man $x_0$ um
+eine Einheit erhöht.
 
-### Elastizität 
+### Elastizität
 
-Die **Elastizität** $\varepsilon_{f}(x_0)$ der Funktion $f$ an der Stelle $x_0$ ist definiert als
-$$
+Die **Elastizität** $\varepsilon_{f}(x_0)$ der Funktion $f$ an der
+Stelle $x_0$ ist definiert als $$
 \varepsilon_{f}(x_0) = \frac{f'(x_0)}{f(x_0)} \cdot x_0
-$$
-und gibt an, um wieviel *Prozent* sich die Funktionswerte von $f$ ändern, wenn man $x_0$ um *ein Prozent* erhöht.
+$$ und gibt an, um wieviel *Prozent* sich die Funktionswerte von $f$
+ändern, wenn man $x_0$ um *ein Prozent* erhöht.
 
 # Lineare Gleichungssysteme
 
@@ -1156,26 +1245,27 @@ und gibt an, um wieviel *Prozent* sich die Funktionswerte von $f$ ändern, wenn 
 
 ### Beispiel
 
-- Ein Bauer hat 100 Tiere (Schweine und Hühner). 
-- Die Tiere haben zusammen 320 Beine.
+-   Ein Bauer hat 100 Tiere (Schweine und Hühner).
+-   Die Tiere haben zusammen 320 Beine.
 
-Wieviele Schweine und Hühner hat der Bauer? 
+Wieviele Schweine und Hühner hat der Bauer?
 
 ## Beispiel zum Einstieg in lineare Gleichungssysteme
 
 ### Beispiel
 
-- Ein Bauer hat 100 Tiere (Schweine und Hühner). 
-- Die Tiere haben zusammen 320 Beine.
+-   Ein Bauer hat 100 Tiere (Schweine und Hühner).
+-   Die Tiere haben zusammen 320 Beine.
 
 ### Lösung
 
-- Gesucht: $x$ (Anzahl der Schweine) und $y$ (Anzahl der Hühner).
+-   Gesucht: $x$ (Anzahl der Schweine) und $y$ (Anzahl der Hühner).
 
-- Gegeben: Anzahl der Beine (320) und Anzahl der Tiere (100)
-  - $4x + 2y = 320$
-  - $x + y = 100$
-  
+-   Gegeben: Anzahl der Beine (320) und Anzahl der Tiere (100)
+
+    -   $4x + 2y = 320$
+    -   $x + y = 100$
+
 \begin{align}
 4x &+ 2y &= 320 \\
 x &+ y &= 100
@@ -1184,65 +1274,50 @@ x &+ y &= 100
 ## Lösungsmöglichkeiten
 
 ### Einsetzungsverfahren
-Aus der zweiten Gleichung folgt
-$$
+
+Aus der zweiten Gleichung folgt $$
 x + y = 100 \Leftrightarrow y = 100 - x
-$$
-und dies eingesetzt in die erste Gleichung ergibt:
-$$
+$$ und dies eingesetzt in die erste Gleichung ergibt: $$
 4x + 2y = 320 \stackrel{y=100-x}{\longrightarrow} 4x +2(100-x) \Leftrightarrow 2x + 200 = 320 \Leftrightarrow x = 60
-$$
-und daher 
-$$
+$$ und daher $$
 y = 100 - x = 100 - 60 = 40
-$$
-Also hat der Bauer 60 Schweine und 40 Hühner.
+$$ Also hat der Bauer 60 Schweine und 40 Hühner.
 
 ### Probe der Lösung
-60 Schweine und 40 Hühner sind 100 Tiere. 60 Schweine haben $60 \cdot 4 = 240$ Beine und 40 Hühner haben $40 \cdot 2 = 80$ Beine, also zusammen $240 + 80 = 320$ Beine.
 
+60 Schweine und 40 Hühner sind 100 Tiere. 60 Schweine haben
+$60 \cdot 4 = 240$ Beine und 40 Hühner haben $40 \cdot 2 = 80$ Beine,
+also zusammen $240 + 80 = 320$ Beine.
 
 ## Lösungsmöglichkeiten
 
 ### Additionsverfahren
 
-Durch Multiplikation der zweiten Gleichung mit $-2$
-\begin{align*}
+Durch Multiplikation der zweiten Gleichung mit $-2$ \begin{align*}
 4x &+ 2y &= 320 \\
 x &+ y &= 100
-\end{align*}
-ergibt sich
-\begin{align}
+\end{align*} ergibt sich \begin{align}
 4x &+ 2y &= 320 \\
 -2x &- 2y &= -200
-\end{align}
-und durch Addition der zweiten zur ersten Gleichung damit
-$$
+\end{align} und durch Addition der zweiten zur ersten Gleichung damit $$
 (4x -2x) +(2y-2y) = 320 - 200
-$$
-also 
-$$
+$$ also $$
 2x = 120 \Leftrightarrow x = 60
-$$
-und daher $y = 100 - x = 100 - 60 = 40$. 
+$$ und daher $y = 100 - x = 100 - 60 = 40$.
 
 ## Lösungsmöglichkeiten
 
 ### Grafische Lösungsverfahren
 
-Durch Umstellen der beiden Gleichungen
-\begin{align*}
+Durch Umstellen der beiden Gleichungen \begin{align*}
 4x &+ 2y &= 320 \\
 x &+ y &= 100
-\end{align*}
-nach $y$ ergibt sich:
-\begin{align*}
+\end{align*} nach $y$ ergibt sich: \begin{align*}
 y &= 160 - 2 \cdot x \\
 y &= 100 - x
 \end{align*}
 
 ## Lösungsmöglichkeiten
-
 
 ```{r}
 rm(list = ls())
@@ -1284,12 +1359,11 @@ ggplot(df, aes(x = x, y = y, color = line)) +
 
 ### Grundtatsache zu **linearen** Gleichungssystemen
 
-Ein lineares Gleichungssystem besitzt entweder
-- **genau eine** Lösung oder
-- **keine** Lösung oder
-- **unendlich viele** Lösungen
+Ein lineares Gleichungssystem besitzt entweder - **genau eine** Lösung
+oder - **keine** Lösung oder - **unendlich viele** Lösungen
 
-Insbesondere kann ein lineares Gleichungssystem also nicht zum Beispiel *genau zwei* Lösungen haben.
+Insbesondere kann ein lineares Gleichungssystem also nicht zum Beispiel
+*genau zwei* Lösungen haben.
 
 ## Grundlagen zu linearen Gleichungssystemen - Unendlich viele Lösungen
 
@@ -1339,7 +1413,6 @@ $$
 2x -y = 1 \qquad \wedge \qquad 4x-2y=3
 $$
 
-
 ```{r}
 rm(list = ls())
 library(ggplot2)
@@ -1382,7 +1455,6 @@ $$
 2x - y =1 \qquad \wedge \qquad 4x +2y = 3
 $$
 
-
 ```{r}
 rm(list = ls())
 library(ggplot2)
@@ -1419,18 +1491,24 @@ ggplot(df, aes(x = x, y = y, color = line)) +
 
 ```
 
-
 ## Gauß-Algorithmus
 
 ### Idee und Ziel des Gauß-Algorithmus
-Das (Lösungs-)Ziel bei linearen Gleichungssystemen ist es, ein *allgemeingültiges*, *detailliertes* und *endliches* Lösungsverfahren (einen **Algorithmus**) für diese zu finden.
+
+Das (Lösungs-)Ziel bei linearen Gleichungssystemen ist es, ein
+*allgemeingültiges*, *detailliertes* und *endliches* Lösungsverfahren
+(einen **Algorithmus**) für diese zu finden.
 
 Dieser Algorithmus muss folgende Fragen beantworten können:
 
-- Wieviele Lösungen gibt es, d.h. gibt es *keine* Lösung, *genau eine* Lösung oder *unendlich viele* Lösungen?
-- Wie berechne ich die/alle Lösungen, sofern es welche gibt?
+-   Wieviele Lösungen gibt es, d.h. gibt es *keine* Lösung, *genau eine*
+    Lösung oder *unendlich viele* Lösungen?
+-   Wie berechne ich die/alle Lösungen, sofern es welche gibt?
 
-Der **Gauß-Algorithmus** ist eine Verallgemeinerung des Additionsverfahrens, d.h. er basiert darauf, dass in geschickter Weise Gleichungen so addiert und voneinander subtrahiert werden, dass alle Lösungen leicht abgelesen werden können.
+Der **Gauß-Algorithmus** ist eine Verallgemeinerung des
+Additionsverfahrens, d.h. er basiert darauf, dass in geschickter Weise
+Gleichungen so addiert und voneinander subtrahiert werden, dass alle
+Lösungen leicht abgelesen werden können.
 
 ## Gauß-Algorithmus - Beispiel vorab
 
@@ -1444,12 +1522,14 @@ x_1 - 2x_2 + x_3 &= 5 \\
 6 x_1 +2 x_2 - x_3 &= 16
 \end{align}
 
-Wir versuchen nun zuerst, das $x_1$ in der zweiten und dritten Gleichung *verschwinden* zu lassen.
-Dazu
-- addiert man das 5-fache der ersten Gleichung zur zweiten (und erhält so eine neue zweite Gleichung)
-- subtrahiert man das 6-fache der ersten Gleichung von der dritten (und erhält so eine neue dritte Gleichung)
+Wir versuchen nun zuerst, das $x_1$ in der zweiten und dritten Gleichung
+*verschwinden* zu lassen. Dazu - addiert man das 5-fache der ersten
+Gleichung zur zweiten (und erhält so eine neue zweite Gleichung) -
+subtrahiert man das 6-fache der ersten Gleichung von der dritten (und
+erhält so eine neue dritte Gleichung)
 
 \setcounter{equation}{0}
+
 \begin{align*}
 x_1  -2x_2 + x_3 &= 5 & \mbox{(I)} \\
  -12 x_2 + 4 x_3 &= 4 & \mbox{(II + 5 I)} \\
@@ -1458,7 +1538,7 @@ x_1  -2x_2 + x_3 &= 5 & \mbox{(I)} \\
 
 ## Gauß-Algorithmus - Beispiel vorab
 
-Um in dem Gleichungssystem 
+Um in dem Gleichungssystem
 
 \renewcommand{\theequation}{\Roman{equation}}
 \setcounter{equation}{0}
@@ -1468,9 +1548,11 @@ x_1  -2x_2 + x_3 &= 5 & \\
  14 x_2 - 7 x_3 &= -14 &  
 \end{align}
 
-in der zweiten Zeile nun eine $1$ und keine $-12$ vor dem $x_2$ stehen zu haben, dividiert man die zweite Zeile durch $-12$.
+in der zweiten Zeile nun eine $1$ und keine $-12$ vor dem $x_2$ stehen
+zu haben, dividiert man die zweite Zeile durch $-12$.
 
 \setcounter{equation}{0}
+
 \begin{align*}
 x_1  -2x_2 + x_3 &= 5 & \mbox{(I)} \\
   x_2 - \frac{1}{3} x_3 &= -\frac{1}{3} & \mbox{(II : (-12))} \\
@@ -1479,7 +1561,7 @@ x_1  -2x_2 + x_3 &= 5 & \mbox{(I)} \\
 
 ## Gauß-Algorithmus - Beispiel vorab
 
-Damit nun in dem verbleibenden Gleichungssystem 
+Damit nun in dem verbleibenden Gleichungssystem
 
 \renewcommand{\theequation}{\Roman{equation}}
 \setcounter{equation}{0}
@@ -1489,21 +1571,27 @@ x_1  -2x_2 + x_3 &= 5   \\
  14 x_2 - 7 x_3 &= -14  
 \end{align}
 
-in der dritten Zeile das $x_2$ verschwindet, subtrahiert man das 14-fache der zweiten Zeile von der dritten Zeile:
-\begin{align*}
+in der dritten Zeile das $x_2$ verschwindet, subtrahiert man das
+14-fache der zweiten Zeile von der dritten Zeile: \begin{align*}
 x_1  -2x_2 + x_3 &= 5 & \mbox{(I)}  \\
   x_2 - \frac{1}{3} x_3 &= -\frac{1}{3} & \mbox{(II)} \\
   -\frac{7}{3} x_3 &= -\frac{28}{3} & \mbox{(III - 14 II)}  
 \end{align*}
 
-und aus der letzten Gleichung folgt $x_3 = 4$, durch Einsetzen in die zweite Gleichung damit $x_2 = 1$ und daraus durch Einsetzen in die erste Gleichung $x_1 = 3$.
+und aus der letzten Gleichung folgt $x_3 = 4$, durch Einsetzen in die
+zweite Gleichung damit $x_2 = 1$ und daraus durch Einsetzen in die erste
+Gleichung $x_1 = 3$.
 
 ## Gauß-Algorithmus - Matrix-Schreibweise
 
-In dem obigen Beispiel haben wir immer wieder die Variablen $x_1$, $x_2$ und $x_3$ hinschreiben müssen, obwohl die **relevanten** Informationen eigentlich nur in den Vorfaktoren (**Koeffizienten**) und der *rechten Seite* des Gleichungssystems stecken.
+In dem obigen Beispiel haben wir immer wieder die Variablen $x_1$, $x_2$
+und $x_3$ hinschreiben müssen, obwohl die **relevanten** Informationen
+eigentlich nur in den Vorfaktoren (**Koeffizienten**) und der *rechten
+Seite* des Gleichungssystems stecken.
 
-Daher nutzen wir ab sofort eine verkürzte Schreibweise, die nur die Koeffizienten und die rechte Seite des linearen Gleichungssystems (in einer **Matrix**) abbildet:
-$$
+Daher nutzen wir ab sofort eine verkürzte Schreibweise, die nur die
+Koeffizienten und die rechte Seite des linearen Gleichungssystems (in
+einer **Matrix**) abbildet: $$
 \left(
 \begin{array}{ccc|c}
 1 & -2 & 1 & 5 \\
@@ -1515,11 +1603,15 @@ $$
 
 Man nennt diese **Matrix** oder **Systemmatrix** oder auch **Tableau**.
 
-Jeder der Zeilen der Matrix entspricht eine der Zeilen des LGS, jeder Spalte (vor dem senkrechten Strich) eine Unbekannte des LGS und der rechten Seite die rechte Seite des LGS.
+Jeder der Zeilen der Matrix entspricht eine der Zeilen des LGS, jeder
+Spalte (vor dem senkrechten Strich) eine Unbekannte des LGS und der
+rechten Seite die rechte Seite des LGS.
 
 ## Gauß-Algorithmus
 
-Betrachtet man nun ein allgemeines lineares Gleichungssystem mit $m$ Gleichungen und $n$ Unbekannten:
+Betrachtet man nun ein allgemeines lineares Gleichungssystem mit $m$
+Gleichungen und $n$ Unbekannten:
+
 \begin{align*}
 a_{11} x_{1} + a_{12} x_{2} + a_{13} x_{3} + \ldots + a_{1n} x_{n}  & =   b_{1} \\
 a_{21} x_{1} + a_{22} x_{2} + a_{23} x_{3} + \ldots + a_{2n} x_{n}  & =   b_{2} \\
@@ -1528,8 +1620,7 @@ a_{31} x_{1} + a_{32} x_{2} + a_{33} x_{3} + \ldots + a_{3n} x_{n}  & =   b_{3} 
 a_{m1} x_{1} + a_{m2} x_{2} + a_{m3} x_{3} + \ldots + a_{mn} x_{n}  & =   b_{m}
 \end{align*}
 
-Dieses sieht in Matrix-Schreibweise so aus:
-$$
+Dieses sieht in Matrix-Schreibweise so aus: $$
 \left(
 \begin{array}{ccccc|c}
 a_{11} & a_{12} & a_{13} & \cdots & a_{1n} & b_1 \\
@@ -1543,8 +1634,7 @@ $$
 
 ## Gauß-Algorithmus - Notation und Begriffe
 
-In der Matrix-Schreibweise
-$$
+In der Matrix-Schreibweise $$
 \left(
 \begin{array}{ccccc|c}
 a_{11} & a_{12} & a_{13} & \cdots & a_{1n} & b_1 \\
@@ -1554,22 +1644,29 @@ a_{31} & a_{32} & a_{33} & \cdots & a_{3n} & b_3 \\
 a_{m1} & a_{m2} & a_{m3} & \cdots & a_{mn} & b_m
 \end{array}
 \right)
-$$
-sind die $a_{ij}$ die **Koeffizienten** des linearen Gleichungssystems (und bilden ohne die rechte Seite die sogenannte **Koeffizienten-Matrix**), die $b_i$ bilden die **rechte Seite**. Von Indizes $i$ und $j$ heißen der erste **Zeilenindex** (hier $i$) und der zweite **Spaltenindex** (hier $j$). 
+$$ sind die $a_{ij}$ die **Koeffizienten** des linearen
+Gleichungssystems (und bilden ohne die rechte Seite die sogenannte
+**Koeffizienten-Matrix**), die $b_i$ bilden die **rechte Seite**. Von
+Indizes $i$ und $j$ heißen der erste **Zeilenindex** (hier $i$) und der
+zweite **Spaltenindex** (hier $j$).
 
 ## Gauß-Algorithmus - Ziel und Verfahren
 
 ### Gauß-Verfahren
-Die im **Gauß-Verfahren** (oder auch **Gauß-Algorithmus** erlaubten Schritte sind
 
-- Addieren oder Subtrahieren eines beliebigen (von 0 verschiedenen) Vielfachen einer Zeile zu/von einer anderen Zeile
-- Vertauschen zweier Zeilen
-- Multiplikation einer Zeile mit einer beliebigen (von 0 verschiedenen) Zahl.
+Die im **Gauß-Verfahren** (oder auch **Gauß-Algorithmus** erlaubten
+Schritte sind
 
+-   Addieren oder Subtrahieren eines beliebigen (von 0 verschiedenen)
+    Vielfachen einer Zeile zu/von einer anderen Zeile
+-   Vertauschen zweier Zeilen
+-   Multiplikation einer Zeile mit einer beliebigen (von 0
+    verschiedenen) Zahl.
 
 ### Ziel des Gauß-Verfahrens
-Sofern man es schafft, ein Gleichungssystem in folgende Form zu überführen
-$$
+
+Sofern man es schafft, ein Gleichungssystem in folgende Form zu
+überführen $$
 \left(
 \begin{array}{ccccc|c}
 1 & 0 & 0 & \cdots & 0 & b_1 \\
@@ -1587,8 +1684,7 @@ Leider ist das nicht immer bzw. so gut wie nie möglich!
 
 ## Gauß-Verfahren - Beispiel unendlich vieler Lösungen
 
-Das lineare Gleichungssystem
-$$
+Das lineare Gleichungssystem $$
 \left(
 \begin{array}{ccc|c}
 0 & 1 & 2 & 9 \\
@@ -1598,8 +1694,7 @@ $$
 \right)
 $$
 
-führt mit dem Gauß-Algorithmus zu folgender Matrix
-$$
+führt mit dem Gauß-Algorithmus zu folgender Matrix $$
 \left(
 \begin{array}{ccc|c}
 2 & -1 & 1 & 6 \\
@@ -1609,9 +1704,12 @@ $$
 \right)
 $$
 
-Die letzte Zeile bedeutet dabei $0 x_1 + 0x_2 + 0x_3 = 0$ und ist *immer* korrekt und liefert damit keine weitere Bedingung. Daher kann man hier zum Beispiel die dritte Variable $x_3$ beliebig wählen.
+Die letzte Zeile bedeutet dabei $0 x_1 + 0x_2 + 0x_3 = 0$ und ist
+*immer* korrekt und liefert damit keine weitere Bedingung. Daher kann
+man hier zum Beispiel die dritte Variable $x_3$ beliebig wählen.
 
-\tiny Gauß-Algorithmus: Tausche erste und dritte Zeile, addiere dann die erste zur zweiten, subtrahiere dann die zweite von der dritten.
+\tiny Gauß-Algorithmus: Tausche erste und dritte Zeile, addiere dann die
+erste zur zweiten, subtrahiere dann die zweite von der dritten.
 \normalsize
 
 ## Gauß-Verfahren - Beispiel unendlich vieler Lösungen
@@ -1628,7 +1726,8 @@ $$
 \right)
 $$
 
-kann man also auch die letzte Zeile weglassen (weil sie keine Information liefert) 
+kann man also auch die letzte Zeile weglassen (weil sie keine
+Information liefert)
 
 $$
 \left(
@@ -1641,20 +1740,17 @@ $$
 
 und dann zum Beispiel $x_3 = t \in \mathbb{R}$ beliebig setzen.
 
-Aus der zweiten Zeile ergibt sich dann
-$$
+Aus der zweiten Zeile ergibt sich dann $$
 x_2 + 2t = 9 \qquad \Leftrightarrow \qquad x_2 = 9 - 2t \qquad \mbox{mit beliebigem } t\in \mathbb{R}
 $$
 
-und entsprechend aus der ersten Zeile
-$$
+und entsprechend aus der ersten Zeile $$
 2x_1 - (9 - 2t)  + t = 6 \qquad \Leftrightarrow \qquad x_1 = \frac{15}{2} - \frac{3}{2}t \qquad \mbox{mit beliebigem } t\in \mathbb{R}
 $$
 
 ## Gauß-Verfahren - Beispiel mit genau einer (eindeutigen) Lösung
 
-Das lineare Gleichungssystem
-$$
+Das lineare Gleichungssystem $$
 \left(
 \begin{array}{ccc|c}
 1 & -1 & 2 & 9 \\
@@ -1664,8 +1760,7 @@ $$
 \right)
 $$
 
-führt mit dem Gauß-Algorithmus zu folgender Matrix
-$$
+führt mit dem Gauß-Algorithmus zu folgender Matrix $$
 \left(
 \begin{array}{ccc|c}
 1 & -1 & 2 & 9 \\
@@ -1675,14 +1770,15 @@ $$
 \right)
 $$
 
-Man könnte hier aufhören und *rückwärts* einsetzen. Man kann aber auch weiterrechnen.
+Man könnte hier aufhören und *rückwärts* einsetzen. Man kann aber auch
+weiterrechnen.
 
-\tiny Gauß-Algorithmus: Zweite minus 2-mal erste und dritte minus erste, danach dritte minus zweite.
-\normalsize
+\tiny Gauß-Algorithmus: Zweite minus 2-mal erste und dritte minus erste,
+danach dritte minus zweite. \normalsize
 
 ## Gauß-Verfahren - Beispiel mit genau einer (eindeutigen) Lösung
-Wenn man weiterrechnet, wird aus der Zwischenmatrix
-$$
+
+Wenn man weiterrechnet, wird aus der Zwischenmatrix $$
 \left(
 \begin{array}{ccc|c}
 1 & -1 & 2 & 9 \\
@@ -1692,8 +1788,7 @@ $$
 \right)
 $$
 
-mit Gauß-Schritten *von unten nach oben*
-$$
+mit Gauß-Schritten *von unten nach oben* $$
 \left(
 \begin{array}{ccc|c}
 1 & 0 & 0 & 2 \\
@@ -1705,13 +1800,13 @@ $$
 
 Also die (bereits bekannte) Lösung $x_1 = 2$, $x_2 = -1$ und $x_3 = 3$.
 
-\tiny Gauß-Algorithmus: Zweite plus viermal dritte Zeile und die zweite durch 3 teilen, erste minus zweimal die dritte Zeile, und danach noch die zweite zur ersten addieren.
-\normalsize
+\tiny Gauß-Algorithmus: Zweite plus viermal dritte Zeile und die zweite
+durch 3 teilen, erste minus zweimal die dritte Zeile, und danach noch
+die zweite zur ersten addieren. \normalsize
 
 ## Gauß-Verfahren - Beispiel ohne Lösung
 
-Das lineare Gleichungssystem
-$$
+Das lineare Gleichungssystem $$
 \left(
 \begin{array}{ccc|c}
 2 & -1 & 1 & 6 \\
@@ -1721,8 +1816,7 @@ $$
 \right)
 $$
 
-führt mit Gauß-Schritten auf
-$$
+führt mit Gauß-Schritten auf $$
 \left(
 \begin{array}{ccc|c}
 2 & -1 & 1 & 6 \\
@@ -1732,26 +1826,31 @@ $$
 \right)
 $$
 
-Hierbei steht in der dritten Zeile nun die (unerfüllbare) Gleichung
-$$
+Hierbei steht in der dritten Zeile nun die (unerfüllbare) Gleichung $$
 0\cdot x_1 + 0 \cdot x_2 + 0 \cdot x_3 = -1
-$$
-Daher hat dieses Gleichungssystem **keine** Lösung, weil es gewissermaßen widersprüchliche Anforderungen an die Unbekannten stellt, und dieser Widerspruch wird in der letzten Zeile sichtbar.
+$$ Daher hat dieses Gleichungssystem **keine** Lösung, weil es
+gewissermaßen widersprüchliche Anforderungen an die Unbekannten stellt,
+und dieser Widerspruch wird in der letzten Zeile sichtbar.
 
-\tiny Gauß-Algorithmus: Da unten bereits eine Null steht: Erste Zeile zur zweiten addieren, danach zweite von der dritten subtrahieren.
+\tiny Gauß-Algorithmus: Da unten bereits eine Null steht: Erste Zeile
+zur zweiten addieren, danach zweite von der dritten subtrahieren.
 \normalsize
 
 ## Gauß-Algorithmus - Anmerkungen
 
-- Das Durchführen des Gauß-Algorithmus per Hand ist (leider) sehr fehleranfällig.
-- Bei manuellen Berechnungen sollte man auf *günstige*, *leichte* Zahlenkombinationen achten.
-- Verschiedene Rechenwege führen zum Ziel, die Reihenfolge der Zeilenoperationen ist nicht eindeutig bestimmt.
-- Es sind **ausschließlich** Zeilenoperationen erlaubt; Spaltenoperationen gibt es im Gauß-Verfahren nicht!
+-   Das Durchführen des Gauß-Algorithmus per Hand ist (leider) sehr
+    fehleranfällig.
+-   Bei manuellen Berechnungen sollte man auf *günstige*, *leichte*
+    Zahlenkombinationen achten.
+-   Verschiedene Rechenwege führen zum Ziel, die Reihenfolge der
+    Zeilenoperationen ist nicht eindeutig bestimmt.
+-   Es sind **ausschließlich** Zeilenoperationen erlaubt;
+    Spaltenoperationen gibt es im Gauß-Verfahren nicht!
 
 ## Gauß-Algorithmus - Stufen- oder Treppenform
 
-Für den Fall, dass das Gauß-Verfahren beispielsweise folgende Lösungsmatrix liefert,
-$$
+Für den Fall, dass das Gauß-Verfahren beispielsweise folgende
+Lösungsmatrix liefert, $$
 \left(
 \begin{array}{cccccc|c}
 1 & 0 & 1 & 0 & 0 & 0 & 1 \\
@@ -1762,23 +1861,299 @@ $$
 \right)
 $$
 
-spricht man von einer Stufen- oder Treppenform der Lösungsmatrix mit Stufen in den Spalten 1, 2, 5 und 6. Die Spalten 3 und 4 haben keine Stufen und daher sind die Variablen $x_3$ und $x_4$ frei wählbar.
+spricht man von einer Stufen- oder Treppenform der Lösungsmatrix mit
+Stufen in den Spalten 1, 2, 5 und 6. Die Spalten 3 und 4 haben keine
+Stufen und daher sind die Variablen $x_3$ und $x_4$ frei wählbar.
 
 ## Rechnen mit Matrizen und Vektoren - Matrizen, Spalten- und Zeilenvektoren
 
+Eine $m\times n$-Matrix $A$ (gesprochen "m Kreuz n Matrix") ist ein
+Tableau mit $m$ Zeilen und $n$ Spalten: $$
+\left(
+\begin{array}{ccccc}
+a_{11} & a_{12} & a_{13} & \cdots & a_{1n}  \\
+a_{21} & a_{22} & a_{23} & \cdots & a_{2n}  \\
+a_{31} & a_{32} & a_{33} & \cdots & a_{3n}  \\
+\vdots & \vdots & \vdots  & \ddots & \vdots  \\
+a_{m1} & a_{m2} & a_{m3} & \cdots & a_{mn}
+\end{array}
+\right)
+$$
+
+Die einzelnen Elemente $a_{ij}$ heißen **Koeffizienten**; $i$ bezeichnet
+hier die Zeile, $j$ die Spalte, in der das Element steht.
+
+Beispielsweise ist $$
+\left(
+\begin{array}{ccccc}
+2 & 3 & -1 & 0.2 & -7 \\
+8 & 9 & -3 & 5 & 3.1 \\
+1.5 & 3.1 & -3.2 & 6 & -1
+\end{array}
+\right)
+$$ eine $3\times 5$-Matrix. Die Koeffizienten in der dritten Spalte
+sind: $a_{13} = -1$, $a_{23} =-3$ und $a_{33} = -3.2$.
+
+## Rechnen mit Matrizen und Vektoren - Spalten- und Zeilenvektoren
+
+Besitzt eine Matrix nur eine Spalte, so nennt man diese auch einen
+Spaltenvektor.
+
+Die dritte Spalte der Matrix $$
+\left(
+\begin{array}{ccccc}
+2 & 3 & -1 & 0.2 & -7 \\
+8 & 9 & -3 & 5 & 3.1 \\
+1.5 & 3.1 & -3.2 & 6 & -1
+\end{array}
+\right)
+$$ 
+ist zum Beispiel der Spaltenvektor 
+
+$$
+\vec{a}_{\cdot 3} = 
+\left(
+\begin{array}{c}
+-1 \\ -3 \\ -3.2
+\end{array}
+\right)
+$$
+
+Entsprechend ist die zweite Zeile der **Zeilenvektor** 
+
+$$
+\vec{a}_{2 \cdot} = 
+\left(
+\begin{array}{ccccc}
+8 & 9 & -3 & 5 & 3.1
+\end{array}
+\right)
+$$
+
 ## Rechnen mit Matrizen und Vektoren - Summen von Vektoren und Matrizen
+
+Matrizen (und daher auch Vektoren) kann man addieren und subtrahieren,
+wenn sie vom gleichen Typ, also dieselbe Zeilen- und Spaltenzahl haben.
+
+Zwei Spaltenvektoren mit gleicher Zeilenzahl 
+
+$$
+\vec{a} = \left(\begin{array}{c}a_1 \\ a_2 \\ a_3\end{array}\right) \text{ und } \vec{b} = \left(\begin{array}{c}b_1 \\ b_2 \\ b_3\end{array}\right)
+$$
+
+addiert man, indem man die entsprechenden Koeffizienten addiert:
+
+$$
+\vec{a} + \vec{b} = \left(\begin{array}{c}a_1 + b_1 \\ a_2 + b_2 \\ a_3 + b_3 \end{array}\right)
+$$
+
+Entsprechend addiert (und subtrahiert) man Matrizen mit gleicher Zeilen-
+und Spaltenzahl.
+
+## Rechnen mit Matrizen und Vektoren - Vielfache von Matrizen und Vektoren
+
+Um das Vielfache einer Matrix zu berechnen, multipliziert man jeden
+Koeffizienten der Matrix mit dem Faktor.
+
+Zum Beispiel ist das 3-fache des Vektors $\vec{v}$
+
+$$
+3 \vec{v} = 3 \left(\begin{array}{c}-1 \\ -3 \\ -3.2\end{array}\right) = \left(\begin{array}{c}-3 \\ -9 \\ -9,6\end{array}\right)
+$$
+
+Insbesondere ist zum Beispiel 
+
+$$
+\left(\begin{array}{c} 2 \\ 0 \\ 4 \end{array}\right) + x_2 \left(\begin{array}{c} 3 \\ 1 \\ 0 \end{array}\right) = \left(\begin{array}{c} 2 \\ 0 \\ 4 \end{array}\right) + \left(\begin{array}{c} 3 x_2 \\ x_2 \\ 0 \end{array}\right) = \left(\begin{array}{c} 2 +3x_2 \\ x_2 \\ 4 \end{array}\right)
+$$
 
 ## Rechnen mit Matrizen und Vektoren - Skalarprodukt zweier Vektoren
 
+Man kann zwei Vektoren (gleicher Länge, also mit gleicher Zeilenzahl)
+auch anders multiplizieren (und das Ergebnis ist eine Zahl):
+
+Das **Skalarprodukt** zweier Vektoren $\vec{a}$ und $\vec{b}$ ist
+definiert als 
+
+$$
+\vec{a} \cdot \vec{b} = \left( \begin{array}{c} a_1 \\ a_2 \\ a_3 \end{array} \right) \cdot \left( \begin{array}{c} b_1 \\ b_2 \\ b_3 \end{array} \right) := a_1 b_1 + a_2 b_2 + a_3 b_3 
+$$
+
+Zum Beispiel ist 
+
+$$
+\left( \begin{array}{c} 2 \\ -1 \\ 3 \end{array} \right) \cdot \left( \begin{array}{c} 1 \\ 2 \\ 1 \end{array} \right) := 2 \cdot 1 -1 \cdot 2+ 3 \cdot 1  = 3 
+$$
+
+
 ## Rechnen mit Matrizen und Vektoren - Produkt zweier Matrizen
+
+Für das Produkt $A \cdot B$ zweier Matrizen $A$ (als $k \times l$-Matrix) und $B$ (als $l \times m$-Matrix) muss
+
+- die Anzahl der Spalten von $A$ (hier $l$) mit
+- der Anzahl der Zeilen von $B$ (hier auch $l$) übereinstimmen! 
+
+Die **Produktmatrix** $C = A \cdot B$ besitzt dann so viele Zeilen ($k$) wie $A$ und soviele Spalten ($m$) wie $B$.
+
+$$
+\left(\begin{array}{cccc}c_{11} & c_{12} & \cdots & c_{1m} \\
+c_{21} & c_{22} & \cdots & c_{2m} \\
+\vdots & \vdots & \ddots & \vdots \\
+c_{k1} & c_{k2} & \cdots & c_{km}
+\end{array}\right) = \left(\begin{array}{cccc}a_{11} & a_{12} & \cdots & a_{1l} \\ 
+a_{21} & a_{22} & \cdots & c_{2l} \\
+\vdots & \vdots & \ddots & \vdots \\ 
+\vdots & \vdots & \ddots & \vdots \\ 
+a_{k1} & a_{k2} & \cdots & a_{kl}
+\end{array}\right) \cdot \left(\begin{array}{cccc}b_{11} & b_{12} & \cdots &  b_{1m} \\
+b_{21} & b_{22} &  \cdots & b_{2m} \\
+\vdots & \vdots &  \cdots &\vdots \\
+b_{l1} & b_{l2} &  \cdots & b_{lm}
+\end{array}\right)
+$$
+
+
+## Rechnen mit Matrizen und Vektoren - Produkt zweier Matrizen
+
+Jeder einzelne Eintrag $c_{ij}$ in der Produktmatrix $C$ 
+
+$$
+\left(\begin{array}{cccc}c_{11} & c_{12} & \cdots & c_{1m} \\
+c_{21} & c_{22} & \cdots & c_{2m} \\
+\vdots & \vdots & \ddots & \vdots \\
+c_{k1} & c_{k2} & \cdots & c_{km}
+\end{array}\right) = \left(\begin{array}{cccc}a_{11} & a_{12} & \cdots & a_{1l} \\ 
+a_{21} & a_{22} & \cdots & c_{2l} \\
+\vdots & \vdots & \ddots & \vdots \\ 
+\vdots & \vdots & \ddots & \vdots \\ 
+a_{k1} & a_{k2} & \cdots & a_{kl}
+\end{array}\right) \cdot \left(\begin{array}{cccc}b_{11} & b_{12} & \cdots &  b_{1m} \\
+b_{21} & b_{22} &  \cdots & b_{2m} \\
+\vdots & \vdots &  \cdots &\vdots \\
+b_{l1} & b_{l2} &  \cdots & b_{lm}
+\end{array}\right)
+$$
+
+ist dabei das Skalarprodukt der $i$-ten Zeile von $A$ mit der $j$-ten Spalte von $B$
+
+$$
+c_{ij} := \sum_{k=1}^{l} a_{ik} b_{kj}
+$$
+
+## Rechnen mit Matrizen und Vektoren - Produkt zweier Matrizen
+
+### Beispiel für das Produkt zweier Matrizen
+
+$$
+\left(\begin{array}{ccc} 3 & 2 & -4 \\
+0 & 6 & -5 
+\end{array}\right) \cdot \left(\begin{array}{cc}
+7 & 0 \\
+4 & 1 \\
+-3 & 0
+\end{array}\right) =  \left(\begin{array}{cc}
+21+8+12 & 2 \\
+24+15 & 6
+\end{array}\right) = \left(\begin{array}{cc}
+41 & 2 \\
+39 & 6
+\end{array}\right)
+$$
+
 
 ## Rechnen mit Matrizen und Vektoren - Beispiel Wählerwanderung
 
+Matrizen können zur Modellierung und Berechnung von Übergangsprozessen nützlich sein.
+
+### Beispiel Wählerwanderung
+
+Bei einer Wahl zu einem Stadtrat treten drei Parteien A, B und C an.
+Bei der letzten Wahl wurden folgende Ergebnisse erzielt:
+$$
+A: 42 \% \qquad B: 37\% \qquad C: 21\%
+$$
+
+Aufgrund von Befragungen werden folgende Wählerwanderungen erwartet:
+
+- Partei A behält 90\% ihrer Wähler, 4\% wandern zu B, 6\% wandern zu C ab
+- Partei B behält 85\% ihrer Wähler, 8\% wandern zu A, 7\% wandern zu C ab
+- Partei C behält 92\% ihrer Wähler, 1\% wandern zu Am 7\% wandern zu B ab.
+
+Mit welchem Wahlergebnis ist dieses Mal zu rechnen?
+
+## Rechnen mit Matrizen und Vektoren - Beispiel Wählerwanderung
+
+Das Ergebnis der vorherigen Wahl kann als *Wahlergebnisvektor* $\vec{w_0}$ dargestellt werden:
+
+$$
+\vec{w_0} = \left(\begin{array}{c}0.42 \\ 0.37 \\ 0.21 \end{array}\right)
+$$
+
+Die Wählerwanderungen werden durch die folgende **Übergangsmatrix** $W_{01}$ wiedergegeben: 
+
+$$
+W_{1,0} = \left(\begin{array}{ccc}
+0.90 & 0.08 & 0.01 \\
+0.04 & 0.85 & 0.07 \\
+0.06 & 0.07 & 0.92
+\end{array}\right)
+$$
+
+Dabei muss man sich die Spalten und Zeilen in der Reihenfolge A-B-C nummeriert denken. Die *Saplte* A drückt dann z.B. aus, mit welchem Anteil die Wähler von $A$ zu den drei Parteien abwandern bzw. bleiben. 
+
+## Rechnen mit Matrizen und Vektoren - Beispiel Wählerwanderung
+
+Mit diesen Angaben ist dann das zu erwartende Wahlergebnis durch den Vektor $\vec{w_1}$ mit
+
+$$
+\begin{aligned}
+\vec{w_1} & = W_{1,0} \cdot \vec{w_0}  = \left(\begin{array}{ccc}
+0.90 & 0.08 & 0.01 \\
+0.04 & 0.85 & 0.07 \\
+0.06 & 0.07 & 0.92
+\end{array}\right) \cdot \left(\begin{array}{c}0.42 \\ 0.37 \\ 0.21 \end{array}\right) \\ 
+&= \left(\begin{array}{c} 0.90 \cdot 0.42 + 0.08 \cdot 0.37 + 0.01 \cdot 0.21 \\ 
+0.04 \cdot 0.42 + 0.85 \cdot 0.37 + 0.07 \cdot 0.21 \\ 
+0.06 \cdot 0.42 + 0.07 \cdot 0.37 + 0.92 \cdot 0.21
+\end{array}\right) = \left(\begin{array}{c}0.4097 \\ 0.3460 \\ 0.2443 \end{array}\right)
+\end{aligned}
+$$
+
+gegeben. Also erzielt A 40.97\%, B 34.6\% und C 24.43\% der Wählerstimmen.
+
+**Achtung:** Die Matrizenmultiplikation ist **nicht kommutativ**. Es gilt jedoch immerhin das Assoziativgesetz $(A \cdot B)\cdot C =A \cdot (B\cdot C)$.
+
+## Rechnen mit Matrizen und Vektoren - Beispiel Wählerwanderung
+
+Sofern man nun unterstellt, dass jedes Mal die oben unterstellten Wählerwanderungen eintreten, dann wäre nach einigen Wahlen der Wahlergebnisvektor
+
+$$
+\vec{w_n} = W_{n,n-1} \cdot ( W_{n-1,n-2} \cdot (W_{n-2,n-3} \cdots (W_{1,0} \cdot \vec{w_{0}} ))) = W_{1,0}^{n} \cdot \vec{w_{0}} 
+$$
+
+```{r}
+# Übergangsmatrix erstellen (3x3, z. B. für Markov-Kette)
+uebergang <- matrix(c(0.9, 0.08, 0.01,
+                      0.04, 0.85, 0.07,
+                      0.06, 0.07, 0.92), nrow=3, byrow=TRUE)
+
+# Anfangszustandsvektor (Wahrscheinlichkeiten summieren zu 1)
+vektor <- c(0.42, 0.37, 0.21)
+
+# Multiplikation: nächster Zustand
+nächster_zustand <- uebergang %*% vektor
+for (i in 1:1000) 
+  nächster_zustand <- uebergang %*% nächster_zustand
+
+```
+
+Für große $n$ stabilisiert sich dann der Wähleranteil für A auf `r round(nächster_zustand[1,1]*100, 2)` \%, für B auf `r round(nächster_zustand[2,1]*100, 2)`\% und für C auf `r round(nächster_zustand[3,1]*100, 2)`\% .
+
 ## Rechnen mit Matrizen und Vektoren - Lineare Gleichungssysteme und Matrizenmultiplikation
 
+
+
 ## Rechnen mit Matrizen und Vektoren - Übergangsmatrizen und Matrizenmultiplikation
-
-
 
 # Lineare Optimierung
 
@@ -1787,5 +2162,3 @@ spricht man von einer Stufen- oder Treppenform der Lösungsmatrix mit Stufen in 
 ## Simplex-Algorithmus
 
 ## Allgemeines lineares Optimierungsproblem
-
-
