@@ -2631,10 +2631,9 @@ polygon(c(0, 5, 5, 1, 0),
         col = "lightblue", border = NA)
 abline(a = 60/15, b = -2/3, col = "blue")
 text(x = 2, y = 2.5, "Z = 60", col = "blue")
-abline(a = 70/15, b = -2/3, col = "yellow")
-text(x = 2, y = 3.5, "Z = 70", col = "yellow")
-abline(a = 80/15, b = -2/3, col = "magenta")
-text(x = 2, y = 4.5, "Z = 80", col = "magenta")
+abline(a = 70/15, b = -2/3, col = "blue")
+text(x = 2, y = 3.5, "Z = 70", col = "blue")
+abline(a = 80/15, b = -2/3, col = "blue")
+text(x = 2, y = 4.5, "Z = 80", col = "blue")
 
-# Fläche oberhalb der Geraden schattieren
 ```
