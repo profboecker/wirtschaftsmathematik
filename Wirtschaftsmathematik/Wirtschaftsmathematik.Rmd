@@ -239,9 +239,9 @@ Zeitwert
     $K_{0}$ zuzüglich der im Zeitraum $t$ angefallenen Zinsen $Z_{t}$
     ergibt, also
 
-\$\$ K\_{t} = K\_{0} + Z\_{t}
-
-\$\$
+$$
+K_{t} = K_{0} + Z_{t}
+$$
 
 gilt, folgt aus der Zinsformel eine sehr wichtige Formel der
 Finanzmathematik, die **Endwertformel bei linearer Verzinsung**
@@ -510,14 +510,20 @@ Verzinsung** oder **Leibnizsche Zinseszinsformel**.
 
 Für einen Sparbrief über 4000 €, der über fünf Jahre hinweg unter
 Zinsansammlung konstant mit 6 % verzinst wird erhält man am Ende des 5.
-Jahres $$
+Jahres 
+
+$$
 K_{5} = K_{0} \left(1 + 0.06 \right)^5 = 4000 \text{€} \cdot \left( 1.06 \right)^5 = 5352.60 \text{€}
-$$ \### Bemerkung
+$$ 
+
+### Bemerkung
 
 $K_{5}$ kann man hier auch als Endwert bezeichnen; $K_{0}$ nennt man
 (auch hier) Barwert (in diesem Falle der Barwert einer Zahlung in Höhe
 von $K_{5}$, die in fünf Jahren stattfindet). Die Formel für den Barwert
-ist dann: $$
+ist dann: 
+
+$$
 K_{0} = \frac{K_{n}}{q^{n}}
 $$
 
@@ -708,7 +714,7 @@ Frage
 \end{tabular}
 
 Damit ist: $$
-R_{n}^{N} = R + Rq + Rq^{2} + R q^{3} + \ldots + Rq^{n-1} = \sum\limits_{i=1}^{n} Rq^{i-1} = R \sum\limits_{i=1}^{n} q^{i-1} = R \frac{q^{n}-1}{q-1}
+E_{n}^{N} = R + Rq + Rq^{2} + R q^{3} + \ldots + Rq^{n-1} = \sum\limits_{i=1}^{n} Rq^{i-1} = R \sum\limits_{i=1}^{n} q^{i-1} = R \frac{q^{n}-1}{q-1}
 $$
 
 ## Barwert einer nachschüssigen Rente
@@ -752,7 +758,7 @@ Frage
 \end{tabular}
 
 Damit ist $$
-R_{n}^{V} = Rq + Rq^{2} + Rq^{3} + R q^{4} + \ldots + Rq^{n} = \sum\limits_{i=1}^{n} Rq^{i} = Rq \sum\limits_{i=1}^{n} q^{i-1} = Rq \frac{q^{n}-1}{q-1}
+E_{n}^{V} = Rq + Rq^{2} + Rq^{3} + R q^{4} + \ldots + Rq^{n} = \sum\limits_{i=1}^{n} Rq^{i} = Rq \sum\limits_{i=1}^{n} q^{i-1} = Rq \frac{q^{n}-1}{q-1}
 $$
 
 ## Barwert einer vorschüssigen Rente
@@ -778,11 +784,15 @@ B_{n}^{V} = R + \frac{R}{q} + \frac{R}{q^{2}} + \frac{R}{q^{3}} + \ldots + \frac
 
 ## Zusammenfassung der zentralen Rentenformeln
 
-\begin{tabular}{|c||c|c|}
-\hline End-/Barwert & Rate vorschüssig & Rate nachschüssig \\ \hline
-\hline Barwert& $Rq\frac{1}{q^n}\frac{q^n -1}{q-1}$ & $R\frac{1}{q^n}\frac{q^n -1}{q-1}$ \\ \hline Endwert & $Rq\frac{q^n -1}{q-1}$ & $R\frac{q^n -1}{q-1}$ \\ 
-\hline 
-\end{tabular}
+### Bar- und Endwertformel bei vorschuüssiger und bei nachschüssiger Ratenzahlung
+
+|                       | vorschüssig                           |                                        | nachschüssig                         |
+|:---------------------:|:-------------------------------------:|:--------------------------------------:|:------------------------------------:|
+| Barwert               | $R q \frac{1}{q^n}\frac{q^n -1}{q-1}$ | $\stackrel{\times q}{\longleftarrow}$  | $R \frac{1}{q^n}\frac{q^n -1}{q-1}$  |
+|                       | $\uparrow \times \frac{1}{q^n}$       |                                        | $\uparrow \times \frac{1}{q^n}$      |
+| Endwert               | $R q \frac{q^n -1}{q-1}$              | $\stackrel{\times q}{\longleftarrow}$  | $R \frac{q^n -1}{q-1}$               |
+
+
 
 # Funktionen
 
@@ -845,7 +855,7 @@ $$ erfüllt ist.
 
 ## Achsensymmetrie - Beispiel
 
-BeispieL: $f(x)=x^4 - 3x^2 - 3$
+### Beispiel: $f(x)=x^4 - 3x^2 - 3$
 
 ```{r echo = FALSE}
 rm(list = ls())
@@ -862,7 +872,7 @@ axis(2, pos = 0)
 
 ## Punktsymmetrie - Beispiel
 
-BeispieL: $f(x)=x^3 - 3x$
+### Beispiel: $f(x)=x^3 - 3x$
 
 ```{r echo = FALSE}
 rm(list = ls())
@@ -881,13 +891,22 @@ axis(2, pos = 0)
 
 ### Monotonie
 
-Eine Funktion $y=f(x)$ heißt - **monoton wachsend**, wenn $$
+Eine Funktion $y=f(x)$ heißt 
+
+- **monoton wachsend**, wenn 
+$$
 \forall  x_{1}, x_{2} \in D(f) \mbox{ mit } x_{1} < x_{2}  \qquad f(x_{1}) \leq f(x_{2})
-$$ - **streng monoton wachsend**, wenn $$
+$$ 
+- **streng monoton wachsend**, wenn 
+$$
 \forall  x_{1}, x_{2} \in D(f) \mbox{ mit } x_{1} < x_{2}  \qquad f(x_{1}) < f(x_{2})
-$$ - **monoton fallend**, wenn $$
+$$ 
+- **monoton fallend**, wenn 
+$$
 \forall  x_{1}, x_{2} \in D(f) \mbox{ mit } x_{1} < x_{2}  \qquad f(x_{1}) \geq f(x_{2})
-$$ - **streng monoton fallend**, wenn $$
+$$ 
+- **streng monoton fallend**, wenn 
+$$
 \forall  x_{1}, x_{2} \in D(f) \mbox{ mit } x_{1} < x_{2}  \qquad f(x_{1}) > f(x_{2})
 $$
 
@@ -895,15 +914,25 @@ $$
 
 ### Monotonie
 
-Eine Funktion $y=f(x)$ heißt - **monoton wachsend**, wenn $$
+Eine Funktion $y=f(x)$ heißt 
+
+- **monoton wachsend**, wenn 
+$$
 \frac{f(x_{2}) - f(x_{1})}{x_{2} - x_{1}} \geq 0
-$$ - **streng monoton wachsend**, wenn $$
+$$ 
+- **streng monoton wachsend**, wenn 
+$$
 \frac{f(x_{2}) - f(x_{1})}{x_{2} - x_{1}} > 0
-$$ - **monoton fallend**, wenn $$
+$$ 
+- **monoton fallend**, wenn 
+$$
 \frac{f(x_{2}) - f(x_{1})}{x_{2} - x_{1}} \leq 0
-$$ - **streng monoton fallend**, wenn $$
+$$ 
+- **streng monoton fallend**, wenn 
+$$
 \frac{f(x_{2}) - f(x_{1})}{x_{2} - x_{1}} < 0
 $$ $\forall  x_{1}, x_{2} \in D(f)$.
+
 
 ## Stetigkeit
 
@@ -1056,20 +1085,27 @@ die gebrochen-rationale Funktion **unecht-gebrochen**.
 ## Unecht gebrochen-rationale Funktionen: Zerlegung durch Polynomdivision
 
 Jede unecht gebrochen-rationale Funktion kann durch Polynomdivision in
-die Summe eine ganz-rationalen Funktion und einer echt
-gebrochen-rationale Funktion zerlegt werden.
+die Summer eine ganz-rationalen Funktion und einer echt
+gebrochen-rationalen Funktion zerlegt werden.
 
 Beispiel: Die unecht gebrochen-rationale Funktion $$
 f(x) = \frac{x^3 - 3x +5}{x-2} = \left(x^2 +2x + 1 \right) + \frac{7}{x-2}
-$$ lässt sich durch Polynomdivision in eine ganz-rationalen Teil
-$x^2+2x+1$ und eine echt gebrochen-rationalen Teil $\frac{7}{x-2}$
+$$ lässt sich durch Polynomdivision in einen ganz-rationalen Teil
+$x^2+2x+1$ und einen echt gebrochen-rationalen Teil $\frac{7}{x-2}$
 zerlegen.
 
 ## Nullstellen gebrochen-rationaler Funktionen
 
-Die *Nullstellen* gebrochen-rationaler Funktionen ergeben sich als
+### Nullstellen gebrocher-rationaler Funktionen
+Die *Nullstellen* $N_{0}(f)$ einer **gebrochen-rationalen** Funktion $f(x) = \frac{Z(x)}{N(x)}$ ergeben sich als
 diejenigen Nullstellen $x$ des Zählerpolynoms $Z(x)$, für die die
 Funktion $f$ überhaupt definiert ist, also für die $x \in D(f)$ ist.
+$$
+\begin{aligned}
+N_{0}(f) &= \{ x \in \mathbb{R} | Z(x) = 0 \wedge x \in D(f) \} \\  &= \{ x \in \mathbb{R} | Z(x) = 0 \wedge N(x) \neq 0 \}
+\end{aligned}
+$$
+
 
 ## Ableitung einer Funktion
 
@@ -1113,13 +1149,15 @@ Damit können also Aussagen gemacht werden über
 
 ### Ableitung elementarer Funktionen
 
-\begin{align*}
-&f(x)  &f'(x)  \\ \hline
-&f(x) = a   &f'(x) = 0 \\
-&f(x) = x^r  &f'(x) = rx^{r-1} \\
-&f(x) = e^x   &f'(x) = e^x \\
-&f(x) = \ln(x)   &f'(x) = \frac{1}{x} \\
-\end{align*}
+Für $r \in \mathbb{R}$ mit $r\neq 1$ und $a \in \mathbb{R}$ ist
+
+| $f(x)$ | $f'(x)$ |
+|:-----:|:-----:|
+| $f(x) = a$  | $f'(x) = 0$ |
+| $f(x) = x^{r}$  | $f'(x) = r\cdot x^{r-1}$ |
+| $f(x) = e^{x}$ | $f'(x) = e^{x}$ |
+| $f(x) = \ln(x)$ | $f'(x) = \frac{1}{x}$ |
+
 
 ## Ableitungsregeln
 
@@ -1275,13 +1313,19 @@ x &+ y &= 100
 
 ### Einsetzungsverfahren
 
-Aus der zweiten Gleichung folgt $$
+Aus der zweiten Gleichung folgt 
+$$
 x + y = 100 \Leftrightarrow y = 100 - x
-$$ und dies eingesetzt in die erste Gleichung ergibt: $$
+$$ 
+und dies eingesetzt in die erste Gleichung ergibt: 
+$$
 4x + 2y = 320 \stackrel{y=100-x}{\longrightarrow} 4x +2(100-x) \Leftrightarrow 2x + 200 = 320 \Leftrightarrow x = 60
-$$ und daher $$
+$$ 
+und daher 
+$$
 y = 100 - x = 100 - 60 = 40
-$$ Also hat der Bauer 60 Schweine und 40 Hühner.
+$$ 
+Also hat der Bauer 60 Schweine und 40 Hühner.
 
 ### Probe der Lösung
 
@@ -1293,26 +1337,37 @@ also zusammen $240 + 80 = 320$ Beine.
 
 ### Additionsverfahren
 
-Durch Multiplikation der zweiten Gleichung mit $-2$ \begin{align*}
+Durch Multiplikation der zweiten Gleichung mit $-2$ 
+\begin{align*}
 4x &+ 2y &= 320 \\
 x &+ y &= 100
-\end{align*} ergibt sich \begin{align}
+\end{align*} 
+ergibt sich 
+\begin{align}
 4x &+ 2y &= 320 \\
 -2x &- 2y &= -200
-\end{align} und durch Addition der zweiten zur ersten Gleichung damit $$
+\end{align} 
+und durch Addition der zweiten zur ersten Gleichung damit 
+$$
 (4x -2x) +(2y-2y) = 320 - 200
-$$ also $$
+$$ 
+also 
+$$
 2x = 120 \Leftrightarrow x = 60
-$$ und daher $y = 100 - x = 100 - 60 = 40$.
+$$ 
+und daher $y = 100 - x = 100 - 60 = 40$.
 
 ## Lösungsmöglichkeiten
 
 ### Grafische Lösungsverfahren
 
-Durch Umstellen der beiden Gleichungen \begin{align*}
+Durch Umstellen der beiden Gleichungen 
+\begin{align*}
 4x &+ 2y &= 320 \\
 x &+ y &= 100
-\end{align*} nach $y$ ergibt sich: \begin{align*}
+\end{align*} 
+nach $y$ ergibt sich: 
+\begin{align*}
 y &= 160 - 2 \cdot x \\
 y &= 100 - x
 \end{align*}
@@ -1359,8 +1414,11 @@ ggplot(df, aes(x = x, y = y, color = line)) +
 
 ### Grundtatsache zu **linearen** Gleichungssystemen
 
-Ein lineares Gleichungssystem besitzt entweder - **genau eine** Lösung
-oder - **keine** Lösung oder - **unendlich viele** Lösungen
+Ein lineares Gleichungssystem besitzt entweder 
+
+- **genau eine** Lösung oder 
+- **keine** Lösung oder 
+- **unendlich viele** Lösungen
 
 Insbesondere kann ein lineares Gleichungssystem also nicht zum Beispiel
 *genau zwei* Lösungen haben.
@@ -1958,7 +2016,7 @@ Koeffizienten der Matrix mit dem Faktor.
 Zum Beispiel ist das 3-fache des Vektors $\vec{v}$
 
 $$
-3 \vec{v} = 3 \left(\begin{array}{c}-1 \\ -3 \\ -3.2\end{array}\right) = \left(\begin{array}{c}-3 \\ -9 \\ -9,6\end{array}\right)
+3 \vec{v} = 3 \left(\begin{array}{c}-1 \\ -3 \\ -3.2\end{array}\right) = \left(\begin{array}{c}-3 \\ -9 \\ -9.6\end{array}\right)
 $$
 
 Insbesondere ist zum Beispiel 
@@ -2089,7 +2147,7 @@ $$
 \vec{w_0} = \left(\begin{array}{c}0.42 \\ 0.37 \\ 0.21 \end{array}\right)
 $$
 
-Die Wählerwanderungen werden durch die folgende **Übergangsmatrix** $W_{01}$ wiedergegeben: 
+Die Wählerwanderungen werden durch die folgende **Übergangsmatrix** $W_{1,0}$ wiedergegeben: 
 
 $$
 W_{1,0} = \left(\begin{array}{ccc}
@@ -2435,7 +2493,7 @@ polygon(c(-7, x, 7, 0),
 
 ## Lineare Optimierung: Einführung in die Problemstellung
 
-Für die Lösungsmenge des Ungleichungssystems ergibt sich damit
+Für die Lösungsmenge des Ungleichungssystems (es war zusätzlich $x, y \geq 0$ gefordert) ergibt sich damit
 
 ```{r}
 rm(list = ls())
