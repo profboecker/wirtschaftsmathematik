@@ -2305,3 +2305,278 @@ $$
 \end{array}\right) \cdot \left(\begin{array}{c} e_1 \\ e_2 \end{array}\right) 
 $$
 
+
+# Lineare Optimierung
+
+## Lineare Optimierung: Einführung in die Problemstellung
+
+Für die Lösungsmenge des linearen Gleichungssystems
+
+\renewcommand{\theequation}{\Roman{equation}}
+\setcounter{equation}{0}
+\begin{align}
+2x_1 + x_2 &= 5 \\
+x_1 - x_2 &= 1
+\end{align}
+
+
+liegen alle Lösungen der ersten Gleichung auf einer Geraden, alle Lösungen der zweiten Gleichung auf einer zweiten Geraden, die Lösung des Gleichungssystems ist also der Schnittpunkt der beiden Geraden.
+
+## Lineare Optimierung: Einführung in die Problemstellung
+
+```{r}
+rm(list = ls())
+library(ggplot2)
+
+# Definition der zwei Geraden: y = m1*x + b1 und y = m2*x + b2
+m1 <- -2
+b1 <- 5
+m2 <- 1
+b2 <- -1
+
+# Berechnung des Schnittpunkts
+x_intersect <- (b2 - b1) / (m1 - m2)
+y_intersect <- m1 * x_intersect + b1
+
+# Daten für die Geraden (für Plot-Bereich x von 0 bis 5)
+df <- data.frame(
+  x = rep(seq(-7, 7, length.out = 100), 2),
+  y = c(m1 * seq(-7, 7, length.out = 100) + b1,
+        m2 * seq(-7, 7, length.out = 100) + b2),
+  line = factor(rep(c("Gleichung I", "Gleichung II"), each = 100))
+)
+
+# Plot mit zwei Linien und Schnittpunkt als Punkt
+ggplot(df, aes(x = x, y = y, color = line)) +
+  geom_line(size = 1) +
+  geom_point(aes(x = x_intersect, y = y_intersect), color = "black", size = 3) +
+  annotate("text", x = x_intersect, y = y_intersect, label = paste0("Schnittpunkt\n(", round(x_intersect, 2), ", ", round(y_intersect, 2), ")"),
+           hjust = -0.1, vjust = 1.5) +
+  theme_minimal() +
+  labs(title = "Graph der beiden Geraden mit Schnittpunkt", 
+       x = "x-Achse", 
+       y = "y-Achse",
+       color = "Bedingungsgerade") 
+
+```
+
+## Lineare Optimierung: Einführung in die Problemstellung
+
+### Problemstellung in der linearen Optimierung
+
+Wie ändert sich die Lösung, wenn statt der beiden Gleichungen nun Ungleichungen angenommen werden?
+
+\renewcommand{\theequation}{\Roman{equation}}
+\setcounter{equation}{0}
+\begin{align}
+2x_1 + x_2 &\leq 5 \\
+x_1 - x_2 &\leq 1 \\
+x_{1}, x_{2} \geq 0
+\end{align}
+
+## Lineare Optimierung: Einführung in die Problemstellung
+
+Für die erste Gleichung ergibt sich nun folgende Lösungsmenge
+
+$$ 
+y\leq -2x +5 
+$$
+
+```{r}
+rm(list = ls())
+# Beispiel: Fläche oberhalb der Geraden y = 2x + 1 zwischen x=0 und x=3
+x <- seq(-7, 7, length.out = 100)
+y_line <- -2 * x + 5   # Gerade y = -2x + 5
+y_max <- max(y_line)  # Maximale Höhe für die Fläche
+y_min <- min(y_line)
+
+plot(x, y_line, type = "l", lwd = 2, 
+     xlab = "x", ylab = "y", 
+     main = "Lösungsmenge ist die Fläche unterhalb der Geraden I")
+abline(h = 0)
+abline(v = 0)
+
+# Fläche oberhalb der Geraden schattieren
+polygon(c(-7, x, 7, 0), 
+        c(y_min, y_line, y_min, y_min), 
+        col = "lightblue", border = NA)
+
+
+```
+
+## Lineare Optimierung: Einführung in die Problemstellung
+
+Für die zweite Gleichung ergibt sich folgende Lösungsmenge
+$$
+y \geq -x + 1
+$$
+
+```{r}
+rm(list = ls())
+# Beispiel: Fläche oberhalb der Geraden y = 2x + 1 zwischen x=0 und x=3
+x <- seq(-7, 7, length.out = 100)
+y_line <- 1 * x - 1   # Gerade y = -2x + 5
+y_max <- max(y_line)  # Maximale Höhe für die Fläche
+y_min <- min(y_line)
+
+plot(x, y_line, type = "l", lwd = 2, 
+     xlab = "x", ylab = "y", 
+     main = "Lösungsmenge ist die Fläche oberhalb der Geraden II")
+abline(h = 0)
+abline(v = 0)
+
+# Fläche oberhalb der Geraden schattieren
+polygon(c(-7, x, 7, 0), 
+        c(y_max, y_line, y_max, y_max), 
+        col = "lightblue", border = NA)
+
+
+```
+
+## Lineare Optimierung: Einführung in die Problemstellung
+
+Für die Lösungsmenge des Ungleichungssystems ergibt sich damit
+
+```{r}
+rm(list = ls())
+x <- seq(0, 7, length.out = 100)
+y_line <- 1 * x - 1   
+z_line <- -2 * x +5 
+
+plot(x, y_line, type = "l", lwd = 2, 
+     xlab = "x", ylab = "y", 
+     main = "Lösungsmenge ist Schnittmenge")
+abline(a = 5, b = -2, lwd = 2) 
+abline(h = 0)
+abline(v = 0)
+
+# Fläche oberhalb der Geraden schattieren
+polygon(c(0, 1,  2, 0), 
+        c(0, 0, 1, 5), 
+        col = "lightblue", border = NA)
+
+```
+
+## Lineare Optimierung: Beispiel Zelte
+
+### Beispiel
+
+Eine Jugendgruppe beschließt, Zelte einzukaufen.
+
+In einem Sonderangebot werden zwei verschiedene Sorten von Zelten für jeweils 10 und 15 Personen preiswert angeboten:
+
+- von den 10-Personen-Zelten sind noch 5 vorhanden und diese kosten pro Stück 200 €
+- von den 15-Personen-Zelten sind nur noch 4 vorhanden und diese kosten pro Stück 400 €
+
+
+1. Frage: Wieviele 10- und 15-Personen-Zelte kann die Jugendgruppe kaufen?
+2. Frage: Wieviele 10- und 15-Personen-Zelte sollte die Jugendgruppe kaufen, damit eine möglichst große Anzahl von Personen untergebracht werden kann?
+
+
+## Lineare Optimierung: Beispiel Zelte
+
+- Was ist gesucht?
+  - x Anzahl der zu kaufenden 10-Personen-Zelte
+  - y Anzahl der zu kaufenden 15-Personen-Zelte
+- Was ist bekannt (Nebenbedingungen)?
+  - $x\geq 0$, $y\geq 0$
+  - $x\leq 5$, $y\leq 4$
+  - $200x + 400y \leq 1800$
+- Was ist das Ziel / die Zielfunktion?
+  - $Z(x,y) = 10x + 15y \to \text{Max!}$
+  
+## Lineare Optimierung: Beispiel Zelte
+
+Weil 
+$$
+200x + 400 y \leq 1800 \Leftrightarrow < y\leq -\frac{1}{2} x +4.5
+$$
+
+
+```{r}
+rm(list = ls())
+x <- seq(0, 8, length.out = 100)
+y_line <- -0.5 * x + 4.5   
+
+plot(x, y_line, type = "l", lwd = 2, 
+     xlab = "x", ylab = "y", 
+     main = "Zulässiger Bereich - mögliche Zeltkombinationen")
+abline(a = 4.5, b = -0.5, col = "red")
+abline(h = 4)
+abline(v = 5)
+abline(h = 0)
+abline(v = 0)
+
+# Fläche oberhalb der Geraden schattieren
+polygon(c(0, 5, 5, 1, 0), 
+        c(0, 0, 2, 4, 4), 
+        col = "lightblue", border = NA)
+
+```
+
+## Lineare Optimierung: Beispiel Zelte
+
+Für die Zielfunktion ist 
+$$
+Z = 10 x + 15 y \Leftrightarrow y = - \frac{2}{3}x + \frac{Z}{15}
+$$
+
+also z.B. für $Z=60$ untergebrachten Personen
+
+```{r}
+rm(list = ls())
+x <- seq(0, 8, length.out = 100)
+y_line <- -0.5 * x + 4.5   
+
+plot(x, y_line, type = "l", lwd = 2, 
+     xlab = "x", ylab = "y", 
+     main = "Zulässiger Bereich / Zielfunktion 60")
+abline(a = 4.5, b = -0.5, col = "red")
+abline(h = 4)
+abline(v = 5)
+abline(h = 0)
+abline(v = 0)
+polygon(c(0, 5, 5, 1, 0), 
+        c(0, 0, 2, 4, 4), 
+        col = "lightblue", border = NA)
+abline(a = 4, b = -2/3, col = "blue")
+text(x = 2, y = 2.5, "Z = 60", col = "blue")
+
+# Fläche oberhalb der Geraden schattieren
+```
+
+
+## Lineare Optimierung: Beispiel Zelte
+
+Wir wollen aber möglichst viele Personen unterbringen 
+$$
+y = - \frac{2}{3}x + \frac{Z}{15} \text{ mit }Z = \text{Max!}
+$$
+
+also die Gerade möglichst weit nach oben verschieben, sodass Sie den zulässigen Bereich noch schneidet:
+
+```{r}
+rm(list = ls())
+x <- seq(0, 8, length.out = 100)
+y_line <- -0.5 * x + 4.5   
+
+plot(x, y_line, type = "l", lwd = 2, 
+     xlab = "x", ylab = "y", 
+     main = "Zulässiger Bereich / Zielfunktion")
+abline(a = 4.5, b = -0.5, col = "red")
+abline(h = 4)
+abline(v = 5)
+abline(h = 0)
+abline(v = 0)
+polygon(c(0, 5, 5, 1, 0), 
+        c(0, 0, 2, 4, 4), 
+        col = "lightblue", border = NA)
+abline(a = 60/15, b = -2/3, col = "blue")
+text(x = 2, y = 2.5, "Z = 60", col = "blue")
+abline(a = 70/15, b = -2/3, col = "yellow")
+text(x = 2, y = 3.5, "Z = 70", col = "yellow")
+abline(a = 80/15, b = -2/3, col = "magenta")
+text(x = 2, y = 4.5, "Z = 80", col = "magenta")
+
+# Fläche oberhalb der Geraden schattieren
+```
