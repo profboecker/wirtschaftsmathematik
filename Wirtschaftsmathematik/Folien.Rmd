@@ -17,7 +17,10 @@ options(digits = 4)
 knitr::opts_chunk$set(echo=FALSE, message=FALSE, warning=FALSE, cache=FALSE, 
                       dev.args=list(pointsize=11), size="scriptsize")
 remotes::install_github("profboecker/fhswf")
+<<<<<<< HEAD
 library(tidyverse, tidymodels, fhswf)
+=======
+>>>>>>> 6cf5d4c3e6ff169f801eaa33447d8df15093754f
 ```
 
 # Organisatorisches
