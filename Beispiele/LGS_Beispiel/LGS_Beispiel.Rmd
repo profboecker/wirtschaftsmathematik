@@ -1,37 +1,18 @@
 ---
-title: "LGS Beispiel"
-
-course: Wirtschaftsmathematik
-supervisor: Prof. Dr. Stefan Böcker, FRM
-city: Hagen, Germany
-
-# Language Options
+title: LGS Beispiel
+author: Prof. Dr. Stefan Böcker, FRM
+date: \today
+toc: false
+output: fhswf::presentation
+knit: fhswf::render_presentation
 german: true # German Dummy Text
 lang: de-de   # Text Language: en-gb, en-us, de-de
-
-# Indexes
-toc: false     # Table of Contents
-lot: false    # List of Tables
-lof: false    # List of Figures
-
-# Output Options
-blind: false
-cover: false
-declaration: false
-checklist: false
-output: fhswf::seminarpaper
-knit: fhswf::render_seminarpaper
 ---
 
 ```{r setup, include=FALSE}
-knitr::opts_chunk$set(echo = FALSE, cache=FALSE, messages=FALSE, warning=FALSE, 
-                      attr.source='.numberLines', singlespacing = TRUE)
-# Execute fhswf hooks
-fhswf::fhswf_hooks()
-
-# Load Packages
-library(fhswf)
-library(ggplot2)
+options(digits = 4)
+knitr::opts_chunk$set(echo=TRUE, message=FALSE, warning=FALSE, cache=FALSE, 
+                      dev.args=list(pointsize=11), size="scriptsize")
 ```
 
 ## Beispiel ausführlich
@@ -68,7 +49,23 @@ $$
 \end{array}
 \right)
 $$
-Hier könnte man nun aufhören und rückwärts einsetzen, oder aber zunächst mit ($II +4\cdot III$) die zweite Zeile ersetzen:
+Hier könnte man nun aufhören und rückwärts einsetzen...
+
+## LGS Beispiel
+
+oder aber in 
+
+$$
+\left(
+\begin{array}{ccc|c}
+1 & -1 & 2 & 9 \\
+0 & 3 & -4 & -15 \\
+0 & 0 & 1 & 3
+\end{array}
+\right)
+$$
+
+zunächst mit ($II +4\cdot III$) die zweite Zeile ersetzen:
 
 $$
 \left(
@@ -79,7 +76,22 @@ $$
 \end{array}
 \right)
 $$
-und danach die erste Zeile durch ($I - 2\cdot III$) und die zweite durch ($\frac{1}{3}\cdot II$), sodass
+
+## LGS Beispiel
+
+und danach in 
+
+$$
+\left(
+\begin{array}{ccc|c}
+1 & -1 & 2 & 9 \\
+0 & 3 & 0 & -3 \\
+0 & 0 & 1 & 3
+\end{array}
+\right)
+$$
+
+die erste Zeile durch ($I - 2\cdot III$) und die zweite durch ($\frac{1}{3}\cdot II$), sodass
 
 $$
 \left(
@@ -91,7 +103,21 @@ $$
 \right)
 $$
 
-um schließlich im letzten Schritt durch ($I + II$) auf
+## LGS-Beispiel
+
+um schließlich im letzten Schritt in 
+
+$$
+\left(
+\begin{array}{ccc|c}
+1 & -1 & 0 & 3 \\
+0 & 1 & 0 & -1 \\
+0 & 0 & 1 & 3
+\end{array}
+\right)
+$$
+
+die ersten Zeile durch ($I + II$) zu ersetzen um auf
 
 $$
 \left(
