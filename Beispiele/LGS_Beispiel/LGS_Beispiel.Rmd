@@ -15,7 +15,9 @@ knitr::opts_chunk$set(echo=TRUE, message=FALSE, warning=FALSE, cache=FALSE,
                       dev.args=list(pointsize=11), size="scriptsize")
 ```
 
-## Beispiel ausführlich
+# LGS-Beispiel mit eindeutiger Lösung
+
+## LGS-Beispiel mit eindeutiger Lösung
 
 Das lineare Gleichungssystem
 $$
@@ -130,3 +132,183 @@ $$
 $$
 
 und damit die Lösung $x_1 = 2$, $x_2 = -1$, und $x_3 = 3$ zu kommen.
+
+
+# LGS-Beispiel mit unendlich vielen Lösungen
+
+## LGS-Beispiel mit unendlich vielen Lösungen
+
+Das lineare Gleichungssystem
+
+$$
+\left(
+\begin{array}{ccc|c}
+0 & 1 & 2 & 9 \\
+-2 & 2 & 1 & 3 \\
+2 & -1 & 1 & 6
+\end{array}
+\right)
+$$
+
+führt durch Tauschen der ersten und der dritten Zeile auf
+
+$$
+\left(
+\begin{array}{ccc|c}
+2 & -1 & 1 & 6 \\
+-2 & 2 & 1 & 3 \\
+0 & 1 & 2 & 9
+\end{array}
+\right)
+$$
+
+## LGS-Beispiel mit unendlich vielen Lösungen
+
+Addiert man dann in 
+
+$$
+\left(
+\begin{array}{ccc|c}
+2 & -1 & 1 & 6 \\
+-2 & 2 & 1 & 3 \\
+0 & 1 & 2 & 9
+\end{array}
+\right)
+$$
+
+die erste zur zweiten Zeile, erhält man 
+
+$$
+\left(
+\begin{array}{ccc|c}
+2 & -1 & 1 & 6 \\
+0 & 1 & 2 & 9 \\
+0 & 1 & 2 & 9
+\end{array}
+\right)
+$$
+
+## LGS-Beispiel mit unendlich vielen Lösungen
+
+Wie man schnell durch Subtraktion der zweiten von der dritten Zeile in
+
+$$
+\left(
+\begin{array}{ccc|c}
+2 & -1 & 1 & 6 \\
+0 & 1 & 2 & 9 \\
+0 & 1 & 2 & 9
+\end{array}
+\right)
+$$
+erkennt, entsteht eine Nullzeile
+
+$$
+\left(
+\begin{array}{ccc|c}
+2 & -1 & 1 & 6 \\
+0 & 1 & 2 & 9 \\
+0 & 0 & 0 & 0
+\end{array}
+\right)
+$$
+
+Zur Erinnerung: Diese letzte Zeile besagt, dass $0x_1 + 0x_2 + 0x_3 = 0$ ist, was sich durch beliebige $x_1$, $x_2$, $x_3$ erfüllen lässt.
+
+## LGS-Beispiel mit unendlich vielen Lösungen
+
+In dem resultierenden Gleichungssystem
+
+$$
+\left(
+\begin{array}{ccc|c}
+2 & -1 & 1 & 6 \\
+0 & 1 & 2 & 9 \\
+0 & 0 & 0 & 0
+\end{array}
+\right)
+$$
+
+ist also die letzte Zeile überflüssig und liefert keine Bedingung an die Variablen.
+
+Daher kann man eine der Variablen (hier idealerweise) $x_3 = t \in \mathbb{R}$ als beliebig wählen (mit dem Parameter $t \in \mathbb{R}$).
+
+Aus der zweiten Zeile erhält man mit $x_3 = t$
+
+$$
+x_2 + 2 x_3 = 9 \Leftrightarrow x_2 +2 t = 9 \Leftrightarrow x_2 = 9 -2t
+$$
+
+und damit aus der ersten Gleichung
+
+$$
+2x_1 -x_2 +x_3 = 6 \Leftrightarrow 2x_1 - (9-2t) +t = 6 \Leftrightarrow x_1 = \frac{15}{2} - \frac{3}{2} t
+$$
+
+
+## LGS-Beispiel mit unendlich vielen Lösungen
+
+Diese Lösung kann man kompakt so schreiben:
+$$
+\left(\begin{array}{c}x_1 \\ x_2 \\ x_3 \end{array}\right) = \left(\begin{array}{c}\frac{15}{2} \\ 9 \\ 0 \end{array}\right) + t \cdot \left(\begin{array}{c}-\frac{3}{2} \\ -2 \\ 1 \end{array}\right)
+$$
+
+Daher hat das Gleichungssystem **unendlich viele** Lösungen, weil ja für jeden beliebigen Wert von $t \in \mathbb{R}$ eine Lösung gefunden wurde, z.B. für $t = 0$ oder $t = 1$ die Lösungen:
+$$
+\left(\begin{array}{c}\frac{15}{2} \\ 9 \\ 0 \end{array}\right) \text{ für } t = 0 \qquad \text{ oder } \qquad \left(\begin{array}{c}6 \\ 7 \\ 1 \end{array}\right) \text{ für } t = 1
+$$
+
+# LGS-Beispiel ohne Lösung
+
+## LGS-Beispiel ohne Lösung
+
+Das lineare Gleichungssystem
+
+$$
+\left(
+\begin{array}{ccc|c}
+2 & -1 & 1 & 6 \\
+-2 & 2 & 1 & 3 \\
+0 & 1 & 2 & 8
+\end{array}
+\right)
+$$
+führt durch Addition der ersten zur zweiten Zeile auf
+
+$$
+\left(
+\begin{array}{ccc|c}
+2 & -1 & 1 & 6 \\
+0 & 1 & 2 & 9 \\
+0 & 1 & 2 & 8
+\end{array}
+\right)
+$$
+
+## LGS-Beispiel ohne Lösung
+
+Man sieht schon, dass die zweite und dritte Zeile nicht gleichzeitig erfüllt werden können, aber durch Subtraktion der zweiten von der dritten in 
+
+$$
+\left(
+\begin{array}{ccc|c}
+2 & -1 & 1 & 6 \\
+0 & 1 & 2 & 9 \\
+0 & 1 & 2 & 8
+\end{array}
+\right)
+$$
+
+entsteht
+
+$$
+\left(
+\begin{array}{ccc|c}
+2 & -1 & 1 & 6 \\
+0 & 1 & 2 & 9 \\
+0 & 0 & 0 & -1
+\end{array}
+\right)
+$$
+
+Hier besagt die letzte Zeile, dass $0x_1 + 0x_2 +0x_3 = -1$ sein sollte, was unerfüllbar ist. Daher hat dieses Gleichungssystem **keine** Lösung.
