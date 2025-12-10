@@ -2332,7 +2332,7 @@ z_1 + 3z_2 + 2 z_3 &= r_3
 \end{array}\right) \cdot \left(\begin{array}{c} z_1 \\ z_2 \\ z_3 \end{array}\right) = \left(\begin{array}{c} r_1 \\ r_2 \\ r_3 \end{array}\right)  
 $$
 
-des Endproduktes.
+der Rohstoffe.
 
 ## Rechnen mit Matrizen und Vektoren - Übergangsmatrizen und Matrizenmultiplikation
 
@@ -2365,6 +2365,21 @@ $$
 \end{array}\right) \cdot \left(\begin{array}{c} e_1 \\ e_2 \end{array}\right) 
 $$
 
+Einheiten an Rohstoffen.
+
+## Rechnen mit Matrizen und Vektoren - Übergangsmatrizen und Matrizenmultiplikation
+
+Also benötigt man zur Produktion von  $e_1 = 10$ und $e_2 = 15$ Einheiten von $E_1$ bzw. $E_2$ 
+
+$$
+\left(\begin{array}{c} r_1 \\ r_2 \\ r_3 \end{array}\right) = \left(\begin{array}{cc}
+45 & 68 \\
+79 & 115  \\
+31 & 45
+\end{array}\right) \cdot \left(\begin{array}{c} 10 \\ 15 \end{array}\right) =  \left(\begin{array}{c} 45\cdot 10 + 68\cdot 15 \\ 79\cdot 10 + 115 \cdot 15 \\ 31\cdot 10 + 45 \cdot 15  \end{array}\right) = \left(\begin{array}{c} 1470 \\ 2515 \\ 985 \end{array}\right) 
+$$
+
+Einheiten der Rohstoffe.
 
 # Lineare Optimierung
 
