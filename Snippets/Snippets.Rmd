@@ -133,9 +133,40 @@ display([piProb1, piProb2, piProb3, piProb4])
 
 # Lineare Optimierung
 
+
+
 ## Problemdarstellung und grafische Lösung
 
 ## Simplex-Algorithmus
+
+## Lineare Optimierung: Simplex-Algorithmus
+
+### Standard-Maximum-Problem
+
+Lineare Optimierungsprobleme mit $n$ **Entscheidungsvariablen** heißen
+**Standard-Maximum-Probleme**, wenn sie folgende Form haben
+
+-   Man hat $n$ **Entscheidungsvariablen** $x_{1}, x_{2}, \dots, x_{n}$
+    (mit $n\geq 2$).
+-   Es ist eine **lineare Zielfunktion**
+$$
+Z(x_{1}, x_{2}, \dots, x_{n}) = c_{1}x_{1} +c_{2}x_{2} + c_{3}x_{3} + \cdots + c_{n}x_{n} \to \text{Max!}
+$$
+
+gegeben, deren Wert durch geeignete Wahl der $x_i$ maximiert werden
+soll.
+
+- Es gelten **lineare Restriktionen**
+$$
+\begin{aligned}
+a_{11} x_{1} + a_{12} x_{2} + a_{13} x_{3} + \ldots + a_{1n} x_{n}  & \leq   b_{1} \\
+a_{21} x_{1} + a_{22} x_{2} + a_{23} x_{3} + \ldots + a_{2n} x_{n}  & \leq   b_{2} \\
+\vdots \qquad &  \\
+a_{m1} x_{1} + a_{m2} x_{2} + a_{m3} x_{3} + \ldots + a_{mn} x_{n}  & \leq   b_{m}
+\end{aligned}
+$$
+
+
 
 ## Allgemeines lineares Optimierungsproblem
 
