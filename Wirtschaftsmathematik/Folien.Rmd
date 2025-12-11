@@ -2893,7 +2893,7 @@ Darauf folgt der eigentliche Simplex-Algorithmus mit den Schritten:
 
 1. Bestimmung des **Pivot-Elementes** durch
   a. Bestimmung der **Pivot-Spalte** (negativster Wert in der Zeile der Zielfunktion; **Erstes Simplex-Kriterium**)
-  b. Bestimmung der **Pivot-Zeile** (*Quotientenkriterium/Zweites Simplex-Kriterium*: kleinster Quotient der Werte in Spalte $b_i$ durch Werte der Pivot-Spalte)
+  b. Bestimmung der **Pivot-Zeile** (**Quotientenkriterium/Zweites Simplex-Kriterium**: kleinster Quotient der Werte in Spalte $b_i$ durch Werte der Pivot-Spalte)
 2. Erzeugen von Nullen in der Pivot-Spalte (außer in der Pivot-Zeile) durch elementare Gauß-Zeilenoperationen.
 
 Während der Gauß-Zeilenoperationen *Buchführung* über die aktuellen Basis-Variablen. Nicht-BV sind immer gleich 0.
@@ -2901,7 +2901,7 @@ Während der Gauß-Zeilenoperationen *Buchführung* über die aktuellen Basis-Va
 ## Frohe Weihnachten und ein gutes neues Jahr !!!
 
 
-```{r, echo=FALSE, out.width="100%"}
+```{r, echo=FALSE, out.width="700px", fig.align='center'}
 knitr::include_graphics("./bilder/weihnachten.png")
 ```
 
