@@ -2654,3 +2654,255 @@ abline(a = 80/15, b = -2/3, col = "blue")
 text(x = 2, y = 4.5, "Z = 80", col = "blue")
 
 ```
+
+
+## Lineare Optimierung: Simplex-Algorithmus
+
+### Standard-Maximum-Problem
+
+Lineare Optimierungsprobleme mit $n$ **Entscheidungsvariablen** heißen
+**Standard-Maximum-Probleme**, wenn sie folgende Form haben
+
+- Man hat $n$ **Entscheidungsvariablen** $x_{1}, x_{2}, \dots, x_{n}$
+(mit $n\geq 2$).
+- Es ist eine **lineare Zielfunktion**
+$$
+Z(x_{1}, x_{2}, \dots, x_{n}) = c_{1}x_{1} +c_{2}x_{2} + c_{3}x_{3} + \cdots + c_{n}x_{n} \to \text{Max!}
+$$
+
+gegeben, deren Wert durch geeignete Wahl der $x_i$ maximiert werden
+soll.
+
+- Es gelten **lineare Restriktionen**
+$$
+\begin{aligned}
+a_{11} x_{1} + a_{12} x_{2} + a_{13} x_{3} + \ldots + a_{1n} x_{n}  & \leq   b_{1} \\
+a_{21} x_{1} + a_{22} x_{2} + a_{23} x_{3} + \ldots + a_{2n} x_{n}  & \leq   b_{2} \\
+\vdots \qquad &  \\
+a_{m1} x_{1} + a_{m2} x_{2} + a_{m3} x_{3} + \ldots + a_{mn} x_{n}  & \leq   b_{m}
+\end{aligned}
+$$
+
+- Es gelten die Nichtnegativitätsbedinungen
+$$
+x_1 , x_2 , x_3, \dots , x_n \geq 0
+$$
+
+## Lineare Optimierung: Simplex-Algorithmus (Zelt-Beispiel)
+
+Für das obige Zelt-Beispiel ist das (immer vorausgesetzt, dass $x_1 , x_2 \geq 0$ ist):
+
+$$
+\begin{aligned}
+& x_1 &  &\leq 5 \\
+& &x_2 &\leq 4 \\
+200 &x_1  &+ 400 x_2 &\leq 1800 \\
+&x_1 , &x_2 &\geq 0 \\
+Z(x_1 , x_2) = 10&x_1 + &15 x_2 & \to \text{Max!}
+\end{aligned}
+$$
+
+## Lineare Optimierung: Simplex-Algorithmus (Zelt-Beispiel)
+
+Um das **Simplex-Verfahren** zur Lösung dieses linearen Optimierungsproblems anzuwenden, werden nun zunächst durch Hinzufügen von **Schlupfvariablen** $y_1 , y_2 , y_3$ zu den drei linearen Restriktionen (je Restriktion eine Schlupfvariable) aus den Ungleichungen der Restriktionen Gleichungen gemacht (man beachte die Umstellung der Zielfunktion und dort das $+1$ vor dem Z):
+
+$$
+\begin{aligned}
+& x_1 &  & +y_1 & & &  &= 5 \\
+& & x_2 &  &+ y_2 & & &= 4 \\
+200 &x_1 &  + 400 x_2 &  & & + y_3&  &= 1800 \\
+-10&x_1 &- 15 x_2 & & & & +Z  &= 0
+\end{aligned}
+$$
+
+und überträgt das in ein **Simplex-Tableau**, ähnlich der Umwandlung eines linearen Gleichungssystems in die Matrizenform.
+
+## Lineare Optimierung: Simplex-Algorithmus (Zelt-Beispiel)
+
+So wird aus
+
+$$
+\begin{aligned}
+& x_1 &  & +y_1 & & &  &= 5 \\
+& & x_2 &  &+ y_2 & & &= 4 \\
+200 &x_1 &  + 400 x_2 &  & & + y_3&  &= 1800 \\
+-10&x_1 &- 15 x_2 & & & & +Z  &= 0
+\end{aligned}
+$$
+
+das Tableau
+
+| BV | $x_1$ | $x_2$ | $y_1$ | $y_2$ | $y_3$ | $Z$ | $b_i$ |
+|:----:|:-------:|:-------:|:-------:|:--------:|:-------:|:-----:|:-------:|
+| $y_1$ | 1 | 0 | 1 | 0 | 0 | 0 | 5 |
+| $y_2$ | 0 | 1 | 0 | 1 | 0 | 0 | 4 |
+| $y_3$ | 200 | 400 | 0 | 0 | 1 | 0 | 1800 |
+|  ZF  | -10 | -15 | 0 | 0 | 0 | 1 | 0 |
+
+in dessen ersten Spalte vermerkt werden kann, welche Variablen aktuell **Basis-Variablen** sind.
+
+## Lineare Optimierung: Simplex-Algorithmus (Zelt-Beispiel)
+
+In diesem Tableau bestimmt man nun zunächst die **Pivot-Spalte** und die **Pivot-Zeile** und damit das **Pivot-Element**. Dabei ist die **Pivot-Spalte** diejenige, die den größten Zuwachs der Zielfunktion verspricht (erkennbar am *negativsten* Wert in der letzten Zeile, die ja die Zielfunktion enthält). Dann bestimmt man die **Pivot-Zeile** diejenige, die für die zur Pivot-Spalte gehörende Variable die *strengste* Einschränkung bedeutet (Quotientenkriterium). Hier ist die Pivot-Spalte die Spalte von $x_2$ (wegen der -15) und die Pivot-Zeile daher die zweite Zeile (BV: y_2), da $4.0 = \frac{4}{1} \leq \frac{1800}{400} = 4.5$ ist. 
+
+| BV | $x_1$ | $x_2$ | $y_1$ | $y_2$ | $y_3$ | $Z$ | $b_i$ |
+|:----:|:-------:|:-------:|:-------:|:--------:|:-------:|:-----:|:-------:|
+| $y_1$ | 1 | 0 | 1 | 0 | 0 | 0 | 5 |
+| $y_2$ | 0 | \textcircled{1} | 0 | 1 | 0 | 0 | 4 |
+| $y_3$ | 200 | 400 | 0 | 0 | 1 | 0 | 1800 |
+|  ZF  | -10 | -15 | 0 | 0 | 0 | 1 | 0 |
+
+## Lineare Optimierung: Simplex-Algorithmus (Zelt-Beispiel)
+
+In diesem Tableau sind aktuell
+
+- $y_1 , y_2 , y_3$ die **Basisvariablen** und
+- $x_1 , x_2$ die NICHT-Basisvariablen.
+
+Grundsätzlich ist dann die aktuelle Zwischenlösung des Simplex-Verfahrens diejenige, in der die aktuellen **NICHT-Basisvariablen** gleich 0 sind, also hier $x_1 = 0$ und $x_2 = 0$ und damit $y_1 = 5$, $y_2 = 4$, $y_3 = 1800$ (5 ungenutze 10-er-Zelte, 4 ungenutzte 15-er-Zelte, 1800 ungenutzte Euro) 
+
+| BV | $x_1$ | $x_2$ | $y_1$ | $y_2$ | $y_3$ | $Z$ | $b_i$ |
+|:----:|:-------:|:-------:|:-------:|:--------:|:-------:|:-----:|:-------:|
+| $y_1$ | 1 | 0 | 1 | 0 | 0 | 0 | 5 |
+| $y_2$ | 0 | \textcircled{1} | 0 | 1 | 0 | 0 | 4 |
+| $y_3$ | 200 | 400 | 0 | 0 | 1 | 0 | 1800 |
+| ZF | -10 | -15 | 0 | 0 | 0 | 1 | 0 |
+
+## Lineare Optimierung: Simplex-Algorithmus (Zelt-Beispiel)
+
+Nun überführt man mit Gauß-Schritten das Tableau in eine Form, in der in der **Pivot-Spalte** nur in der **Pivot-Zeile** eine 1 stehen bleibt, und alle anderen Einträge in der **Pivot-Spalte** gleich 0 sind.
+
+## Lineare Optimierung: Simplex-Algorithmus (Zelt-Beispiel)
+
+So wird aus
+
+| BV | $x_1$ | $x_2$ | $y_1$ | $y_2$ | $y_3$ | $Z$ | $b_i$ |
+|:----:|:-------:|:-------:|:-------:|:--------:|:-------:|:-----:|:-------:|
+| $y_1$ | 1 | 0 | 1 | 0 | 0 | 0 | 5 |
+| $y_2$ | 0 | \textcircled{1} | 0 | 1 | 0 | 0 | 4 |
+| $y_3$ | 200 | 400 | 0 | 0 | 1 | 0 | 1800 |
+| ZF   | -10 | -15 | 0 | 0 | 0 | 1 | 0 |
+
+das Tableau
+
+| BV | $x_1$ | $x_2$ | $y_1$ | $y_2$ | $y_3$ | $Z$ | $b_i$ |
+|:----:|:-------:|:-------:|:-------:|:--------:|:-------:|:-----:|:-------:|
+| $y_1$ | 1 | 0 | 1 | 0 | 0 | 0 | 5 |
+| $x_2$ | 0 | 1 | 0 | 1 | 0 | 0 | 4 |
+| $y_3$ | 200 | 0 | 0 | -400 | 1 | 0 | 200 |
+| ZF   | -10 | 0 | 0 | 15 | 0 | 1 | 60 |
+
+## Lineare Optimierung: Simplex-Algorithmus (Zelt-Beispiel)
+
+| BV | $x_1$ | $x_2$ | $y_1$ | $y_2$ | $y_3$ | $Z$ | $b_i$ |
+|:----:|:-------:|:-------:|:-------:|:--------:|:-------:|:-----:|:-------:|
+| $y_1$ | 1 | 0 | 1 | 0 | 0 | 0 | 5 |
+| $x_2$ | 0 | 1 | 0 | 1 | 0 | 0 | 4 |
+| $y_3$ | 200 | 0 | 0 | -400 | 1 | 0 | 200 |
+| ZF   | -10 | 0 | 0 | 15 | 0 | 1 | 60 |
+Hier kann man nun die dritte Zeile durch 200 teilen und erhält
+
+| BV | $x_1$ | $x_2$ | $y_1$ | $y_2$ | $y_3$ | $Z$ | $b_i$ |
+|:----:|:-------:|:-------:|:-------:|:--------:|:-------:|:-----:|:-------:|
+| $y_1$ | 1 | 0 | 1 | 0 | 0 | 0 | 5 |
+| $x_2$ | 0 | 1 | 0 | 1 | 0 | 0 | 4 |
+| $y_3$ | \textcircled{1} | 0 | 0 | -2 | $\frac{1}{200}$ | 0 | 1 |
+| ZF | -10 | 0 | 0 | 15 | 0 | 1 | 60 |
+
+mit dem **Pivot-Element** in der 3. (Pivot-)Zeile und der $x_1$-(Pivot-)Spalte.
+
+## Lineare Optimierung: Simplex-Algorithmus (Zelt-Beispiel)
+
+| BV | $x_1$ | $x_2$ | $y_1$ | $y_2$ | $y_3$ | $Z$ | $b_i$ |
+|:----:|:-------:|:-------:|:-------:|:--------:|:-------:|:-----:|:-------:|
+| $y_1$ | 1 | 0 | 1 | 0 | 0 | 0 | 5 |
+| $x_2$ | 0 | 1 | 0 | 1 | 0 | 0 | 4 |
+| $y_3$ | \textcircled{1} | 0 | 0 | -2 | $\frac{1}{200}$ | 0 | 1 |
+| ZF | -10 | 0 | 0 | 15 | 0 | 1 | 60 |
+führt man mit Gauß-Schritten auf
+
+| BV | $x_1$ | $x_2$ | $y_1$ | $y_2$ | $y_3$ | $Z$ | $b_i$ |
+|:----:|:-------:|:-------:|:-------:|:--------:|:-------:|:-----:|:-------:|
+| $y_1$ | 0 | 0 | 1 | 2 | $-\frac{1}{200}$ | 0 | 4 |
+| $x_2$ | 0 | 1 | 0 | 1 | 0 | 0 | 4 |
+| $x_1$ | 1 | 0 | 0 | -2 | $\frac{1}{200}$ | 0 | 1 |
+| ZF | 0 | 0 | 0 | -5 | $\frac{1}{20}$ | 1 | 70 |
+
+## Lineare Optimierung: Simplex-Algorithmus (Zelt-Beispiel)
+
+| BV | $x_1$ | $x_2$ | $y_1$ | $y_2$ | $y_3$ | $Z$ | $b_i$ |
+|:----:|:-------:|:-------:|:-------:|:--------:|:-------:|:-----:|:-------:|
+| $y_1$ | 0 | 0 | 1 | \textcircled{2} | $-\frac{1}{200}$ | 0 | 4 |
+| $x_2$ | 0 | 1 | 0 | 1 | 0 | 0 | 4 |
+| $x_1$ | 1 | 0 | 0 | -2 | $\frac{1}{200}$ | 0 | 1 |
+| ZF | 0 | 0 | 0 | -5 | $\frac{1}{20}$ | 1 | 70 |
+
+führt durch Division der ersten Zeile durch 2 auf
+
+| BV | $x_1$ | $x_2$ | $y_1$ | $y_2$ | $y_3$ | $Z$ | $b_i$ |
+|:----:|:-------:|:-------:|:-------:|:--------:|:-------:|:-----:|:-------:|
+| $y_1$ | 0 | 0 | $\frac{1}{2}$ | \textcircled{1} | $-\frac{1}{400}$ | 0 | 2 |
+| $x_2$ | 0 | 1 | 0 | 1 | 0 | 0 | 4 |
+| $x_1$ | 1 | 0 | 0 | -2 | $\frac{1}{200}$ | 0 | 1 |
+| ZF | 0 | 0 | 0 | -5 | $\frac{1}{20 }$ | 1 | 70 |
+
+## Lineare Optimierung: Simplex-Algorithmus (Zelt-Beispiel)
+
+| BV | $x_1$ | $x_2$ | $y_1$ | $y_2$ | $y_3$ | $Z$ | $b_i$ |
+|:----:|:-------:|:-------:|:-------:|:--------:|:-------:|:-----:|:-------:|
+| $y_1$ | 0 | 0 | $\frac{1}{2}$ | \textcircled{1} | $-\frac{1}{400}$ | 0 | 2 |
+| $x_2$ | 0 | 1 | 0 | 1 | 0 | 0 | 4 |
+| $x_1$ | 1 | 0 | 0 | -2 | $\frac{1}{200}$ | 0 | 1 |
+| ZF | 0 | 0 | 0 | -5 | $\frac{1}{20}$ | 1 | 70 |
+
+führt dann wieder mit Gauß-Schritten auf
+
+| BV | $x_1$ | $x_2$ | $y_1$ | $y_2$ | $y_3$ | $Z$ | $b_i$ |
+|:----:|:-------:|:-------:|:-------:|:--------:|:-------:|:-----:|:-------:|
+| $y_2$ | 0 | 0 | $\frac{1}{2}$ | 1 | $-\frac{1}{400}$ | 0 | 2 |
+| $x_2$ | 0 | 1 | $-\frac{1}{2}$ | 0 | $\frac{1}{400}$ | 0 | 2 |
+| $x_1$ | 1 | 0 | 1 | 0 | 0 | 0 | 5 |
+| ZF | 0 | 0 | $\frac{5}{2}$ | 0 | $\frac{3}{80}$ | 1 | 80 |
+
+## Lineare Optimierung: Simplex-Algorithmus (Zelt-Beispiel)
+
+In diesem finalen Tableau
+
+| BV | $x_1$ | $x_2$ | $y_1$ | $y_2$ | $y_3$ | $Z$ | $b_i$ |
+|:----:|:-------:|:-------:|:-------:|:--------:|:-------:|:-----:|:-------:|
+| $y_2$ | 0 | 0 | $\frac{1}{2}$ | 1 | $-\frac{1}{400}$ | 0 | 2 |
+| $x_2$ | 0 | 1 | $-\frac{1}{2}$ | 0 | $\frac{1}{400}$ | 0 | 2 |
+| $x_1$ | 1 | 0 | 1 | 0 | 0 | 0 | 5 |
+| ZF | 0 | 0 | $\frac{5}{2}$ | 0 | $\frac{3}{80}$ | 1 | 80 |
+
+sind $y_2 , x_2$ und $x_1$ Basis-Variablen und daher $y_1 = 0$ und $y_3 = 0$ und daher ist die Lösung des Optimierungsproblems
+
+- aus der ersten Zeile: $y_2 = 2$ (es bleiben 2 15-er-Zelte ungekauft)
+- aus der zweiten Zeile: $x_2 = 2$ (es werden 2 15-er-Zelte gekauft)
+- aus der dritten Zeile: $x_1 = 5$ (er werden 5 10-er-Zelte gekauft)
+- und aus der vierten Zeile: $Z = 80$ (es kommen 80 Personen in den Zelten unter)
+
+## Lineare Optimierung: Simplex-Algorithmus
+
+1. Aufstellen der Ungleichungen als Standard-Maximum-Problem
+2. Hinzufügen von Schlupfvariablen (je eine pro Restriktion)
+3. *Null-Gleichung* der Zielfunktion durch Umstellen der Zielfunktion mit *Vorfaktor* (vor dem $Z$ gleich 1)
+4. Aufstellen des Ausgangstableaus aus diesen Angaben.
+
+Darauf folgt der eigentliche Simplex-Algorithmus mit den Schritten:
+
+1. Bestimmung des **Pivot-Elementes** durch
+  a. Bestimmung der **Pivot-Spalte** (negativster Wert in der Zeile der Zielfunktion; **Erstes Simplex-Kriterium**)
+  b. Bestimmung der **Pivot-Zeile** (*Quotientenkriterium/Zweites Simplex-Kriterium*: kleinster Quotient der Werte in Spalte $b_i$ durch Werte der Pivot-Spalte)
+2. Erzeugen von Nullen in der Pivot-Spalte (außer in der Pivot-Zeile) durch elementare Gauß-Zeilenoperationen.
+
+Während der Gauß-Zeilenoperationen *Buchführung* über die aktuellen Basis-Variablen. Nicht-BV sind immer gleich 0.
+
+## Frohe Weihnachten und ein gutes neues Jahr !!!
+
+
+```{r, echo=FALSE, out.width="100%"}
+knitr::include_graphics("./bilder/weihnachten.png")
+```
+
+
