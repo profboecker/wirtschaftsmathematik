@@ -32,7 +32,7 @@ zeltkapazitaet <- c(10, 15)
 zeltpreise <- c(200, 400)
 budget <- 1800
 
-# Zielfunktionskoeffizienten: 10-Personen (x), 15-Personen (y)
+# Zielfunktionskoeffizienten
 obj <- zeltkapazitaet
 
 # Nebenbedingungenmatrix (<= Form):
@@ -47,18 +47,6 @@ A <- matrix(c(1,   0,
 rhs   <- c(5, 4, 1800)
 sense <- c("<=", "<=", "<=")
 
-# LP lösen (Maximierung, ganzzahlige Variablen)
-solution <- lp(direction   = "max",
-               objective.in = obj,
-               const.mat    = A,
-               const.dir    = sense,
-               const.rhs    = rhs,
-               all.int      = TRUE)
-
-solution$solution   # optimale x, y
-solution$objval     # maximale Personenanzahl
-solution$status     # 0 bedeutet optimale Lösung gefunden
-
 # LP mit Ganzzahligkeit lösen
 sol <- lp(direction    = "max",
           objective.in = obj,
@@ -66,6 +54,11 @@ sol <- lp(direction    = "max",
           const.dir    = sense,
           const.rhs    = rhs,
           all.int      = TRUE)
+
+sol$solution   # optimale x, y
+sol$objval     # maximale Personenanzahl
+sol$status     # 0 bedeutet optimale Lösung gefunden
+
 
 opt_x <- sol$solution[1]
 opt_y <- sol$solution[2]
@@ -88,7 +81,7 @@ pts$persons  <- with(pts, 10 * x + 15 * y)
 p <- ggplot() +
   # zulässige ganzzahlige Punkte
   geom_point(data = subset(pts, feasible),
-             aes(x = x, y = y, color = persons), size = 3) +
+             aes(x = x, y = y, color = persons, size = 3)) +
   # unzulässige ganzzahlige Punkte
   geom_point(data = subset(pts, !feasible),
              aes(x = x, y = y), color = "grey80", size = 2, shape = 4) +
@@ -107,8 +100,9 @@ p <- ggplot() +
        color = "Personen",
        title = "Lineares Programm: Zelt-Problem",
        subtitle = "Zulässige ganzzahlige Lösungen und optimale Lösung") +
-  coord_cartesian(xlim = c(0, 5.2), ylim = c(0, 4.2)) +
+  coord_cartesian(xlim = c(0, 5.2), ylim = c(0, 5.0)) +
   theme_minimal()
 
 print(p)
+
 
