@@ -55,7 +55,7 @@ sum(daten$selfUsedEnergy)/sum(daten$energyConsumption)
 sum(daten$feedInEnergyGrid)/1000
 
 # Selbstgenutzter Strom kWh/Jahr
-sum(daten$selfUsedEnergy)
+sum(daten$selfUsedEnergy)/1000
 
 # Ersparnis durch Akku
 (ersparnis_durch_akku <- sum(daten$selfUsedEnergyBattery)/1000 * (0.32 - 0.0703))
