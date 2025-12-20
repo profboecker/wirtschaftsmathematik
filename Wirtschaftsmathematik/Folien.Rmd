@@ -2570,12 +2570,12 @@ $$
 
 ```{r}
 rm(list = ls())
-x <- seq(0, 8, length.out = 100)
+x <- seq(0, 9, length.out = 100)
 y_line <- -0.5 * x + 4.5   
 
 plot(x, y_line, type = "l", lwd = 2, 
      xlab = "x", ylab = "y", 
-     main = "Zulässiger Bereich - mögliche Zeltkombinationen")
+     main = "Zulässiger Bereich - mögliche Zeltkombinationen", ylim = c(-0.2,5), xlim=c(0,9.5))
 abline(a = 4.5, b = -0.5, col = "red")
 abline(h = 4)
 abline(v = 5)
@@ -2600,12 +2600,12 @@ also z.B. für $Z=60$ untergebrachten Personen
 
 ```{r}
 rm(list = ls())
-x <- seq(0, 8, length.out = 100)
+x <- seq(0, 9, length.out = 100)
 y_line <- -0.5 * x + 4.5   
 
 plot(x, y_line, type = "l", lwd = 2, 
      xlab = "x", ylab = "y", 
-     main = "Zulässiger Bereich / Zielfunktion 60")
+     main = "Zulässiger Bereich / Zielfunktion 60", ylim = c(-0.2,5), xlim=c(0,9.5))
 abline(a = 4.5, b = -0.5, col = "red")
 abline(h = 4)
 abline(v = 5)
@@ -2632,12 +2632,12 @@ also die Gerade möglichst weit nach oben verschieben, sodass Sie den zulässige
 
 ```{r}
 rm(list = ls())
-x <- seq(0, 8, length.out = 100)
+x <- seq(0, 9, length.out = 100)
 y_line <- -0.5 * x + 4.5   
 
 plot(x, y_line, type = "l", lwd = 2, 
      xlab = "x", ylab = "y", 
-     main = "Zulässiger Bereich / Zielfunktion")
+     ylim = c(-0.2,5), xlim=c(0,9.5))
 abline(a = 4.5, b = -0.5, col = "red")
 abline(h = 4)
 abline(v = 5)
