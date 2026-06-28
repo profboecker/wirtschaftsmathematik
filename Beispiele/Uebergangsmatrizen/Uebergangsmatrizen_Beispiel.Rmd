@@ -1,0 +1,271 @@
+---
+title: Übergangsmatrizen – Beispiele
+author: Prof. Dr. Stefan Böcker, FRM
+date: 2026-06-28
+toc: false
+output: fhswf::presentation
+knit: fhswf::render_presentation
+german: true
+lang: de-de
+---
+
+```{r setup, include=FALSE}
+options(digits = 4)
+knitr::opts_chunk$set(echo=TRUE, message=FALSE, warning=FALSE, cache=FALSE,
+                      dev.args=list(pointsize=11), size="scriptsize")
+```
+
+# Beispiel 1: Wählerwanderung
+
+## Aufgabe: Wählerwanderung
+
+Bei einer Stadtratswahl treten drei Parteien A, B und C an. Das letzte Wahlergebnis lautete:
+$$
+A: 42\% \qquad B: 37\% \qquad C: 21\%
+$$
+
+Aus Umfragen wurden folgende Wählerwanderungen für die nächste Wahl ermittelt:
+
+- **Partei A** behält 90\% ihrer Wähler; 4\% wandern zu B, 6\% zu C ab.
+- **Partei B** behält 85\% ihrer Wähler; 8\% wandern zu A, 7\% zu C ab.
+- **Partei C** behält 92\% ihrer Wähler; 1\% wandert zu A, 7\% zu B ab.
+
+**Fragen:**
+
+1. Mit welchem Ergebnis ist bei der **nächsten Wahl** zu rechnen?
+2. Wie entwickeln sich die Anteile **langfristig** (stationäre Verteilung)?
+3. Wann überholt C die Partei B?
+
+## Modellierung: Zustandsvektor und Übergangsmatrix
+
+Das Ergebnis der letzten Wahl wird als **Zustandsvektor** $\overrightarrow{w}_0$ dargestellt:
+$$
+\overrightarrow{w}_0 = \begin{pmatrix} 0{,}42 \\ 0{,}37 \\ 0{,}21 \end{pmatrix}
+$$
+
+Die Wählerwanderungen ergeben die **Übergangsmatrix** $W$. Die *Spalten* geben an, wie sich die Wähler der jeweiligen Partei verteilen:
+
+$$
+W = \begin{pmatrix}
+0{,}90 & 0{,}08 & 0{,}01 \\
+0{,}04 & 0{,}85 & 0{,}07 \\
+0{,}06 & 0{,}07 & 0{,}92
+\end{pmatrix}
+\leftarrow \text{Ziel: A, B, C}
+$$
+
+**Achtung:** Die Spalten müssen jeweils **1** ergeben (jeder Wähler wandert irgendwohin).
+
+## Lösung (1): Ergebnis der nächsten Wahl
+
+Das erwartete Wahlergebnis erhält man durch Matrizenmultiplikation:
+$$
+\overrightarrow{w}_1 = W \cdot \overrightarrow{w}_0 = \begin{pmatrix}
+0{,}90 & 0{,}08 & 0{,}01 \\
+0{,}04 & 0{,}85 & 0{,}07 \\
+0{,}06 & 0{,}07 & 0{,}92
+\end{pmatrix} \cdot \begin{pmatrix} 0{,}42 \\ 0{,}37 \\ 0{,}21 \end{pmatrix}
+$$
+
+$$
+= \begin{pmatrix}
+0{,}90 \cdot 0{,}42 + 0{,}08 \cdot 0{,}37 + 0{,}01 \cdot 0{,}21 \\
+0{,}04 \cdot 0{,}42 + 0{,}85 \cdot 0{,}37 + 0{,}07 \cdot 0{,}21 \\
+0{,}06 \cdot 0{,}42 + 0{,}07 \cdot 0{,}37 + 0{,}92 \cdot 0{,}21
+\end{pmatrix}
+= \begin{pmatrix} 0{,}4097 \\ 0{,}3460 \\ 0{,}2443 \end{pmatrix}
+$$
+
+```{r wahl1}
+W <- matrix(c(0.90, 0.04, 0.06,
+              0.08, 0.85, 0.07,
+              0.01, 0.07, 0.92), nrow=3, byrow=FALSE)
+w0 <- c(0.42, 0.37, 0.21)
+w1 <- W %*% w0
+round(w1, 4)
+```
+
+Ergebnis: **A: `r round(w1[1]*100,2)`%, B: `r round(w1[2]*100,2)`%, C: `r round(w1[3]*100,2)`%**
+
+## Lösung (2): Langfristige Entwicklung
+
+Für mehrere aufeinanderfolgende Wahlen (mit stets gleicher Übergangsmatrix) gilt:
+$$
+\overrightarrow{w}_n = W^n \cdot \overrightarrow{w}_0
+$$
+
+```{r langfristig}
+w <- w0
+verlauf <- matrix(NA, nrow=20, ncol=3)
+for (i in 1:20) {
+  w <- W %*% w
+  verlauf[i, ] <- w
+}
+colnames(verlauf) <- c("A", "B", "C")
+round(verlauf[c(1,2,3,5,10,20), ], 4)
+```
+
+Nach vielen Wahlen stabilisiert sich der Wähleranteil — die sogenannte **stationäre Verteilung**.
+
+## Stationäre Verteilung: Visualisierung
+
+```{r verlauf_plot, echo=FALSE, fig.height=4}
+library(ggplot2)
+df <- data.frame(
+  Wahl   = rep(0:20, 3),
+  Anteil = c(w0[1], verlauf[,1],
+             w0[2], verlauf[,2],
+             w0[3], verlauf[,3]) * 100,
+  Partei = rep(c("A","B","C"), each=21)
+)
+ggplot(df, aes(x=Wahl, y=Anteil, color=Partei, linetype=Partei)) +
+  geom_line(linewidth=1) +
+  geom_point(size=2) +
+  labs(title="Langfristige Wähleranteile",
+       x="Wahlperiode", y="Anteil in %") +
+  scale_x_continuous(breaks=seq(0,20,2)) +
+  theme_minimal(base_size=12)
+```
+
+## Lösung (3): Wann überholt C die Partei B?
+
+```{r ueberholen}
+w <- w0
+for (i in 1:50) {
+  w <- W %*% w
+  if (w[3] > w[2]) {
+    cat("C überholt B nach Wahl", i, "\n")
+    cat("C:", round(w[3]*100, 2), "% | B:", round(w[2]*100, 2), "%\n")
+    break
+  }
+}
+```
+
+## Stationäre Verteilung: analytische Bestimmung
+
+Die stationäre Verteilung $\overrightarrow{w}^*$ erfüllt $W \cdot \overrightarrow{w}^* = \overrightarrow{w}^*$, d.h.:
+$$
+(W - I) \cdot \overrightarrow{w}^* = \overrightarrow{0} \quad \text{mit der Nebenbedingung} \quad w_A^* + w_B^* + w_C^* = 1
+$$
+
+```{r stationaer}
+# Ersetze letzte Gleichung durch Normierungsbedingung
+A <- W - diag(3)
+A[3, ] <- 1        # Normierung: Summe = 1
+b <- c(0, 0, 1)
+w_star <- solve(A, b)
+cat("Stationäre Verteilung:\n")
+cat("A:", round(w_star[1]*100,2), "% | B:", round(w_star[2]*100,2),
+    "% | C:", round(w_star[3]*100,2), "%\n")
+```
+
+Die stationäre Verteilung ist unabhängig vom Startzustand — egal mit welchem Wahlergebnis man beginnt, die langfristige Verteilung ist stets dieselbe.
+
+# Beispiel 2: Marktanteile
+
+## Aufgabe: Marktanteile dreier Mobilfunkanbieter
+
+Drei Mobilfunkanbieter (Alpha, Beta, Gamma) teilen sich den Markt aktuell wie folgt auf:
+$$
+\text{Alpha}: 50\% \qquad \text{Beta}: 30\% \qquad \text{Gamma}: 20\%
+$$
+
+Aus einer Kundenbefragung wurden folgende monatliche Wechselraten ermittelt:
+
+\begin{center}
+\begin{tabular}{|l|c|c|c|}
+\hline
+\textbf{Von $\to$ Zu} & \textbf{Alpha} & \textbf{Beta} & \textbf{Gamma} \\
+\hline
+\textbf{Alpha} & 88\% & 8\%  & 4\%  \\
+\hline
+\textbf{Beta}  & 6\%  & 82\% & 12\% \\
+\hline
+\textbf{Gamma} & 5\%  & 10\% & 85\% \\
+\hline
+\end{tabular}
+\end{center}
+
+**Fragen:**
+
+1. Wie sind die Marktanteile nach **6 Monaten**?
+2. Welche stationäre Verteilung stellt sich **langfristig** ein?
+3. Verliert Alpha langfristig seine Marktführerschaft?
+
+## Modellierung
+
+Die Übergangsmatrix $M$ (Spalten = Verbleib/Abwanderung vom jeweiligen Anbieter):
+
+$$
+M = \begin{pmatrix}
+0{,}88 & 0{,}06 & 0{,}05 \\
+0{,}08 & 0{,}82 & 0{,}10 \\
+0{,}04 & 0{,}12 & 0{,}85
+\end{pmatrix}
+$$
+
+```{r markt_setup}
+M  <- matrix(c(0.88, 0.08, 0.04,
+               0.06, 0.82, 0.12,
+               0.05, 0.10, 0.85), nrow=3, byrow=FALSE)
+m0 <- c(0.50, 0.30, 0.20)
+
+# Probe: Spaltensummen müssen 1 ergeben
+colSums(M)
+```
+
+## Lösung (1): Marktanteile nach 6 Monaten
+
+```{r markt_6}
+m <- m0
+for (i in 1:6) m <- M %*% m
+
+cat("Marktanteile nach 6 Monaten:\n")
+cat("Alpha:", round(m[1]*100, 2), "%\n")
+cat("Beta: ", round(m[2]*100, 2), "%\n")
+cat("Gamma:", round(m[3]*100, 2), "%\n")
+```
+
+## Lösung (2) und (3): Stationäre Verteilung
+
+```{r markt_station}
+# Analytische Berechnung
+A2 <- M - diag(3)
+A2[3, ] <- 1
+b2 <- c(0, 0, 1)
+m_star <- solve(A2, b2)
+
+cat("Stationäre Verteilung (langfristig):\n")
+cat("Alpha:", round(m_star[1]*100, 2), "%\n")
+cat("Beta: ", round(m_star[2]*100, 2), "%\n")
+cat("Gamma:", round(m_star[3]*100, 2), "%\n")
+```
+
+**Interpretation:** Alpha verliert langfristig deutlich an Marktanteilen (von 50\% auf `r round(m_star[1]*100,1)`\%), obwohl die Abwanderungsraten pro Monat klein wirken. Der Effekt der **kumulierten Abwanderung** über viele Perioden ist entscheidend.
+
+## Entwicklung der Marktanteile: Visualisierung
+
+```{r markt_plot, echo=FALSE, fig.height=4}
+m_v <- m0
+verlauf_m <- matrix(NA, nrow=60, ncol=3)
+for (i in 1:60) {
+  m_v <- M %*% m_v
+  verlauf_m[i, ] <- m_v
+}
+colnames(verlauf_m) <- c("Alpha","Beta","Gamma")
+df2 <- data.frame(
+  Monat    = rep(0:60, 3),
+  Anteil   = c(m0[1], verlauf_m[,1],
+               m0[2], verlauf_m[,2],
+               m0[3], verlauf_m[,3]) * 100,
+  Anbieter = rep(c("Alpha","Beta","Gamma"), each=61)
+)
+ggplot(df2, aes(x=Monat, y=Anteil, color=Anbieter, linetype=Anbieter)) +
+  geom_line(linewidth=1) +
+  labs(title="Entwicklung der Mobilfunk-Marktanteile",
+       x="Monate", y="Marktanteil in %") +
+  scale_x_continuous(breaks=seq(0,60,10)) +
+  geom_hline(yintercept=m_star*100, linetype="dotted", color=c("red","blue","darkgreen"),
+             alpha=0.5) +
+  theme_minimal(base_size=12)
+```
