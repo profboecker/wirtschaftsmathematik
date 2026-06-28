@@ -17,7 +17,7 @@ options(digits = 4)
 knitr::opts_chunk$set(echo=FALSE, message=FALSE, warning=FALSE, cache=FALSE, 
                       dev.args=list(pointsize=11), size="scriptsize")
 remotes::install_github("profboecker/fhswf")
-library(tidyverse, tidymodels)
+library(tidyverse)
 ```
 
 # Organisatorisches
@@ -403,12 +403,12 @@ Wird allgemein ein Jahr in $m$ kürzere Perioden der Länge $\frac{1}{m}$
 aufgeteilt und zu jedem Zeitpunkt $\frac{k}{m}$ mit
 $k=0, 1, \ldots, m-1$, also vorschüssig eine Zahlung $r$ geleistet, so
 ergibt sich am Ende des Jahres ein Betrag von $$
-R^{\text{vor}} = r \left( \sum_{k=0}^{m-1} 1 + i \cdot \frac{k+1}{m} \right) = r \left( \sum_{k=1}^{m} 1 + i \cdot \frac{k}{m} \right) = r \left( m + \frac{m+1}{2} \underset{=i}{\underbrace{\frac{p}{100}}} \right)
+R^{\text{vor}} = r \left( \sum_{k=0}^{m-1} \left(1 + i \cdot \frac{k+1}{m}\right) \right) = r \left( \sum_{k=1}^{m} \left(1 + i \cdot \frac{k}{m}\right) \right) = r \left( m + \frac{m+1}{2} \underset{=i}{\underbrace{\frac{p}{100}}} \right)
 $$
 
 Werden die Zahlungen zu den Zeitpunkten $\frac{k}{m}$ mit
 $k=1, 2, \ldots, m$, also nachschüssig geleistet, so gilt $$
-R^{\text{nach}} = r \left( \sum_{k=0}^{m-1} 1 + i \cdot \frac{k}{m} \right) = r \left( m + \frac{m-1}{2} \underset{=i}{\underbrace{\frac{p}{100}}} \right)
+R^{\text{nach}} = r \left( \sum_{k=0}^{m-1} \left(1 + i \cdot \frac{k}{m}\right) \right) = r \left( m + \frac{m-1}{2} \underset{=i}{\underbrace{\frac{p}{100}}} \right)
 $$
 
 Die Beträge $R^{\text{vor}}$ und $R^{\text{nach}}$ heißen
@@ -444,7 +444,7 @@ E^{\text{vor}}_{\text{gesamt}} & = 919.50 + 9.00 = 928.50 \text{ bei vorschüssi
 E^{\text{nach}}_{\text{gesamt}} & = 916.50 + 9.00 = 925.50 \text{ bei nachschüssiger Zahlung am Monatsende}
 \end{align*}
 
-## Skonto(abzug)
+## Skontoabzug
 
 Bei sofortiger Bezahlung von Waren bzw. Dienstleistungen vor dem
 Fälligkeitstermin der Rechnung wird oft ein Nachlass (\textbf{Skonto})
@@ -460,10 +460,10 @@ Den zugehörigen \textbf{Effektivzinssatz} $i_{\text{eff}}$ kann man dann
 mit Hilfe der Barwertformel berechnen
 
 $$
-\left(1-s\right) R = \frac{R}{1+i_{\text{eff}}\cdot\frac{T}{360}} \qquad \Leftrightarrow \qquad i = \frac{s}{1-s} \cdot \frac{360}{T}
+\left(1-s\right) R = \frac{R}{1+i_{\text{eff}}\cdot\frac{T}{360}} \qquad \Leftrightarrow \qquad i_{\text{eff}} = \frac{s}{1-s} \cdot \frac{360}{T}
 $$
 
-## Skonto(abzug) - Beispiel
+## Skontoabzug - Beispiel
 
 Auf einer Handwerkerrechnung über die Summe $R$ lauten die
 Zahlungsbedingungen: *Bei Zahlung innerhalb von 10 Tagen gewähren wir 2
@@ -939,7 +939,7 @@ $$
 - **streng monoton fallend**, wenn 
 $$
 \frac{f(x_{2}) - f(x_{1})}{x_{2} - x_{1}} < 0
-$$ $\forall  x_{1}, x_{2} \in D(f)$.
+$$ $\forall  x_{1}, x_{2} \in D(f)$ mit $x_1 < x_2$.
 
 
 ## Stetigkeit
