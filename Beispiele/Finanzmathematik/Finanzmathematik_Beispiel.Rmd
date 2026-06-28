@@ -1,0 +1,231 @@
+---
+title: Finanzmathematik – Beispiele
+author: Prof. Dr. Stefan Böcker, FRM
+date: 2026-06-28
+toc: false
+output: fhswf::presentation
+knit: fhswf::render_presentation
+german: true
+lang: de-de
+---
+
+```{r setup, include=FALSE}
+options(digits = 4)
+knitr::opts_chunk$set(echo=TRUE, message=FALSE, warning=FALSE, cache=FALSE,
+                      dev.args=list(pointsize=11), size="scriptsize")
+```
+
+# Zinseszins und Barwert
+
+## Aufgabe: Sparbetrag mit Zinseszins
+
+Frau Müller legt heute **€\,8.000** zu einem Zinssatz von $p = 3{,}5\,\%$ p.a. auf ein Festgeldkonto an.
+
+1. Wie viel Geld hat sie nach **10 Jahren**?
+2. Wie lange dauert es, bis der Betrag auf **€\,12.000** angewachsen ist?
+3. Welchen Betrag müsste sie heute anlegen, um nach 10 Jahren genau **€\,12.000** zu erhalten?
+
+### Lösung zu (1): Endwert nach 10 Jahren
+
+Mit dem Aufzinsungsfaktor $q = 1 + \frac{p}{100} = 1{,}035$ und der Zinseszinsformel
+$$
+K_n = K_0 \cdot q^n
+$$
+ergibt sich:
+$$
+K_{10} = 8.000 \cdot 1{,}035^{10} = 8.000 \cdot 1{,}4106 = 11.284{,}57 \; €
+$$
+
+## Lösung (1): R-Rechnung
+
+```{r zinseszins}
+K0  <- 8000
+p   <- 3.5
+q   <- 1 + p/100
+n   <- 10
+
+K10 <- K0 * q^n
+cat("Endwert nach 10 Jahren:", round(K10, 2), "€")
+```
+
+Der Betrag wächst also von €\,8.000 auf **`r round(K10, 2)` €**.
+
+## Lösung (2): Laufzeit berechnen
+
+Gesucht ist $n$ mit $K_n = 12.000$, d.h.
+$$
+K_0 \cdot q^n = 12.000 \quad \Leftrightarrow \quad q^n = \frac{12.000}{8.000} = 1{,}5
+$$
+
+Durch Logarithmieren:
+$$
+n \cdot \ln(q) = \ln(1{,}5) \quad \Leftrightarrow \quad n = \frac{\ln(1{,}5)}{\ln(q)} = \frac{\ln(1{,}5)}{\ln(1{,}035)}
+$$
+
+```{r laufzeit}
+Kziel <- 12000
+n_laufzeit <- log(Kziel / K0) / log(q)
+cat("Benötigte Laufzeit:", round(n_laufzeit, 2), "Jahre")
+```
+
+Es dauert also **`r round(n_laufzeit, 2)` Jahre** (d.h. ab dem **`r ceiling(n_laufzeit)`. Jahr** ist das Ziel überschritten).
+
+## Lösung (3): Barwert berechnen
+
+Gesucht ist $K_0$ mit $K_{10} = 12.000$. Die Abzinsungsformel lautet:
+$$
+K_0 = \frac{K_n}{q^n} = K_n \cdot q^{-n}
+$$
+
+$$
+K_0 = \frac{12.000}{1{,}035^{10}} = \frac{12.000}{1{,}4106} = 8.507{,}28 \; €
+$$
+
+```{r barwert}
+K_ziel <- 12000
+K0_barwert <- K_ziel / q^n
+cat("Benötigter Anfangsbetrag:", round(K0_barwert, 2), "€")
+```
+
+Frau Müller müsste also **`r round(K0_barwert, 2)` €** anlegen, um nach 10 Jahren €\,12.000 zu erhalten.
+
+# Nachschüssige Rente: Sparplan
+
+## Aufgabe: Altersvorsorgesparen
+
+Herr Schmidt möchte für sein Alter vorsorgen. Ab heute zahlt er am **Ende jedes Jahres** €\,2.400 in einen Sparvertrag ein, der mit $p = 4\,\%$ p.a. verzinst wird. Er spart **25 Jahre** lang.
+
+1. Wie hoch ist der **Endwert** seines Sparplans?
+2. Wie hoch ist der **Barwert** aller eingezahlten Raten?
+3. Wie hoch wäre der Endwert, wenn er die Rate am **Anfang** jedes Jahres einzahlt (vorschüssige Rente)?
+
+### Zur Erinnerung: Rentenformeln
+
+| | Nachschüssig | Vorschüssig |
+|:---|:---:|:---:|
+| **Endwert** | $R \cdot \dfrac{q^n - 1}{q - 1}$ | $R \cdot q \cdot \dfrac{q^n - 1}{q - 1}$ |
+| **Barwert** | $R \cdot \dfrac{q^n - 1}{q^n(q - 1)}$ | $R \cdot q \cdot \dfrac{q^n - 1}{q^n(q - 1)}$ |
+
+## Lösung: Endwert und Barwert des Sparplans
+
+```{r rente_nachschuss}
+R <- 2400      # Rentenrate in €
+p <- 4         # Zinssatz in %
+q <- 1 + p/100 # Aufzinsungsfaktor
+n <- 25        # Laufzeit in Jahren
+
+# Endwert nachschüssige Rente
+E_N <- R * (q^n - 1) / (q - 1)
+
+# Barwert nachschüssige Rente
+B_N <- R * (q^n - 1) / (q^n * (q - 1))
+
+cat("Endwert  (nachschüssig):", round(E_N, 2), "€\n")
+cat("Barwert  (nachschüssig):", round(B_N, 2), "€\n")
+cat("Eingezahlter Betrag:    ", R * n, "€  (zum Vergleich)\n")
+```
+
+Herr Schmidt zahlt insgesamt **`r R*n` €** ein und erhält am Ende **`r round(E_N, 2)` €** — die Zinsen machen **`r round(E_N - R*n, 2)` €** aus.
+
+## Lösung: Vergleich mit vorschüssiger Rente
+
+```{r rente_vorschuss}
+# Endwert vorschüssige Rente (Zahlung am Jahresanfang)
+E_V <- R * q * (q^n - 1) / (q - 1)
+
+# Barwert vorschüssige Rente
+B_V <- R * q * (q^n - 1) / (q^n * (q - 1))
+
+cat("Endwert  (vorschüssig): ", round(E_V, 2), "€\n")
+cat("Barwert  (vorschüssig): ", round(B_V, 2), "€\n")
+cat("Mehrgewinn durch vorschüssige Zahlung:", round(E_V - E_N, 2), "€\n")
+```
+
+Da bei vorschüssiger Zahlung jede Rate ein Jahr länger verzinst wird, gilt stets:
+$$
+E_n^V = q \cdot E_n^N
+$$
+Der Unterschied beläuft sich hier auf **`r round(E_V - E_N, 2)` €**.
+
+# Annuitätendarlehen: Kreditvergleich
+
+## Aufgabe: Immobilienfinanzierung
+
+Familie Berger kauft eine Wohnung für **€\,280.000**. Sie bringen **€\,80.000** Eigenkapital mit und müssen daher **€\,200.000** finanzieren.
+
+Zwei Banken machen folgende Angebote (nachschüssige Jahreszahlung):
+
+| | Bank A | Bank B |
+|:---|:---:|:---:|
+| Zinssatz | $3{,}8\,\%$ p.a. | $3{,}2\,\%$ p.a. |
+| Laufzeit | 15 Jahre | 20 Jahre |
+
+**Fragen:**
+
+1. Wie hoch ist die **Jahresrate** (Annuität) bei jeder Bank?
+2. Wie hoch sind die **Gesamtkosten** (inkl. Zinsen)?
+3. Welche Bank ist günstiger?
+
+## Lösung: Herleitung der Annuität
+
+Bei einem Darlehen mit Barwert $B$ (Darlehensbetrag), Zinssatz $p$ und Laufzeit $n$ gilt:
+
+$$
+B = R \cdot \frac{q^n - 1}{q^n(q-1)} \quad \Leftrightarrow \quad R = B \cdot \frac{q^n(q-1)}{q^n - 1}
+$$
+
+Der Faktor $\dfrac{q^n(q-1)}{q^n - 1}$ heißt **Annuitätenfaktor** (auch: Kapitalwiedergewinnungsfaktor).
+
+```{r annuitaet}
+B <- 200000  # Darlehensbetrag in €
+
+# Bank A
+pA <- 3.8; qA <- 1 + pA/100; nA <- 15
+RA <- B * qA^nA * (qA - 1) / (qA^nA - 1)
+
+# Bank B
+pB <- 3.2; qB <- 1 + pB/100; nB <- 20
+RB <- B * qB^nB * (qB - 1) / (qB^nB - 1)
+
+cat("Bank A – Jahresrate:", round(RA, 2), "€\n")
+cat("Bank B – Jahresrate:", round(RB, 2), "€\n")
+```
+
+## Lösung: Gesamtkosten und Vergleich
+
+```{r gesamtkosten}
+# Gesamtzahlungen und Zinskosten
+gesamt_A <- RA * nA
+gesamt_B <- RB * nB
+zinsen_A  <- gesamt_A - B
+zinsen_B  <- gesamt_B - B
+
+cat("Bank A – Gesamtzahlung:", round(gesamt_A, 2), "€  |  Zinsen:", round(zinsen_A, 2), "€\n")
+cat("Bank B – Gesamtzahlung:", round(gesamt_B, 2), "€  |  Zinsen:", round(zinsen_B, 2), "€\n")
+```
+
+**Ergebnis:**
+
+- Bank A ist teurer pro Jahr (**`r round(RA, 2)` €**), aber dafür ist das Darlehen früher abbezahlt.
+- Bank B hat eine niedrigere Jahresrate (**`r round(RB, 2)` €**), kostet durch die längere Laufzeit jedoch **`r round(zinsen_B - zinsen_A, 2)` €** mehr an Zinsen.
+
+**Fazit:** Wer die höhere Jahresrate stemmen kann, fährt mit Bank A langfristig günstiger.
+
+## Tilgungsplan (Bank A, erste 5 Jahre)
+
+```{r tilgungsplan, echo=TRUE}
+K <- B; rate <- RA; q <- qA
+plan <- data.frame(Jahr=integer(), Zinsen=numeric(),
+                   Tilgung=numeric(), Restschuld=numeric())
+for (j in 1:5) {
+  zinsen   <- K * (qA - 1)
+  tilgung  <- rate - zinsen
+  K        <- K - tilgung
+  plan <- rbind(plan, data.frame(Jahr=j,
+    Zinsen=round(zinsen,2), Tilgung=round(tilgung,2), Restschuld=round(K,2)))
+}
+knitr::kable(plan, format="latex", booktabs=TRUE,
+             col.names=c("Jahr","Zinsen (€)","Tilgung (€)","Restschuld (€)"))
+```
+
+Man sieht: Der Zinsanteil sinkt mit jeder Zahlung, während der Tilgungsanteil wächst — typisch für ein **Annuitätendarlehen**.
