@@ -15,7 +15,7 @@ knitr::opts_chunk$set(echo=TRUE, message=FALSE, warning=FALSE, cache=FALSE,
                       dev.args=list(pointsize=11), size="scriptsize")
 ```
 
-## Neue Fachprüfungsordnung für neu eingeschriebe Studierende ab WS 2025/2026
+## Fachprüfungsordnung für neu eingeschriebe Studierende ab WS 2025/2026
 
 Die Fachprüfungsordnungen (FPO) für die Präsenz-Bachelor-Studiengänge
 
@@ -24,30 +24,23 @@ Die Fachprüfungsordnungen (FPO) für die Präsenz-Bachelor-Studiengänge
 - Wirtschaftsingenieurwesen
 - Wirtschaftsinformatik
 
-werden durch die [am 25. Februar 2025 verkündete Fachprüfungsordnung](https://publikationen.fhb.fh-swf.de/receive/fhswf_mods_00002717) (FPO) abgelöst und diese gilt grundsätzlich für alle **ab Wintersemester 2025/2026 neu** eingeschriebenen Studierenden.
+finden Sie unter den folgenden Links:
 
-## Modulangebot der **neuen** FPO
-
-Das Modulangebot der **neuen FPO** wächst auf, das heißt
-
-- Module und Modulprüfungen des 1. Semesters der neuen FPO werden erstmalig im WS 2025/2026 
-- Module und Modulprüfungen des 2. Semesters der neuen FPO werden erstmalig im SoSe 2026 
-- Module und Modulprüfungen des 3. Semesters der neuen FPO werden erstmalig im WS 2026/2027
-- usw.
-
-angeboten.
+- [FPO 2025](https://publikationen.fhb.fh-swf.de/receive/fhswf_mods_00002717)
+- [FPO 2025 1. Änderungsordnung](https://publikationen.fhb.fh-swf.de/receive/fhswf_mods_00002773)
+- [RPO 2018](https://www.fh-swf.de/media/alt_2/downloads/hv2/sg_2_2/amtliche_bekanntmachungen/2018_4/Nr._855_vom_26.06.2018_-_Neue_Rahmenpruefungsordnung.pdf)
 
 ## Prüfungstermine und -fristen
 
-Die Prüfungszeiträume für die Module mit semesterabschließenden Prüfungsformen (insbes. Klausuren) liegen im Wintersemester 2025/2026 wie folgt:
+Die Prüfungszeiträume für die Module mit semesterabschließenden Prüfungsformen (insbes. Klausuren) liegen im Wintersemester 2026/2027 wie folgt:
 
-1. Prüfungsblock: 26.01.2026 - 06.02.2026
-2. Prüfungsblock: 16.03.2026 - 28.03.2026
+1. Prüfungsblock: 25.01.2027 - 06.02.2027
+2. Prüfungsblock: 08.03.2027 - 20.03.2027
 
 Die entsprechenden Anmeldezeiträume/Fristen sind:
 
-- *Klausur*anmeldezeitraum: 06.10.2025 - 12.01.2026
-- Anmeldezeitraum für *alle anderen Prüfungsformen* (z.B. Portfolio, Hausarbeiten): 06.10.2025 - 27.10.2025 (Rücktrittsfrist 10.11.2025)
+- *Klausur*anmeldezeitraum: 28.09.2026 - 03.01.2027
+- Anmeldezeitraum für *alle anderen Prüfungsformen* (z.B. Portfolio, Hausarbeiten): 28.09.2026 - 01.11.2026 (Rücktrittsfrist 15.11.2025)
 
 Die konkreten modulscharfen Prüfungstermine, Prüfungsräume und Uhrzeiten erfahren Sie nach Planung im System [Pryfis](https://obelix.fh-swf.de/pryfis/pryfung/pruefung/list/)
 
@@ -73,7 +66,7 @@ Sofern Sie bei der Anmeldung bzw. Abmeldung technische Probleme haben, melden Si
   - von der Belegung eines Moduls in VPIS  
 - Einzige Ausnahme:
   - Für Module mit **Studienvorleistung** ist das Erbringen dieser Studienvorleistung **notwendig** für die Teilnahme an der Prüfung!
-- Unabhängig davon müssen Sie sich für **alle** Prüfungen anmelden, auch dann, wenn Sie die Lehrveranstaltung besuchen oder belegt haben.
+- Unabhängig davon müssen Sie sich für *alle* **Prüfungen** anmelden, auch dann, wenn Sie die **Lehrveranstaltung** besuchen oder belegt haben.
 
 Zusammengefasst:
 
