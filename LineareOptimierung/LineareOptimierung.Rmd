@@ -35,25 +35,27 @@ library(knitr)
 ### Klassisches Problem: Produktionsprogrammplanung
 
 Ein Unternehmen produziert zwei Produkte:
+
 - **Produkt A**: Gewinn 40 EUR pro Einheit
 - **Produkt B**: Gewinn 30 EUR pro Einheit
 
 **Ressourcen-Beschränkungen:**
+
 - Arbeitszeit: max. 40 Stunden (4h für A, 2h für B)
 - Materialverfügbarkeit: max. 120 kg (10 kg für A, 30 kg für B)
 - Lagerkapazität: max. 9 Einheiten insgesamt
 
 **Ziel**: Gewinn maximieren
 
-```{r echo=TRUE}
-# Zielfunktion und Nebenbedingungen
-cat("Maximiere: Z = 40x_1 + 30x_2\n")
-cat("\nNebenbedingungen:\n")
-cat("4$x_1$ + 2$x_2$ <= 40    (Arbeitszeit)\n")
-cat("10$x_1$ + 30$x_2$ <= 120  (Material)\n")
-cat("$x_1 + x_2 <= 9$        (Lager)\n")
-cat("$x_1, x_2 >= 0$         (Nicht-Negativität)\n")
-```
+$$
+\begin{aligned}
+\max\ Z &= 40x_1 + 30x_2 \\
+4x_1 + 2x_2 &\leq 40 & \text{(Arbeitszeit)} \\
+10x_1 + 30x_2 &\leq 120 & \text{(Material)} \\
+x_1 + x_2 &\leq 9 & \text{(Lager)} \\
+x_1, x_2 &\geq 0 & \text{(Nichtnegativität)}
+\end{aligned}
+$$
 
 ---
 
@@ -63,24 +65,25 @@ cat("$x_1, x_2 >= 0$         (Nicht-Negativität)\n")
 
 Um Ungleichungen in Gleichungen umzuwandeln, fügen wir **Schlupfvariablen** (slack variables) ein:
 
-```{r echo=TRUE}
-cat("4x_1 + 2x_2 + s_1 = 40    (s_1 >= 0)\n")
-cat("10x_1 + 30x_2 + s_2 = 120  (s_2 >= 0)\n")
-cat("x_1 + x_2 + s_3 = 9        (s_3 >= 0)\n\n")
-cat("Zielfunktion (Maximierung):\n")
-cat("Z = 40x_1 + 30x_2 + 0·s_1 + 0·s_2 + 0·s_3 \n")
-```
+$$
+\begin{aligned}
+4x_1 + 2x_2 + s_1 &= 40 & (s_1 \geq 0) \\
+10x_1 + 30x_2 + s_2 &= 120 & (s_2 \geq 0) \\
+x_1 + x_2 + s_3 &= 9 & (s_3 \geq 0)
+\end{aligned}
+$$
+
+Zielfunktion: $Z = 40x_1 + 30x_2 + 0 \cdot s_1 + 0 \cdot s_2 + 0 \cdot s_3$
 
 **Standardform (Matrixschreibweise):**
 
-```
-max Z = c^T · x
+$$
+\max Z = c^T x \quad \text{mit } Ax = b,\ x \geq 0
+$$
 
-mit A·x = b und x >= 0
-
-c = [40, 30, 0, 0, 0]^T
-b = [40, 120, 9]^T
-```
+$$
+c = (40, 30, 0, 0, 0)^T \qquad b = (40, 120, 9)^T
+$$
 
 ---
 
@@ -89,7 +92,7 @@ b = [40, 120, 9]^T
 ```{r}
 # Initiales Tableau
 tableau_0 <- data.frame(
-  Basis = c("s_1", "s_2", "s_3", "Z"),
+  Basis = c("$s_1$", "$s_2$", "$s_3$", "Z"),
   x_1 = c(4, 10, 1, -40),
   x_2 = c(2, 30, 1, -30),
   s_1 = c(1, 0, 0, 0),
@@ -98,12 +101,14 @@ tableau_0 <- data.frame(
   RHS = c(40, 120, 9, 0)
 )
 
-knitr::kable(tableau_0, caption = "Initiales Simplex-Tableau (Iteration 0)")
+colnames(tableau_0) <- c("Basis", "$x_1$", "$x_2$", "$s_1$", "$s_2$", "$s_3$", "RHS")
+knitr::kable(tableau_0, escape=FALSE, caption = "Initiales Simplex-Tableau (Iteration 0)")
 ```
 
 **Interpretation:**
+
 - Jede Zeile ist eine Gleichung
-- **Basislösung**: s_1=40, s_2=120, s_3=9 (x_1=0, x_2=0)
+- **Basislösung**: $s_1$=40, $s_2$=120, $s_3$=9 ($x_1$=0, $x_2$=0)
 - **Z-Wert**: 0
 - **Negative Einträge in Z-Reihe**: Möglichkeit zur Verbesserung
 
@@ -115,13 +120,11 @@ knitr::kable(tableau_0, caption = "Initiales Simplex-Tableau (Iteration 0)")
 
 **Kriterium**: Wähle die Variable mit dem **kleinsten (negativsten)** Wert in der Z-Reihe
 
-```{r echo=TRUE}
-cat("Z-Reihe: [-40, -30, 0, 0, 0]\n")
-cat("\nKleinster Wert: -40 → x_1 wird Eingangsvariable\n")
-cat("(Spalte 1 wird Pivotspalte)\n")
-```
+Z-Reihe: $(-40,\ -30,\ 0,\ 0,\ 0)$
 
-**Intuition**: x_1 hat den höchsten Gewinn pro Einheit → sollte zuerst erhöht werden
+Kleinster Wert: $-40$ → $x_1$ wird Eingangsvariable (Spalte $x_1$ wird Pivotspalte)
+
+**Intuition**: $x_1$ hat den höchsten Gewinn pro Einheit → sollte zuerst erhöht werden
 
 ---
 
@@ -131,14 +134,11 @@ cat("(Spalte 1 wird Pivotspalte)\n")
 
 **Kriterium**: Minimaler Quotient RHS/Pivotspalte (nur positive Quotienten)
 
-```{r echo=TRUE}
-cat("Quotienten für Pivotspalte x_1:\n")
-cat("Zeile 1: 40/4 = 10\n")
-cat("Zeile 2: 120/10 = 12\n")
-cat("Zeile 3: 9/1 = 9  ← Minimum!\n\n")
-cat("Ausgangsvariable: s_3\n")
-cat("Pivotelement: 1 (Zeile 3, Spalte 1)\n")
-```
+- Zeile 1: $40/4 = 10$
+- Zeile 2: $120/10 = 12$
+- Zeile 3: $9/1 = 9$ ← **Minimum**
+
+Ausgangsvariable: $s_3$, Pivotelement: 1 (Zeile 3, Spalte $x_1$)
 
 ---
 
@@ -148,19 +148,16 @@ cat("Pivotelement: 1 (Zeile 3, Spalte 1)\n")
 
 **Ziel**: Pivotspalte so transformieren, dass nur das Pivotelement = 1 ist
 
-```{r echo=TRUE}
-cat("Neue Zeile 3 (Pivotzeile): Zeile 3 ÷ 1\n")
-cat("x_1 + x_2 + s_3 = 9\n\n")
-cat("Neue Zeile 1: alte Zeile 1 - 4×(neue Zeile 3)\n")
-cat("(4x_1 + 2x_2 + s_1) - 4(x_1 + x_2 + s_3) = 40 - 4(9)\n")
-cat("-2x_2 + s_1 - 4s_3 = 4\n\n")
-cat("Neue Zeile 2: alte Zeile 2 - 10×(neue Zeile 3)\n")
-cat("(10x_1 + 30x_2 + s_2) - 10(x_1 + x_2 + s_3) = 120 - 10(9)\n")
-cat("20x_2 + s_2 - 10s_3 = 30\n\n")
-cat("Neue Z-Reihe: alte Z - (-40)×(neue Zeile 3)\n")
-cat("(Z - 40x_1 - 30x_2) + 40(x_1 + x_2 + s_3) = 0 + 40(9)\n")
-cat("Z + 10x_2 + 40s_3 = 360\n")
-```
+Neue Zeilen (Pivotzeile = Zeile 3, Pivotelement 1):
+
+$$
+\begin{aligned}
+\text{Zeile 3 (neu):}\quad & x_1 + x_2 + s_3 = 9 \\
+\text{Zeile 1 (neu) = Zeile 1} - 4 \cdot \text{Zeile 3:}\quad & -2x_2 + s_1 - 4s_3 = 40 - 4\cdot 9 = 4 \\
+\text{Zeile 2 (neu) = Zeile 2} - 10 \cdot \text{Zeile 3:}\quad & 20x_2 + s_2 - 10s_3 = 120 - 10\cdot 9 = 30 \\
+\text{Z-Reihe (neu) = Z-Reihe} + 40 \cdot \text{Zeile 3:}\quad & Z + 10x_2 + 40s_3 = 0 + 40 \cdot 9 = 360
+\end{aligned}
+$$
 
 ---
 
@@ -168,7 +165,7 @@ cat("Z + 10x_2 + 40s_3 = 360\n")
 
 ```{r}
 tableau_1 <- data.frame(
-  Basis = c("s_1", "s_2", "x_1", "Z"),
+  Basis = c("$s_1$", "$s_2$", "$x_1$", "Z"),
   x_1 = c(0, 0, 1, 0),
   x_2 = c(-2, 20, 1, 10),
   s_1 = c(1, 0, 0, 0),
@@ -177,37 +174,38 @@ tableau_1 <- data.frame(
   RHS = c(4, 30, 9, 360)
 )
 
-knitr::kable(tableau_1, caption = "Simplex-Tableau nach Iteration 1 (optimal)")
+colnames(tableau_1) <- c("Basis", "$x_1$", "$x_2$", "$s_1$", "$s_2$", "$s_3$", "RHS")
+knitr::kable(tableau_1, escape=FALSE, caption = "Simplex-Tableau nach Iteration 1 (optimal)")
 ```
 
 **Fortschritt:**
-- Basislösung: x_1=9, x_2=0 (Schlupfvariablen: s_1=4, s_2=30, s_3=0)
+
+- Basislösung: $x_1$=9, $x_2$=0 (Schlupfvariablen: $s_1$=4, $s_2$=30, $s_3$=0)
 - **Z-Wert verbessert sich von 0 auf 360**
 
 ---
 
 ## Optimalitätstest
 
-```{r echo=TRUE}
-cat("Z-Reihe: [0, 10, 0, 0, 40]\n\n")
-cat("Kein negativer Eintrag mehr in der Z-Reihe\n")
-cat("→ keine Variable kann den Gewinn noch erhöhen\n")
-cat("→ OPTIMUM ERREICHT (nach nur einer Iteration)\n")
-```
+**Z-Reihe:** $(0,\ 10,\ 0,\ 0,\ 40)$
 
-**Interpretation:** Würde man x_2 (Produkt B) in die Basis nehmen, **sänke** der Gewinn
+- Kein negativer Eintrag mehr in der Z-Reihe
+- → keine Variable kann den Gewinn noch erhöhen
+- → **Optimum erreicht** (nach nur einer Iteration)
+
+**Interpretation:** Würde man $x_2$ (Produkt B) in die Basis nehmen, **sänke** der Gewinn
 pro Einheit B um 10 EUR (Eintrag +10 in der Z-Reihe).
 
 ---
 
 ## Optimale Lösung
 
-Aus dem Tableau nach Iteration 1 liest man ab (Nicht-Basisvariablen x_2 und s_3 sind 0):
+Aus dem Tableau nach Iteration 1 liest man ab (Nicht-Basisvariablen $x_2$ und $s_3$ sind 0):
 
-- **x_1 = 9** (Einheiten Produkt A)
-- **x_2 = 0** (Einheiten Produkt B)
+- **$x_1$ = 9** (Einheiten Produkt A)
+- **$x_2$ = 0** (Einheiten Produkt B)
 - **Maximaler Gewinn Z = 360 EUR**
-- Schlupf: s_1 = 4 (4 Arbeitsstunden ungenutzt), s_2 = 30 (30 kg Material ungenutzt), s_3 = 0 (Lager voll)
+- Schlupf: $s_1$ = 4 (4 Arbeitsstunden ungenutzt), $s_2$ = 30 (30 kg Material ungenutzt), $s_3$ = 0 (Lager voll)
 
 ---
 
@@ -216,18 +214,20 @@ Aus dem Tableau nach Iteration 1 liest man ab (Nicht-Basisvariablen x_2 und s_3 
 ### Wann ist die Lösung optimal?
 
 **Für Maximierungsprobleme:**
+
 - Alle Einträge in der Z-Reihe (außer dem RHS) sind **>= 0**
 - Keine negativen reduzierten Kosten
 
 **Unser finales Tableau:**
-```
-Z-Reihe: [0, 10, 0, 0, 40]
-```
+**Unser finales Tableau:** Z-Reihe $= (0,\ 10,\ 0,\ 0,\ 40)$
+
+- Alle Einträge sind $\geq 0$ → optimal
 - Alle Einträge sind >= 0 → optimal
 
 **Interpretation**: 
-- s_3 = 0: Die Lagerkapazität ist vollständig ausgenutzt
-- Der Eintrag 40 bei s_3 (Schattenpreis): Eine zusätzliche Lagereinheit wäre 40 EUR wert
+
+- $s_3$ = 0: Die Lagerkapazität ist vollständig ausgenutzt
+- Der Eintrag 40 bei $s_3$ (Schattenpreis): Eine zusätzliche Lagereinheit wäre 40 EUR wert
 
 ---
 
@@ -250,7 +250,7 @@ resources <- data.frame(
   )
 )
 
-resources$Auslastung_Prozent <- round((resources$Verbraucht / resources$Verfügbar) * 100, 1)
+resources$`Auslastung (%)` <- round((resources$Verbraucht / resources$Verfügbar) * 100, 1)
 
 knitr::kable(resources, caption = "Ressourcen-Auslastung bei optimaler Lösung")
 ```
@@ -301,8 +301,8 @@ ggplot() +
   
   xlim(0, 13) + ylim(0, 8) +
   labs(title="Geometrische Interpretation der Linearen Optimierung",
-       x="x_1 (Produkt A)",
-       y="x_2 (Produkt B)",
+       x="x₁ (Produkt A)",
+       y="x₂ (Produkt B)",
        color="Punkt-Typ", size="Punkt-Typ") +
   theme_minimal() +
   theme(plot.title=element_text(size=14, face="bold"),
@@ -335,29 +335,17 @@ ggplot() +
 
 ## Praktische R-Implementierung
 
-```{r echo=TRUE}
-# Simplex mit lpSolve Paket (vereinfacht)
+```{r}
 library(lpSolve)
-
-# Zielfunktion: max 40x1 + 30x2
-c <- c(40, 30)
-
-# Nebenbedingungen (Constraint-Matrix)
-A <- matrix(c(4, 2,        # Arbeitszeit
-              10, 30,      # Material
-              1, 1),       # Lager
-            nrow=3, byrow=TRUE)
-b <- c(40, 120, 9)
-signs <- c("<=", "<=", "<=")
-
-# Lösen
-result <- lp("max", c, A, signs, b)
-
-cat("Optimale Lösung:\n")
-cat("x_1 =", result$solution[1], "\n")
-cat("x_2 =", result$solution[2], "\n")
-cat("Maximaler Gewinn Z =", result$objval, "EUR\n")
+A <- matrix(c(4, 2, 10, 30, 1, 1), nrow=3, byrow=TRUE)
+result <- lp("max", c(40, 30), A, rep("<=", 3), c(40, 120, 9))
 ```
+
+Das R-Paket `lpSolve` liefert zur Kontrolle dasselbe Ergebnis:
+
+- $x_1 =$ `r result$solution[1]`
+- $x_2 =$ `r result$solution[2]`
+- Maximaler Gewinn $Z =$ `r result$objval` EUR
 
 ---
 
@@ -377,15 +365,18 @@ cat("Maximaler Gewinn Z =", result$objval, "EUR\n")
 ## Quellen & Weitere Ressourcen {.smaller}
 
 ### Fachliteratur
+
 - Vanderbei, R. J. (2020). *Linear Programming: Foundations and Extensions*. Springer.
 - Gärtner, B., & Matoušek, J. (2006). *Understanding and Using Linear Programming*. Springer.
 
 ### Online-Ressourcen
+
 - NEOS Solver: https://www.neos-server.org/
 - R Packages: `lpSolve`, `linprog`, `Rcplex`
 - Interaktive Visualization: http://simplex.tode.cz/
 
 ### Deutsch
+
 - Kellerer, H., & Pferschy, U. (2015). *Optimierung*. Springer (German edition)
 
 ---
