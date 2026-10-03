@@ -16,7 +16,6 @@ editor_options:
 options(digits = 4)
 knitr::opts_chunk$set(echo=FALSE, message=FALSE, warning=FALSE, cache=FALSE, 
                       dev.args=list(pointsize=11), size="scriptsize")
-remotes::install_github("profboecker/fhswf")
 library(tidyverse)
 ```
 
@@ -78,7 +77,7 @@ Details:
 ### Unterlagen und Informationen zum Modul Wirtschaftsmathematik
 
 -   Es gibt einen Moodle-Kurs zum Modul [Wirtschaftsmathematik
-    WiSe25/26](https://elearning.fh-swf.de/course/view.php?id=26721)
+    WiSe26/27](https://elearning.fh-swf.de/course/view.php?id=28772)
 -   **Wichtig:** Es gibt auch einen Kurs zu Terminen und Links mit
     allgemeinen Informationen: [Informationen und Mitteilungen
     Fachbereich TBW
@@ -99,8 +98,8 @@ Details:
 5.  Ein **grafisches Schema** bringt fast immer Klarheit.
 6.  Das wichtigste Konzept ist das der **Rendite**, auch **Effektiv-
     oder Realzins** genannt.
-7.  Die klassische Finanzmathematik lässt sich klar umreißen. Das
-    wichtigste Konzept ist das des **Zinssatzes**.
+7.  Die klassische Finanzmathematik lässt sich klar umreißen. Ihr
+    Grundbaustein ist das Konzept des **Zinssatzes**.
 
 ## Begriffe
 
@@ -140,7 +139,7 @@ Kapital
 
 Zinssatz
 
-:   $i = \frac{p}{100}$, wobei $p$ der Zinssatz/Zinsfuss in Prozent ist
+:   $i = \frac{p}{100}$, wobei $p$ der Zinssatz/Zinsfuß in Prozent ist
 
 Aufzinsungsfaktor
 
@@ -250,8 +249,12 @@ Finanzmathematik, die **Endwertformel bei linearer Verzinsung**
 
 $$
 K_{t} = K_{0} + Z_{t} = K_{0} + K_{0} \cdot i \cdot t = K_{0} \left( 1 + i \cdot t \right) = K_{0} \left( 1 + \frac{p}{100} \cdot t \right)
-$$ Barwert : Man kann durch Umstellen der Endwertformel auch den
-**Barwert** $K_{0}$ einer zukünftigen Zahlung $K_{t}$ berechnen
+$$
+
+Barwert
+
+:   Man kann durch Umstellen der Endwertformel auch den **Barwert**
+    $K_{0}$ einer zukünftigen Zahlung $K_{t}$ berechnen
 
 $$
 K_{0} = \frac{K_{t}}{1+i \cdot t}
@@ -304,7 +307,7 @@ Das zweite Angebot ist also bei 6 % günstiger.
 Bei einer Verzinsung von 3 % ergeben sich folgende Barwerte:
 
 $$
-K_{0}^{30} = \frac{9000}{1+0.03 \cdot \frac{30}{360}} = 8977.55 \qquad          K_{0}^{90} = \frac{9085}{1+0.03 \cdot \frac{90}{360}} = 9017.37 $$
+K_{0}^{30} = \frac{9000}{1+0.03 \cdot \frac{30}{360}} = 8977.56 \qquad          K_{0}^{90} = \frac{9085}{1+0.03 \cdot \frac{90}{360}} = 9017.37 $$
 
 Das erste Angebot ist also bei 3 % günstiger.
 
@@ -470,7 +473,7 @@ Zahlungsbedingungen: *Bei Zahlung innerhalb von 10 Tagen gewähren wir 2
 % Skonto. Zahlung innerhalb von 30 Tagen ohne Abzug.*
 
 Für den Effektivzins ergibt sich hier: $$
-i_{\text{eff}} = \frac{0.02}{0.98} \cdot \frac{360}{20} = 0,3673469388
+i_{\text{eff}} = \frac{0.02}{0.98} \cdot \frac{360}{20} = 0.3673469388
 $$
 
 Man sollte also von der Möglichkeit des Skontos Gebrauch machen, da dies
@@ -515,7 +518,7 @@ Zinsansammlung konstant mit 6 % verzinst wird erhält man am Ende des 5.
 Jahres 
 
 $$
-K_{5} = K_{0} \left(1 + 0.06 \right)^5 = 4000 \text{€} \cdot \left( 1.06 \right)^5 = 5352.60 \text{€}
+K_{5} = K_{0} \left(1 + 0.06 \right)^5 = 4000 \text{€} \cdot \left( 1.06 \right)^5 = 5352.90 \text{€}
 $$ 
 
 ### Bemerkung
@@ -629,18 +632,19 @@ verzinst.
 \textbf{Auf welchen Endwert ist das Kapital angewachsen und welchem Effektivzins entspricht die Anlage?}
 
 $$
-K = K_{0} \left( 1+0.06 \right)^{2} \cdot \left( 1+0.07 \right)^{5} \cdot \left( 1+0.04 \right)^{3} 
+K = K_{0} \left( 1+0.06 \right)^{2} \cdot \left( 1+0.07 \right)^{5} \cdot \left( 1+0.04 \right)^{3} \approx 17726.81 \text{ €}
 $$
 
 Für den Effektivzins gilt: $$
 \left(1+i_{\text{eff}}\right)^{10} = \left( 1+0.06 \right)^{2} \cdot \left( 1+0.07 \right)^{5} \cdot \left( 1+0.04 \right)^{3}
+\quad \Rightarrow \quad i_{\text{eff}} \approx 0.0589 = 5.89 \%
 $$
 
 ## Laufzeitberechnungen
 
 ### Beispiel
 
-In welchem Zeitraum verdreitfacht sich ein Kapital bei einem Zinssatz
+In welchem Zeitraum verdreifacht sich ein Kapital bei einem Zinssatz
 (mit Zinseszins) von 5 % p.a.?
 
 Gesucht ist die Anzahl an Jahren $n$ in der Zinseszinsformel: $$
@@ -648,7 +652,7 @@ K_{n} = 3 \cdot K_{0} = K_{0} \cdot \left( 1+0.05 \right)^{n}
 $$
 
 Diese Gleichung hat die Lösung $$
-n = \frac{\log 3}{\log 1.05} = 22,517085304
+n = \frac{\log 3}{\log 1.05} = 22.517085304
 $$
 
 Also verdreifacht sich das Kapital bei einem Zinssatz von 5% in etwa
@@ -745,7 +749,7 @@ $$
 Frage
 
 :   Welchen Wert hat eine Rente mit der vorschüssigen (V) Rentenrate
-    $R$, die über $n$ Jahre gezahlt wird, heute/aus heutiger Sicht?
+    $R$, die über $n$ Jahre gezahlt wird, am Ende der Laufzeit?
 
 \begin{tabular}{|c|c|c|c|}
 \hline Jahr & vorschüssige Rate & verbleibender Zeitraum & Endwert der Rate \\ 
@@ -997,8 +1001,8 @@ ggplot(data.frame(x = x, y = x), aes(x, y)) +
 
 ## 2. Beispiel: Verhalten einer Funktion im Unendlichen
 
-Für $f(x)=\frac{1}{x}$ wird $f(x)$ gegen 0 gehen und für $x \to 0$ gegen
-"plus Unendlich"
+Für $f(x)=\frac{1}{x}$ wird $f(x)$ gegen 0 gehen und für $x \to 0^{+}$ gegen
+"plus Unendlich" (für $x \to 0^{-}$ gegen "minus Unendlich")
 
 ```{r echo=FALSE}
 rm(list = ls())
@@ -1077,7 +1081,7 @@ $$ also faktisch eine dreifache Nullstelle bei $x=3$.
 Eine Funktion der Form $$
 y = f(x) = \frac{a_n x^n + a_{n-1} x^{n-1} + a_{n-2}x^{n-2} + \cdots + a_2 x^2 + a_1 x + a_0}{b_m x^m + b_{m-1} x^{m-1} + b_{m-2}x^{m-2} + \cdots + b_2 x^2 + b_1 x + b_0} = \frac{Z(x)}{N(x)}
 $$ mit reellen *Koeffizienten* $a_{i}, b_i \in \mathbb{R}$ und $m\geq 1$
-heißt **gebrochen-rationale Funktion**. Die Funktionen $Z(x)$ ist ein
+heißt **gebrochen-rationale Funktion**. Die Funktion $Z(x)$ ist ein
 Polynom vom Grad $n$ und heißt **Zählerpolynom**, die Funktion $N(x)$
 ist ein Polynom vom Grad $m$ und heißt **Nennerpolynom**.
 
@@ -1155,12 +1159,17 @@ Damit können also Aussagen gemacht werden über
 -   evtl. Maxima und Minima der Funktion $f$. Denn für den
     Differentialquotienten gilt ja: $$
     f'(x_{0}) = \lim_{x \to x_{0}} \frac{f(x)-f(x_{0})}{x-x_{0}} 
-    $$ und die rechte Seite ist
+    $$ und der Differenzenquotient unter dem Limes ist
 
-    -   strikt positiv, wenn $f$ streng monoton wachsend
-    -   positiv, wenn $f$ monoton wachsend
-    -   strikt negativ, wenn $f$ streng monoton fallend bzw.
-    -   negativ, wenn $f$ monoton fallend ist.
+    -   positiv, wenn $f$ streng monoton wachsend
+    -   nicht negativ, wenn $f$ monoton wachsend
+    -   negativ, wenn $f$ streng monoton fallend bzw.
+    -   nicht positiv, wenn $f$ monoton fallend ist.
+
+    Für die Ableitung folgt daraus: $f'\geq 0$ bei monoton wachsenden
+    und $f' \leq 0$ bei monoton fallenden Funktionen. (Bei *streng*
+    monotonen Funktionen kann $f'$ einzelne Nullstellen haben, z.B.
+    $f(x)=x^3$ an der Stelle $0$.)
 
 ## Ableitung elementarer Funktionen
 
@@ -1328,10 +1337,10 @@ Wieviele Schweine und Hühner hat der Bauer?
     -   $4x + 2y = 320$
     -   $x + y = 100$
 
-\begin{align}
+\begin{align*}
 4x &+ 2y &= 320 \\
 x &+ y &= 100
-\end{align}
+\end{align*}
 
 ## Lösungsmöglichkeiten
 
@@ -1343,7 +1352,7 @@ x + y = 100 \Leftrightarrow y = 100 - x
 $$ 
 und dies eingesetzt in die erste Gleichung ergibt: 
 $$
-4x + 2y = 320 \stackrel{y=100-x}{\longrightarrow} 4x +2(100-x) \Leftrightarrow 2x + 200 = 320 \Leftrightarrow x = 60
+4x + 2y = 320 \stackrel{y=100-x}{\longrightarrow} 4x +2(100-x) = 320 \Leftrightarrow 2x + 200 = 320 \Leftrightarrow x = 60
 $$ 
 und daher 
 $$
@@ -1367,10 +1376,10 @@ Durch Multiplikation der zweiten Gleichung mit $-2$
 x &+ y &= 100
 \end{align*} 
 ergibt sich 
-\begin{align}
+\begin{align*}
 4x &+ 2y &= 320 \\
 -2x &- 2y &= -200
-\end{align} 
+\end{align*} 
 und durch Addition der zweiten zur ersten Gleichung damit 
 $$
 (4x -2x) +(2y-2y) = 320 - 200
@@ -1694,8 +1703,8 @@ a_{m1} & a_{m2} & a_{m3} & \cdots & a_{mn} & b_m
 \right)
 $$ sind die $a_{ij}$ die **Koeffizienten** des linearen
 Gleichungssystems (und bilden ohne die rechte Seite die sogenannte
-**Koeffizienten-Matrix**), die $b_i$ bilden die **rechte Seite**. Von
-Indizes $i$ und $j$ heißen der erste **Zeilenindex** (hier $i$) und der
+**Koeffizienten-Matrix**), die $b_i$ bilden die **rechte Seite**. Von den
+Indizes $i$ und $j$ heißt der erste **Zeilenindex** (hier $i$) und der
 zweite **Spaltenindex** (hier $j$).
 
 ## Gauß-Algorithmus - Ziel und Verfahren
@@ -1728,7 +1737,7 @@ $$
 
 zu überführen, so hat man das Gleichungssystem gelöst. (Warum?)
 
-Leider ist das nicht immer bzw. so gut wie nie möglich!
+Das ist nur bei eindeutig lösbaren Systemen möglich; sonst erhält man (wie unten) Zeilen der Form $0=0$ oder $0=c\neq 0$.
 
 ## Gauß-Verfahren - Beispiel unendlich vieler Lösungen
 
@@ -1846,7 +1855,7 @@ mit Gauß-Schritten *von unten nach oben* $$
 \right)
 $$
 
-Also die (bereits bekannte) Lösung $x_1 = 2$, $x_2 = -1$ und $x_3 = 3$.
+Also die Lösung $x_1 = 2$, $x_2 = -1$ und $x_3 = 3$.
 
 \tiny Gauß-Algorithmus: Zweite plus viermal dritte Zeile und die zweite
 durch 3 teilen, erste minus zweimal die dritte Zeile, und danach noch
@@ -2003,7 +2012,7 @@ und Spaltenzahl.
 Um das Vielfache einer Matrix zu berechnen, multipliziert man jeden
 Koeffizienten der Matrix mit dem Faktor.
 
-Zum Beispiel ist das 3-fache des Vektors $\vec{v}$
+Zum Beispiel ist das 3-fache des Vektors $\vec{v} = \vec{a}_{\cdot 3}$
 
 $$
 3 \vec{v} = 3 \left(\begin{array}{c}-1 \\ -3 \\ -3.2\end{array}\right) = \left(\begin{array}{c}-3 \\ -9 \\ -9.6\end{array}\right)
@@ -2051,11 +2060,10 @@ c_{k1} & c_{k2} & \cdots & c_{km}
 \end{array}\right) = \left(\begin{array}{cccc}a_{11} & a_{12} & \cdots & a_{1l} \\ 
 a_{21} & a_{22} & \cdots & a_{2l} \\
 \vdots & \vdots & \ddots & \vdots \\ 
-\vdots & \vdots & \ddots & \vdots \\ 
 a_{k1} & a_{k2} & \cdots & a_{kl}
 \end{array}\right) \cdot \left(\begin{array}{cccc}b_{11} & b_{12} & \cdots &  b_{1m} \\
 b_{21} & b_{22} &  \cdots & b_{2m} \\
-\vdots & \vdots &  \cdots &\vdots \\
+\vdots & \vdots &  \ddots &\vdots \\
 b_{l1} & b_{l2} &  \cdots & b_{lm}
 \end{array}\right)
 $$
@@ -2073,11 +2081,10 @@ c_{k1} & c_{k2} & \cdots & c_{km}
 \end{array}\right) = \left(\begin{array}{cccc}a_{11} & a_{12} & \cdots & a_{1l} \\ 
 a_{21} & a_{22} & \cdots & a_{2l} \\
 \vdots & \vdots & \ddots & \vdots \\ 
-\vdots & \vdots & \ddots & \vdots \\ 
 a_{k1} & a_{k2} & \cdots & a_{kl}
 \end{array}\right) \cdot \left(\begin{array}{cccc}b_{11} & b_{12} & \cdots &  b_{1m} \\
 b_{21} & b_{22} &  \cdots & b_{2m} \\
-\vdots & \vdots &  \cdots &\vdots \\
+\vdots & \vdots &  \ddots &\vdots \\
 b_{l1} & b_{l2} &  \cdots & b_{lm}
 \end{array}\right)
 $$
@@ -2515,6 +2522,7 @@ In einem Sonderangebot werden zwei verschiedene Sorten von Zelten für jeweils 1
 
 - von den 10-Personen-Zelten sind noch 5 vorhanden und diese kosten pro Stück 200 €
 - von den 15-Personen-Zelten sind nur noch 4 vorhanden und diese kosten pro Stück 400 €
+- die Jugendgruppe hat insgesamt 1800 € zur Verfügung
 
 
 1. Frage: Wieviele 10- und 15-Personen-Zelte kann die Jugendgruppe kaufen?
@@ -2553,7 +2561,7 @@ ggplot() +
   geom_vline(xintercept = 5, linetype = "dashed") +
   geom_hline(yintercept = 0, color = "gray50") +
   geom_vline(xintercept = 0, color = "gray50") +
-  annotate("text", x = 7.2, y = 2.2, label = "200x+400y=1800", color = "red", size = 3) +
+  annotate("text", x = 7.2, y = 1.2, label = "200x+400y=1800", color = "red", size = 3) +
   annotate("text", x = 5.1, y = 3,   label = "x = 5", hjust = 0, size = 3) +
   annotate("text", x = 2,   y = 4.15, label = "y = 4", size = 3) +
   coord_cartesian(xlim = c(0, 9), ylim = c(-0.3, 5)) +
@@ -2599,7 +2607,7 @@ $$
 y = - \frac{2}{3}x + \frac{Z}{15} \text{ mit }Z = \text{Max!}
 $$
 
-also die Gerade möglichst weit nach oben verschieben, sodass Sie den zulässigen Bereich noch schneidet:
+also die Gerade möglichst weit nach oben verschieben, sodass sie den zulässigen Bereich noch schneidet:
 
 ```{r echo=FALSE}
 rm(list = ls())
@@ -2653,7 +2661,7 @@ a_{m1} x_{1} + a_{m2} x_{2} + a_{m3} x_{3} + \ldots + a_{mn} x_{n}  & \leq   b_{
 \end{aligned}
 $$
 
-- Es gelten die Nichtnegativitätsbedinungen
+- Es gelten die Nichtnegativitätsbedingungen
 $$
 x_1 , x_2 , x_3, \dots , x_n \geq 0
 $$
@@ -2729,7 +2737,7 @@ In diesem Tableau sind aktuell
 - $y_1 , y_2 , y_3$ die **Basisvariablen** und
 - $x_1 , x_2$ die NICHT-Basisvariablen.
 
-Grundsätzlich ist dann die aktuelle Zwischenlösung des Simplex-Verfahrens diejenige, in der die aktuellen **NICHT-Basisvariablen** gleich 0 sind, also hier $x_1 = 0$ und $x_2 = 0$ und damit $y_1 = 5$, $y_2 = 4$, $y_3 = 1800$ (5 ungenutze 10-er-Zelte, 4 ungenutzte 15-er-Zelte, 1800 ungenutzte Euro) 
+Grundsätzlich ist dann die aktuelle Zwischenlösung des Simplex-Verfahrens diejenige, in der die aktuellen **NICHT-Basisvariablen** gleich 0 sind, also hier $x_1 = 0$ und $x_2 = 0$ und damit $y_1 = 5$, $y_2 = 4$, $y_3 = 1800$ (5 ungenutzte 10-er-Zelte, 4 ungenutzte 15-er-Zelte, 1800 ungenutzte Euro) 
 
 | BV | $x_1$ | $x_2$ | $y_1$ | $y_2$ | $y_3$ | $Z$ | $b_i$ |
 |:----:|:-------:|:-------:|:-------:|:--------:|:-------:|:-----:|:-------:|
@@ -2849,7 +2857,7 @@ sind $y_2 , x_2$ und $x_1$ Basis-Variablen und daher $y_1 = 0$ und $y_3 = 0$ und
 
 - aus der ersten Zeile: $y_2 = 2$ (es bleiben 2 15-er-Zelte ungekauft)
 - aus der zweiten Zeile: $x_2 = 2$ (es werden 2 15-er-Zelte gekauft)
-- aus der dritten Zeile: $x_1 = 5$ (er werden 5 10-er-Zelte gekauft)
+- aus der dritten Zeile: $x_1 = 5$ (es werden 5 10-er-Zelte gekauft)
 - und aus der vierten Zeile: $Z = 80$ (es kommen 80 Personen in den Zelten unter)
 
 ## Lineare Optimierung: Simplex-Algorithmus
