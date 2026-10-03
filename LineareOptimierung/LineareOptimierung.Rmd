@@ -158,8 +158,8 @@ cat("Neue Zeile 2: alte Zeile 2 - 10×(neue Zeile 3)\n")
 cat("(10x_1 + 30x_2 + s_2) - 10(x_1 + x_2 + s_3) = 120 - 10(9)\n")
 cat("20x_2 + s_2 - 10s_3 = 30\n\n")
 cat("Neue Z-Reihe: alte Z - (-40)×(neue Zeile 3)\n")
-cat("Z + 40(x_1 + x_2 + s_3) = 0 + 40(9)\n")
-cat("Z + 40x_2 + 40s_3 = 360\n")
+cat("(Z - 40x_1 - 30x_2) + 40(x_1 + x_2 + s_3) = 0 + 40(9)\n")
+cat("Z + 10x_2 + 40s_3 = 360\n")
 ```
 
 ---
@@ -170,84 +170,44 @@ cat("Z + 40x_2 + 40s_3 = 360\n")
 tableau_1 <- data.frame(
   Basis = c("s_1", "s_2", "x_1", "Z"),
   x_1 = c(0, 0, 1, 0),
-  x_2 = c(-2, 20, 1, 40),
+  x_2 = c(-2, 20, 1, 10),
   s_1 = c(1, 0, 0, 0),
   s_2 = c(0, 1, 0, 0),
   s_3 = c(-4, -10, 1, 40),
   RHS = c(4, 30, 9, 360)
 )
 
-knitr::kable(tableau_1, caption = "Simplex-Tableau nach Iteration 1")
+knitr::kable(tableau_1, caption = "Simplex-Tableau nach Iteration 1 (optimal)")
 ```
 
 **Fortschritt:**
-- Basislösung: x_1=9, x_2=0 (Schlupfvariablen: s_1=4, s_2=30)
-- **Z-Wert verbessert sich auf 360**
-- Noch ein negativer Eintrag: x_2 mit -2
-- Aber im x_2-Spalte nur negative oder kleine Werte → STOP bei Minimierung dieser Spalte
+- Basislösung: x_1=9, x_2=0 (Schlupfvariablen: s_1=4, s_2=30, s_3=0)
+- **Z-Wert verbessert sich von 0 auf 360**
 
 ---
 
-## Fortsetzung: Iteration 2
-
-### Neue Eingangsvariable
+## Optimalitätstest
 
 ```{r echo=TRUE}
-cat("Z-Reihe (negative Einträge): [0, 40, 0, 0, 40]\n")
-cat("Achtung: Positive Einträge sind gut für Maximierung!\n")
-cat("Alle neuen Kandidaten positiv → OPTIMUM ERREICHT\n")
+cat("Z-Reihe: [0, 10, 0, 0, 40]\n\n")
+cat("Kein negativer Eintrag mehr in der Z-Reihe\n")
+cat("→ keine Variable kann den Gewinn noch erhöhen\n")
+cat("→ OPTIMUM ERREICHT (nach nur einer Iteration)\n")
 ```
 
-**Jedoch**: Prüfen wir noch einmal das Tableau:
-
-```{r echo=TRUE}
-cat("Im Tableau nach Iteration 1:\n")
-cat("Reduzierten Kosten für x_2: -2 (negativ!)\n")
-cat("Ratio-Test für x_2-Spalte:\n")
-cat("Zeile 1: 4/-2 = -2 (ungültig, negativ)\n")
-cat("Zeile 2: 30/20 = 1.5 ← Minimum (positiv)\n")
-cat("Zeile 3: 9/1 = 9\n\n")
-cat("Pivot: Zeile 2, spalte x_2 (Element: 20)\n")
-```
+**Interpretation:** Würde man x_2 (Produkt B) in die Basis nehmen, **sänke** der Gewinn
+pro Einheit B um 10 EUR (Eintrag +10 in der Z-Reihe).
 
 ---
 
-## Komplettes Tableau nach Iteration 2
+## Optimale Lösung
 
-```{r echo=TRUE}
-cat("Nach Pivot-Operation:\n")
-cat("Neue Zeile 2 (x_2-Reihe): (20x_2 + s_2 - 10s_3 = 30) ÷ 20\n")
-cat("x_2 + 0.05s_2 - 0.5s_3 = 1.5\n\n")
-cat("Neue Zeile 1: (-2x_2 + s_1 - 4s_3 = 4) - (-2) × neue Zeile 2\n")
-cat("s_1 + 0.1s_2 - 3s_3 = 7\n\n")
-cat("Neue Zeile 3: (x_1 + x_2 + s_3 = 9) - 1 × neue Zeile 2\n")
-cat("x_1 - 0.05s_2 + 0.5s_3 = 7.5\n\n")
-cat("Neue Z-Reihe: Z + 40(x_2 + 0.05s_2 - 0.5s_3 = 1.5)\n")
-cat("Z + 2s_2 - 20s_3 = 420\n")
-```
+Aus dem Tableau nach Iteration 1 liest man ab (Nicht-Basisvariablen x_2 und s_3 sind 0):
 
----
-
-## Finales Tableau (Iteration 2)
-
-```{r}
-tableau_final <- data.frame(
-  Basis = c("s_1", "x_2", "x_1", "Z"),
-  x_1 = c(0, 0, 1, 0),
-  x_2 = c(0, 1, 0, 0),
-  s_1 = c(1, 0, 0, 0),
-  s_2 = c(0.10, 0.05, -0.05, 2),
-  s_3 = c(-3, -0.5, 0.5, -20),
-  RHS = c(7, 1.5, 7.5, 420)
-)
-
-knitr::kable(tableau_final, caption = "Finales Simplex-Tableau (optimal)")
-```
-
-**Optimale Lösung:**
-- **x_1 = 7.5** (Einheiten Produkt A)
-- **x_2 = 1.5** (Einheiten Produkt B)
-- **Maximaler Gewinn Z = 420 EUR**
+- **x_1 = 9** (Einheiten Produkt A)
+- **x_2 = 0** (Einheiten Produkt B)
+- **Maximaler Gewinn Z = 360 EUR**
+- Schlupf: s_1 = 4 (4 Arbeitsstunden ungenutzt), s_2 = 30 (30 kg Material ungenutzt), s_3 = 0 (Lager voll)
 
 ---
 
@@ -256,19 +216,18 @@ knitr::kable(tableau_final, caption = "Finales Simplex-Tableau (optimal)")
 ### Wann ist die Lösung optimal?
 
 **Für Maximierungsprobleme:**
-- OK! Alle Einträge in der Z-Reihe (außer dem RHS) sind **>= 0**
-- OK! Keine negative Reduzierten Kosten
+- Alle Einträge in der Z-Reihe (außer dem RHS) sind **>= 0**
+- Keine negativen reduzierten Kosten
 
 **Unser finales Tableau:**
 ```
-Z-Reihe: [0, 0, 0, 2, -20]
+Z-Reihe: [0, 10, 0, 0, 40]
 ```
-- Einträge für x_1, x_2, s_1 sind >= 0 OK!
-- Eintrag für s_3 ist -20 (negativ)
+- Alle Einträge sind >= 0 → optimal
 
 **Interpretation**: 
-- s_3 = 0 (Lagerkapazität vollständig ausgenutzt)
-- Reduzierten Kosten = -20 bedeutet: Weitere Lagerkapazität wäre 20 EUR wert
+- s_3 = 0: Die Lagerkapazität ist vollständig ausgenutzt
+- Der Eintrag 40 bei s_3 (Schattenpreis): Eine zusätzliche Lagereinheit wäre 40 EUR wert
 
 ---
 
@@ -280,14 +239,14 @@ resources <- data.frame(
   Ressource = c("Arbeitszeit", "Material", "Lager"),
   Verfügbar = c(40, 120, 9),
   Verbraucht = c(
-    4*7.5 + 2*1.5,
-    10*7.5 + 30*1.5,
-    7.5 + 1.5
+    4*9 + 2*0,
+    10*9 + 30*0,
+    9 + 0
   ),
   Restkapazität = c(
-    40 - (4*7.5 + 2*1.5),
-    120 - (10*7.5 + 30*1.5),
-    9 - (7.5 + 1.5)
+    40 - (4*9 + 2*0),
+    120 - (10*9 + 30*0),
+    9 - (9 + 0)
   )
 )
 
@@ -311,9 +270,9 @@ y3 <- 9 - x1  # x1 + x2 <= 9
 
 # Eckpunkte des zulässigen Bereichs
 corners <- data.frame(
-  x1 = c(0, 0, 9, 7.5, 0),
-  x2 = c(0, 4, 0, 1.5, 0),
-  Typ = c("Start", "Ecke", "Ecke", "Optimum", "Start")
+  x1 = c(0, 0, 7.5, 9),
+  x2 = c(0, 4, 1.5, 0),
+  Typ = c("Start", "Ecke", "Ecke", "Optimum")
 )
 
 # Gewinn für jeden Eckpunkt
@@ -321,9 +280,9 @@ corners$Gewinn <- 40*corners$x1 + 30*corners$x2
 
 ggplot() +
   # Nebenbedingungen
-  geom_line(aes(x=x1, y=y1), color="blue", linetype="dashed", alpha=0.6, size=0.7) +
-  geom_line(aes(x=x1, y=y2), color="green", linetype="dashed", alpha=0.6, size=0.7) +
-  geom_line(aes(x=x1, y=y3), color="red", linetype="dashed", alpha=0.6, size=0.7) +
+  geom_line(aes(x=x1, y=y1), color="blue", linetype="dashed", alpha=0.6, linewidth=0.7) +
+  geom_line(aes(x=x1, y=y2), color="green", linetype="dashed", alpha=0.6, linewidth=0.7) +
+  geom_line(aes(x=x1, y=y3), color="red", linetype="dashed", alpha=0.6, linewidth=0.7) +
   
   # Zulässiger Bereich
   geom_ribbon(aes(x=x1, ymin=0, ymax=pmin(y1,y2,y3,9)), 
@@ -335,7 +294,7 @@ ggplot() +
             vjust=-0.8, hjust=-0.2, size=3.5) +
   
   # Iso-Gewinnlinie durch Optimum
-  geom_abline(intercept=14, slope=-40/30, color="purple", size=1, alpha=0.8) +
+  geom_abline(intercept=360/30, slope=-40/30, color="purple", linewidth=1, alpha=0.8) +
   
   scale_color_manual(values=c("Start"="gray", "Ecke"="orange", "Optimum"="red")) +
   scale_size_manual(values=c("Start"=2, "Ecke"=3, "Optimum"=5)) +
@@ -367,7 +326,7 @@ ggplot() +
 
 | Aspekt | Detail |
 |--------|--------|
-| **Komplexität** | O(m·n) im Durchschnitt, O(2^n) worst-case |
+| **Komplexität** | meist wenige Iterationen in der Praxis, exponentiell im worst-case |
 | **Güte** | Findet immer Optimum (wenn existent) |
 | **Eckpunkte** | Bewegt sich entlang der Ecken des zulässigen Bereichs |
 | **Konvergenz** | Endlich viele Iterationen (unter Nondegeneracy) |
@@ -408,7 +367,7 @@ cat("Maximaler Gewinn Z =", result$objval, "EUR\n")
 
 - **Minimierungsprobleme** → Koeffizientenumkehrung oder Kostenvariablen
 - **Künstliche Variablen** → Wenn keine triviale Basislösung verfügbar (Big-M oder Zwei-Phasen-Simplex)
-- **Degenerative Lösungen** → Mehrdeutige Optima, Zyklusschutz (Bland's Rule)
+- **Degenerierte Lösungen** → Mehrdeutige Optima, Zyklusschutz (Bland's Rule)
 - **Dualität** → Duales Problem, Komplementärer Schlupf
 - **Sensitivitätsanalyse** → Robustheit der Lösung gegen Parameteränderungen
 - **Spezialfall: Transportproblem** → Vogel's Approximation Method
@@ -437,14 +396,14 @@ cat("Maximaler Gewinn Z =", result$objval, "EUR\n")
 # Schöne Abschlussgrafik
 set.seed(42)
 simplex_summary <- data.frame(
-  Iteration = 0:2,
-  x1 = c(0, 9, 7.5),
-  x2 = c(0, 0, 1.5),
-  Gewinn = c(0, 360, 420)
+  Iteration = 0:1,
+  x1 = c(0, 9),
+  x2 = c(0, 0),
+  Gewinn = c(0, 360)
 )
 
 ggplot(simplex_summary, aes(x=Iteration, y=Gewinn)) +
-  geom_line(color="darkblue", size=1) +
+  geom_line(color="darkblue", linewidth=1) +
   geom_point(color="red", size=4) +
   geom_text(aes(label=paste0("Z = ", Gewinn, " EUR")), 
             vjust=-0.8, hjust=0.5, size=4) +
