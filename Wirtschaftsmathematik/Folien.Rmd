@@ -1,7 +1,7 @@
 ---
 title: Wirtschaftsmathematik
 author: Prof. Dr. Stefan Böcker, FRM
-date: Wintersemester 2026/2027 (\today )
+date: Wintersemester 2026/2027 (\today)
 toc: true
 output: fhswf::presentation
 knit: fhswf::render_presentation
@@ -50,7 +50,7 @@ Das Lernzentrum bietet Unterstützung in
 Details:
 
 -   Raum: H.412
--   Öffnungszeiten: montags bis freitags von 09:00h bis 17:00h
+-   Öffnungszeiten: montags bis freitags von 09:00 Uhr bis 17:00 Uhr
 -   erreichbar auch online: [Lernzentrum
     Online](https://elearning.fh-swf.de/course/view.php?id=1570)
 
@@ -70,7 +70,7 @@ Details:
 
 -   deckt den Stoff des Semesters ab
 -   Dauer: 90 Minuten (Regelfall)
--   Erlaubte Hilfsmittel: **Nicht-**Programmierbarer Taschenrechner
+-   Erlaubte Hilfsmittel: **nicht** programmierbarer Taschenrechner
 
 ## Unterlagen / Voraussetzungen
 
@@ -96,8 +96,9 @@ Details:
     und relativ kompliziert zu lösende Probleme. Die größte
     Schwierigkeit ist in der Regel die **Modellierung**.
 5.  Ein **grafisches Schema** bringt fast immer Klarheit.
-6.  Das wichtigste Konzept ist das der **Rendite**, auch **Effektiv-
-    oder Realzins** genannt.
+6.  Das wichtigste Konzept ist das der **Rendite**, auch **Effektivzins**
+    genannt. (Der **Realzins** ist der um die Inflationsrate bereinigte
+    Zins und wird hier nicht weiter betrachtet.)
 7.  Die klassische Finanzmathematik lässt sich klar umreißen. Ihr
     Grundbaustein ist das Konzept des **Zinssatzes**.
 
@@ -120,10 +121,10 @@ Zinsperiode
 :   der vereinbarten Verzinsung zugrunde liegender Zeitrahmen; meist ein
     Jahr, oftmals kürzer (Monat, Quartal, Halbjahr), selten länger
 
-Zinssatz
+Zinsfuß
 
 :   Zinsbetrag in Geldeinheiten (GE), der für ein Kapital von 100 GE in
-    einer Zinsperiode zu zahlen ist; auch **Zinsfuß** genannt.
+    einer Zinsperiode zu zahlen ist.
 
 Zeitwert
 
@@ -139,7 +140,7 @@ Kapital
 
 Zinssatz
 
-:   $i = \frac{p}{100}$, wobei $p$ der Zinssatz/Zinsfuß in Prozent ist
+:   $i = \frac{p}{100}$, wobei $p$ der Zinsfuß in Prozent ist
 
 Aufzinsungsfaktor
 
@@ -406,7 +407,7 @@ Wird allgemein ein Jahr in $m$ kürzere Perioden der Länge $\frac{1}{m}$
 aufgeteilt und zu jedem Zeitpunkt $\frac{k}{m}$ mit
 $k=0, 1, \ldots, m-1$, also vorschüssig eine Zahlung $r$ geleistet, so
 ergibt sich am Ende des Jahres ein Betrag von $$
-R^{\text{vor}} = r \left( \sum_{k=0}^{m-1} \left(1 + i \cdot \frac{k+1}{m}\right) \right) = r \left( \sum_{k=1}^{m} \left(1 + i \cdot \frac{k}{m}\right) \right) = r \left( m + \frac{m+1}{2} \underset{=i}{\underbrace{\frac{p}{100}}} \right)
+R^{\text{vor}} = r \left( \sum_{k=0}^{m-1} \left(1 + i \cdot \frac{m-k}{m}\right) \right) = r \left( \sum_{j=1}^{m} \left(1 + i \cdot \frac{j}{m}\right) \right) = r \left( m + \frac{m+1}{2} \underset{=i}{\underbrace{\frac{p}{100}}} \right)
 $$
 
 Werden die Zahlungen zu den Zeitpunkten $\frac{k}{m}$ mit
@@ -425,7 +426,7 @@ Frage
 
 :   Ein Student schließt einen Sparplan über die Laufzeit von einem Jahr
     mit folgenden Konditionen ab: Einzahlungen von 75 € jeweils zu
-    Monatsbeginn (Monatsende), Verzinsung mit 4 % p.a., Bonus am
+    Monatsbeginn (bzw. Monatsende), Verzinsung mit 4 % p.a., Bonus am
     Jahresende in Höhe von 1 % aller Einzahlungen. Über welche Summe
     kann der Student am Ende des Jahres verfügen?
 
@@ -499,7 +500,7 @@ ist, sollte man sich für die Bezahlung am Jahresanfang entscheiden.
 ## Zinseszinsrechnung
 
 Wird ein Kapital über mehrere Zinsperioden (Jahre) hinweg angelegt und
-werden dabei jeweils am Jahresende fälligen Zinsen angesammelt und in
+werden dabei die jeweils am Jahresende fälligen Zinsen angesammelt und in
 den folgenden Jahren mitverzinst, entstehen **Zinseszinsen**.
 \begin{align*}
 K_{1} & = K_{0} \left( 1 + i \right) = K_{0} q \text{ mit } q= (1+i) \\
@@ -544,7 +545,7 @@ K_{3} & = K_{2} \left( 1 + \frac{i}{m} \right) = K_{2} q = K_{0} q^2 \cdot q= K_
 K_{n\cdot m} & = K_{0} q^{n \cdot m} = K_{0} \left( 1+ \frac{i}{m} \right)^{n \cdot m}
 \end{align*}
 
-Hier bezeichnet der Index $i$ am Kapital $K_{i}$ die Anzahl der
+Hier bezeichnet der Index $k$ am Kapital $K_{k}$ die Anzahl der
 Zinsperioden; da es $m$ Zinsperioden pro Jahr gibt, hat man nach $n$
 Jahren $n \cdot m$ Zinsperioden verzinst. Dafür enthält der
 Aufzinsungsfaktor $q = \left( 1+ \frac{i}{m} \right)$ nur den $m$-ten
@@ -597,8 +598,8 @@ verzinsten Anlageform.
 
 Nur selten beginnt eine Anlage genau am Anfang einer Zinsperiode (z.B.
 bei jährlicher Verzinsung am Jahresanfang). Ebenso selten endet eine
-Anlage genau am Ende eines Zinsperiode (z.B. am Ende eines Jahres bei
-jährlicher Verzinsung),
+Anlage genau am Ende einer Zinsperiode (z.B. am Ende eines Jahres bei
+jährlicher Verzinsung).
 
 In der Regel verwendet man also eine \textbf{gemischte Verzinsung}.
 
@@ -720,7 +721,7 @@ Frage
 \end{tabular}
 
 Damit ist: $$
-E_{n}^{N} = R + Rq + Rq^{2} + R q^{3} + \ldots + Rq^{n-1} = \sum\limits_{i=1}^{n} Rq^{i-1} = R \sum\limits_{i=1}^{n} q^{i-1} = R \frac{q^{n}-1}{q-1}
+E_{n}^{N} = R + Rq + Rq^{2} + R q^{3} + \ldots + Rq^{n-1} = \sum\limits_{k=1}^{n} Rq^{k-1} = R \sum\limits_{k=1}^{n} q^{k-1} = R \frac{q^{n}-1}{q-1}
 $$
 
 ## Barwert einer nachschüssigen Rente
@@ -731,12 +732,12 @@ Frage
     $R$, die über $n$ Jahre gezahlt wird, heute/aus heutiger Sicht?
 
 \begin{tabular}{|c|c|c|c|}
-\hline Jahr & nachschüssige Rate & verbleibender Zeitraum & Barwert der Rate \\ 
-\hline $1$ & $R$ & $n-1$ & $\frac{R}{q}$ \\ 
-\hline $2$ & $R$ & $n-2$ & $\frac{R}{q^{2}}$ \\ 
-\hline $3$ & $R$ & $n-3$ & $\frac{R}{q^{3}}$ \\ 
+\hline Jahr & nachschüssige Rate & Zeitpunkt (Jahre) & Barwert der Rate \\ 
+\hline $1$ & $R$ & $1$ & $\frac{R}{q}$ \\ 
+\hline $2$ & $R$ & $2$ & $\frac{R}{q^{2}}$ \\ 
+\hline $3$ & $R$ & $3$ & $\frac{R}{q^{3}}$ \\ 
 \hline \vdots & \vdots & \vdots & \vdots \\ 
-\hline $n-2$ & $R$ & $2$ & $\frac{R}{q^{n-2}}$ \\ \hline $n-1$ & $R$ & $1$ & $\frac{R}{q^{n-1}}$ \\ \hline $n$ & $R$ & $0$ & $\frac{R}{q^{n}}$ \\ 
+\hline $n-2$ & $R$ & $n-2$ & $\frac{R}{q^{n-2}}$ \\ \hline $n-1$ & $R$ & $n-1$ & $\frac{R}{q^{n-1}}$ \\ \hline $n$ & $R$ & $n$ & $\frac{R}{q^{n}}$ \\ 
 \hline 
 \end{tabular}
 
@@ -764,7 +765,7 @@ Frage
 \end{tabular}
 
 Damit ist $$
-E_{n}^{V} = Rq + Rq^{2} + Rq^{3} + R q^{4} + \ldots + Rq^{n} = \sum\limits_{i=1}^{n} Rq^{i} = Rq \sum\limits_{i=1}^{n} q^{i-1} = Rq \frac{q^{n}-1}{q-1}
+E_{n}^{V} = Rq + Rq^{2} + Rq^{3} + R q^{4} + \ldots + Rq^{n} = \sum\limits_{k=1}^{n} Rq^{k} = Rq \sum\limits_{k=1}^{n} q^{k-1} = Rq \frac{q^{n}-1}{q-1}
 $$
 
 ## Barwert einer vorschüssigen Rente
@@ -775,12 +776,12 @@ Frage
     $R$, die über $n$ Jahre gezahlt wird, heute/aus heutiger Sicht?
 
 \begin{tabular}{|c|c|c|c|}
-\hline Jahr & vorschüssige Rate & verbleibender Zeitraum & Barwert der Rate \\ 
-\hline $1$ & $R$ & $n-1$ & $R$ \\ 
-\hline $2$ & $R$ & $n-2$ & $\frac{R}{q}$ \\ 
-\hline $3$ & $R$ & $n-3$ & $\frac{R}{q^{2}}$ \\ 
+\hline Jahr & vorschüssige Rate & Zeitpunkt (Jahre) & Barwert der Rate \\ 
+\hline $1$ & $R$ & $0$ & $R$ \\ 
+\hline $2$ & $R$ & $1$ & $\frac{R}{q}$ \\ 
+\hline $3$ & $R$ & $2$ & $\frac{R}{q^{2}}$ \\ 
 \hline \vdots & \vdots & \vdots & \vdots \\ 
-\hline $n-2$ & $R$ & $2$ & $\frac{R}{q^{n-3}}$ \\ \hline $n-1$ & $R$ & $1$ & $\frac{R}{q^{n-2}}$ \\ \hline $n$ & $R$ & $0$ & $\frac{R}{q^{n-1}}$ \\ 
+\hline $n-2$ & $R$ & $n-3$ & $\frac{R}{q^{n-3}}$ \\ \hline $n-1$ & $R$ & $n-2$ & $\frac{R}{q^{n-2}}$ \\ \hline $n$ & $R$ & $n-1$ & $\frac{R}{q^{n-1}}$ \\ 
 \hline 
 \end{tabular}
 
@@ -1001,7 +1002,7 @@ ggplot(data.frame(x = x, y = x), aes(x, y)) +
 
 ## 2. Beispiel: Verhalten einer Funktion im Unendlichen
 
-Für $f(x)=\frac{1}{x}$ wird $f(x)$ gegen 0 gehen und für $x \to 0^{+}$ gegen
+Für $f(x)=\frac{1}{x}$ geht $f(x)$ für $x \to \infty$ gegen 0 und für $x \to 0^{+}$ gegen
 "plus Unendlich" (für $x \to 0^{-}$ gegen "minus Unendlich")
 
 ```{r echo=FALSE}
@@ -1064,7 +1065,7 @@ $$ mit einem Polynom $Q(x)$ vom Grad $n-1$.
 
 Die Funktion $$
 f(x) = x^3 -9x^2 +27 x -27
-$$ hat an der Stelle $x_0 = 3$ eine (und vielleicht nicht einzige)
+$$ hat an der Stelle $x_0 = 3$ eine (vielleicht nicht einzige)
 Nullstelle.
 
 Eine Polynomdivision ergibt: $$
@@ -1085,7 +1086,7 @@ heißt **gebrochen-rationale Funktion**. Die Funktion $Z(x)$ ist ein
 Polynom vom Grad $n$ und heißt **Zählerpolynom**, die Funktion $N(x)$
 ist ein Polynom vom Grad $m$ und heißt **Nennerpolynom**.
 
-Der Definitionsbereich einer gebrochen-rationale Funktion enthält alle
+Der Definitionsbereich einer gebrochen-rationalen Funktion enthält alle
 $x \in \mathbb{R}$ mit $N(x)\neq 0$: $$
 D(f) = \mathbb{R} \setminus \{ x \, | \, N(x) = 0 \}
 $$
@@ -1421,7 +1422,7 @@ b2 <- 100
 x_intersect <- (b2 - b1) / (m1 - m2)
 y_intersect <- m1 * x_intersect + b1
 
-# Daten für die Geraden (für Plot-Bereich x von 0 bis 5)
+# Daten für die Geraden
 df <- data.frame(
   x = rep(seq(0, 100, length.out = 100), 2),
   y = c(m1 * seq(0, 100, length.out = 100) + b1,
@@ -1472,7 +1473,7 @@ ggplot() +
   geom_hline(yintercept = 0, color = "gray50") +
   geom_vline(xintercept = 0, color = "gray50") +
   annotate("label", x = 1.5, y = 3.5,
-           label = "2x − y = 1\n(≡ 4x − 2y = 2)\nidentische Geraden",
+           label = "2x - y = 1\n(identisch mit 4x - 2y = 2)\nidentische Geraden",
            color = "#E41A1C", size = 3, label.size = 0.4) +
   coord_cartesian(xlim = c(-4, 4), ylim = c(-4, 4)) +
   labs(title = "Unendlich viele Lösungen: Beide Gleichungen sind identisch",
@@ -1495,7 +1496,7 @@ x <- seq(-4, 4, length.out = 100)
 df <- data.frame(
   x = rep(x, 2),
   y = c(2*x - 1, 2*x - 1.5),
-  Gleichung = factor(rep(c("2x − y = 1", "4x − 2y = 3"), each = 100))
+  Gleichung = factor(rep(c("2x - y = 1", "4x - 2y = 3"), each = 100))
 )
 
 ggplot(df, aes(x = x, y = y, color = Gleichung)) +
@@ -1528,7 +1529,7 @@ b2 <- 1.5
 x_intersect <- (b2 - b1) / (m1 - m2)
 y_intersect <- m1 * x_intersect + b1
 
-# Daten für die Geraden (für Plot-Bereich x von 0 bis 5)
+# Daten für die Geraden
 df <- data.frame(
   x = rep(seq(-4, 4, length.out = 100), 2),
   y = c(m1 * seq(-4, 4, length.out = 100) + b1,
@@ -1711,7 +1712,7 @@ zweite **Spaltenindex** (hier $j$).
 
 ### Gauß-Verfahren
 
-Die im **Gauß-Verfahren** (oder auch **Gauß-Algorithmus** erlaubten
+Die im **Gauß-Verfahren** (oder auch **Gauß-Algorithmus**) erlaubten
 Schritte sind
 
 -   Addieren oder Subtrahieren eines beliebigen (von 0 verschiedenen)
@@ -1722,8 +1723,8 @@ Schritte sind
 
 ### Ziel des Gauß-Verfahrens
 
-Sofern man es schafft, ein Gleichungssystem in folgende Form zu
-überführen $$
+Sofern man es schafft, ein Gleichungssystem in folgende Form
+$$
 \left(
 \begin{array}{ccccc|c}
 1 & 0 & 0 & \cdots & 0 & b_1 \\
@@ -2408,7 +2409,7 @@ b2 <- -1
 x_intersect <- (b2 - b1) / (m1 - m2)
 y_intersect <- m1 * x_intersect + b1
 
-# Daten für die Geraden (für Plot-Bereich x von 0 bis 5)
+# Daten für die Geraden
 df <- data.frame(
   x = rep(seq(-7, 7, length.out = 100), 2),
   y = c(m1 * seq(-7, 7, length.out = 100) + b1,
@@ -2444,7 +2445,7 @@ x_{1}, x_{2} \geq 0
 
 ## Lineare Optimierung: Einführung in die Problemstellung
 
-Für die erste Gleichung ergibt sich nun folgende Lösungsmenge
+Für die erste Ungleichung ergibt sich nun folgende Lösungsmenge
 
 $$ 
 y\leq -2x +5 
@@ -2462,14 +2463,14 @@ ggplot(df, aes(x, y)) +
   geom_hline(yintercept = 0, color = "gray50") +
   geom_vline(xintercept = 0, color = "gray50") +
   coord_cartesian(xlim = c(-7, 7), ylim = c(-10, 10)) +
-  labs(title = "Lösungsmenge: y ≤ −2x + 5 (Fläche unterhalb der Geraden I)",
+  labs(title = "Lösungsmenge: y <= -2x + 5 (Fläche unterhalb der Geraden I)",
        x = "x", y = "y") +
   theme_minimal()
 ```
 
 ## Lineare Optimierung: Einführung in die Problemstellung
 
-Für die zweite Gleichung ergibt sich folgende Lösungsmenge
+Für die zweite Ungleichung ergibt sich folgende Lösungsmenge
 $$
 y \geq x - 1
 $$
@@ -2486,7 +2487,7 @@ ggplot(df, aes(x, y)) +
   geom_hline(yintercept = 0, color = "gray50") +
   geom_vline(xintercept = 0, color = "gray50") +
   coord_cartesian(xlim = c(-7, 7), ylim = c(-10, 10)) +
-  labs(title = "Lösungsmenge: y ≥ x − 1 (Fläche oberhalb der Geraden II)",
+  labs(title = "Lösungsmenge: y >= x - 1 (Fläche oberhalb der Geraden II)",
        x = "x", y = "y") +
   theme_minimal()
 ```
@@ -2565,7 +2566,7 @@ ggplot() +
   annotate("text", x = 5.1, y = 3,   label = "x = 5", hjust = 0, size = 3) +
   annotate("text", x = 2,   y = 4.15, label = "y = 4", size = 3) +
   coord_cartesian(xlim = c(0, 9), ylim = c(-0.3, 5)) +
-  labs(title = "Zulässiger Bereich – mögliche Zeltkombinationen",
+  labs(title = "Zulässiger Bereich - mögliche Zeltkombinationen",
        x = "x (10-Personen-Zelte)", y = "y (15-Personen-Zelte)") +
   theme_minimal()
 ```
@@ -2628,7 +2629,7 @@ ggplot() +
   annotate("text", x = 1.5, y = 3.6, label = "Z = 70", color = "blue", size = 3) +
   annotate("text", x = 1.5, y = 4.5, label = "Z = 80", color = "blue", size = 3) +
   coord_cartesian(xlim = c(0, 9), ylim = c(-0.3, 5.5)) +
-  labs(title = "Zielfunktion maximieren – Z so weit wie möglich nach oben",
+  labs(title = "Zielfunktion maximieren - Z so weit wie möglich nach oben",
        x = "x (10-Personen-Zelte)", y = "y (15-Personen-Zelte)") +
   theme_minimal()
 ```
@@ -2721,7 +2722,7 @@ in dessen ersten Spalte vermerkt werden kann, welche Variablen aktuell **Basis-V
 
 ## Lineare Optimierung: Simplex-Algorithmus (Zelt-Beispiel)
 
-In diesem Tableau bestimmt man nun zunächst die **Pivot-Spalte** und die **Pivot-Zeile** und damit das **Pivot-Element**. Dabei ist die **Pivot-Spalte** diejenige, die den größten Zuwachs der Zielfunktion verspricht (erkennbar am *negativsten* Wert in der letzten Zeile, die ja die Zielfunktion enthält). Dann bestimmt man die **Pivot-Zeile** diejenige, die für die zur Pivot-Spalte gehörende Variable die *strengste* Einschränkung bedeutet (Quotientenkriterium). Hier ist die Pivot-Spalte die Spalte von $x_2$ (wegen der -15) und die Pivot-Zeile daher die zweite Zeile (BV: y_2), da $4.0 = \frac{4}{1} \leq \frac{1800}{400} = 4.5$ ist. 
+In diesem Tableau bestimmt man nun zunächst die **Pivot-Spalte** und die **Pivot-Zeile** und damit das **Pivot-Element**. Dabei ist die **Pivot-Spalte** diejenige, die den größten Zuwachs der Zielfunktion verspricht (erkennbar am *negativsten* Wert in der letzten Zeile, die ja die Zielfunktion enthält). Dann bestimmt man als **Pivot-Zeile** diejenige, die für die zur Pivot-Spalte gehörende Variable die *strengste* Einschränkung bedeutet (Quotientenkriterium). Hier ist die Pivot-Spalte die Spalte von $x_2$ (wegen der -15) und die Pivot-Zeile daher die zweite Zeile (BV: y_2), da $4.0 = \frac{4}{1} \leq \frac{1800}{400} = 4.5$ ist. 
 
 | BV | $x_1$ | $x_2$ | $y_1$ | $y_2$ | $y_3$ | $Z$ | $b_i$ |
 |:----:|:-------:|:-------:|:-------:|:--------:|:-------:|:-----:|:-------:|
@@ -2871,7 +2872,7 @@ Darauf folgt der eigentliche Simplex-Algorithmus mit den Schritten:
 
 1. Bestimmung des **Pivot-Elementes** durch
   a. Bestimmung der **Pivot-Spalte** (negativster Wert in der Zeile der Zielfunktion; **Erstes Simplex-Kriterium**)
-  b. Bestimmung der **Pivot-Zeile** (**Quotientenkriterium/Zweites Simplex-Kriterium**: kleinster Quotient der Werte in Spalte $b_i$ durch Werte der Pivot-Spalte)
+  b. Bestimmung der **Pivot-Zeile** (**Quotientenkriterium/Zweites Simplex-Kriterium**: kleinster Quotient der Werte in Spalte $b_i$ durch die **positiven** Werte der Pivot-Spalte, d.h. nur für $a_{ij}>0$)
 2. Erzeugen von Nullen in der Pivot-Spalte (außer in der Pivot-Zeile) durch elementare Gauß-Zeilenoperationen.
 
 Während der Gauß-Zeilenoperationen *Buchführung* über die aktuellen Basis-Variablen. Nicht-BV sind immer gleich 0.

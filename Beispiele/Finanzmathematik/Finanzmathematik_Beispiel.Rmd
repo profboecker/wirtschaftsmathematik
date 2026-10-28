@@ -10,7 +10,7 @@ lang: de-de
 ---
 
 ```{r setup, include=FALSE}
-options(digits = 4)
+options(digits = 7, scipen = 999)
 knitr::opts_chunk$set(echo=TRUE, message=FALSE, warning=FALSE, cache=FALSE,
                       dev.args=list(pointsize=11), size="scriptsize")
 ```
@@ -33,7 +33,7 @@ K_n = K_0 \cdot q^n
 $$
 ergibt sich:
 $$
-K_{10} = 8.000 \cdot 1{,}035^{10} = 8.000 \cdot 1{,}4106 = 11.284{,}57 \; €
+K_{10} = 8.000 \cdot 1{,}035^{10} = 8.000 \cdot 1{,}4105988 = 11.284{,}79 \; \text{€}
 $$
 
 ## Lösung (1): R-Rechnung
@@ -78,7 +78,7 @@ K_0 = \frac{K_n}{q^n} = K_n \cdot q^{-n}
 $$
 
 $$
-K_0 = \frac{12.000}{1{,}035^{10}} = \frac{12.000}{1{,}4106} = 8.507{,}28 \; €
+K_0 = \frac{12.000}{1{,}035^{10}} = \frac{12.000}{1{,}4105988} = 8.507{,}03 \; \text{€}
 $$
 
 ```{r barwert}
