@@ -215,14 +215,12 @@ Aus dem Tableau nach Iteration 1 liest man ab (Nicht-Basisvariablen $x_2$ und $s
 
 **Für Maximierungsprobleme:**
 
-- Alle Einträge in der Z-Reihe (außer dem RHS) sind **>= 0**
+- Alle Einträge in der Z-Reihe (außer dem RHS) sind $\geq 0$
 - Keine negativen reduzierten Kosten
 
-**Unser finales Tableau:**
 **Unser finales Tableau:** Z-Reihe $= (0,\ 10,\ 0,\ 0,\ 40)$
 
 - Alle Einträge sind $\geq 0$ → optimal
-- Alle Einträge sind >= 0 → optimal
 
 **Interpretation**: 
 
@@ -301,8 +299,8 @@ ggplot() +
   
   xlim(0, 13) + ylim(0, 8) +
   labs(title="Geometrische Interpretation der Linearen Optimierung",
-       x="x₁ (Produkt A)",
-       y="x₂ (Produkt B)",
+       x=expression(x[1]~"(Produkt A)"),
+       y=expression(x[2]~"(Produkt B)"),
        color="Punkt-Typ", size="Punkt-Typ") +
   theme_minimal() +
   theme(plot.title=element_text(size=14, face="bold"),
@@ -355,7 +353,7 @@ Das R-Paket `lpSolve` liefert zur Kontrolle dasselbe Ergebnis:
 
 - **Minimierungsprobleme** → Koeffizientenumkehrung oder Kostenvariablen
 - **Künstliche Variablen** → Wenn keine triviale Basislösung verfügbar (Big-M oder Zwei-Phasen-Simplex)
-- **Degenerierte Lösungen** → Mehrdeutige Optima, Zyklusschutz (Bland's Rule)
+- **Degenerierte Lösungen** → Zyklusschutz (Bland's Rule); **mehrdeutige Optima** → Alternativlösungen prüfen
 - **Dualität** → Duales Problem, Komplementärer Schlupf
 - **Sensitivitätsanalyse** → Robustheit der Lösung gegen Parameteränderungen
 - **Spezialfall: Transportproblem** → Vogel's Approximation Method
