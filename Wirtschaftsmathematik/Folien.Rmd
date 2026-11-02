@@ -7,6 +7,13 @@ output: fhswf::presentation
 knit: fhswf::render_presentation
 german: true # German Dummy Text
 lang: de-de   # Text Language: en-gb, en-us, de-de
+mainfont: "TeX Gyre Bonum"
+header-includes:
+  # Theme laedt tgheros (Type1) und setzt \sfdefault um -> Schriften danach neu setzen
+  - \setsansfont{TeX Gyre Heros}[Scale=MatchUppercase]
+  - \setmonofont{Source Code Pro}[Scale=MatchLowercase,FakeStretch=0.85]
+  - \usepackage{unicode-math}
+  - \setmathfont{TeX Gyre Pagella Math}
 editor_options: 
   markdown: 
     wrap: 72
