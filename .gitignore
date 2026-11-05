@@ -377,3 +377,6 @@ Lerneinheiten/LaTeX_Vorlage/tex/fonts/
 *.TTF
 *.ttc
 *.otf
+
+# Originalskripte der Lerneinheiten (urheberrechtlich geschützt, nicht im Repository)
+Lerneinheiten/Wirtschaftsmathematik LE*.pdf
