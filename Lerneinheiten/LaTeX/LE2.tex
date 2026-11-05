@@ -27,7 +27,6 @@
 \input{kapitel/le2-literatur}
 }
 
-\def\hasMenloFont{True}
 
 \usepackage{geometry}                % See geometry.pdf to learn the layout options. There are lots.
 \geometry{a4paper,rmargin=4.5cm,lmargin=3cm,top=2cm,bottom=3cm}                   % ... or a4paper or a5paper or ... 
@@ -63,8 +62,8 @@
 \usepackage{fontspec,xltxtra,xunicode}
 \defaultfontfeatures{Mapping=tex-text}
 \usepackage{comicneue}
-\setmainfont[Scale=0.97,Path=./fonts/cambria/,UprightFont=Cambria.ttf,BoldFont=cambriab.ttf,ItalicFont=CAMBRIAI.TTF,BoldItalicFont=CAMBRIAZ.TTF]{Cambria.ttf}
-\setsansfont[Path=./fonts/calibri/,UprightFont=Calibri.ttf,BoldFont=CALIBRIB.TTF,ItalicFont=CALIBRII.TTF,BoldItalicFont=CALIBRIZ.TTF]{Calibri.ttf}
+\setmainfont[Scale=0.97,UprightFont=Caladea-Regular.ttf,BoldFont=Caladea-Bold.ttf,ItalicFont=Caladea-Italic.ttf,BoldItalicFont=Caladea-BoldItalic.ttf]{Caladea-Regular.ttf}
+\setsansfont[UprightFont=Carlito-Regular.ttf,BoldFont=Carlito-Bold.ttf,ItalicFont=Carlito-Italic.ttf,BoldItalicFont=Carlito-BoldItalic.ttf]{Carlito-Regular.ttf}
 \usepackage{microtype}  % optischer Randausgleich
 
 \usepackage{listings}
@@ -97,16 +96,7 @@
 %{"}{{\char"22}}1
 } % ordentliche Backticks ` und Ticks '
 
-\ifthenelse{\equal{\hasMenloFont}{True}}{%
-  \setmonofont[FakeStretch=.9,Scale=.85]{Menlo}
-}%
-{%
-  \setmonofont[
-    Path = ./, 
-    Extension = .ttc
-  ]{Menlo}
-  %\setmonofont[FakeStretch=.9,Scale=.85,ExternalLocation=./tex/]{Menlo.ttc}
-}%
+\setmonofont[Scale=0.9,UprightFont=SourceCodePro-Regular.otf,BoldFont=SourceCodePro-Bold.otf,ItalicFont=SourceCodePro-RegularIt.otf,BoldItalicFont=SourceCodePro-BoldIt.otf]{SourceCodePro-Regular.otf}
 
 \renewcommand{\baselinestretch}{1.1}\normalsize
 
@@ -131,24 +121,8 @@
   singlelinecheck=off
 }
 
-\ifthenelse{\equal{\hasMenloFont}{True}}{%
-\newcommand\textzz[1]{%
-{%
-\fontspec{Menlo}[FakeStretch=1,Scale=.85,Mapping=tex-text]%
-{#1}%
-}%
-}
+\newcommand\textzz[1]{{\fontspec{SourceCodePro-Regular.otf}[FakeStretch=1,Scale=.85,Mapping=tex-text]{#1}}}
 \newcommand\icmd[1]{\cmdindex{#1}\marginnote{\textzz{#1}}}
-}
-{
-\newcommand\textzz[1]{%
-{%
-\fontspec{Menlo.ttc}[FakeStretch=1,Scale=.85,Mapping=tex-text,Path=./fonts/]%
-{#1}%
-}%
-}
-\newcommand\icmd[1]{\cmdindex{#1}\marginnote{\textzz{#1}}}
-}
 
 \newcommand\mcmd[1]{\marginnote{\textzz{#1}}}
 
@@ -182,7 +156,7 @@
 \usepackage{amsmath} % Mathe-Formeln
 \usepackage{unicode-math}
 %\usepackage{icomma}  % Komma als Dezimalkomma <- bei Cambria Math nicht benötigt!!
-\setmathfont[Scale=0.97,Path=./fonts/cambria/]{Cambria Math}
+\setmathfont{texgyrepagella-math.otf}
 
 
 \usepackage{layout}

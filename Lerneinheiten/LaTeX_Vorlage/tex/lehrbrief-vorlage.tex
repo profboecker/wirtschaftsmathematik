@@ -16,7 +16,6 @@
 \include{kapitel2}
 }
 
-\def\hasMenloFont{False}
 
 \usepackage{geometry}                % See geometry.pdf to learn the layout options. There are lots.
 \geometry{a4paper,rmargin=7cm,lmargin=3cm,top=2cm,bottom=3cm}                   % ... or a4paper or a5paper or ... 
@@ -52,8 +51,8 @@
 \usepackage{fontspec,xltxtra,xunicode}
 \defaultfontfeatures{Mapping=tex-text}
 \usepackage{comicneue}
-\setmainfont[Scale=0.97,Path=./fonts/cambria/]{Cambria.ttf}
-\setsansfont[Path=./fonts/calibri/]{Calibri.ttf}
+\setmainfont[Scale=0.97,UprightFont=Caladea-Regular.ttf,BoldFont=Caladea-Bold.ttf,ItalicFont=Caladea-Italic.ttf,BoldItalicFont=Caladea-BoldItalic.ttf]{Caladea-Regular.ttf}
+\setsansfont[UprightFont=Carlito-Regular.ttf,BoldFont=Carlito-Bold.ttf,ItalicFont=Carlito-Italic.ttf,BoldItalicFont=Carlito-BoldItalic.ttf]{Carlito-Regular.ttf}
 \usepackage{microtype}  % optischer Randausgleich
 
 \usepackage{listings}
@@ -86,16 +85,7 @@
 %{"}{{\char"22}}1
 } % ordentliche Backticks ` und Ticks '
 
-\ifthenelse{\equal{\hasMenloFont}{True}}{%
-  \setmonofont[FakeStretch=.9,Scale=.85]{Menlo}
-}%
-{%
-  \setmonofont[
-    Path = ./, 
-    Extension = .ttc
-  ]{Menlo}
-  %\setmonofont[FakeStretch=.9,Scale=.85,ExternalLocation=./tex/]{Menlo.ttc}
-}%
+\setmonofont[Scale=0.9,UprightFont=SourceCodePro-Regular.otf,BoldFont=SourceCodePro-Bold.otf,ItalicFont=SourceCodePro-RegularIt.otf,BoldItalicFont=SourceCodePro-BoldIt.otf]{SourceCodePro-Regular.otf}
 
 \renewcommand{\baselinestretch}{1.1}\normalsize
 
@@ -120,24 +110,8 @@
   singlelinecheck=off
 }
 
-\ifthenelse{\equal{\hasMenloFont}{True}}{%
-\newcommand\textzz[1]{%
-{%
-\fontspec{Menlo}[FakeStretch=1,Scale=.85,Mapping=tex-text]%
-{#1}%
-}%
-}
+\newcommand\textzz[1]{{\fontspec{SourceCodePro-Regular.otf}[FakeStretch=1,Scale=.85,Mapping=tex-text]{#1}}}
 \newcommand\icmd[1]{\cmdindex{#1}\marginnote{\textzz{#1}}}
-}
-{
-\newcommand\textzz[1]{%
-{%
-\fontspec{Menlo.ttc}[FakeStretch=1,Scale=.85,Mapping=tex-text,Path=./fonts/]%
-{#1}%
-}%
-}
-\newcommand\icmd[1]{\cmdindex{#1}\marginnote{\textzz{#1}}}
-}
 
 \newcommand\mcmd[1]{\marginnote{\textzz{#1}}}
 
@@ -171,7 +145,7 @@
 \usepackage{amsmath} % Mathe-Formeln
 \usepackage{unicode-math}
 %\usepackage{icomma}  % Komma als Dezimalkomma <- bei Cambria Math nicht benötigt!!
-\setmathfont[Scale=0.97,Path=./fonts/cambria/]{Cambria Math}
+\setmathfont{texgyrepagella-math.otf}
 
 
 \usepackage{layout}
@@ -406,11 +380,7 @@ contents={%
 \addcontentsline{toc}{section}{Index}
 %\setmonofont[FakeStretch=1,Scale=.85,Mapping=tex-text]{Menlo}
 % Befehle im Index extra in Courier, weil sie so besser unterscheidbar sind. (Menlo ist der Lauftextschrift zu ähnlich)
-\ifthenelse{\equal{\hasMenloFont}{True}}{%
-\setmonofont[FakeStretch=1,FakeBold=4.5,Scale=.95,Mapping=tex-text]{Courier New}
-}{%
-\setmonofont[FakeStretch=1,FakeBold=4.5,Scale=.95,Mapping=tex-text,ExternalLocation=./fonts/]{Courier New.ttf}
-}
+\setmonofont[FakeStretch=1,FakeBold=4.5,Scale=.95,Mapping=tex-text]{SourceCodePro-Regular.otf}
 \lstset{language={}}
 \printindex                                  % Typeset the actual Index.
 \let\thispagestyle=\originalstyle
@@ -422,18 +392,9 @@ contents={%
 %------------------------------------------------------------------------
 %------------------------------------------------------------------------
 
-% Installation unter OpenSuse Leap 42.3:
+% Installation unter OpenSuse Leap 42.3 (Pakete):
 %
 
-sudo su
-zypper in texlive-latex
-zypper in texlive-sidecap texlive-bytefield texlive-mnsymbol texlive-background texlive-comicneue texlive-idxlayout texlive-menukeys texlive-adjmulticol 
+sudo zypper in texlive-latex texlive-sidecap texlive-bytefield texlive-mnsymbol texlive-background texlive-comicneue texlive-idxlayout texlive-menukeys texlive-adjmulticol
 
-Get "Menlo.ttc" and "Courier New.ttf" (e.g. from a Mac) and copy them to the tex directory
-
-change following line:
-
-\def\hasMenloFont{True}
-->
-\def\hasMenloFont{False}
-
+% Schriften: Caladea, Carlito, Source Code Pro, TeX Gyre Pagella Math (alle frei, in TeX Live enthalten)

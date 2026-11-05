@@ -98,38 +98,24 @@ Tastenkombinationen können Sie mit ¡\keys¡ erzeugen, z.\,B.
 Um das gewünschte Layout zu erzeugen, benötigen Sie die richtigen Font"=Dateien. Ich habe das nur unter MacOS und Linux getestet, das Dokument verwendet
 
 \begin{itemize}
-\item \iemph{Cambria} (Standard-Font)
-\item \iemph{Calibri} (\textsf{Sans-Serif-Font})
-\item \iemph{Menlo} (\textzz{Listing-Font})
+\item \iemph{Caladea} (Standard-Font, metrisch kompatibel zu Cambria)
+\item \iemph{Carlito} (\textsf{Sans-Serif-Font}, metrisch kompatibel zu Calibri)
+\item \iemph{Source Code Pro} (\textzz{Listing-Font})
+\item \iemph{TeX Gyre Pagella Math} (Formelschrift)
 \end{itemize}
-\index{Schriftart!Cambria}%
-\index{Schriftart!Calibri}%
-\index{Schriftart!Menlo}%
+\index{Schriftart!Caladea}%
+\index{Schriftart!Carlito}%
+\index{Schriftart!Source Code Pro}%
+\index{Schriftart!TeX Gyre Pagella Math}%
 
-und sollte sich ohne weitere Konfiguration verwenden lassen, wenn diese drei Schriften vorhanden sind. 
+Alle Schriften sind frei verfügbar und in TeX Live enthalten. Das Dokument sollte sich ohne weitere Konfiguration verwenden lassen, wenn diese vier Schriften installiert sind. 
 
-Linux"=Anwender können mit folgenden Schritten die Unterstützung für die Fonts aktivieren, die (in dieser Form) unter OpenSuse Leap 42.3 getestet wurden:
+Linux"=Anwender können die benötigten Pakete mit folgendem Befehl nachinstallieren (getestet unter OpenSuse Leap 42.3):
 
-\begin{enumerate}
-\item Benötigte Pakete mit
 \begin{lstlisting}[breaklines=true]
 sudo zypper in texlive-latex
 sudo zypper in texlive-sidecap texlive-bytefield texlive-mnsymbol texlive-background texlive-comicneue texlive-idxlayout texlive-menukeys texlive-adjmulticol 
 \end{lstlisting}
-nachinstallieren
-
-\item Dateien ¡Menlo.ttc¡ und ¡Courier New.ttf¡ (z.\,B.{} von einem Mac) besorgen und in den ¡tex¡"=Ordner legen, der das aktuelle Dokument enthält
-
-\item Am Anfang der Datei die Zeile
-
-¡\def\hasMenloFont{True}¡
-
-in
-
-¡\def\hasMenloFont{False}¡
-
-ändern
-\end{enumerate}
 
 
 
