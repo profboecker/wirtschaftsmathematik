@@ -1,0 +1,434 @@
+\section{Die Ableitung einer Funktion}
+
+\subsection{Der Ableitungsbegriff}
+
+Das folgende ökonomische Beispiel soll an die Problemstellung dieses Kapitels heranführen.
+
+\subsubsection{Beispiel}
+
+Die Unternehmerin I. hat nach mehrjährigen Analysen die Kostenfunktion für ihre Ein-Produkt-Unternehmung bestimmt:
+\[ K(x) = 100 \cdot \lg x + 10 \]
+Zusätzlich liegen zuverlässige Prognosen der Vertriebsabteilung vor, so dass Frau I. für die kommenden vier Monate den Produktionsplan erstellen und die Kosten kalkulieren kann:
+
+\begin{center}
+  \begin{tabular}{lrr}
+    \hline
+    & geplante Menge $x$ & $K(x)$ (gerundet)\\
+    \hline
+    Februar & 100 & 210\\
+    März & 150 & 228\\
+    April & 200 & 240\\
+    Mai & 400 & 270\\
+    \hline
+  \end{tabular}
+\end{center}
+
+Bei der Analyse der entstehenden Kosten bemerkt I.:
+\begin{itemize}
+  \item Im Monat März werden 50 Einheiten mehr produziert als im Februar, hierdurch entstehen Mehrkosten in Höhe von 18 Geldeinheiten (GE).
+  \item Im Monat April steigert sich die Produktion noch einmal um 50 Einheiten, diesmal entstehen jedoch nur noch Mehrkosten in Höhe von 12 GE.
+\end{itemize}
+
+Frau I. stellt fest:
+\begin{itemize}
+  \item Obwohl die Produktionsmenge sich jeweils um 50 Einheiten erhöht, sind die zugehörigen Kostenänderungen nicht gleich.
+\end{itemize}
+Als mathematisch gebildete Unternehmerin fasst I. ihre Erkenntnisse folgendermaßen zusammen. Mit $\Delta x$ bezeichnet sie die Produktionsänderung.
+
+Dann gilt: Steigt die produzierte Menge ausgehend von $x$ Einheiten um $\Delta x$ (auf $x + \Delta x$), so ändern sich die Kosten um
+\[ \Delta K = K(x + \Delta x) - K(x) . \]
+
+Wieviel kostet »im Durchschnitt« eine der im März zusätzlich produzierten Einheiten? Hierzu bildet man einfach den Quotienten
+\[ \frac{\text{zusätzliche Kosten}}{\text{zusätzlich produzierte Einheiten}} = \frac{\Delta K}{\Delta x} . \]
+Für $x = x_{\text{Februar}} = 100$ und $\Delta x = 50$ (Mehrproduktion März) erhalten wir:
+\[ \frac{\Delta K}{\Delta x} = \frac{K(150) - K(100)}{50} = \frac{18}{50} = 0{,}36 \]
+Für $x = x_{\text{März}} = 150$ und $\Delta x = 50$ (Mehrproduktion April) erhalten wir dagegen:
+\[ \frac{\Delta K}{\Delta x} = \frac{K(200) - K(150)}{50} = \frac{12}{50} = 0{,}24 \]
+Mit anderen Worten: Die »durchschnittlichen« Stückkosten sinken für die zusätzlich produzierten Einheiten von 0{,}36 GE im März auf 0{,}24 GE im April.
+
+Man berechne nun die Durchschnittskosten, die für die Produktion einer zusätzlichen Mengeneinheit entstehen durch die Produktionsausweitung um 200 Einheiten im Monat Mai.
+
+Was bedeutet $\dfrac{\Delta K}{\Delta x}$ in der folgenden Skizze?
+
+\begin{center}
+  \begin{tikzpicture}
+    \begin{axis}[width=10cm, height=7cm, axis lines=left, xmin=0, xmax=8.6, ymin=0, ymax=9.5,
+      xtick=\empty, ytick=\empty, xlabel={$x$}, ylabel={$y$}, samples=100, clip=false]
+      \addplot[black, thick, domain=0.5:7.8] {3*ln(x)+1};
+      \addplot[black, thick, domain=1.4:6.6] {1.2*x-0.4};
+      \draw[dotted] (axis cs:2,0) -- (axis cs:2,{3*ln(2)+1}) -- (axis cs:0,{3*ln(2)+1});
+      \draw[dotted] (axis cs:5,0) -- (axis cs:5,{3*ln(5)+1}) -- (axis cs:0,{3*ln(5)+1});
+      \node[below] at (axis cs:2,0) {$x_0$};
+      \node[below] at (axis cs:5,0) {$x_0 + \Delta x$};
+      \node[left] at (axis cs:0,{3*ln(2)+1}) {$K(x_0)$};
+      \node[left] at (axis cs:0,{3*ln(5)+1}) {$K(x_0+\Delta x)$};
+    \end{axis}
+  \end{tikzpicture}
+\end{center}
+
+\noindent Im Folgenden wird der Quotient $\dfrac{\Delta K}{\Delta x}$ als Sekantensteigung gedeutet: Die Steigung der Sekante, die die Punkte $(x_0; K(x_0))$ und $(x_0 + \Delta x; K(x_0 + \Delta x))$ verbindet. Wie man sieht, entspricht die »Steilheit« dieser Sekante »in etwa« der »Steilheit« der darüber liegenden Kurve.
+
+Sei beispielsweise $\Delta x = 1$ und $x = 100$. Dann gilt:
+\[ \frac{\Delta K}{\Delta x} = \frac{K(101) - K(100)}{1} = \frac{210{,}4 - 210}{1} = 0{,}4 \]
+Durch Ausweitung der Produktion um eine Einheit entstehen also Mehrkosten von 0,4. Die \emph{relative} Kostenerhöhung bezogen auf die Mehrproduktion bezeichnet man auch als \textbf{Grenzkosten}.
+
+Lässt man nun $\Delta x$ kleiner werden, so »schmiegt« sich die Sekante immer enger an die Kurve. In der Sprache der Mathematik ausgedrückt bedeutet dies: Es wird der Grenzübergang $\Delta x \rightarrow 0$ durchgeführt. Dabei geht die Sekante zwischen den Punkten $K(x)$ und $K(x + \Delta x)$ über in die \textbf{Tangente} im Punkte $K(x)$, und die Steigung der Sekante geht über in die Steigung dieser Tangente. Diese Steigung wird, als »Grenzwert« von \textbf{Differenzenquotienten} der Form $\dfrac{\Delta K}{\Delta x}$, auch \textbf{Differenzialquotient} genannt.
+
+Die Lage ist in der folgenden Abbildung skizziert: Dort sind drei Sekanten für verschiedene $\Delta x_i$ und die Tangente im Punkte $K(x)$ dargestellt.
+
+\begin{center}
+  \begin{tikzpicture}
+    \begin{axis}[width=10cm, height=7cm, axis lines=left, xmin=0, xmax=8.6, ymin=0, ymax=9.5,
+      xtick=\empty, ytick=\empty, xlabel={$x$}, ylabel={$y$}, samples=100, clip=false]
+      \addplot[black, thick, domain=0.5:7.8] {3*ln(x)+1};
+      \addplot[black, thick, domain=0.9:4] {(3/2.5)*(x-2.5)+3*ln(2.5)+1};
+      \addplot[black, dashed, domain=1.2:6] {(3/2.5)*(x-2.5)+3*ln(2.5)+1};
+      \addplot[black, dashed, domain=1.7:5.5] {(3/2.5)*(x-2.5)+3*ln(2.5)+1};
+    \end{axis}
+  \end{tikzpicture}
+\end{center}
+
+Die Steigung der Tangente an eine beliebige Funktion $f(x)$ ist die Hauptaufgabe der Differenzialrechnung. Wir haben uns damit ein »Maß für die Steilheit« einer Kurve im Punkt $K(x)$ hergeleitet, nämlich die \textbf{Steigung} der Tangente in $K(x)$.
+
+Bezeichnungen für den Differenzialquotienten an einer Stelle $x \in D$ des Definitionsbereichs sind
+\[ f'(x), \; y', \; \frac{dy}{dx}, \; \frac{df(x)}{dx} \]
+(lies »$f$ Strich von $x$«, »$y$ Strich von $x$«, »$dy$ nach $dx$«, »$df(x)$ nach $dx$«).
+Man spricht von der \textbf{ersten Ableitung} der Funktion $f$ an der Stelle $x$. Fasst man $x$ wieder als Variable auf, so ist $f'$ eine neue Funktion -- die \textbf{Ableitung(sfunktion)} von $f$.
+
+Eine Funktion $f$ heißt \textbf{differenzierbar} in einem Intervall $I$, falls für alle $x \in I$ der Differenzialquotient (die Ableitung) existiert.
+
+\textbf{Hinweis}: Die Ableitung ökonomischer Funktionen nennt man häufig auch \textbf{Grenzfunktionen}, beispielsweise spricht man von einer \textbf{Grenzkostenfunktion} $K'$, wenn man die erste Ableitung der Kostenfunktion $K$ meint. Dabei geben die Grenzkosten $K'(x_0)$ an der Stelle $x_0$ »ungefähr« den Kostenzuwachs an, der bei der Erhöhung der Produktionsmenge um eine Einheit entsteht. Weitere Beispiele sind die \textbf{Grenzsteuer}- und die \textbf{Grenzumsatz(erlös)-funktion}.
+
+\subsubsection{Beispiel}
+
+Wir betrachten die erste Ableitung der Geraden $y = 4x + 2$. Da die 1. Ableitung eine Maß für die Steigung der Kurve sein soll, muss gelten:
+\[ f'(x) = 4 \quad \text{für alle } x \in \mathbb{R} .\beispielende \]
+
+Die Bestimmung der ersten Ableitung einer Funktion ist schon für ganz einfache Funktionen recht aufwändig. Man muss dazu mit Grenzwerten rechnen. Häufig kann man jedoch auf diese direkte Berechnungsweise verzichten. Denn die Kenntnis der Ableitungen einiger elementarer Funktionen in Verbindung mit den später angegebenen Rechenregeln ermöglicht es, die Ableitung auch komplizierter Funktionen relativ einfach zu berechnen.
+
+Bei der Herleitung der in der folgenden Tabelle angegebenen Ableitungen wichtiger elementarer Funktionen kommt man jedoch nicht darum herum, diese direkt über den Grenzwert des Differenzialquotienten auszurechnen.
+
+\textbf{Tabelle der Ableitungen elementarer Funktionen:}
+\begin{center}
+  \begin{tabular}{cc}
+    \hline
+    $f(x)$ & $f'(x)$\\
+    \hline
+    $f(x) = a, \quad a \in \mathbb{R}$ & $f'(x) = 0$\\
+    $f(x) = x^r, \quad r \in \mathbb{R}$ & $f'(x) = r \cdot x^{r-1}$\\
+    $f(x) = e^x$ & $f'(x) = e^x$\\
+    $f(x) = \ln x$ & $f'(x) = \dfrac{1}{x}$\\
+    \hline
+  \end{tabular}
+\end{center}
+
+Auf die explizite Herleitung der obigen Tabelle wird hier verzichtet. Bei Interesse kann man diese in praktisch jedem Buch über Analysis nachlesen.
+
+\subsection{Zur Technik des Differenzierens}
+
+In diesem Abschnitt wird vorausgesetzt, dass die Ableitungsfunktionen $g'$ und $h'$ der vorgegebenen Funktionen $g$ und $h$ existieren und bekannt sind.
+
+\structhead{Summenregel}
+
+Für die Summe (Differenz) zweier Funktionen gilt:
+\begin{align*}
+  &\text{Ist } f(x) = g(x) + h(x), \text{ so gilt } f'(x) = g'(x) + h'(x) .\\
+  &\text{Ist } f(x) = g(x) - h(x), \text{ so gilt } f'(x) = g'(x) - h'(x) .
+\end{align*}
+
+Also ist die Ableitung einer Summe (Differenz) zweier Funktionen gleich der Summe (Differenz) ihrer Ableitungsfunktionen.
+
+\textbf{Beispiele:}\\
+Sei $f(x) = x^3 + x$. Dann ist $f'(x) = 3x^2 + 1$.\\
+Sei $f(x) = x^2 - e^x$. Dann ist $f'(x) = 2x - e^x$.\beispielende
+
+\structhead{Faktorregel}
+
+Kennt man die Ableitung $f'(x)$ einer Funktion $f(x)$, so gilt für die Funktion $g(x) = a \cdot f(x)$ (mit $a \in \mathbb{R}$):
+\[ g'(x) = a \cdot f'(x) \]
+Ein konstanter Faktor bleibt also beim Differenzieren unverändert.
+
+\subsubsection{Beispiel}
+
+Ist $f(x) = 4x^6$, so folgt $f'(x) = 4 \cdot 6x^5 = 24x^5$.\beispielende
+
+\subsubsection{Beispiel}
+
+Wir schauen noch einmal auf die bereits in einem früheren Beispiel vorgekommene Kostenfunktion
+\[ K(x) = 0{,}02x^3 - 2x^2 + 80x + 12000 . \]
+Die Ableitung ist die Grenzkostenfunktion:
+\[ K'(x) = 0{,}06x^2 - 4x + 80 . \]
+An der Stelle $x = 50$ sind die Grenzkosten
+\[ K'(50) = 30 . \]
+Dies bedeutet: Bei der Ausweitung der Produktion von 50 auf 51 Einheiten steigen die Kosten um ca. 30 Geldeinheiten.\beispielende
+
+\structhead{Produktregel}
+
+Für das Produkt zweier Funktionen $g$ und $h$ gilt:
+\begin{align*}
+  &\text{Ist } y = f(x) = g(x) \cdot h(x), \text{ dann ist}\\
+  &y' = f'(x) = g'(x) \cdot h(x) + g(x) \cdot h'(x) .
+\end{align*}
+In Kurzform kann man sagen: Für $y = g \cdot h$ ist $y' = g' \cdot h + g \cdot h'$.
+
+\subsubsection{Beispiele}
+
+\begin{enumerate}[label=\alph*)]
+  \item Wir berechnen die Ableitung von $f(x) = x^2$ auf zwei Arten. Nach der Tabelle oben gilt: $f'(x) = 2x$. Andererseits folgt mit der Produktregel für $f(x) = x^2 = x \cdot x$, dass $f'(x) = 1 \cdot x + x \cdot 1 = 2x$ ist; dabei wurde $g(x) = h(x) = x$ gesetzt.
+  \item Wir wollen $f(x) = x^2 \cdot \ln x$ ableiten. Dazu setzen wir $g(x) = x^2$ und $h(x) = \ln x$. Dann ergibt sich mit der Produktregel:
+    \[ f'(x) = 2x \cdot \ln x + x^2 \cdot \tfrac{1}{x} = 2x \cdot \ln x + x = x (2\ln x + 1) .\beispielende \]
+\end{enumerate}
+
+Ein Produkt aus mehr als zwei differenzierbaren Funktionen lässt sich durch wiederholte Anwendung der Produktregel differenzieren.
+
+\subsubsection{Beispiel}
+
+Sei $f(x) = x^2 \cdot \ln x \cdot e^x$. Wir setzen zunächst $g(x) = x^2$ und $h(x) = \ln x \cdot e^x$. Dann gilt $f'(x) = g'(x) \cdot h(x) + g(x) \cdot h'(x)$. $g'(x)$, $h(x)$ und $g(x)$ kennen wir, $h'(x)$ jedoch bisher nicht. Also berechnen wir im nächsten Schritt $h'(x)$ mit der Produktregel.
+
+Man erhält: $h'(x) = \tfrac{1}{x} \cdot e^x + \ln x \cdot e^x$.\\
+Insgesamt ergibt sich daher:
+\begin{align*}
+  f'(x) &= 2x \cdot \ln x \cdot e^x + x^2 \cdot \left(\tfrac{1}{x} \cdot e^x + \ln x \cdot e^x\right)\\
+  &= x (2 \ln x \cdot e^x + e^x + x \cdot \ln x \cdot e^x)\beispielende
+\end{align*}
+
+\structhead{Quotientenregel}
+
+Die Ableitung einer Funktion, die sich als Quotient zweier Funktionen in der Form
+\[ y = f(x) = \frac{g(x)}{h(x)} \]
+darstellen lässt, erhält man nach der Quotientenregel
+\[ y' = f'(x) = \frac{g'(x) \cdot h(x) - g(x) \cdot h'(x)}{(h(x))^2} . \]
+(Kurzform: Für $f = \dfrac{g}{h}$ gilt $f' = \dfrac{g'h - gh'}{h^2}$.)
+
+\subsubsection{Beispiel}
+
+\[ f(x) = \frac{x^3 - 2x^2 + 4}{x^5 - 7x} \]
+Wir setzen $g(x) = x^3 - 2x^2 + 4$ und $h(x) = x^5 - 7x$. Dann gilt $g'(x) = 3x^2 - 4x$ und $h'(x) = 5x^4 - 7$. Somit ergibt sich aus der Quotientenregel:
+\begin{align*}
+  f'(x) &= \frac{(3x^2 - 4x)(x^5 - 7x) - (x^3 - 2x^2 + 4)(5x^4 - 7)}{(x^5 - 7x)^2}\\
+  &= \frac{-2x^7 + 6x^6 - 20x^4 - 14x^3 + 14x^2 + 28}{(x^5 - 7x)^2}\beispielende
+\end{align*}
+
+\subsubsection{Übungsaufgabe}
+
+\begin{graukasten}
+  Bilden Sie jeweils die Ableitung der folgenden Funktionen $y = f(x)$:
+  \begin{enumerate}[label=\alph*)]
+    \item $f(x) = 2x e^x$
+    \item $f(x) = \dfrac{1 + x}{1 - x}$
+  \end{enumerate}
+\end{graukasten}
+
+Die bisher behandelten Ableitungsregeln ermöglichen es uns, eine große Zahl von Funktionen zu differenzieren. Aber schon vergleichsweise einfache Funktionen wie beispielsweise $f(x) = e^{2x}$ oder $f(x) = \ln(x^2 + 1)$ lassen sich nicht mit den bisherigen Regeln ableiten. Auch die Ableitung der Funktion $f(x) = (x^5 + 1)^{10000}$ wird große Schwierigkeiten bereiten. (Theoretisch kann man die letztgenannte Funktion mit der Produktregel lösen, dazu benötigt man aber sehr viel Zeit und Nerven.)
+
+Die eben aufgeführten Funktionen sind alles \textbf{verkettete Funktionen} vom Typ $f(x) = g(h(x))$ -- man »setzt« sozusagen die eine Funktion in die andere »ein«.
+
+\subsubsection{Beispiele}
+
+\begin{enumerate}[label=\alph*)]
+  \item Sei $g(x) = e^x$ und $h(x) = 2x$. Dann gilt: $g(h(x)) = e^{2x}$
+  \item Sei $g(x) = x^{10000}$ und $h(x) = x^5 + 1$. Dann gilt: $g(h(x)) = (x^5 + 1)^{10000}$\beispielende
+\end{enumerate}
+
+Für die Ableitung verketteter Funktionen gilt die folgende Regel.
+
+\structhead{Kettenregel}
+
+Sei $y = f(x) = g(h(x))$ eine verkettete (zusammengesetzte) Funktion. Dann gilt:
+\[ y' = f'(x) = g'(h(x)) \cdot h'(x) \]
+$g'(h(x))$ ist dabei so zu lesen, dass man in den Ausdruck für $g'(x)$ anstelle von »$x$« die Funktion $h(x)$ einsetzt. $g'(h(x))$ nennt man auch die \textbf{äußere Ableitung} von $f(x)$ und $h'(x)$ die \textbf{innere Ableitung}. Die Regel besagt also, dass man die Ableitung $f'(x)$ als Produkt von äußerer und innerer Ableitung erhält.
+
+Falls wir also die beteiligten Funktionen $g$ und $h$ elementar, d.\,h. unter Verwendung der bekannten Ableitungsregeln, differenzieren können, können wir die Ableitung einer verketteten Funktion berechnen.
+
+\subsubsection{Beispiele}
+
+\begin{enumerate}[label=\alph*)]
+  \item $f(x) = e^{2x}$\\
+    Hier ist $g(x) = e^x$ und $h(x) = 2x$. Nach der Kettenregel gilt für die Ableitung:
+    \[ f'(x) = g'(h(x)) \cdot h'(x) = e^{2x} \cdot 2 = 2e^{2x} \]
+  \item $f(x) = (x^5 + 1)^{10000}$\\
+    Wir haben $g(x) = x^{10000}$ und $h(x) = x^5 + 1$. Für die Ableitung folgt somit:
+    \[ f'(x) = g'(h(x)) \cdot h'(x) = 10000 \cdot (x^5 + 1)^{9999} \cdot 5x^4 = 50000\,x^4 (x^5 + 1)^{9999}\beispielende \]
+\end{enumerate}
+
+\subsection{Extremwerte und höhere Ableitungen}
+
+Die bedeutendsten Anwendungen der Differenzialrechnung betreffen die Bestimmung von Extrema. Dies wollen wir durch ein Beispiel illustrieren:
+
+Die Unternehmerin I. bietet exklusiv ein neues Produkt $P$ an. (Sie ist also Monopolistin.) Die Preis-Absatzfunktion $p(x)$ und die Kostenfunktion $K(x)$ des neuen Produktes kennt sie:
+\begin{align*}
+  p(x) &= 6 - \tfrac{1}{2} x\\
+  K(x) &= 2x^2 - 14x + 25
+\end{align*}
+Dabei entspricht die Einheit von $x$ 1.000 Tonnen.
+
+Da sich Frau I. vor allem für das Gewinnpotential ihres Produktes interessiert, lässt sie sich die Gewinnfunktion berechnen: Da sich bekanntlich der Gewinn als Differenz aus Umsatz und Kosten ergibt, wird zunächst die Umsatzfunktion $U(x)$ (häufig auch Erlösfunktion genannt) aufgestellt:
+\[ U(x) = x \cdot p(x) = 6x - \tfrac{1}{2} x^2 \qquad \text{(Menge mal Preis)} \]
+Damit folgt für den Gewinn $G(x)$:
+\[ G(x) = U(x) - K(x) = -\tfrac{5}{2} x^2 + 20x - 25 \]
+Beglückt nimmt Frau I. diese Funktion mit nach Hause und bittet ihren Sohn, schnell den Graphen von $G(x)$ zu skizzieren. Dies führt zu:
+
+\begin{center}
+  \begin{tikzpicture}
+    \begin{axis}[width=9cm, height=6.5cm, axis lines=left, xmin=0, xmax=8.5, ymin=-25, ymax=16,
+      xtick={1,2,...,8}, ytick={-20,-10,0,10}, xlabel={$x$}, ylabel={$y$}, tick label style={font=\footnotesize}, samples=100]
+      \addplot[black, thick, domain=0.4:7.6] {-2.5*x^2+20*x-25};
+    \end{axis}
+  \end{tikzpicture}
+\end{center}
+
+Anhand der Skizze sieht man, dass der maximale Gewinn bei einer verkauften Menge von 4 (= 4000\,t) liegt.
+
+Da sich L.'s Sohn nicht sicher ist, die Kurve richtig skizziert zu haben, überlegen sie gemeinsam, ob sich der maximale Gewinn auch exakt berechnen lässt. Schließlich fällt ihnen auf, dass im Punkt des maximalen Gewinnes die Tangente an die Kurve waagerecht ist.
+
+»Und das ist gleichbedeutend mit $G'(x) = 0$«, fällt Frau I. dann wieder ein. Fieberhaft beginnen sie zu rechnen und erhalten durch Nullsetzen von $G'(x) = -5x + 20$ den Wert $x = 4$ (= 4000\,t), also stimmen das aus der Skizze gewonnene Ergebnis und die theoretische Überlegung überein.
+
+Das Beispiel lässt allerdings eine Frage offen: Woher weiß man, dass sich bei dem Punkt, an dem die untersuchte Funktion eine waagerechte Tangente hat, ein Maximum (statt eines Minimums) handelt? In dem Beispiel war dies klar, weil man den Graphen vorher skizziert hat! Im allgemeinen braucht man an dieser Stelle \textbf{höhere Ableitungen}.
+
+Bisher haben wir mittels Differenzieren aus der Funktion $y = f(x)$ die erste Ableitung $y' = f'(x)$ gewonnen. Ist nun $f'(x)$ wieder differenzierbar, so erhalten wir durch nochmaliges Differenzieren die sogenannte \textbf{zweite Ableitung} von $f(x)$:
+\[ y'' = f''(x) = f^{(2)}(x) = \frac{d}{dx} f'(x) \]
+Anders ausgedrückt: Die zweite Ableitung von $f(x)$ ist die erste Ableitung von $f'(x)$.
+
+Durch Differenzieren der zweiten Ableitung erhält man die dritte Ableitung usw.
+\[ y''' = f'''(x) = f^{(3)}(x) = \frac{d}{dx} f''(x) \]
+\[ y^{(4)} = f^{(4)}(x) = \frac{d}{dx} f^{(3)}(x) \]
+usw.
+
+\subsubsection{Beispiel}
+
+Sei $y = f(x) = 2x^3 + e^x$. Dann erhalten wir für die ersten vier Ableitungen:
+\begin{align*}
+  y' &= 6x^2 + e^x\\
+  y'' &= 12x + e^x\\
+  y''' &= 12 + e^x\\
+  y^{(4)} &= e^x
+\end{align*}\beispielende
+
+Worauf wir hinaus wollen, liefert nun der folgende mathematische \textbf{Satz}:
+
+\merkbox{Sei $f$ eine Funktion, die in einer Umgebung von $x_E$ zweimal differenzierbar ist. Dann besitzt $f$ in $x_E$ ein
+\begin{itemize}
+  \item lokales Maximum, falls gilt $f'(x_E) = 0$ und $f''(x_E) < 0$,
+  \item lokales Minimum, falls gilt $f'(x_E) = 0$ und $f''(x_E) > 0$.
+\end{itemize}}
+
+\subsubsection{Beispiel}
+
+Sei $f(x) = x^4 - 8x^2 - 9$. Aus der ersten Ableitung
+\[ f'(x) = 4x^3 - 16x = 4x(x^2 - 4) \]
+erhält man durch Nullsetzen die $x$-Werte $x_1 = 0$, $x_2 = -2$ und $x_3 = 2$. Mit der zweiten Ableitung $f''(x) = 12x^2 - 16$ folgt:
+\begin{align*}
+  f''(x_1) &= f''(0) = -16 < 0\\
+  f''(x_2) &= f''(-2) = 32 > 0\\
+  f''(x_3) &= f''(2) = 32 > 0
+\end{align*}
+Also liegt in $x_1 = 0$ ein relatives Maximum und in den beiden Punkten $x_2 = -2$ sowie $x_3 = 2$ ein relatives Minimum vor.\beispielende
+
+\subsubsection{Übungsaufgabe}
+
+\begin{graukasten}
+  Ein Unternehmen, das nur einen Artikel produziert, hat die Kostenfunktion $K(x) = 0{,}2x^2 + 2x + 20$ sowie die Preis-Absatz-Funktion $p(x) = 32 - 0{,}3x$. Es werde vollständiger Absatz der hergestellten Artikel vorausgesetzt. Bei welcher Ausbringungsmenge $x$ erzielt das Unternehmen den maximalen Gewinn?
+
+  \textbf{Hinweis:} $U$ mit $U(x) = x \cdot p(x)$ ist die Umsatzfunktion und $G$ mit $G(x) = U(x) - K(x)$ die Gewinnfunktion.
+\end{graukasten}
+
+Zum Schluss wollen wir auf das Thema \textbf{Kurvendiskussion} kommen. Man versteht darunter die Untersuchung der Eigenschaften einer Funktion $y = f(x)$, aufgrund derer man sich einen Eindruck vom Verlauf dieser Funktion verschaffen kann. Beispielsweise gehört dazu die Bestimmung der Schnittpunkte mit den Koordinatenachsen, die Untersuchung auf Extremwerte und des Verhaltens im Unendlichen.
+
+Am Ende einer Kurvendiskussion steht meist eine Skizze des Funktionsverlaufs. Aufgrund der heute verfügbaren technischen Hilfsmittel (Plotter, Computeralgebrasysteme) kann man jedoch auch mit einem Schaubild beginnen, das bereits wichtige Hinweise für die weitere Untersuchung geben kann.
+
+Es folgt nun ein Beispiel für eine solche »moderne« Kurvendiskussion.
+
+\subsubsection{Beispiel}
+
+Die Funktion
+\[ y = f(x) = x^3 - 6x + 4 \]
+soll untersucht werden. Eingabe in eine Mathematik-Software liefert folgendes Schaubild:
+
+\begin{center}
+  \begin{tikzpicture}
+    \begin{axis}[width=9cm, height=7cm, axis lines=left, xmin=-4.3, xmax=4.3, ymin=-32, ymax=48,
+      xtick={-4,-3,...,4}, ytick={-30,-20,...,40}, xlabel={$x$}, ylabel={$y$}, tick label style={font=\footnotesize}, samples=200]
+      \addplot[black, thick, domain=-4.1:4.1] {x^3-6*x+4};
+    \end{axis}
+  \end{tikzpicture}
+\end{center}
+
+Man sieht sofort, wie sich die Funktion im Unendlichen verhält: Für $x \rightarrow \infty$ streben die Funktionswerte ebenfalls gegen $\infty$, für $x \rightarrow -\infty$ entsprechend gegen $-\infty$. Dies ist jedoch keine Überraschung: Wie an früherer Stelle besprochen, bestimmen die Eigenschaften des Summanden »$x^3$« das Verhalten im Unendlichen.
+
+Wo liegen die Schnittpunkte mit den Achsen? Aufgrund des Bildes wird die $y$-Achse in der Nähe von $y = 5$ geschnitten, die $x$-Achse etwa bei $x = -3$, $x = 1$ und $x = 2$. Einsetzen von $x = 0$ in $f(x)$ liefert jedoch $y = 4$, d.\,h. der präzise Schnittpunkt mit der $y$-Achse ist $(0;4)$.
+
+Wo sind die präzisen Schnittpunkte mit der $x$-Achse? Man muss die Lösungen der Gleichung
+\[ x^3 - 6x + 4 = 0 \]
+finden. Einsetzen der drei Kandidaten $-3$, $1$ und $2$ ergibt, dass $x_1 = 2$ tatsächlich eine Lösung ist. Polynomdivision von $(x^3 - 6x + 4)$ durch $(x - 2)$ führt zum Restpolynom $x^2 + 2x - 2$, welches (mit der $p$-$q$-Formel) die weiteren Nullstellen $x_2 = -1 + \sqrt{3} \approx 0{,}73$ und $x_3 = -1 - \sqrt{3} \approx -2{,}73$ liefert.
+
+Nun sind noch die beiden relativen Extremwerte zu bestimmen. Dazu werden zuerst die erste und zweite Ableitung berechnet:
+\begin{align*}
+  f'(x) &= 3x^2 - 6\\
+  f''(x) &= 6x
+\end{align*}
+Die Nullstellen der ersten Ableitung sind offenbar $x_4 = \sqrt{2}$ und $x_5 = -\sqrt{2}$. Wegen $f''(x_4) > 0$ liegt dort ein relatives Minimum, bei $x_5$ wegen $f''(x_5) < 0$ ein relatives Maximum vor. Die präzise Lage der Extrempunkte bekommt man, wenn man $x_4$ und $x_5$ in $f(x)$ einsetzt. Auf diese Weise ergibt sich das Minimum bei $(\sqrt{2}; 4 - 4\sqrt{2})$ und das Maximum bei $(-\sqrt{2}; 4 + 4\sqrt{2})$.\beispielende
+
+\subsection{Weitere ökonomische Funktionen und Begriffe}
+
+In diesem abschließenden Abschnitt werden anhand von Beispielen einige weitere ökonomische Funktionen eingeführt, zu deren Untersuchung auf die Differenzialrechnung zurückgegriffen werden muss.
+
+Der \textbf{Umsatz} (auch: \textbf{Erlös}) ergibt sich als Produkt aus Preis $p$ und abgesetzter Menge $x$. (Im vorigen Abschnitt wurde dieser Begriff schon einmal verwendet.) Ist eine Preis-Absatzfunktion $x(p)$ gegeben, so gilt für den Umsatz in Abhängigkeit von $p$:
+\[ E(p) = x(p) \cdot p \]
+Falls die Preis-Absatzfunktion als $p(x)$ gegeben ist (vgl. die Ausführungen zu Umkehrfunktionen, insbesondere Beispiel 1.4.3.4), so kann man auch schreiben:
+\[ E(x) = p(x) \cdot x \]
+
+\subsubsection{Beispiel}
+
+Mit der Preis-Absatzfunktion $x(p) = 60 - 0{,}6\,p$ aus Beispiel 1.4.3.4 ergibt sich
+\[ E(p) = (60 - 0{,}6p) \cdot p = 60p - 0{,}6p^2 \]
+oder
+\[ E(x) = \left(100 - \tfrac{5}{3} x\right) \cdot x = 100x - \tfrac{5}{3} x^2 .\beispielende \]
+
+Der \textbf{Gewinn} ergibt sich als Differenz von Umsatz und Kosten.
+
+\subsubsection{Beispiel}
+
+Mit der Umsatzfunktion
+\[ E(x) = 100x - \tfrac{5}{3} x^2 \]
+aus dem vorigen Beispiel und der Kostenfunktion
+\[ K(x) = 2x + 1000 \]
+aus Beispiel 1.3.1.1 erhält man als Gewinnfunktion
+\[ G(x) = E(x) - K(x) = -\tfrac{5}{3} x^2 + 98x - 1000 . \]
+Diese Funktion ist im untenstehenden Schaubild dargestellt. Man sieht, dass es nur zwischen ca. $x = 13$ und $x = 46$ überhaupt Gewinn gibt (Bitte rechnen Sie die Gewinnschwellen genau aus!) und dass der Gewinn in der Nähe von $x = 30$ maximal ist. Zur genauen Bestimmung des Maximums bildet man die Ableitung:
+\[ G'(x) = -\tfrac{10}{3} x + 98 \]
+Einzige Nullstelle der Ableitung ist $x = 29{,}4$, folglich muss hier das Maximum angenommen werden.
+
+\begin{center}
+  \begin{tikzpicture}
+    \begin{axis}[width=9cm, height=6.5cm, axis lines=left, xmin=0, xmax=52, ymin=-1100, ymax=500,
+      xtick={10,20,...,50}, ytick={-1000,-800,...,400}, xlabel={$x$}, ylabel={$G$}, tick label style={font=\footnotesize}, samples=200]
+      \addplot[black, thick, domain=0:50] {-5/3*x^2+98*x-1000};
+    \end{axis}
+  \end{tikzpicture}
+\end{center}
+
+Mitunter wird statt des Gewinns auch der \textbf{Deckungsbeitrag} betrachtet. Der Deckungsbeitrag $D(x)$ ist die Differenz von Umsatz und variablen Kosten.
+
+\subsubsection{Übungsaufgabe}
+
+\begin{graukasten}
+  Berechnen Sie die Elastizität der Kostenfunktion $K(x) = 0{,}02 x^3 - 2x^2 + 80x + 12000$ an der Stelle $x = 30$.
+\end{graukasten}
+
+\textbf{Zum Schluss wollen wir auf den Begriff der \textbf{Elastizität} zu sprechen kommen.} Während die erste Ableitung $f'(x_0)$ einer Funktion $f$ an der Stelle $x_0$
+\begin{itemize}
+  \item näherungsweise die Funktionsänderung angibt, wenn man $x_0$ um eine Einheit erhöht,
+\end{itemize}
+gibt die Elastizität
+\[ \frac{f'(x_0)}{f(x_0)} \cdot x_0 \qquad (\text{abgekürzt } \varepsilon_{f,x}(x_0)) \]
+\begin{itemize}
+  \item näherungsweise an, um wieviel Prozent sich die $f$-Werte ändern, wenn man $x_0$ um ein Prozent erhöht.
+\end{itemize}
+
+\subsubsection{Beispiel}
+
+Mit der Kostenfunktion $K(x) = 2x + 1000$ ergibt sich:
+\[ \varepsilon_{K,x}(x) = \frac{2}{2x + 1000} \cdot x = \frac{2x}{2x + 1000} \]
+Für die Stelle $x_0 = 50$ hat man so:
+\[ \varepsilon_{K,x}(50) = \frac{100}{1100} \approx 0{,}091 \]
+Ändert man also den Output ausgehend von 50 um ein Prozent, so wachsen die Kosten um 0{,}091\,\%.\beispielende

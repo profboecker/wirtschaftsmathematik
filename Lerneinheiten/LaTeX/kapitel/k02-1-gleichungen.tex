@@ -1,0 +1,459 @@
+\section{Lösen von Gleichungen}
+
+In der Mathematik werden verschiedene Arten von \textbf{Gleichungen} unterschieden. Die wichtigsten sind \textbf{identische Gleichungen}, \textbf{Bestimmungsgleichungen} und \textbf{Funktionsgleichungen}. Um dies zu erläutern, brauchen wir zunächst den Begriff des \textbf{Terms}:
+\begin{itemize}
+  \item Unter einem Term $T$ versteht man einen mathematischen Ausdruck aus Variablen, Konstanten und wohldefinierten Rechenvorschriften.
+\end{itemize}
+
+\subsubsection{Beispiel}
+
+Der folgende mathematische Ausdruck stellt einen Term $T$ dar:
+\[ T = \sqrt[3]{\pi(2x - 5)} \]
+Die Zahlen $\pi$, 2 und 5 sind Konstanten. $x$ ist eine Variable, d.\,h. ein Platzhalter für Elemente einer Menge (hier der reellen Zahlen), die für Einsetzungen in die Variable vorgesehen sind.\beispielende
+
+Werden zwei Terme $T_1$ und $T_2$ durch ein Gleichheitszeichen ($=$) verbunden, so nennt man die Beziehung $T_1 = T_2$ eine \textbf{Gleichung}.
+
+\textbf{Identische Gleichungen} (andere Bezeichnung: \textbf{Rechenregeln}) sind Gleichungen, die immer richtig sind -- egal welche Werte man für die eventuell vorkommenden Variablen bzw. Unbekannten einsetzt.
+
+\subsubsection{Beispiele}
+
+\begin{enumerate}[label=\alph*)]
+  \item $\pi = \pi$
+  \item $a \cdot b = b \cdot a$
+  \item $7 + 3 = 10$
+  \item $(a+b)^2 = a^2 + 2ab + b^2$\\
+    (Diese Gleichung wird auch \textbf{binomische Formel} genannt.)\beispielende
+\end{enumerate}
+
+Durch \textbf{Funktionsgleichungen} werden variable Größen einander zugeordnet.
+
+\subsubsection{Beispiele}
+
+\begin{enumerate}[label=\alph*)]
+  \item Der Flächeninhalt $A$ eines Quadrates hängt von der Seitenlänge $a$ ab. $A$ ist eine Funktion von $a$, und es gilt $A = a^2$.
+  \item Der Flächeninhalt $A$ eines Kreises hängt vom Kreisradius $r$ ab. $A$ ist eine Funktion von $r$, und es gilt $A = \pi \cdot r^2$.\beispielende
+\end{enumerate}
+
+Allgemein stellt die Funktionsgleichung $y = f(x)$ eine Rechenvorschrift dar, mit der man zu jedem Element $x$ das zugehörige Element $y$ berechnen kann. (In einer anderen Lerneinheit werden wir ausführlicher über Funktionen reden.)
+
+\subsubsection{Beispiel}
+
+Die monatlichen Kosten für einen Telefonanschluss $K$ (in €) sind eine Funktion der Anzahl $x$ der verbrauchten Gebühreneinheiten.\beispielende
+
+Eine \textbf{Bestimmungsgleichung} ist eine Gleichung, die mindestens eine Variable oder Unbekannte enthält und die in der Regel nur für bestimmte Werte dieser Variablen richtig ist. Die Ermittlung der Werte der Variablen, für die die Bestimmungsgleichung erfüllt ist, heißt \textbf{Lösen} der Gleichung. Das Lösen der Gleichung entspricht der Ermittlung der \textbf{Lösungsmenge} $L$.
+
+Man kann dies auch so sagen: Die Lösungsmenge $L$ stellt die Menge der Werte für die Variable oder Unbekannte dar, die durch Einsetzen aus der Bestimmungsgleichung eine wahre Aussage machen. Die Lösungsmenge ist stets Teilmenge der generell möglichen Grundmenge, die im Allgemeinen mit der Menge der reellen Zahlen identisch ist.
+
+\subsubsection{Beispiele}
+
+\begin{enumerate}[label=\alph*)]
+  \item $5x = 15$\\
+    Lösung: $x = 3$
+  \item $x^2 = 9$\\
+    Lösungen: $x = +3$ und $x = -3$\beispielende
+\end{enumerate}
+
+Gleichungen mit einer Unbekannten werden durch Isolation der Variablen (Unbekannten) gelöst. Eine Gleichung wird dabei durch Anwendung einer Kette von zulässigen Rechenvorschriften schrittweise so umgeformt, dass die Variable schließlich isoliert auf der linken Seite der Gleichung steht.
+\begin{itemize}
+  \item Zwei Gleichungen heißen \textbf{äquivalent}, wenn ihre Lösungsmengen übereinstimmen.
+\end{itemize}
+
+Die Lösungsmenge einer Bestimmungsgleichung bleibt unverändert, wenn auf beiden Seiten der Gleichung \textbf{äquivalente Umformungen} durchgeführt werden. Elementare \textbf{Äquivalenzumformungen} sind:
+\begin{itemize}
+  \item Vertauschung der beiden Seiten einer Gleichung: Werden die beiden Seiten einer Gleichung vertauscht, so ist die neue Gleichung der alten äquivalent.
+  \item Addition und Subtraktion eines Termes: Wird auf beiden Seiten einer Gleichung jeweils der gleiche Term addiert oder subtrahiert, so ist die neue Gleichung der alten äquivalent.
+  \item Multiplikation und Division eines Termes: Werden beide Seiten einer Gleichung jeweils mit dem gleichen Term multipliziert oder durch den gleichen Term, der aber nicht Null sein darf, dividiert, so sind alte und neue Gleichungen äquivalent.
+  \item Substitution: Wird ein Term durch eine neue Variable substituiert, so erhält man die Lösung der ursprünglichen Gleichung, in dem man die nach der Substitution entstandene neue Gleichung löst und anschließend resubstituiert.
+\end{itemize}
+
+\subsubsection{Beispiele}
+
+\begin{enumerate}[label=\alph*)]
+  \item $2x + 1 = x - 3$\\
+    Subtraktion von 1 auf beiden Seiten führt zu $2x = x - 4$. Subtraktion von $x$ ergibt $x = -4$.
+  \item $x^2 - 9 = 16$\\
+    Mit der Substitution $z = x^2$ entsteht die neue Gleichung $z - 9 = 16$ mit der Lösung $z = 25$. Resubstitution liefert dann $z = x^2 = 25$ mit den Lösungen $x_{1/2} = \pm 5$.\beispielende
+\end{enumerate}
+
+Im Folgenden soll eine kurze Übersicht über einige verschiedene Arten von Bestimmungsgleichungen gegeben werden.
+
+\subsection{Lineare Gleichungen}
+
+\textbf{Lineare Gleichungen} enthalten die Variable nur in der 1. Potenz. Die \textbf{Normalform} der linearen Gleichung mit einer Unbekannten $x$ lautet:
+\[ ax + b = 0 \text{ mit } a \neq 0 \]
+Wie an früherer Stelle gesagt, stehen hier $a$ und $b$ für Konstanten bzw. Parameter, die beliebig sein können, aber als fest gewählt betrachtet werden. Als Lösung dieser Gleichung erhält man:
+\[ x = -\frac{b}{a} \]
+Jede lineare Gleichung lässt sich immer auf Normalform bringen.
+
+\subsection{Algebraische Gleichungen}
+
+Die \textbf{nichtlinearen Gleichungen} werden unterteilt in \textbf{algebraische Gleichungen} und \textbf{transzendente Gleichungen}.
+
+\textbf{Quadratische Gleichungen} sind algebraisch. Die allgemeine Form der quadratischen Gleichung lautet:
+\[ ax^2 + bx + c = 0 \text{ mit } a \neq 0 \]
+Nach Division durch $a$ erhält man
+\[ x^2 + \frac{b}{a}x + \frac{c}{a} = 0 \]
+und schließlich, wenn man $\dfrac{b}{a}$ durch $p$ und $\dfrac{c}{a}$ durch $q$ ersetzt, die sogenannte \textbf{Normalform der quadratischen Gleichung}:
+\[ x^2 + px + q = 0 \]
+Die Lösungen $x_1$ und $x_2$ der in der Normalform gegebenen quadratischen Gleichung lauten
+\[ x_1 = -\frac{p}{2} + \sqrt{\frac{p^2}{4} - q} \quad \text{und} \quad x_2 = -\frac{p}{2} - \sqrt{\frac{p^2}{4} - q} , \]
+zusammengefasst:
+\[ x_{1/2} = -\frac{p}{2} \pm \sqrt{\frac{p^2}{4} - q} \]
+Dies nennt man die \textbf{$p$-$q$-Formel}.
+
+Die beiden Nullstellen $x_1$ und $x_2$ liefern immer eine Zerlegung der linken Seite in Linearfaktoren: Es gilt nämlich
+\[ x^2 + px + q = (x - x_1)(x - x_2) . \]
+
+\subsubsection{Beispiel}
+
+Die Gleichung $x^2 + 8x + 12 = 0$ soll gelöst werden. Mit $p = 8$ und $q = 12$ erhält man
+\[ x_{1/2} = -4 \pm \sqrt{16 - 12} , \]
+also $x_1 = -2$ und $x_2 = -6$. Als Zerlegung der linken Seite in Linearfaktoren hat man so bekommen:
+\[ x^2 + 8x + 12 = (x+2)(x+6)\]\beispielende
+
+Wir betrachten nun ein anderes Beispiel, welches uns zu einem Problem führt: $x^2 - 2x + 2 = 0$. Hier ist $p = -2$ und $q = 2$, und es folgt
+\[ x_{1/2} = 1 \pm \sqrt{1 - 2} = 1 \pm \sqrt{-1} . \]
+Die Quadratwurzel aus $-1$ kann innerhalb der reellen Zahlen jedoch nicht gezogen werden, denn es existiert keine reelle Zahl, deren Quadrat $-1$ ergibt!
+
+Um sich an dieser Stelle zu behelfen, muss man einen über die reellen Zahlen hinausgehenden Zahlenbereich einführen, nämlich die \textbf{komplexen Zahlen}. Diese enthalten eine Zahl, die $i$ genannt wird und deren Quadrat $-1$ ist. Wenn man solche komplexen Zahlen als Lösungen ansieht, sind alle algebraischen Gleichungen lösbar. Wir gehen hier nicht weiter darauf ein.
+
+Eine Anmerkung noch: Gern wird die Frage gestellt, ob es die komplexen Zahlen, insbesondere die Zahl $i$ überhaupt »gibt«. Selbst wer ohne Weiteres die Existenz unendlich langer nicht-periodischer Dezimalzahlen akzeptiert, mag angesichts von $i$ seine Probleme bekommen. Wir sagen dazu nur Folgendes: So wie es die Zahl $\pi$ und den vierdimensionalen Raum »gibt«, ist auch die Existenz von $i$ kein Problem; im Übrigen -- und das ist der Hauptpunkt -- hat sich die Möglichkeit des Rechnens mit der Zahl $i$ in vielen Anwendungen (z.\,B. in der Elektrotechnik) als sehr hilfreich erwiesen. Für Betriebswirte und Wirtschaftsrechtler dürfte es ausreichen zu sagen, eine Gleichung wie die obige ($x^2 - 2x + 2 = 0$) sei \emph{nicht lösbar}.
+
+Eine \textbf{algebraische Gleichung $n$-ten Grades} besitzt die folgende allgemeine Form:
+\[ a_n x^n + a_{n-1} x^{n-1} + \ldots + a_1 x + a_0 = 0 . \]
+Der auf der linken Seite dieser Gleichung stehende mathematische Ausdruck stellt einen ganzrationalen Term dar, der sich durch endlich viele Additionen bzw. Subtraktionen ganzzahliger Potenzen der Variablen $x$ darstellen lässt. In der Funktionslehre wird dieser Term als Funktion einer Variablen $x$ aufgefasst und als \textbf{Polynom $n$-ten Grades} bezeichnet (dazu später mehr).
+
+Wie löst man solche Gleichungen? Die meisten Leser wird Folgendes erstaunen: Es gibt keine Formel, nach der man die Lösungen einer Gleichung bestimmen könnte, in der mindestens $x^5$ vorkommt (und eventuell auch $x^4$, $x^3$, $x^2$ und $x$). Natürlich kann es spezielle Gleichungen geben, deren Lösungen man ermitteln kann -- beispielsweise hat die Gleichung
+\[ x^5 = 32 \]
+offensichtlich $x = 2$ als Lösung. Die Aussage ist aber: Es gibt keine \emph{Formel}, mit der man \emph{jede} solche Gleichung lösen kann (wie die $p$-$q$-Formel das für quadratische Gleichungen leistet). Dabei ist die Aussage »Es gibt keine Formel …« wörtlich zu nehmen -- man kann tatsächlich \emph{beweisen}, dass keine solche Formel \emph{existiert}, man braucht also auch nach keiner zu suchen. (Auf diesen Beweis gehen wir selbstverständlich nicht ein.)
+
+Für Gleichungen dritten Grades
+\[ ax^3 + bx^2 + cx + d = 0 \]
+und solche vierten Grades
+\[ ax^4 + bx^3 + cx^2 + dx + e = 0 \]
+gibt es übrigens noch Lösungsformeln. Diese sind jedoch so komplex, dass wir sie nicht hinschreiben wollen.
+
+Wenn man eine solche Gleichung lösen soll, geht man in der Praxis folgendermaßen vor:
+\begin{enumerate}
+  \item Man »errät« eine Lösung. Dieses »Raten« kann durch ein Funktionsschaubild unterstützt werden, welches man sich mit einem Computeralgebra-Programm oder einem grafikfähigen Taschenrechner erzeugt (dazu mehr an anderer Stelle).
+  \item Man führt eine \textbf{Polynomdivision} aus, um eine Gleichung niedrigeren Grades zu erhalten.\footnote{Dass dies immer klappt, liegt an Folgendem: Hat man eine Lösung $x_1$ einer Gleichung $a_n x^n + a_{n-1} x^{n-1} + \ldots + a_1 x + a_0 = 0$ gefunden, so kann man den Linearfaktor $(x - x_1)$ »abspalten« und die linke Seite zerlegen in $a_n x^n + \ldots + a_1 x + a_0 = (x - x_1) \cdot p(x)$, wobei $p(x)$ ein Polynom von kleinerem Grad ist. Dieses $p(x)$ kann man durch Polynomdivision finden.}
+  \item Wenn man die Gleichung niedrigeren Grades auch nicht lösen kann, muss man für diese wieder eine Lösung erraten etc.
+  \item Spätestens dann, wenn man auf diese Weise bei einer quadratischen Gleichung angekommen ist, kann man diese per $p$-$q$-Formel lösen.
+  \item Die auf diesem Weg gefundenen Lösungen bilden zusammen alle Lösungen der Ausgangsgleichung. Sie sind auch Grundlage für die Zerlegung des ursprünglichen Polynoms in Linearfaktoren.
+\end{enumerate}
+
+\subsubsection{Beispiel}
+
+Die Gleichung
+\[ x^3 - 2x^2 - 9x + 18 = 0 \]
+soll gelöst werden. Man »sieht« (das ist das Raten!), dass $x = 2$ eine Lösung der Gleichung ist. Jetzt wird dividiert:
+\[ (x^3 - 2x^2 - 9x + 18) : (x - 2) = x^2 - 9 \]
+Da $x^2 - 9 = 0$ die beiden Lösungen 3 und $-3$ besitzt, hat die Ausgangsgleichung die Lösungen $x_1 = 2$, $x_2 = 3$ und $x_3 = -3$.
+
+Als »Nebenprodukt« hat man die Linearfaktorzerlegung der linken Seite bekommen:
+\[ x^3 - 2x^2 - 9x + 18 = (x-2)(x-3)(x+3)\]\beispielende
+
+Zum Abschluss noch einmal ein Anwendungsbeispiel mit einer quadratischen Gleichung:
+
+\subsubsection{Beispiel}
+
+Herr K. erbt 30.000\,€, die er für zwei Jahre anlegen möchte, da er sich dann voraussichtlich ein neues Auto kaufen muss. Seine Hausbank bietet ihm 5\,\% Zinsen p.\,a. Im Internet stößt er auf die Möglichkeit, das Geld zu folgenden Bedingungen anzulegen: Nach einem Jahr bekommt er 1200\,€ ausgezahlt, nach dem zweiten Jahr 31.800\,€. Dieses Angebot erscheint ihm günstiger, da er so im Schnitt ebenfalls 5\,\% Zinsen bekommt, zudem hat er nach einem Jahr schon 1200\,€ zur Verfügung. Ist das Angebot wirklich günstiger?
+
+Um die Frage zu beantworten, muss berechnet werden, zu welchem effektiven Zinssatz das Internet-Angebot führt. Dazu stellt man folgende Gleichung auf:
+\[ 30000 \cdot q^2 = 1200 \cdot q + 31800 \]
+Dabei bezeichnet $q$ den zu dem gesuchten Zinssatz gehörenden Aufzinsungsfaktor.
+
+Mit der $p$-$q$-Formel bekommt man hier als Lösung
+\[ q \approx 1{,}0497 , \]
+d.\,h. der gesuchte Zinssatz beträgt ca. 4{,}97\,\%. Das Angebot ist also schlechter als das der Hausbank.\beispielende
+
+\subsection{Wurzelgleichungen}
+
+\textbf{Wurzelgleichungen} können in algebraische Gleichungen $n$-ten Grades überführt werden. So lässt sich jede $n$-te Wurzel $\sqrt[n]{T(x)}$ aus einem Term $T(x)$ beseitigen, indem man die Wurzel zur $n$-ten Potenz erhebt.
+
+\subsubsection{Beispiel}
+
+\begin{align*}
+  \sqrt{x + 7} &= x + 1\\
+  x + 7 &= (x+1)^2\\
+  x + 7 &= x^2 + 2x + 1\\
+  x^2 + x - 6 &= 0\\
+  x_1 &= 2 \qquad x_2 = -3
+\end{align*}
+Probe:
+\begin{align*}
+  \sqrt{2 + 7} &= 2 + 1 \rightarrow \text{\emph{richtig}}\\
+  \sqrt{-3 + 7} &= -3 + 1 \rightarrow \text{\emph{falsch}}
+\end{align*}
+Nur $x_1 = 2$ ist Lösung der Wurzelgleichung.\beispielende
+
+\textbf{Hinweis:} Beim Quadrieren oder allgemein beim Potenzieren von Gleichungen können neue scheinbare Lösungen auftreten. Es ist daher stets eine Probe auszuführen und zu prüfen, ob die gefundene Lösung die Wurzelgleichung erfüllt.
+
+\subsubsection{Beispiel}
+
+Welcher monatliche Zinssatz führt zu einem Jahreszinssatz von 8\,\%? Man kann die Fragestellung unterschiedlich formulieren: Für die Aufzinsungsfaktoren muss offenbar gelten
+\[ q_{\text{monat}}^{12} = 1{,}08 , \]
+was zu $q \approx 1{,}0064$ und somit einem monatlichen Zinssatz von 0{,}64\,\% führt.
+
+Man kann es auch direkt für die Zinssätze formulieren:
+\[ i_{\text{monat}} = \sqrt[12]{1 + i_N} - 1 \]
+Dabei bezeichnet $i_N$ den nominalen Zins (hier 8\,\% bzw. 0{,}08); statt $i_{\text{monat}}$ findet man auch oft die Bezeichnung \textbf{konformer Zins} $i_k$. Einsetzen von $i_N$ führt zu demselben Ergebnis von 0{,}64\,\%.\beispielende
+
+\subsection{Exponentialgleichungen und logarithmische Gleichungen}
+
+Eine Gleichung $T_1(x) = T_2(x)$ heißt \textbf{transzendent}, wenn wenigstens ein Term $T(x)$ nicht algebraisch ist.
+
+In transzendenten Gleichungen können daher Exponentialterme, logarithmische Terme oder trigonometrische Terme auftreten. Es gibt im Allgemeinen keine systematischen Lösungswege, so dass transzendente Gleichungen oft nur näherungsweise mit Hilfe numerischer Methoden gelöst werden können. Typische Vertreter von transzendenten Gleichungen sind \textbf{Exponentialgleichungen} und \textbf{logarithmische Gleichungen}. Wir begnügen uns mit jeweils einem Beispiel.
+
+\subsubsection{Beispiele}
+
+\begin{enumerate}[label=\alph*)]
+  \item \begin{align*}
+      2^{x^2+x-4} &= 4 \rightarrow x^2 + x - 4 = \log_2 4\\
+      &\rightarrow x^2 + x - 6 = 0 \rightarrow x_1 = 2,\ x_2 = -3
+    \end{align*}
+  \item \begin{align*}
+      \lg(x^2 + 100) &= 3 \rightarrow 10^{\lg(x^2+100)} = 10^3\\
+      &\rightarrow x^2 + 100 = 1000 \rightarrow x^2 = 900\\
+      &\rightarrow x_1 = 30,\ x_2 = -30
+    \end{align*}
+  \item \begin{align*}
+      2^{(\ln x^2 - \ln x + 1)} &= 8 \rightarrow \log_2 2^{(\ln x^2 - \ln x + 1)} = \log_2 2^3\\
+      &\rightarrow \ln x^2 - \ln x + 1 = 3 \rightarrow 2\ln x - \ln x = 2\\
+      &\rightarrow \ln x = 2 \rightarrow x = e^2
+    \end{align*}\beispielende
+\end{enumerate}
+
+\subsection{Übungsaufgaben zu Abschnitt 2.1}
+
+\begin{uebungsaufgaben}
+  \item Berechnen Sie den Wert von $x$.
+    \begin{enumerate}[label=\alph*)]
+      \item $\log_7 x = 3$
+      \item $\log_{10} x = 5$
+      \item $\ln x = 10$
+      \item $\log \sqrt{x} = 200$
+      \item $e^{\ln 7} = x$
+      \item $2\ln x = \ln 15 + 2\ln 2 - \ln 12$
+    \end{enumerate}
+  \item Man löse folgende Gleichungen:
+    \begin{enumerate}[label=\alph*)]
+      \item $5^x = 10$
+      \item $2^x = 1000$
+      \item $1{,}05^x = 2$
+      \item $4 \cdot 2^{x+2} = 3 \cdot 4^{x+2}$
+    \end{enumerate}
+  \item Lösen Sie die folgenden Gleichungen:
+    \begin{enumerate}[label=\alph*)]
+      \item $(x+2)(x-1) = x^2 + 1$
+      \item $2a(x+3) = (3+x)(5+2a)$
+    \end{enumerate}
+  \item Lösen Sie die folgenden Gleichungen:
+    \begin{enumerate}[label=\alph*)]
+      \item $(x-3)(x+7) = (x-2)(x+3)$
+      \item $(2x-1)(3x+4) = (2-x)(5-6x)$
+      \item $\dfrac{y+2}{y+5} = \dfrac{6-y}{9-y}$
+      \item $\dfrac{2x-1}{6x-1} = \dfrac{x-2}{3x+1}$
+      \item $\dfrac{x-2}{x+2} - \dfrac{x+4}{x-2} = 2 \cdot \dfrac{x-38}{x^2-4}$
+    \end{enumerate}
+  \item Lösen Sie die folgenden Gleichungen:
+    \begin{enumerate}[label=\alph*)]
+      \item $3z^2 - 12 = 0$
+      \item $9x^2 + 49 = 0$
+      \item $3x^2 - 5x + 4 = 0$
+      \item $5x^2 + 11x + 5{,}6 = 0$
+    \end{enumerate}
+  \item Bestimmen Sie die Lösungen der folgenden Gleichungen:
+    \begin{enumerate}[label=\alph*)]
+      \item $x^6 + 4x^4 = 0$
+      \item $x^4 - 26x^2 + 25 = 0$
+      \item $3x^4 - 21x^2 = 54$
+      \item $2x^7 - 18x^5 = 0$
+      \item $2x^9 - 12x^8 + 10x^7 = 0$
+      \item $2x^5 + 4x^3 = 6x^4$
+    \end{enumerate}
+  \item Geben Sie die Lösungen der folgenden Gleichungen an:
+    \begin{enumerate}[label=\alph*)]
+      \item $4 - \sqrt{6 - x} + x = 2x$
+      \item $\sqrt{x}\sqrt{x-3} - \sqrt{x^2 - 4x + 3} - \sqrt{2x^2 - 7x + 3} = 0$
+    \end{enumerate}
+  \item Geben Sie die Lösungsmenge der folgenden Gleichung an:
+    \[ e^{-x} + e^{x} = 2 \]
+    (Tipp: Substituieren Sie zunächst $z = e^x$.)
+  \item Man löse die folgende Gleichung (Zinseszinsgleichung) nach $K_0$, $q$ und $n$ auf:
+    \[ K_n = K_0 \cdot q^n \]
+  \item Die Kosten eines Unfalls in Höhe von 12000\,€ sollen auf drei Beteiligte H, K und L wie folgt verteilt werden: K muss das Fünffache von H, gemindert um 2000\,€, zahlen; L bezahlt $\tfrac{4}{5}$ der Kosten von K. Wie viel müssen die Beteiligten jeweils zahlen?
+\end{uebungsaufgaben}
+
+\subsection{Lösungen der Übungsaufgaben zu 2.1}
+
+\loesung{2.1.6.1:}
+\begin{enumerate}[label=\alph*)]
+  \item $7^{\log_7 x} = 7^3 \Rightarrow x = 343$
+  \item $10^{\log_{10} x} = 10^5 \Rightarrow x = 10^5$ bzw. $100000$
+  \item $e^{\ln x} = e^{10} \Rightarrow x = e^{10}$
+  \item $10^{400}$
+  \item $x = 7$
+  \item \begin{align*}
+      2\ln x &= \ln 15 + 2\ln 2 - \ln 12 \rightarrow 2\ln x = \ln\left(\frac{15 \cdot 4}{12}\right)\\
+      &\rightarrow 2\ln x = \ln 5 \rightarrow \ln x^2 = \ln 5 \rightarrow x^2 = 5\\
+      &\rightarrow x = \sqrt{5} \approx 2{,}2361
+    \end{align*}
+\end{enumerate}
+
+\loesung{2.1.6.2:}
+\begin{enumerate}[label=\alph*)]
+  \item $x = \log_5 10 = \dfrac{\log_{10} 10}{\log_{10} 5} = \dfrac{1}{0{,}699} \approx 1{,}431$
+  \item \begin{align*}
+      2^x &= 1000 \rightarrow \ln 2^x = \ln 1000\\
+      &\rightarrow x \ln 2 = \ln 10^3 = 3\ln 10 \rightarrow x = \frac{3\ln 10}{\ln 2} \approx 9{,}9658
+    \end{align*}
+  \item \begin{align*}
+      1{,}05^x = 2 &\rightarrow \ln 1{,}05^x = \ln 2 \rightarrow x \ln 1{,}05 = \ln 2\\
+      &\rightarrow x = \frac{\ln 2}{\ln 1{,}05} \approx 14{,}207
+    \end{align*}
+  \item \begin{align*}
+      4 \cdot 2^{x+2} &= 3 \cdot 4^{x+2} \rightarrow \frac{4}{3} = \frac{4^{x+2}}{2^{x+2}} = 2^{2(x+2) - (x+2)}\\
+      &\rightarrow 2 \cdot \log 2 - \log 3 = (x+2) \cdot \log 2\\
+      &\rightarrow -x \cdot \log 2 = \log 3 \rightarrow x = -\frac{\log 3}{\log 2} \approx -1{,}585
+    \end{align*}
+\end{enumerate}
+
+\loesung{2.1.6.3:}
+\begin{enumerate}[label=\alph*)]
+  \item Ausmultiplizieren der linken Seite führt zu $x^2 - x + 2x - 2 = x^2 + 1$, und da $x^2$ auf beiden Seiten subtrahiert werden kann, gelangt man zur Lösung $x = 3$.
+  \item Ausmultiplizieren beider Seiten führt zu $2ax + 6a = 15 + 6a + 5x + 2ax$ mit dem Ergebnis $x = -3$.
+\end{enumerate}
+
+\loesung{2.1.6.4:}
+\begin{enumerate}[label=\alph*)]
+  \item \begin{align*}
+      (x-3)(x+7) &= (x-2)(x+3)\\
+      \rightarrow (x \cdot x) + (x \cdot 7) - (3 \cdot x) - (3 \cdot 7) &= (x \cdot x) + (x \cdot 3) - (2 \cdot x) - (2 \cdot 3)\\
+      \rightarrow x^2 + 7x - 3x - 21 &= x^2 + 3x - 2x - 6\\
+      \rightarrow x^2 + 4x - 21 &= x^2 + x - 6\\
+      \rightarrow x^2 + 4x - 21 - x^2 - x + 6 &= 0\\
+      \rightarrow 3x - 15 &= 0 \rightarrow 3x = 15 \rightarrow x = \frac{15}{3} \rightarrow x = 5
+    \end{align*}
+  \item \begin{align*}
+      (2x-1)(3x+4) &= (2-x)(5-6x)\\
+      \rightarrow (2x \cdot 3x) + (2x \cdot 4) - (1 \cdot 3x) - (1 \cdot 4) &= (2 \cdot 5) - (2 \cdot 6x) - (x \cdot 5) + (x \cdot 6x)\\
+      \rightarrow 6x^2 + 8x - 3x - 4 &= 10 - 12x - 5x + 6x^2\\
+      \rightarrow 6x^2 + 8x - 3x - 4 - 10 + 12x + 5x - 6x^2 &= 0\\
+      \rightarrow 22x - 14 &= 0 \rightarrow 22x = 14 \rightarrow x = \frac{14}{22} \rightarrow x = \frac{7}{11}
+    \end{align*}
+  \item \begin{align*}
+      \frac{y+2}{y+5} &= \frac{6-y}{9-y}\\
+      \rightarrow (y+2)(9-y) &= (y+5)(6-y)\\
+      \rightarrow (y \cdot 9) - (y \cdot y) + (2 \cdot 9) - (2 \cdot y) &= (y \cdot 6) - (y \cdot y) + (5 \cdot 6) - (5 \cdot y)\\
+      \rightarrow 9y - y^2 + 18 - 2y &= 6y - y^2 + 30 - 5y\\
+      \rightarrow 7y - y^2 + 18 &= y - y^2 + 30\\
+      \rightarrow 7y - y^2 + 18 - y + y^2 - 30 &= 0\\
+      \rightarrow 6y - 12 &= 0 \rightarrow y = \frac{12}{6} \rightarrow y = 2
+    \end{align*}
+  \item \begin{align*}
+      \frac{2x-1}{6x-1} &= \frac{x-2}{3x+1}\\
+      \rightarrow (2x-1)(3x+1) &= (6x-1)(x-2)\\
+      \rightarrow (2x \cdot 3x) + (2x \cdot 1) - (1 \cdot 3x) - (1 \cdot 1) &= (6x \cdot x) - (6x \cdot 2) - (1 \cdot x) + (1 \cdot 2)\\
+      \rightarrow 6x^2 + 2x - 3x - 1 &= 6x^2 - 12x - x + 2\\
+      \rightarrow 6x^2 - x - 1 &= 6x^2 - 13x + 2\\
+      \rightarrow 6x^2 - x - 1 - 6x^2 + 13x - 2 &= 0\\
+      \rightarrow 12x - 3 &= 0 \rightarrow 12x = 3 \rightarrow x = \frac{3}{12} \rightarrow x = \frac{1}{4}
+    \end{align*}
+  \item Multiplikation mit dem Hauptnenner $x^2 - 4$ ergibt
+    \[ (x-2)^2 - (x+4)(x+2) = 2(x-38) . \]
+    Ausmultiplizieren ergibt die lineare Gleichung $-12x + 72 = 0$ mit der Lösung $x = 6$.
+\end{enumerate}
+
+\loesung{2.1.6.5:}
+\begin{enumerate}[label=\alph*)]
+  \item \begin{align*}
+      3z^2 - 12 &= 0 \rightarrow 3z^2 = 12 \rightarrow z^2 = \frac{12}{3} = 4\\
+      &\rightarrow z = \pm 2 \rightarrow z_1 = 2,\ z_2 = -2
+    \end{align*}
+  \item \begin{align*}
+      9x^2 + 49 &= 0 \rightarrow 9x^2 = -49 \rightarrow x^2 = -\frac{49}{9}\\
+      &\text{Keine Lösung in } \mathbb{R}.
+    \end{align*}
+  \item \begin{align*}
+      3x^2 - 5x + 4 &= 0 \rightarrow x^2 - \frac{5}{3}x + \frac{4}{3} = 0\\
+      &\rightarrow x_{1/2} = \frac{5}{6} \pm \sqrt{\left(\frac{5}{6}\right)^2 - \frac{4}{3}} = \frac{5}{6} \pm \sqrt{\frac{25}{36} - \frac{48}{36}}\\
+      &\rightarrow x_{1/2} = \frac{5}{6} \pm \sqrt{\frac{-23}{36}}\\
+      &\text{Keine Lösung in } \mathbb{R}.
+    \end{align*}
+  \item \begin{align*}
+      5x^2 + 11x + 5{,}6 &= 0 \rightarrow x^2 + \frac{11}{5}x + \frac{5{,}6}{5} = 0\\
+      &\rightarrow x_{1/2} = -\frac{11}{10} \pm \sqrt{\left(\frac{11}{10}\right)^2 - \frac{5{,}6}{5}}\\
+      &\rightarrow x_{1/2} = -\frac{11}{10} \pm \sqrt{\frac{121}{100} - \frac{112}{100}} = -\frac{11}{10} \pm \sqrt{\frac{9}{100}}\\
+      &\rightarrow x_{1/2} = -\frac{11}{10} \pm \frac{3}{10} \rightarrow x_1 = \frac{-8}{10} = -0{,}8,\ x_2 = \frac{-14}{10} = -1{,}4
+    \end{align*}
+\end{enumerate}
+
+\loesung{2.1.6.6:}
+\begin{enumerate}[label=\alph*)]
+  \item $x^6 + 4x^4 = 0 \rightarrow x^4(x^2 + 4) = 0 \rightarrow x^4 = 0$ oder $x^2 + 4 = 0 \rightarrow$ einzige Lösung $x = 0$.
+  \item \begin{align*}
+      x^4 - 26x^2 + 25 &= 0 \quad \text{(Substitution } y = x^2\text{)}\\
+      &\rightarrow y^2 - 26y + 25 = 0 \rightarrow y_{1/2} = 13 \pm \sqrt{13^2 - 25}\\
+      &\rightarrow y_{1/2} = 13 \pm \sqrt{169 - 25} \rightarrow y_{1/2} = 13 \pm \sqrt{144}\\
+      &\rightarrow y_{1/2} = 13 \pm 12 \rightarrow y_1 = 25,\ y_2 = 1\\
+      &\rightarrow x_{1/2} = \pm 5,\ x_{3/4} = \pm 1
+    \end{align*}
+  \item \begin{align*}
+      3x^4 - 21x^2 &= 54 \quad \text{(Substitution } y = x^2\text{)}\\
+      &\rightarrow 3y^2 - 21y = 54 \rightarrow y^2 - 7y - 18 = 0\\
+      &\rightarrow y_{1/2} = \frac{7}{2} \pm \sqrt{\left(\frac{7}{2}\right)^2 + 18} = \frac{7}{2} \pm \sqrt{\frac{49}{4} + \frac{72}{4}}\\
+      &\rightarrow y_{1/2} = \frac{7}{2} \pm \sqrt{\frac{121}{4}} = \frac{7}{2} \pm \frac{11}{2}\\
+      &\rightarrow y_1 = \frac{7}{2} + \frac{11}{2} = 9,\quad y_2 = \frac{7}{2} - \frac{11}{2} = -2\\
+      &\text{Für } y_1 = 9 \rightarrow x^2 = 9 \rightarrow x_1 = 3,\ x_2 = -3\\
+      &\text{Für } y_2 = -2 \rightarrow x^2 = -2 \rightarrow \text{unmöglich in } \mathbb{R}\\
+      &\rightarrow \text{Lösungen: } x_1 = 3,\ x_2 = -3
+    \end{align*}
+  \item $2x^7 - 18x^5 = 0 \rightarrow 2x^5(x^2 - 9) = 0 \rightarrow 2x^5 = 0 \ (\rightarrow x_1 = 0)$ oder $x^2 - 9 = 0 \ (\rightarrow x^2 = 9$ und $x_{2/3} = \pm 3)$\\
+    Lösungen: $x_1 = 0$, $x_2 = 3$, $x_3 = -3$
+  \item $2x^9 - 12x^8 + 10x^7 = 0 \rightarrow 2x^7(x^2 - 6x + 5) = 0$\\
+    $2x^7 = 0 \ (\rightarrow x_1 = 0)$ oder $x^2 - 6x + 5 = 0 \ (\rightarrow x_2 = 5,\ x_3 = 1)$\\
+    Lösungen: $x_1 = 0$, $x_2 = 5$, $x_3 = 1$
+  \item $2x^5 - 6x^4 + 4x^3 = 0 \rightarrow x^3(2x^2 - 6x + 4) = 0$\\
+    $x^3 = 0 \ (\rightarrow x_1 = 0)$ oder $2x^2 - 6x + 4 = 0 \ (\rightarrow x_2 = 1,\ x_3 = 2)$\\
+    Lösungen: $x_1 = 0$, $x_2 = 1$, $x_3 = 2$
+\end{enumerate}
+
+\loesung{2.1.6.7:}
+\begin{enumerate}[label=\alph*)]
+  \item \begin{align*}
+      4 - \sqrt{6-x} + x &= 2x \rightarrow 4 - x = \sqrt{6-x}\\
+      &\rightarrow (4-x)^2 = 6 - x \rightarrow x^2 - 8x + 16 = 6 - x\\
+      &\rightarrow x^2 - 7x + 10 = 0 \rightarrow x_1 = 5,\ x_2 = 2
+    \end{align*}
+    Nach Probe: Nur $x_2 = 2$ ist Lösung.
+  \item Die Ausgangsgleichung lautet: $\sqrt{x}\sqrt{x-3} - \sqrt{x^2 - 4x + 3} - \sqrt{2x^2 - 7x + 3} = 0$. Umformung liefert:
+    \[ \sqrt{x}\sqrt{x-3} = \sqrt{x^2 - 4x + 3} + \sqrt{2x^2 - 7x + 3} . \]
+    Quadrieren ergibt:
+    \begin{align*}
+      x(x-3) &= (x^2 - 4x + 3) + (2x^2 - 7x + 3)\\
+      &\quad + 2\sqrt{(x^2 - 4x + 3)(2x^2 - 7x + 3)}
+    \end{align*}
+    Isolieren der Wurzel führt zu:
+    \[ -2\sqrt{(x^2 - 4x + 3)(2x^2 - 7x + 3)} = 2x^2 - 8x + 6 \]
+    und
+    \[ (x^2 - 4x + 3)(2x^2 - 7x + 3) = (x^2 - 4x + 3)^2 \qquad (\text{Gleichung } *) \]
+    Diese Gleichung ist auf jeden Fall erfüllt, wenn gilt $x^2 - 4x + 3 = 0$. Lösungen hierfür sind $x_1 = 3$ und $x_2 = 1$.\\
+    Für alle anderen $x$ ist $x^2 - 4x + 3 \neq 0$, so dass die obige Gleichung $*$ durch diesen Faktor dividiert werden kann. Es folgt dann
+    \[ 2x^2 - 7x + 3 = x^2 - 4x + 3 \]
+    mit den Lösungen $x_3 = 0$ und $x_4 = 3$.\\
+    Einsetzen der Werte von $x_1, x_2, x_3$ und $x_4$ in die Ausgangsgleichung ergibt: Nur $x_1 = x_4 = 3$ ist Lösung. Die Wurzelgleichung besitzt nur eine Lösung, nämlich $x = 3$.
+\end{enumerate}
+
+\loesung{2.1.6.8:}
+Die Gleichung $e^{-x} + e^x = 2$ soll gelöst werden. Die Substitution $z = e^x$ und $\dfrac{1}{z} = e^{-x}$ führt zu der Gleichung $\dfrac{1}{z} + z = 2$. Multiplikation mit $z$ ergibt nun
+\[ z^2 - 2z + 1 = 0 \]
+mit einziger Lösung $z = 1$. Wegen $z = e^x$ hat man so für die Ausgangsgleichung die Lösung $x = 0$.
+
+\loesung{2.1.6.9:}
+\[ K_n = K_0 \cdot q^n \rightarrow K_0 = \frac{K_n}{q^n} , \quad q = \sqrt[n]{\frac{K_n}{K_0}} , \quad n = \frac{\log K_n - \log K_0}{\log q} \]
+
+\loesung{2.1.6.10:}
+Einsetzen von $K = 5H - 2000$ und $L = \tfrac{4}{5}K$ in $H + K + L = 12000$ ergibt:
+\[ H + (5H - 2000) + \tfrac{4}{5}(5H - 2000) = 12000 \rightarrow \text{Lösung } H = 1560 \]
+Daraus folgt $K = 5800$ und $L = 4640$.

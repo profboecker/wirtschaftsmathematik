@@ -1,0 +1,204 @@
+\section{Rentenrechnung}
+
+In den vorigen Beispielen wurden bereits mehrere Zahlungen zu einem Gesamtwert zusammengefasst, indem man alle Zahlungen auf einen gemeinsamen Zeitpunkt bezogen hat -- beispielsweise auf den Zeitpunkt Null, für den sich die Barwerte ergeben. In der Praxis kommen oft gleich hohe Zahlungen vor, die in gleichen Zeitabständen fließen -- dies nennt man eine \textbf{Rente}.
+
+\merkbox{Unter einer \textbf{Rente} versteht man in der Finanzmathematik eine Folge von regelmäßig wiederkehrenden Ein- bzw. Auszahlungen mit gleich hohen Beträgen, die \textbf{Rentenraten} genannt werden. Die Zeitspanne zwischen zwei Rentenzahlungen heißt \textbf{Rentenperiode}.}
+
+Die \textbf{Rentenrechnung} befasst sich mit dem Problem, die geleisteten Rentenraten unter Berücksichtigung von Zinsen zu einem Gesamtwert zusammen zu fassen. Der einfachere Fall liegt hierbei dann vor, wenn Renten- und Zinsperiode übereinstimmen -- dies wird im nächsten Unterabschnitt behandelt. Anschließend wird auf den allgemeineren Fall separat eingegangen.
+
+\subsection{Renten mit übereinstimmender Renten- und Zinsperiode}
+
+Hier ist zur Einführung zunächst ein typisches einfaches Beispiel:
+
+\subsubsection{Beispiel}
+
+Herr K. zahlt jährlich jeweils am Jahresende (man sagt \textbf{nachschüssig}) 10.000\,€ auf ein Sparkonto ein, welches 4\,\% Verzinsung bietet. Wie hoch ist der Kontostand nach 10 Jahren, also direkt nach der zehnten Einzahlung?
+
+Offenbar gibt es für die zuletzt eingezahlten 10.000\,€ keine Zinsen, die ein Jahr zuvor eingezahlten Euro werden ein Jahr lang verzinst usw. Die am Ende des ersten Jahres eingezahlten 10.000\,€ werden neun Jahre lang verzinst. Insgesamt führt das zu dem folgenden \textbf{nachschüssigen Rentenendwert}:
+\[ R_{10}^{\text{nach}} = 10.000 + 10.000 \cdot 1{,}04 + 10.000 \cdot 1{,}04^2 + \ldots + 10.000 \cdot 1{,}04^9 \qquad (*) \]
+Dies auszurechnen erfordert etwas Fleißarbeit. Wir kommen bald darauf zurück.\beispielende
+
+Die in dem Beispiel aufgetretene Rechnung lässt sich glücklicherweise wesentlich abkürzen. Klammert man nämlich in der mit $(*)$ gekennzeichneten Formel auf der rechten Seite die Zahl 10.000 aus, so ergibt sich:
+\[ R_{10}^{\text{nach}} = 10.000 \cdot (1 + 1{,}04 + 1{,}04^2 + \ldots + 1{,}04^9) \qquad (**) \]
+
+Nun nutzt man die folgende mathematische Tatsache:
+\merkbox{Für jede beliebige reelle Zahl $a \neq 1$ und jede natürliche Zahl $n$ gilt stets
+\[ 1 + a + a^2 + \ldots + a^{n-1} = \frac{a^n - 1}{a - 1} . \]}
+
+Man nennt dies die \textbf{Summenformel für die endliche geometrische Reihe}. Die Begründung für diese Formel ist einfach: Man kann ausrechnen, dass immer gilt:
+\[ (1 + a + a^2 + \ldots + a^{n-1}) \cdot (a - 1) = a^n - 1 \]
+Division durch $(a - 1)$ auf beiden Seiten der Gleichung ergibt dann die Formel.
+
+\subsubsection{Beispiel (Fortsetzung von 1.2.1.1)}
+
+Anwendung der Summenformel auf die rechte Seite von $(**)$ ergibt:
+\[ R_{10}^{\text{nach}} = 10.000 \cdot \frac{1{,}04^{10} - 1}{1{,}04 - 1} \approx 120.061{,}07 \]
+Der Kontostand nach 10 Jahren beträgt also 120.061{,}07\,€.\beispielende
+
+Aufgrund der obigen Summenformel kann man nun allgemein sagen:
+\merkbox{Der Rentenendwert einer aus $n$ (nachschüssigen) Rentenraten der Höhe $r$ bestehenden Rente beträgt
+\[ R_n^{\text{nach}} = r \cdot \frac{q^n - 1}{q - 1} . \]}
+
+Da diese Formel vier Größen enthält, ist (wie bei der Zinseszinsformel) klar: Sind drei Größen bekannt, so kann man die vierte ausrechnen.
+
+\subsubsection{Beispiel}
+
+Jemand beschließt, ab dem Jahr 2010 für seine zwölfjährige Tochter sieben Mal jährlich nachschüssig einen festen Betrag auf ein Konto einzuzahlen, das 4\,\% Verzinsung p.\,a. bietet und auf dem nach der letzten Einzahlung 20.000\,€ zur Verfügung sein sollen. Wie hoch ist der jeweils einzuzahlende Betrag?
+
+Da hier nach $r$ gefragt wird, ist die obige Formel nach $r$ aufzulösen:
+\[ r = R_n^{\text{nach}} \cdot \frac{q - 1}{q^n - 1} \]
+Einsetzen der gegebenen Werte führt zu:
+\[ r = 20.000 \cdot \frac{1{,}04 - 1}{1{,}04^7 - 1} \]
+Ergebnis ist $r = 2.532{,}19$, d.\,h. es sind sieben Mal 2.532{,}19\,€ einzuzahlen.\beispielende
+
+In Anwendungsbeispielen wird oft nach der Rentenrate gefragt, wobei nicht der \emph{Rentenendwert}, sondern dessen \emph{Barwert} vorgegeben ist. Die anzuwendende Formel lautet dann konsequenterweise so:
+\[ r = R_0 \cdot q^n \cdot \frac{q - 1}{q^n - 1} \]
+
+\subsubsection{Beispiel}
+
+Frau L. möchte eine Erbschaft von 100.000\,€ in vier gleich hohen, am Jahresende fälligen Raten ausbezahlt bekommen. Über welchen Betrag kann sie jeweils am Jahresende verfügen, wenn das Kapital zu 4{,}5\,\% angelegt ist?
+
+Die obige Formel ergibt hier:
+\[ r = 100.000 \cdot 1{,}045^4 \cdot \frac{1{,}045 - 1}{1{,}045^4 - 1} \approx 27.874{,}36 \]
+Frau L. kann sich also vier Jahre lang jeweils am Jahresende 27.874{,}36\,€ auszahlen lassen.\beispielende
+
+Genauso kann natürlich nach dem Barwert einer nachschüssigen Rente gefragt werden -- hierzu die nächste Übungsaufgabe.
+
+\subsubsection{Übungsaufgabe}
+
+\begin{graukasten}
+  Die Studentin L. benötigt einen Kredit. Aufgrund einer Nebenbeschäftigung geht sie davon aus, in den nächsten fünf Jahren monatlich (nachschüssig) 300\,€ zurückzahlen zu können. Sie hat von der Bank ein Angebot mit einer Verzinsung von 7{,}5\,\% p.\,a. vorliegen, wobei der Zinszuschlag monatlich erfolgt. Welchen Kreditbetrag kann sie aufnehmen?
+\end{graukasten}
+
+Rechenaufwendiger wird es, wenn in der Formel für den Rentenendwert nach $n$ oder $q$ gefragt wird. Auflösen nach $n$ ergibt (bitte nachrechnen!):
+\[ n = \frac{\log\left(\frac{R_n^{\text{nach}}}{r}(q - 1) + 1\right)}{\log q} \]
+(Mit »log« ist üblicherweise der 10er-Logarithmus gemeint, es kann jedoch auch »ln« oder ein anderer genommen werden, der Unterschied kürzt sich heraus.)
+
+\subsubsection{Beispiel}
+
+Jemand hat 20.000\,€ durch jährlich nachschüssige Raten in Höhe von 2.249{,}13\,€ angespart. Die Verzinsung betrug 3\,\%. Wie viele Jahre lang wurde die Rate überwiesen?
+
+Die Formel ergibt:
+\[ n = \frac{\log\left(\frac{20.000}{2.249{,}13}(1{,}03 - 1) + 1\right)}{\log 1{,}03} = 8 \]
+Die Rate wurde also acht Mal gezahlt.\beispielende
+
+Ganz schwierig kann es werden, wenn die Zinsrate bzw. der Aufzinsungsfaktor bestimmt werden muss. Versucht man, die Rentenendwertformel nach $q$ aufzulösen, so gelangt man zunächst zu:
+\[ R_n^{\text{nach}} \cdot (q - 1) = r \cdot (q^n - 1) \]
+oder, nach Ausmultiplizieren der Klammern und Gruppierung aller Terme auf der linken Seite:
+\[ R_n^{\text{nach}} \cdot q - R_n^{\text{nach}} - r \cdot q^n + r = 0 \]
+Welches Problem jetzt vorliegt, erkennt man am besten, wenn nun noch die ganze Gleichung durch $(-r)$ dividiert wird:
+\[ q^n - \frac{R_n^{\text{nach}}}{r} \cdot q + \frac{R_n^{\text{nach}}}{r} - 1 = 0 \]
+Es handelt sich um eine \textbf{algebraische Gleichung $n$-ten Grades} mit $q$ als Unbekannter (die dieses Mal nicht -- wie sonst oft -- »$x$« heißt). Die entscheidende Aussage ist nun -- dies wurde auch in Lerneinheit 1 bereits gesagt:
+\begin{itemize}
+  \item Eine solche Gleichung kann man im Allgemeinen nicht lösen (bzw. nach $q$ auflösen), sondern nur in Sonderfällen.
+\end{itemize}
+
+Auch in Beispiel 1.1.3.6 des vorigen Abschnitts sind wir bereits auf dieses Problem gestoßen. Einen der genannten »Sonderfälle« hat man, wenn $n = 2$ ist -- hierzu ein Beispiel:
+
+\subsubsection{Beispiel}
+
+Zwei Raten in Höhe von 500\,€ haben zu einem Guthaben von 1.020\,€ geführt. Welcher Zinssatz wurde hierbei zugrunde gelegt?
+
+Man gelangt hier zu der folgenden quadratischen Gleichung:
+\[ q^2 - \frac{1.020}{500}\, q + \frac{1.020}{500} - 1 = 0 \]
+Anwendung der $p$-$q$-Formel liefert die beiden Lösungen $q_1 = 1{,}04$ und $q_2 = 1$, wobei nur die erste in Frage kommt -- der gesuchte Zinssatz beträgt 4\,\%.\beispielende
+
+\subsubsection{Übungsaufgabe}
+
+\begin{graukasten}
+  Durch dreimalig jährlich nachschüssig gezahlte Raten von 1.000\,€ haben sich insgesamt 3.106{,}23\,€ ergeben. Wie hoch war der Zinssatz?
+\end{graukasten}
+
+Bisher wurde nur von \emph{nachschüssigen} Rentenraten geredet -- auch in der obigen Formel für den Rentenendwert. Genauso sind jedoch \textbf{vorschüssige} Rentenzahlungen möglich, d.\,h. die Raten werden jeweils zu \emph{Beginn} einer Rentenperiode gezahlt. Am einfachen Beispiel wird dies klar.
+
+\subsubsection{Beispiel}
+
+Welcher Gesamtbetrag würde sich nach den 10 Jahren ergeben, wenn Herr K. aus Beispiel 1.2.1.1 jeweils zu \emph{Beginn} eines Jahres (statt am Jahresende) die 10.000\,€ einzahlen würde?
+
+In diesem Fall würden die zuletzt (zu Beginn des zehnten Jahres) eingezahlten Euro immerhin noch ein Jahr lang verzinst, die gleich zu Beginn des ersten eingezahlten sogar 10 Jahre. Somit ergibt sich hier der \textbf{vorschüssige Rentenendwert}
+\[ R_{10}^{\text{vor}} = 10.000 \cdot 1{,}04 + 10.000 \cdot 1{,}04^2 + \ldots + 10.000 \cdot 1{,}04^{10} . \]
+Ausklammern von $1{,}04$ auf der rechten Seite liefert
+\[ R_{10}^{\text{vor}} = 1{,}04 \cdot \left(10.000 + 10.000 \cdot 1{,}04 + \ldots + 10.000 \cdot 1{,}04^9\right) = 1{,}04 \cdot R_{10}^{\text{nach}} = 124.863{,}51\,€ .\beispielende \]
+
+Wie in dem Beispiel zu sehen, ergibt sich der vorschüssige Endwert aus dem nachschüssigen durch Multiplikation mit dem Aufzinsungsfaktor $q$. Dies leuchtet unmittelbar ein, denn im vorschüssigen Fall wird jeder irgendwann eingezahlte Euro eine Periode länger verzinst als im nachschüssigen Fall. Damit ist die Formel offensichtlich:
+\merkbox{Der Rentenendwert einer aus $n$ (vorschüssigen) Rentenraten der Höhe $r$ bestehenden Rente beträgt
+\[ R_n^{\text{vor}} = r \cdot q \cdot \frac{q^n - 1}{q - 1} . \]}
+
+\subsubsection{Beispiel}
+
+Jemand fragt sich: Über welchen Betrag muss ich zu Beginn meiner Rentenzeit verfügen, damit ich bei 6\,\% Verzinsung 20 Jahre lang jährlich vorschüssig 2.000\,€ zusätzlich zu meiner gesetzlichen Rente ausgezahlt bekommen kann?
+
+Offenbar ist hier nach dem Barwert einer vorschüssigen Rente der Höhe $r = 2.000$ gefragt. Dieser beträgt allgemein
+\[ \frac{R_n^{\text{vor}}}{q^n} = \frac{1}{q^n} \cdot r \cdot q \cdot \frac{q^n - 1}{q - 1} = r \cdot \frac{q^n - 1}{q^{n-1} \cdot (q - 1)} . \]
+Einsetzen der Werte liefert:
+\[ R_0 = 2.000 \cdot \frac{1{,}06^{20} - 1}{1{,}06^{19} \cdot 0{,}06} = 24.316{,}23 \]
+Es müssen also 24.316{,}23\,€ zur Verfügung stehen.\beispielende
+
+\subsubsection{Übungsaufgabe}
+
+\begin{graukasten}
+  Ein heute 45-Jähriger schließt einen Sparplan ab, bei dem er über 20 Jahre hinweg jährlich (vorschüssig) $r = 2.000\,€$ einzahlen und dafür ab seinem 65.~Lebensjahr fünfzehn Jahre lang einen bestimmten Betrag erhalten wird. Wie hoch wird dieser Betrag bei einer angenommenen Verzinsung von 6\,\% in der Sparphase und 5\,\% in der Rentenphase sein?
+\end{graukasten}
+
+\subsection{Unterjährige Renten bei jährlicher Verzinsung}
+
+In der Praxis werden Rentenzahlungen häufig \emph{unterjährig} geleistet (z.\,B. monatlich, viertel- oder halbjährlich), wobei jedoch die Verzinsung \emph{jährlich nachschüssig} erfolgt. Da innerhalb eines Jahres mit einfachen Zinsen gerechnet wird, kommt bei dieser Thematik auch wieder die einfache Zinsrechnung ins Spiel.
+
+Ein ausführliches Beispiel verdeutlicht die Sachlage.
+
+\subsubsection{Beispiel}
+
+Jemand zahlt auf ein Konto am letzten Tag eines Monats jeweils 500\,€ ein (d.\,h. nachschüssig). Es werden 3\,\% Zinsen geboten, wobei der Zinszuschlag am Ende des Jahres erfolgt. Wie hoch ist der Kontostand am Ende des ersten Jahres, wenn also 12 Zahlungen geleistet wurden?
+
+Der Kontostand setzt sich zusammen aus der Summe der 12 Einzahlungen von je 500\,€ und den auf diese Zahlungen am Jahresende gutgeschriebenen Zinsen. Diese Zinsen werden nun im Einzelnen aufgeführt:
+
+Zinsen für die erste Rate vom 30.\,01., für die elf Monate Zinsen gezahlt werden:
+\[ Z_1 = 500 \cdot 0{,}03 \cdot \frac{11}{12} \]
+Zinsen für die zweite Rate von Ende Februar:
+\[ Z_2 = 500 \cdot 0{,}03 \cdot \frac{10}{12} \]
+Zinsen für die zwölfte Rate vom 31.\,12.:
+\[ Z_{12} = 500 \cdot 0{,}03 \cdot \frac{0}{12} \]
+Die Summe dieser Zinserträge ergibt sich:
+\begin{align*}
+  Z &= 500 \cdot 0{,}03 \cdot \left(\tfrac{11}{12} + \tfrac{10}{12} + \ldots + \tfrac{0}{12}\right)\\
+  &= 500 \cdot 0{,}03 \cdot 6 \cdot \tfrac{11}{12}\\
+  &= 500 \cdot 0{,}03 \cdot \tfrac{11}{2}\\
+  &= 82{,}5
+\end{align*}
+(In der mit $*$ bezeichneten Zeile wurde dabei für die Summe der Wert $6 \cdot \tfrac{11}{12}$ eingesetzt. Dies beruht auf der Überlegung, dass erster und letzter Summand zusammen $\tfrac{11}{12}$ ergeben, ebenso zweiter und vorletzter Summand etc.)
+
+Der Kontostand am Jahresende ergibt sich somit als:
+\[ K = 12 \cdot 500 + 82{,}5 = 6.082{,}50 .\beispielende \]
+
+Der in dem Beispiel für ein Jahr berechnete Wert der monatlich gezahlten Rate wird \textbf{Jahresersatzrate} $r_E$ genannt.
+
+\merkbox{Generell ergibt sich die Jahresersatzrate bei $m$ unterjährigen nachschüssigen Raten in Höhe von $r$ (im obigen Beispiel ist $m = 12$) und Zinsrate $i$ als:
+\[ r_E = r \left(m + \tfrac{i}{2}(m - 1)\right) \]}
+
+\subsubsection{Beispiel}
+
+Frau L. hat in einer Lotterie eine jährliche nachschüssige Rente von 20.000\,€ gewonnen, möchte sich diese jedoch lieber monatlich auszahlen lassen. Welcher Betrag steht ihr monatlich nachschüssig zu, wenn mit 5\,\% Jahreszinsen gerechnet wird?
+
+Zur Beantwortung der Frage muss die obige Formel nach $r$ umgestellt werden:
+\[ r = \frac{2 r_E}{2m + i(m - 1)} \]
+Einsetzen der gegebenen Werte ergibt:
+\[ r = \frac{2 \cdot 20.000}{2 \cdot 12 + 0{,}05 \cdot 11} = 1.629{,}33 \]
+Frau L. kann sich also monatlich 1.629{,}33\,€ auszahlen lassen.\beispielende
+
+In der Praxis werden die Rentenzahlungen häufig zu \emph{Beginn} der $m$ unterjährigen Perioden fällig (z.\,B. bei Mieten oder Bausparbeiträgen), während jedoch nach wie vor die Zinsen nachschüssig anfallen. In diesem Fall ergibt sich eine leicht modifizierte Jahresersatzrate:
+\merkbox{Die Jahresersatzrate bei $m$ unterjährigen vorschüssigen Raten in Höhe von $r$ und Zinsrate $i$ beträgt:
+\[ \bar{r}_E = r \left(m + \tfrac{i}{2}(m + 1)\right) \]}
+
+\subsubsection{Beispiel}
+
+Jemand muss am Quartalsanfang 2.000\,€ Miete überweisen. Wie viel könnte er stattdessen am Jahresende überweisen, wenn mit 5\,\% p.\,a. verzinst wird?
+
+Hier ergibt sich:
+\[ \bar{r}_E = 2.000 \left(4 + \tfrac{0{,}05}{2}(4 + 1)\right) = 8.250 \]
+Die Überweisung müsste 8.250\,€ betragen.\beispielende
+
+\subsubsection{Übungsaufgabe}
+
+\begin{graukasten}
+  Jemand zahlt 40 Jahre lang an eine Lebensversicherung monatlich vorschüssig 200\,€. Über welche Summe kann er bei einer Verzinsung von 6\,\% p.\,a. nach Beendigung der Sparphase verfügen?
+\end{graukasten}

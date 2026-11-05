@@ -1,0 +1,588 @@
+\section{Das Rechnen mit reellen Zahlen}
+
+\subsection{Die vier Grundrechenarten}
+
+Reelle Zahlen kann man addieren, subtrahieren, multiplizieren und dividieren. Man nennt dies die vier \textbf{Grundrechenarten}, die man schon in der Grundschule kennengelernt.
+
+Wenn man die Grundschule verlässt, »kann man rechnen«. Damit ist gemeint, dass man die \emph{Verfahren} beherrscht (z.\,B. für schriftliches Dividieren zweier großer Zahlen) und \emph{im Prinzip} jede solche Rechnung ausführen kann. \emph{In Wirklichkeit} führt man solche Rechnungen aber nur dann aus, wenn die Zahlen nicht allzu groß sind. Beispielsweise würde man niemandem zumuten (und schon gar nicht einem zehnjährigen Kind), die Berechnung von
+\[ 5746333743944990{,}7667474 : 4555900650001193{,}34 \]
+»per Hand« durchzuführen. Für sowas nimmt man heute einen Taschenrechner oder Software auf einem Smartphone oder Laptop.
+
+Im Folgenden erinnern wir kurz an einige Besonderheiten, die bei den vier Grundrechenarten zu beachten sind. Wie üblich, werden wieder für allgemeine Aussagen Variablen $a, b, c$ usw. verwendet.
+
+\structhead{Multiplikation}
+
+Das Multiplikationssymbol $\cdot$ wird oft auch weggelassen, man schreibt also $ab$ statt $a \cdot b$. Es gelten die folgenden \textbf{Vorzeichenregeln}:
+\begin{align*}
+  a \cdot (-b) &= -ab\\
+  (-a) \cdot b &= -ab\\
+  (-a) \cdot (-b) &= ab
+\end{align*}
+Die dritte Regel wird oft auch so formuliert:
+\begin{center}\textbf{Minus mal Minus gibt Plus.}\end{center}
+
+Zum Beispiel ist also $(-2) \cdot (-3) = 6$.
+
+In allen Regeln darf -- wie immer -- sowohl für $a$ wie für $b$ \emph{jede} reelle Zahl eingesetzt werden (also auch eine negative Zahl). Beispielsweise liefert die erste Vorzeichenregel für $a = 2$ und $b = 3$
+\[ 2 \cdot (-3) = -2 \cdot 3 \text{ bzw. } -6 . \]
+Für $a = 2$ und $b = -3$ erhält man
+\[ 2 \cdot 3 = -2 \cdot (-3) , \]
+was mit nochmaliger Anwendung der ersten Regel zu $-(-2 \cdot 3) = 6$ führt.
+
+Bei der Multiplikation von zwei Klammerausdrücken ist jedes Glied der einen Klammer mit jedem Glied der anderen Klammer unter Beachtung der Vorzeichenregeln zu multiplizieren:
+\[ (a+b)(c+d) = ac + ad + bc + bd \]
+
+Bei der Multiplikation von mehr als zwei Klammerausdrücken wendet man diese Verfahren schrittweise an.
+
+\subsubsection{Beispiel}
+
+\begin{align*}
+  &(a+b)(c-d)(e-f-g)\\
+  &= (ac - ad + bc - bd)(e-f-g)\\
+  &= ace - acf - acg - ade + adf + adg\\
+  &\quad + bce - bcf - bcg - bde + bdf + bdg
+\end{align*}\beispielende
+
+\structhead{Division}
+
+Statt $a : b$ schreibt man auch $\dfrac{a}{b}$ oder -- mit schrägem Bruchstrich -- $a/b$. Beispielsweise ist also
+\[ 1 : 2 = \frac{1}{2} = 0{,}5 \]
+und
+\[ 2{,}1 : 8{,}4 = \frac{2{,}1}{8{,}4} = 0{,}25 . \]
+
+Mit anderen Worten kann man bei der Schreibweise $\dfrac{a}{b}$ bzw. $a/b$ beliebige reelle Zahlen für $a$ und $b$ einsetzen (außer $b = 0$). Falls $a$ und $b$ beides ganze Zahlen sind, so haben wir oben von einem \textbf{Bruch} gesprochen.
+
+Man dividiert eine Summe durch einen Ausdruck, indem man jeden Summanden durch diesen Ausdruck dividiert.
+
+\subsubsection{Beispiel}
+
+Es ist $(3a + 6) : 2 = 1{,}5a + 3$. Achtung: Die Klammer auf der linken Seite ist wichtig, denn nach der üblichen Vereinbarung »geht Punktrechnung vor Strichrechnung«! Folglich ist $3a + 6 : 2 = 3a + 3$.\beispielende
+
+\structhead{Summen- und Produktzeichen}
+
+Hat man mehrere Summanden in einer Summe oder mehrere Faktoren in einem Produkt, so kann man sich abkürzender Schreibweisen bedienen. So steht etwa
+\[ \sum_{i=1}^{4} x_i \]
+für
+\[ x_1 + x_2 + x_3 + x_4 \]
+-- man liest: Summe über $x_i$ von 1 bis 4.\footnote{Das Zeichen $\sum$ ist ein großes griechisches »Sigma«.} Besonders nützlich ist diese Verwendung des Summenzeichens, wenn die Summandenanzahl variabel ist, z.\,B. in
+\[ \sum_{i=1}^{n} x_i , \]
+was für
+\[ x_1 + x_2 + \ldots + x_n \]
+steht.
+
+Das Produktzeichen, welches entsprechend wie das Summenzeichen verwendet wird, sieht so aus:
+\[ \prod_{i=1}^{k} a_i \]
+In diesem Beispiel steht es für
+\[ a_1 \cdot a_2 \cdot \ldots \cdot a_k .\footnote{$\prod$ ist ein großes griechisches »Pi«.} \]
+
+\structhead{Beispiele aus dem Alltag}
+
+Für das Alltagsleben vieler Menschen reichen die Grundrechenarten aus -- wenn man Preise vergleichen, Rabatte ausrechnen, den Benzinverbrauch pro 100\,km bestimmen oder die Durchschnitts-Schulnoten der Kinder ausrechnen will. Hierzu folgen jetzt einige Beispiele. Schwieriger wird es schon bei der Verzinsung des Sparkontos mit Zinseszinsen -- hier braucht man Potenzen und Logarithmen, auf die wir an späterer Stelle zu sprechen kommen.
+
+\subsubsection{Beispiel}
+
+Im Supermarkt kostet ein Glas Nutella mit 400\,g Inhalt 1{,}59\,€, eines mit 750\,g 3{,}29\,€. Welches ist günstiger?
+
+Man kann daraus eine typische Dreisatzaufgabe machen, indem man zuerst berechnet, wie viel bei gegebenem Preis von 1{,}59\,€ für 400\,g ein 750-g-Glas kosten \emph{müsste}:
+\[ 1{,}59 : 400 = x : 750 \]
+ergibt
+\[ x = \frac{1{,}59 \cdot 750}{400} = 2{,}98 \text{ (gerundet).} \]
+Da das 750-g-Glas mehr kostet, ist dies teurer.
+
+Eine andere Möglichkeit wäre es hier, jeweils auf 100\,g umzurechnen:
+\[ \frac{1{,}59}{4} = 0{,}4 \text{ und } \frac{3{,}29}{7{,}5} = 0{,}44 \]
+führen zu demselben Schluss, dass das 750-g-Glas preislich ungünstiger ist.\beispielende
+
+\subsubsection{Beispiel}
+
+Der Preis einer Hose ist von 65\,€ auf 48\,€ reduziert worden. Wie viel Prozent entspricht dieser Preisnachlass?
+
+Da hier nach dem Prozentsatz gefragt ist, muss man
+\[ \frac{17}{65} \cdot 100 \]
+rechnen, womit sich 26{,}15\,\% ergeben.
+
+Als Formel drückt man dies meist so aus:
+\[ p = \frac{w}{g} \cdot 100 \]
+($p$=Prozentsatz, $w$=Prozentwert, $g$=Grundwert)\beispielende
+
+\subsubsection{Beispiel}
+
+Ein Dachdecker benötigt für eine Arbeit drei Tage, sein Kollege schafft es in zwei Tagen. Wie lange benötigen sie gemeinsam?
+
+Zur Lösung dieser Aufgabe ist es sinnvoll, sich die anstehende Arbeit in sechs gleichgroße Portionen aufgeteilt zu denken (weil zwei mal drei sechs ergibt). Nun kann man nämlich sagen, dass an einem Tag der erste Dachdecker zwei Portionen schafft, sein Kollege drei Portionen. Zusammen schaffen sie also pro Tag fünf Portionen, folglich benötigen sie für die Arbeit
+\[ \frac{6}{5} = 1{,}2 \text{ Tage.}\]\beispielende
+
+\subsubsection{Beispiel}
+
+Jemand leiht einem Freund für ein halbes Jahr 300\,€. Sie haben vereinbart, dass monatlich 0{,}5\,\% Zinsen anfallen, die allerdings nicht mitverzinst werden, d.\,h. es wird kein Zinseszins berechnet. (In der Finanzmathematik heißt dies \textbf{einfache Verzinsung}.) Wie viel muss nach dem halben Jahr zurückgezahlt werden?
+
+Da 0{,}5\,\% von 300\,€ jeweils 1{,}50\,€ ergeben, sind nach dem halben Jahr neben den 300\,€ noch sechs mal 1{,}50\,€ zu zahlen, insgesamt 309\,€. Allgemein drückt man das in folgender Formel aus:
+\[ K_n = K_0 \cdot \left(1 + n \cdot \frac{p}{100}\right) \]
+($K_0$=Anfangskapital, $K_n$=Kapital nach $n$ Zinsperioden, $n$=Anzahl der Zinsperioden, $p$=Zinssatz in Prozent)\beispielende
+
+\subsection{Das Rechnen mit Brüchen}
+
+Die meisten Regeln für das Rechnen mit Brüchen $\dfrac{a}{b}$, die wir im Folgenden behandeln, gelten nicht nur, wenn $a$ und $b$ ganze Zahlen sind, sondern auch für den Fall, dass $a$ und $b$ irgendwelche reellen Zahlen sind.
+
+\begin{itemize}
+  \item Der Wert eines Bruches $\dfrac{a}{b}$ ändert sich nicht, wenn man Zähler und Nenner durch die gleiche Zahl $m$ dividiert (»Kürzen«) oder mit der gleichen Zahl $n$ multipliziert (»Erweitern«):
+  \[ \frac{a}{b} = \frac{a : m}{b : m} = \frac{a \cdot n}{b \cdot n} \]
+\end{itemize}
+
+\subsubsection{Beispiele}
+
+\begin{align*}
+  \frac{12}{16} &= \frac{3 \cdot 4}{4 \cdot 4} = \frac{3}{4}\\
+  \frac{4 \cdot a \cdot x}{8 \cdot a} &= \frac{x}{2}
+\end{align*}\beispielende
+
+Brüche heißen \textbf{gleichnamig}, wenn sie den gleichen Nenner haben; sonst heißen sie \textbf{ungleichnamig}.
+
+\begin{itemize}
+  \item Gleichnamige Brüche werden addiert, indem man die Zähler addiert und die Summe durch den gemeinsamen Nenner dividiert. Wenn man zwei Brüche addieren will, macht man sie folglich zuerst gleichnamig, damit man dann nur noch die Zähler addieren muss.
+\end{itemize}
+
+\subsubsection{Beispiele}
+
+\begin{align*}
+  \frac{12}{7} + \frac{3}{7} + \frac{11}{7} + \frac{2}{7} &= \frac{12+3+11+2}{7} = \frac{28}{7} = 4\\
+  \frac{3}{4} + \frac{1}{6} + \frac{5}{12} &= \frac{9}{12} + \frac{2}{12} + \frac{5}{12} = \frac{16}{12} = \frac{4}{3}\\
+  \frac{3}{17} + \frac{4}{\sqrt{2}} &= \frac{3\sqrt{2} + 68}{17\sqrt{2}}\\
+  \frac{1}{x} + \frac{1}{3} &= \frac{3+x}{3x}
+\end{align*}\beispielende
+
+Allgemein gilt:
+\[ \frac{a}{b} \pm \frac{c}{d} = \frac{a \cdot d \pm b \cdot c}{b \cdot d} \qquad (b, d \neq 0) \]
+
+\begin{itemize}
+  \item Zwei Brüche werden miteinander multipliziert, indem man das Produkt der Zähler durch das Produkt der Nenner teilt.
+\end{itemize}
+
+\subsubsection{Beispiel}
+
+\[ \frac{2}{5} \cdot \frac{3}{11} = \frac{2 \cdot 3}{5 \cdot 11} = \frac{6}{55}\]\beispielende
+
+Allgemein gilt:
+\[ \frac{a}{b} \cdot \frac{c}{d} = \frac{a \cdot c}{b \cdot d} \qquad (b, d \neq 0) \]
+
+Vertauscht man Zähler und Nenner eines Bruches, so erhält man seinen \textbf{Kehrwert}.
+
+\begin{itemize}
+  \item Zwei Brüche werden dividiert, indem man den Dividenden mit dem Kehrwert des Divisors multipliziert.
+\end{itemize}
+
+\subsubsection{Beispiel}
+
+\[ \frac{2}{3} : \frac{5}{6} = \frac{2}{3} \cdot \frac{6}{5} = \frac{4}{5}\]\beispielende
+
+Allgemein gilt:
+\[ \frac{a}{b} : \frac{c}{d} = \frac{a \cdot d}{b \cdot c} \qquad (b, c, d \neq 0) \]
+
+\subsection{Potenzen und Wurzeln}
+
+\subsubsection*{Potenzieren}
+
+Das $n$-fache Produkt einer Zahl mit sich selbst ergibt die $n$-te \textbf{Potenz} dieser Zahl:
+\[ a \cdot a \cdot \ldots \cdot a = a^n \]
+$a$ heißt \textbf{Grundzahl} oder \textbf{Basis} und $n$ \textbf{Hochzahl} oder \textbf{Exponent} der Potenz.
+
+\subsubsection{Beispiele}
+
+Es ist $2^8 = 256$. Da in der Informatik ein Byte aus 8 Bits (0 oder 1) besteht, gibt es 256 verschiedene Bytes. $2^{10}$ beträgt bereits 1024. Die Zahl $2^{64}$ (bekannt wegen der Reiskörner-auf-Schachbrett-Geschichte) ist als Dezimalzahl 20-stellig.\beispielende
+
+Es gilt $a^1 = a$, $1^n = 1$ und $0^n = 0$ (für $n \neq 0$).
+
+Die Potenz einer negativen Zahl ist positiv bei geraden Exponenten und negativ bei ungeraden Exponenten, beispielsweise:
+\begin{align*}
+  (-3)^6 &= 3^6\\
+  (-3)^7 &= -3^7
+\end{align*}
+Speziell für $-1$ gilt $(-1)^{2n} = 1$ (gerade Potenz) und $(-1)^{2n+1} = -1$ (ungerade Potenz).
+
+Die Erweiterung des Potenzbegriffes auf negative Exponenten erfolgt durch folgende Definition:
+\[ a^{-n} = \frac{1}{a^n} = \frac{1}{a} \cdot \frac{1}{a} \cdot \ldots \cdot \frac{1}{a} = \left(\frac{1}{a}\right)^n \qquad \text{mit } a \neq 0 \]
+
+Potenzen können für beliebige reelle Exponenten $n$ und $m$ definiert werden. Für das Potenzieren gelten folgende Regeln:
+\begin{align*}
+  a^n \cdot a^m &= a^{n+m}\\
+  \frac{a^n}{a^m} &= a^{n-m} \qquad (\text{für } a \neq 0)\\
+  a^n \cdot b^n &= (a \cdot b)^n\\
+  \frac{a^n}{b^n} &= \left(\frac{a}{b}\right)^n \qquad (\text{für } b \neq 0)\\
+  (a^n)^m &= a^{n \cdot m}
+\end{align*}
+Ferner ist $a^0 = 1$ falls $a \neq 0$, $0^0$ ist nicht definiert.
+
+\subsubsection{Beispiele}
+
+\begin{enumerate}[label=\alph*)]
+  \item Hat eine quadratische Fliese die doppelte Länge wie eine andere Sorte quadratischer Fliesen, so hat sie die vierfache Fläche. Dies ergibt sich als Spezialfall aus der Regel $(a \cdot b)^n = a^n \cdot b^n$. (Bitte überlegen Sie sich den Grund!)
+  \item Mit Hilfe dieser Regeln lassen sich Rechenausdrücke (auch mit Variablen), in denen Potenzen vorkommen, unter Umständen vereinfachen:
+  \begin{gather*}\frac{2^3 \cdot 5^7}{2 \cdot 3 \cdot 5^5} = \frac{2^2 \cdot 5^2}{3} = \frac{10^2}{3} \\ \frac{x^4 \cdot y^2 \cdot z^6}{3x^3 \cdot y^3 \cdot z^5} = \frac{x \cdot z}{3 \cdot y} \end{gather*}
+\end{enumerate}\beispielende
+
+\subsubsection{Beispiel}
+
+Herr K. legt 1000\,€ auf einem Sparbuch an, welches jährlich 3\,\% Zinsen bietet. Die in einem Jahr erzielten Zinsen werden in den darauf folgenden Jahren mitverzinst (»Zinseszins«). Auf welchen Betrag wachsen die 1000\,€ in 8 Jahren, wenn in dieser Zeit von dem Konto weder etwas abgehoben noch zusätzlich etwas eingezahlt wird?
+
+Der Schlüssel zur Beantwortung dieser Frage liegt in der folgenden Beobachtung:
+\begin{itemize}
+  \item Man addiert zu einem Betrag 3\,\% dieses Betrages hinzu, indem man den Betrag mit der Zahl 1{,}03 (dies ist ja dasselbe wie $1 + \tfrac{3}{100}$) multipliziert.
+\end{itemize}
+
+Dies bedeutet: Aus den 1000\,€ werden in einem Jahr
+\[ 1000 \cdot 1{,}03 = 1030\,€ , \]
+nach zwei Jahren stehen
+\[ 1030 \cdot 1{,}03 \text{ bzw. } 1000 \cdot 1{,}03^2\,€ \]
+zur Verfügung (das sind 1060{,}90\,€), nach $n$ Jahren sind es
+\[ 1000 \cdot 1{,}03^n\,€ . \]
+Hier ist nach der Zahl
+\[ 1000 \cdot 1{,}03^8 \]
+gefragt. Man kann entweder $1{,}03^8$ per Hand ausrechnen (das ist etwas mühsam) oder einen Taschenrechner benutzen -- Ergebnis ist (auf 6 Dezimalstellen gerundet) $1{,}26677$, d.\,h. die Antwort auf die Frage lautet: 1266{,}77\,€.\beispielende
+
+\subsubsection*{Wurzelziehen (auch »Radizieren« genannt)}
+
+Gilt $a^n = b$ mit $b \geq 0$ und $n \in \mathbb{N}$, so heißt $a$ die \textbf{$n$-te Wurzel} aus $b$. Man schreibt: $a = \sqrt[n]{b}$. $b$ heißt \textbf{Radikand}, $n$ \textbf{Wurzelexponent}.
+
+Für die 2. Wurzel oder \textbf{Quadratwurzel} schreibt man einfach $\sqrt{a}$ statt $\sqrt[2]{a}$.
+
+\subsubsection{Beispiele}
+
+\begin{gather*}\sqrt{4} = 2 \text{, denn } 2^2 = 4 . \\ \sqrt[4]{81} = 3 \text{, denn } 3^4 = 81 .\end{gather*}\beispielende
+
+Dem aufmerksamen Leser ist sicher nicht entgangen, dass es eigentlich nicht richtig (oder zumindest nicht die vollständige Wahrheit) ist, einfach
+\[ \sqrt{4} = 2 \]
+zu behaupten. Es gilt zwar $2^2 = 4$, jedoch ist auch $(-2)^2 = 4$, d.\,h. auch $-2$ könnte als Quadratwurzel von 4 angesehen werden! Genau genommen muss man also sagen:
+\[ \text{4 hat 2 Quadratwurzeln, nämlich 2 und -2.} \]
+Trotzdem ist es üblich zu sagen, \textbf{die} Quadratwurzel von 4 sei 2 -- wenn man die negative Wurzel meint, merkt man dies explizit an.
+
+Das Wurzelziehen ist für nichtnegative Potenzen die Umkehrung des Potenzierens. Wurzeln können auch als Potenzen mit gebrochenen Exponenten aufgefasst werden. Dazu wird folgende Schreibweise eingeführt:
+\[ \sqrt[n]{b} = b^{\frac{1}{n}} \]
+Damit ergeben sich die Rechenregeln für das Wurzelziehen unmittelbar aus den Rechengesetzen für Potenzen. Beispielsweise ist
+\[ \sqrt[7]{3^7} = 3 , \]
+denn $\sqrt[7]{3^7} = \left(3^7\right)^{\frac{1}{7}} = 3^{7 \cdot \frac{1}{7}} = 3^1 = 3$.
+
+Hier ist eine Zusammenfassung der Rechenregeln für Wurzeln:
+\begin{align*}
+  \sqrt[n]{a} \cdot \sqrt[n]{b} &= \sqrt[n]{a \cdot b}\\
+  \frac{\sqrt[n]{a}}{\sqrt[n]{b}} &= \sqrt[n]{\frac{a}{b}}\\
+  \sqrt[n]{a^m} &= a^{\frac{m}{n}} = \left(\sqrt[n]{a}\right)^m\\
+  \sqrt[1]{a} &= a\\
+  \sqrt[m]{1} &= 1\\
+  \sqrt[n]{0} &= 0
+\end{align*}
+
+\subsubsection{Beispiel (Fortsetzung des Beispiels 1.3.3.3)}
+
+Wie hoch hätte der Zinssatz sein müssen (statt der 3\,\%), damit die 1000\,€ in den 8 Jahren auf 1500\,€ anwachsen? Bei dieser Frage wird man auf die Gleichung
+\[ 1000 \cdot z^8 = 1500 \]
+oder (nach Teilen durch 1000)
+\[ z^8 = 1{,}5 \]
+geführt. Lösung ist
+\[ z = \sqrt[8]{1{,}5} \approx 1{,}05199 . \]
+Es hätte also ca. 5{,}2\,\% Zinsen jährlich geben müssen, dann wären die 1000\,€ in 8 Jahren auf 1500\,€ gewachsen.\beispielende
+
+\subsection{Logarithmenrechnung}
+
+Gilt $b = a^x$ mit $a > 0$ und $a \neq 1$, so heißt $x$ auch \textbf{Logarithmus von $b$ zur Basis $a$}, geschrieben: $x = \log_a b$.
+
+Der Logarithmus einer Zahl $b$ ist also der Exponent $x$, mit dem die Basis $a$ potenziert werden muss, um die Zahl $b$ zu erhalten:
+\[ a^x = b \]
+Man kann dies auch in dem folgenden allgemein gültigen Gesetz ausdrücken:
+\[ a^{\log_a b} = b \]
+
+\subsubsection{Beispiele}
+
+\begin{gather*}\log_2 8 = 3 \text{, denn } 2^3 = 8 . \\ \log_4 16 = 2 \text{, denn } 4^2 = 16 . \\ \log_{10} 100000 = 5 \text{, denn } 10^5 = 100000 .\end{gather*}\beispielende
+
+Je nach Basis $a$ ergeben sich für dieselbe Zahl $b$ unterschiedliche Logarithmen.
+
+\subsubsection{Beispiele}
+
+\begin{gather*}\log_2 64 = 6 \text{, denn } 2^6 = 64 . \\ \log_4 64 = 3 \text{, denn } 4^3 = 64 . \\ \log_8 64 = 2 \text{, denn } 8^2 = 64 .\end{gather*}\beispielende
+
+Logarithmen zur Basis 10 heißen \textbf{dekadische Logarithmen}. Sie werden auch Briggsche- oder Zehner-Logarithmen genannt und mit $\lg b$ oder $\log b$ bezeichnet. Für die Basis $a = 10$ und $b > 0$ gilt also $\log_{10} b = \lg b$.
+
+Logarithmen zur Basis $e$ heißen \textbf{natürliche Logarithmen} und werden mit $\ln b$ bezeichnet: $\log_e b = \ln b$.
+
+Die transzendente irrationale Zahl $e = 2{,}718281828459\ldots$ heißt \textbf{Eulersche Zahl}, sie wurde an früherer Stelle bereits erwähnt. Warum ausgerechnet die Logarithmen zur Basis $e$ \emph{natürlich} heißen, kann erst an späterer Stelle erklärt werden.
+
+Für beliebige positive Zahlen $a, b > 0$ und $a \neq 1$ gilt stets:
+\begin{align*}
+  \log_a b &< 0 \quad \text{für } 0 < b < 1\\
+  \log_a b &= 0 \quad \text{für } b = 1\\
+  \log_a b &> 0 \quad \text{für } 1 < b < \infty
+\end{align*}
+
+Definitionsgemäß sind Logarithmen nur für positive Zahlen $b$ erklärt. Da für beliebige $a > 0$ stets $a^0 = 1$ gilt, folgt für alle Basen $a$:
+\[ \log_a 1 = 0 \]
+Ferner ist immer $\log_a a = 1$.
+
+Logarithmen zu einer Basis $a$ können in Logarithmen zu einer beliebigen anderen Basis $c$ umgerechnet werden. Kurz gesagt gilt Folgendes:
+\[ \log_c b = \log_c a \cdot \log_a b \]
+(Damit dies alles Sinn ergibt, muss selbstverständlich $a, b, c > 0$ sowie $a, c \neq 1$ sein.)
+
+Die Formel sieht furchterregend aus, sie ist aber sehr nützlich. (Sie ist auch leicht zu beweisen, das wollen wir uns aber sparen.) Umgeformt kann man sie auch so hinschreiben:
+\[ \log_a b = \frac{\log_c b}{\log_c a} \]
+Dies bedeutet: Kenne ich alle Logarithmen zur Basis $c$, dann kann ich beliebige Logarithmen ausrechnen!
+
+\subsubsection{Beispiel}
+
+Ich möchte den Zahlenwert von $\ln 5$ wissen. Mein Taschenrechner gibt jedoch nur Zehnerlogarithmen aus. Nach obiger Formel gilt:
+\[ \ln 5 = \frac{\lg 5}{\lg e} \]
+Ich bekomme von meinem Taschenrechner die Werte $\lg 5 = 0{,}69897$ und $\lg e = 0{,}43429$, also berechne ich $\ln 5 \approx 1{,}6094$.\beispielende
+
+Die \textbf{Rechenregeln für Logarithmen} folgen aus den Potenzregeln. Ohne Beweise schreiben wir die wichtigsten Regeln auf:
+\begin{itemize}
+  \item Der Logarithmus eines Produktes ist gleich der Summe der Logarithmen der einzelnen Faktoren:
+  \[ \log_a (r \cdot s) = \log_a r + \log_a s \]
+  \item Der Logarithmus eines Quotienten ist gleich der Differenz der Logarithmen von Zähler und Nenner:
+  \[ \log_a \frac{r}{s} = \log_a r - \log_a s \]
+  \item Beim Logarithmus einer Potenz kann der Exponent vor den Logarithmus gezogen werden:
+  \[ \log_a b^c = c \cdot \log_a b \]
+\end{itemize}
+
+\subsubsection{Beispiele}
+
+\[ \lg(100) = \lg(10 \cdot 10) = \lg 10 + \lg 10 = 1 + 1 = 2 \text{, oder aber:} \]
+\[ \lg(100) = \lg(10^2) = 2 \cdot \lg(10) = 2 \cdot 1 = 2 .\]\beispielende
+
+\subsubsection{Beispiel (Fortsetzung von 1.3.3.3 und 1.3.3.5)}
+
+Nach wie vielen Jahren verdoppelt sich der Betrag auf dem Sparbuch auf 2000\,€ (bei 3\,\% Zinsen)? Bezeichnet man die gesuchte Anzahl von Jahren mit $n$, so lautet die Aufgabenstellung, die Größe von $n$ aus der Beziehung
+\[ 1000 \cdot 1{,}03^n = 2000 \]
+zu bestimmen. Teilt man auf beiden Seiten dieser Gleichung durch 1000, so bekommt man:
+\[ 1{,}03^n = 2 \]
+Das gesuchte $n$ ist folglich der Logarithmus von 2 zur Basis 1{,}03:
+\[ n = \log_{1{,}03} 2 \]
+Diese Lösung ist natürlich noch unbefriedigend, man hätte lieber eine reelle Zahl in Kommadarstellung als Lösung -- mit anderen Worten muss man noch herausbekommen, welche Zahl $\log_{1{,}03} 2$ denn nun konkret ist. Leider kann man die Zahl $\log_{1{,}03} 2$ mit den meisten handelsüblichen Taschenrechnern nicht direkt bestimmen, oft können nur Logarithmen zur Basis 10 abgelesen werden (in der Regel mit dem Befehl »log« oder auch »lg«). Zum Glück reicht dies aber aus, denn es gilt:
+\[ \log_{1{,}03} 2 = \frac{\log_{10} 2}{\log_{10} 1{,}03} \]
+(Dies ergibt sich aus der allgemeinen Formel, die oben besprochen wurde.) Damit bekommt man hier:
+\[ \log_{1{,}03} 2 = \frac{0{,}301030}{0{,}012837} \approx 23{,}45 \]
+Nach 24 Jahren haben sich also die 1000\,€ (mehr als) verdoppelt.\beispielende
+
+Eine Bemerkung zum Schluss dieses Abschnitts. Wir haben abstrakte Rechenregeln der Form
+\[ a(b+c) = ab + ac \]
+oder
+\[ a^m \cdot a^n = a^{m+n} \]
+kennen gelernt, jedoch selten darüber geredet, \emph{wie man eigentlich rechnet}. Damit ist gemeint: Was muss man konkret tun (rechnen), wenn z.\,B. zwei Dezimalzahlen $a$ und $b$ (mit $b \neq 0$) gegeben sind und man $a:b$ als Dezimalzahl ausrechnen möchte? Und: Wie viel »Arbeit« macht denn eine solche Rechnung?
+
+Die bekannte Lösung für das Problem des Berechnens von $a:b$ ist der \textbf{Divisionsalgorithmus}, den man schon in der Grundschule erlernt (siehe auch den Abschnitt »Die vier Grundrechenarten«). Bei anderen Problemen -- beispielsweise $\log_a b$ -- ist die konkrete Berechnung schon schwieriger, wir können dies hier nicht behandeln. In der Praxis bedient man sich heute eines Taschenrechners, wenn man die Dezimalwerte irgendwelcher Logarithmen wissen möchte.
+
+Fragen dieser Art sind von der Mathematik immer schon behandelt worden, durch das Aufkommen der Computer (und der Informatik) sind diese Fragen nach Algorithmen und danach, wie viel »Arbeit« mit ihrer Durchführung verbunden ist (man spricht von der \textbf{Komplexität} von Algorithmen) noch einmal verstärkt ins Blickfeld gerückt. Wir werden bei Gelegenheit wieder auf diesen Punkt zurückkommen.
+
+\subsection{Vorzeichen und Absolutbetrag}
+
+Negative Zahlen werden durch ein vorangestelltes \textbf{Vorzeichen} ($-$) gekennzeichnet. Positive Vorzeichen werden dagegen im Allgemeinen weggelassen. Für eine reelle Zahl $a$ gilt:
+\[ -(-a) = +a = a \]
+
+Den \textbf{Absolutbetrag} $\operatorname{abs}(a)$ oder $|a|$ der reellen Zahl $a$ erhält man, wenn man ein eventuell vorhandenes negatives Vorzeichen weglässt und die zugehörige positive Zahl nimmt, also:
+\[ |-2| = 2, \qquad |3{,}61| = 3{,}61 \]
+
+Für das Rechnen mit Beträgen sind folgende Regeln von Bedeutung:
+\begin{align*}
+  |a| &= |-a|\\
+  |a \cdot b| &= |a| \cdot |b|\\
+  \left|\frac{a}{b}\right| &= \frac{|a|}{|b|} \qquad (\text{falls } b \neq 0)
+\end{align*}
+
+\subsection{Übungsaufgaben zu Abschnitt 1.3}
+
+\begin{uebungsaufgaben}
+  \item Klammern Sie möglichst viel aus:
+    \begin{enumerate}[label=\alph*)]
+      \item $8uv + 2wv^2 - 6v^4$
+      \item $12x + 18 - 24y$
+      \item $-5(-2u + 3v) \cdot u + 3u(u + v)$
+    \end{enumerate}
+  \item \begin{enumerate}[label=\alph*)]
+      \item Schreiben Sie die folgende Summe mit Hilfe des Summenzeichens: \[ a_1x_1 + a_2x_2 + a_3x_3 + a_4x_4 \]
+      \item Schreiben Sie das folgende Produkt in Langform hin: \[ \prod_{i=1}^{4} x_{2i} \]
+    \end{enumerate}
+  \item Man fasse die folgenden Brüche zu einem Bruch zusammen:
+    \begin{enumerate}[label=\alph*)]
+      \item $\dfrac{3}{7} - \dfrac{2+a}{11}$
+      \item $\dfrac{3}{7} + \dfrac{2+a}{77}$
+      \item $\dfrac{4}{11} + \dfrac{2}{3} + \dfrac{7}{6}$
+      \item $\dfrac{1-t}{t^6} + \dfrac{1}{t^4} - \dfrac{1}{t^3}$
+      \item $\dfrac{2x+5}{2x+3} - \dfrac{5x-3}{5x+7}$
+      \item $-\dfrac{3-3x-y}{4} - \dfrac{2x}{3}$
+      \item $-\left(\dfrac{3-3x-y}{4} - \dfrac{2x}{3}\right)$
+      \item $\dfrac{2}{5a} - \dfrac{2-4a+9b}{-2x}$
+    \end{enumerate}
+  \item Man vereinfache so weit wie möglich:
+    \begin{enumerate}[label=\alph*)]
+      \item $\dfrac{17}{31} : \dfrac{13}{62}$
+      \item $\dfrac{\dfrac{7ab}{9cx}}{\dfrac{63bx}{5ac}}$
+      \item $\dfrac{4}{13} \cdot \dfrac{26}{11} : \dfrac{7}{11}$
+      \item $\dfrac{\dfrac{x}{y} + 1}{\dfrac{x+y}{2}}$
+      \item $\dfrac{4x}{4 - \dfrac{4}{1-x}}$
+      \item $\dfrac{1 + \dfrac{a}{b}}{\dfrac{a+b}{a}}$
+    \end{enumerate}
+  \item Ein Schwimmbecken verfügt über zwei verschieden große Abflüsse. Wird der kleinere geöffnet, so ist das Becken nach 45 Minuten geleert. Beim anderen Abfluss dauert es nur 20 Minuten. Wie lange dauert eine Entleerung, wenn beide Abflüsse geöffnet werden?
+  \item Bei der Parallelschaltung von zwei Widerständen $R_1$ und $R_2$ gilt:
+    \[ \frac{1}{R} = \frac{1}{R_1} + \frac{1}{R_2} \]
+    Geben Sie eine Formel »$R = \ldots$« für den Gesamtwiderstand $R$ der Parallelschaltung an.
+  \item Vereinfachen Sie die folgenden mathematischen Ausdrücke:
+    \begin{enumerate}[label=\alph*)]
+      \item $\dfrac{3-a}{a^{m-4}} + \dfrac{a^6 - a^5 + 2a^3 - 1}{a^{m+1}} - \dfrac{2a^2+1}{a^{m-2}}$
+      \item $\sqrt[3]{\sqrt{125}}$
+      \item $\sqrt{a - \sqrt{a^2 - b^2}} \cdot \sqrt{a + \sqrt{a^2 - b^2}}$
+    \end{enumerate}
+  \item Man beseitige die Wurzeln im Nenner durch geeignete Erweiterungen:
+    \begin{enumerate}[label=\alph*)]
+      \item $\dfrac{2}{\sqrt[3]{7}}$
+      \item $\dfrac{x-2y}{\sqrt{2x} - \sqrt{4y}}$
+    \end{enumerate}
+  \item Man gebe die folgenden Terme in Wurzelschreibweise an:
+    \begin{enumerate}[label=\alph*)]
+      \item $a^{\frac{7}{4}}$
+      \item $(x+y)^{\frac{\sqrt{2}}{3}}$
+      \item $6^{-\frac{12}{5}}$
+    \end{enumerate}
+  \item Vereinfachen Sie die folgenden Ausdrücke:
+    \begin{enumerate}[label=\alph*)]
+      \item $2\log_{10} x - 3\log_{10} y + 6\log_{10} z$
+      \item $2\log_{10} 3 - 3\log_{10} 5 + 6\log_{10} 7$
+      \item $\dfrac{2}{7}\ln x + \dfrac{3}{7}\ln y - \dfrac{5}{7}\ln z$
+      \item $u\log_3 x - \log_3 x + \dfrac{1}{m}\log_3 z$
+      \item $\ln \dfrac{\sqrt{a} \cdot b^{-2}}{\sqrt[3]{c} \cdot d^{-3}}$
+    \end{enumerate}
+  \item Geben Sie Zahlenwerte für die folgenden Logarithmen an:
+    \begin{multicols}{2}
+    \begin{enumerate}[label=\alph*)]
+      \item $\log_2 16$
+      \item $\log_5 125$
+      \item $\log_3 81$
+      \item $\log_9 81$
+      \item $\log_6 216$
+      \item $\log_{10} 100000$
+      \item $\log_3 (3^{17})$
+      \item $\log_5 \dfrac{1}{125}$
+      \item $\ln (e^{-5})$
+      \item $\log_5 0{,}2$
+    \end{enumerate}
+    \end{multicols}
+  \item Man berechne (falls nötig mit Hilfe des Taschenrechners) auf vier Nachkommastellen genau:
+    \begin{multicols}{3}
+    \begin{enumerate}[label=\alph*)]
+      \item $\log 0{,}0001$
+      \item $1{,}4^{\sqrt{2}}$
+      \item $-1{,}4^{\sqrt{2}}$
+      \item $(-2)^{12}$
+      \item $-2^{12}$
+      \item $\ln e$
+      \item $\log_{11} \sqrt{2}$
+      \item $\ln e^{\sqrt{2}}$
+      \item $\log_{11} 11^{12000}$
+    \end{enumerate}
+    \end{multicols}
+\end{uebungsaufgaben}
+
+\subsection{Lösungen der Übungsaufgaben zu 1.3}
+
+\loesung{1.3.6.1:}
+\begin{enumerate}[label=\alph*)]
+  \item $2v(4u + wv - 3v^3)$
+  \item $6(2x + 3 - 4y)$
+  \item $u(13u - 12v)$
+\end{enumerate}
+
+\loesung{1.3.6.2:}
+\begin{enumerate}[label=\alph*)]
+  \item $\sum_{i=1}^{4} a_i x_i$
+  \item $x_2 \cdot x_4 \cdot x_6 \cdot x_8$
+\end{enumerate}
+
+\loesung{1.3.6.3:}
+\begin{multicols}{2}
+\begin{enumerate}[label=\alph*)]
+  \item $\dfrac{19 - 7a}{77}$
+  \item $\dfrac{35 + a}{77}$
+  \item $\dfrac{145}{66}$
+  \item $\dfrac{1 - t + t^2 - t^3}{t^6}$
+  \item $\dfrac{30x + 44}{(2x+3)(5x+7)}$
+  \item $\dfrac{x + 3y - 9}{12}$
+  \item $\dfrac{17x + 3y - 9}{12}$
+  \item $\dfrac{4x + 10a - 20a^2 + 45ab}{10ax}$
+\end{enumerate}
+\end{multicols}
+
+\loesung{1.3.6.4:}
+\begin{multicols}{2}
+\begin{enumerate}[label=\alph*)]
+  \item $\dfrac{34}{13}$
+  \item $\dfrac{5a^2}{81x^2}$
+  \item $\dfrac{8}{7}$
+  \item $\dfrac{2}{y}$
+  \item $x - 1$
+  \item $\dfrac{a}{b}$
+\end{enumerate}
+\end{multicols}
+
+\loesung{1.3.6.5:}
+Da 180 das kleinste gemeinsame Vielfache von 45 und 20 ist, stellt man sich am besten das Wasservolumen in 180 gleich große Mengen eingeteilt vor. Dann fließen durch den kleineren Abfluss pro Minute 4 Volumeneinheiten, durch den größeren Abfluss 9 Einheiten. Pro Minute fließen also durch beide Abflüsse 13 Einheiten. Bis zur vollständigen Entleerung dauert es somit $\dfrac{180}{13} = 13{,}85$ Minuten.
+
+\loesung{1.3.6.6:}
+$\dfrac{1}{R_1} + \dfrac{1}{R_2}$ lässt sich umformen zu $\dfrac{R_2 + R_1}{R_1 R_2}$. Da dies gleich $\dfrac{1}{R}$ ist, folgt: $R = \dfrac{R_1 R_2}{R_1 + R_2}$.
+
+\loesung{1.3.6.7:}
+\begin{enumerate}[label=\alph*)]
+  \item \begin{align*}
+      &\frac{3-a}{a^{m-4}} + \frac{a^6 - a^5 + 2a^3 - 1}{a^{m+1}} - \frac{2a^2+1}{a^{m-2}}\\
+      &= \frac{(3-a)a^5 + a^6 - a^5 + 2a^3 - 1 - (2a^2+1)a^3}{a^{m+1}}\\
+      &= \frac{a^3 - 1}{a^{m+1}}
+    \end{align*}
+  \item $\sqrt[3]{\sqrt{125}} = \left(125^{1/2}\right)^{1/3} = 125^{1/6} = \sqrt[6]{125}$
+  \item Mit $x = \sqrt{a^2 - b^2}$ gilt: $\sqrt{a-x} \cdot \sqrt{a+x} = \sqrt{(a-x)(a+x)} = \sqrt{a^2 - x^2}$. Einsetzen von $x$ ergibt dann: $\sqrt{a^2 - \left(a^2 - b^2\right)} = \sqrt{b^2} = |b|$
+\end{enumerate}
+
+\loesung{1.3.6.8:}
+\begin{enumerate}[label=\alph*)]
+  \item $\dfrac{2 \cdot 7^{\frac{2}{3}}}{7}$
+  \item $\dfrac{(x-2y)(\sqrt{2x} + \sqrt{4y})}{2x - 4y}$
+\end{enumerate}
+
+\loesung{1.3.6.9:}
+\begin{enumerate}[label=\alph*)]
+  \item $\sqrt[4]{a^7}$
+  \item $\sqrt[3]{(x+y)^{\sqrt{2}}}$
+  \item $\sqrt[5]{6^{-12}}$
+\end{enumerate}
+
+\loesung{1.3.6.10:}
+\begin{enumerate}[label=\alph*)]
+  \item $\log_{10} \dfrac{x^2 \cdot z^6}{y^3}$
+  \item $\log_{10} \dfrac{3^2 \cdot 7^6}{5^3} \approx 3{,}9279$
+  \item $\ln \sqrt[7]{\dfrac{x^2 \cdot y^3}{z^5}}$
+  \item $\log_3 \left(x^{u-1} \cdot z^{\frac{1}{m}}\right)$
+  \item $\ln\sqrt{a} - 2\ln b - \dfrac{1}{3}\ln c + 3\ln d = \dfrac{1}{2}\ln a - 2\ln b - \dfrac{1}{3}\ln c + 3\ln d$
+\end{enumerate}
+
+\loesung{1.3.6.11:}
+\begin{enumerate}[label=\alph*)]
+  \item $\log_2 16 = 4$, denn $2^4 = 16$.
+  \item $\log_5 125 = 3$, denn $5^3 = 125$.
+  \item $\log_3 81 = 4$, denn $3^4 = 81$.
+  \item $\log_9 81 = 2$, denn $9^2 = 81$.
+  \item $\log_6 216 = 3$, denn $6^3 = 216$.
+  \item $\log_{10} 100000 = 5$, denn $10^5 = 100000$.
+  \item $\log_3 (3^{17}) = 17$
+  \item $\log_5 \dfrac{1}{125} = -3$, denn $5^{-3} = \dfrac{1}{125}$.
+  \item $\ln(e^{-5}) = -5$
+  \item $\log_5 0{,}2 = -1$, denn $5^{-1} = \dfrac{1}{5} = 0{,}2$.
+\end{enumerate}
+
+\loesung{1.3.6.12:}
+\begin{multicols}{3}
+\begin{enumerate}[label=\alph*)]
+  \item $-4$
+  \item $1{,}6094$
+  \item $-1{,}6094$
+  \item $4096$
+  \item $-4096$
+  \item $1$
+  \item $0{,}1445$
+  \item $\sqrt{2} \approx 1{,}4142$
+  \item $12000$
+\end{enumerate}
+\end{multicols}

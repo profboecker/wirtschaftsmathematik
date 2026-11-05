@@ -1,0 +1,34 @@
+% lehrbrief-makros.tex -- Hilfsbefehle fuer die LaTeX-Fassung der Lerneinheiten.
+% Wird aus LE1.tex eingebunden (nach den Paketen).
+
+% Ende-Marker wie im Original: ♦ fuer Beispiele, • fuer Definitionen.
+\newcommand{\beispielende}{\hfill\ensuremath{\blacklozenge}}
+\newcommand{\definitionsende}{\hfill\ensuremath{\bullet}}
+
+% Gliederungsueberschrift ohne Nummer (im Original kein nummerierter Abschnitt).
+\newcommand{\structhead}[1]{\par\medskip\noindent\textbf{#1}\par\nopagebreak\smallskip}
+
+% Uebungsaufgaben: Nummerierung 1.x.y.z wie im Original (Abschnittsnummer + Aufgabe).
+\newenvironment{uebungsaufgaben}{%
+  \par\medskip
+  \begin{enumerate}[label=\textbf{\thesubsection.\arabic*}, leftmargin=*, labelsep=0.8em, itemsep=0.6\baselineskip]
+}{%
+  \end{enumerate}\par\medskip
+}
+
+% Loesungsueberschrift
+\newcommand{\loesung}[1]{\par\medskip\noindent\textbf{Lösung zu #1}\par\nopagebreak\smallskip}
+
+% Fussnote der Originale
+\newcommand{\hinweis}[1]{\footnote{#1}}
+
+% Grauer Kasten fuer Uebungsaufgaben (wie im Original)
+\newsavebox{\graubox}
+\newenvironment{graukasten}
+  {\par\medskip\begin{lrbox}{\graubox}\begin{minipage}{\dimexpr\linewidth-2\fboxsep\relax}\setlength{\parskip}{3pt}}
+  {\end{minipage}\end{lrbox}\noindent\colorbox{black!12}{\usebox{\graubox}}\par\medskip}
+
+% Rahmen fuer Merksaetze und Formeln (wie im Original)
+\newcommand{\merkbox}[1]{%
+  \par\medskip\noindent\fbox{\begin{minipage}{\dimexpr\linewidth-2\fboxsep-2\fboxrule\relax}#1\end{minipage}}\par\medskip
+}

@@ -1,0 +1,96 @@
+\chapter{Lösungen der Übungsaufgaben}
+
+\structhead{Aufgabe 1.1.1.1:}
+Da jeder Mensch \emph{genau eine} Mutter besitzt, bildet die Zuordnung
+\[ \text{Mensch} \rightarrow \text{Mutter dieses Menschen} \]
+eine Funktion.
+
+Umgekehrt könnte man jeder Mutter \emph{eines} ihrer Kinder zuordnen -- wenn man dies täte, ergäbe sich eine Funktion. Solange diese Festlegung jedoch nicht getroffen ist, kann nicht von einer Funktion gesprochen werden.
+
+Eine andere Möglichkeit wäre es, jeder Mutter die \emph{Menge} aller ihrer Kinder zuzuordnen -- diese Menge ist eindeutig, also hat man wieder eine Funktion.
+
+\structhead{Aufgabe 1.2.3.1:}
+Wird die Länge mit $L$ und die Tiefe mit $T$ bezeichnet, so muss offenbar für jedes der Grundstücke gelten:
+\[ L \cdot T = 1000 \]
+Soll $T$ als Funktion von $L$ dargestellt werden, so stellt man um:
+\[ T = \frac{1000}{L} \]
+Laut Aufgabenstellung soll diese Funktion nur für $L$ zwischen 20 und 50 von Interesse sein.
+Ein Schaubild sieht folgendermaßen aus:
+
+\begin{center}
+  \begin{tikzpicture}
+    \begin{axis}[width=9cm, height=6.5cm, axis lines=left, xmin=18, xmax=52, ymin=0, ymax=55,
+      xtick={20,24,...,50}, ytick={0,10,...,50}, xlabel={$L$}, ylabel={$T$}, tick label style={font=\footnotesize}, samples=200, domain=20:50]
+      \addplot[black, thick] {1000/x};
+    \end{axis}
+  \end{tikzpicture}
+\end{center}
+
+\structhead{Aufgabe 1.3.1.5:}
+\begin{enumerate}[label=\alph*)]
+  \item Es handelt sich um eine Funktion, denn jedem Schüler ist eine eindeutig festgelegte Klasse zugeordnet.
+  \item Auch hier liegt eine Funktion vor.
+  \item Jeder Zahl $x$ wird die eindeutig bestimmte Zahl $2x^2 + 1$ zugeordnet, folglich hat man eine Funktion.
+  \item Da nicht festgelegt wird, ob die positive oder die negative Wurzel genommen werden soll, ist dies keine Funktion.
+  \item Hier liegt wieder eine Funktion vor, denn es ist die positive Wurzel gemeint.
+\end{enumerate}
+
+\structhead{Aufgabe 1.4.1.4:}
+Polynomdivision ergibt hier
+\[ \frac{8x^2 + 3x - 7}{4x^2 + 15} = 2 + \frac{3x - 37}{4x^2 + 15} . \]
+Da für $x \rightarrow \infty$ wie auch für $x \rightarrow -\infty$ der Bruch $\dfrac{3x - 37}{4x^2 + 15}$ gegen Null strebt, ist der Grenzwert stets 2. Für die Funktion $y = f(x)$ bedeutet dies: Sie nähert sich sowohl für $x \rightarrow \infty$ wie auch für $x \rightarrow -\infty$ der konstanten Funktion $y = 2$ (Parallele zur $x$-Achse) an.
+
+\structhead{Aufgabe 1.4.3.3:}
+Einziger Schnittpunkt mit der $x$-Achse (Nullstelle) ist $x_0 = 2$, denn die Gleichung $x^3 = 8$ hat nur diese eine reelle Lösung. Da Einsetzen von 0 in die Funktionsgleichung den Wert $f(0) = -8$ ergibt, wird die $y$-Achse bei $-8$ geschnitten.
+Die Funktion wächst für wachsende $x$-Werte ebenfalls über alle Grenzen (analog für negative $x$-Werte), so dass sie »rechts oben und links unten das Bild verlässt«.
+Die Funktion ist (streng) monoton steigend, denn für größer werdende $x$-Werte werden auch die $y$-Werte immer größer.
+
+\structhead{Aufgabe 1.4.3.6:}
+Auflösen der Gleichung
+\[ y = \tfrac{1}{2} x^3 - 1 \]
+nach $x$ ergibt
+\[ x = \sqrt[3]{2y + 2} . \]
+Die Umkehrfunktion ist also:
+\[ y = f^{-1}(x) = \sqrt[3]{2x + 2} \]
+
+\structhead{Aufgabe 1.5.1.2:}
+Mit den Formeln
+\begin{align*}
+  a_1 &= \frac{y_2 - y_1}{x_2 - x_1}\\
+  a_0 &= \frac{x_2 y_1 - x_1 y_2}{x_2 - x_1}
+\end{align*}
+erhält man $a_1 = 1{,}5$ und $a_0 = 50$, die Funktionsgleichung lautet demnach:
+\[ K(x) = 1{,}5\,x + 50 \]
+
+\structhead{Aufgabe 1.5.1.8:}
+Man rät zuerst, dass $x_1 = 2$ eine Nullstelle ist. (Da eine Formel für kubische Polynome nicht behandelt wurde, ist man auf »Raten« angewiesen. Man kann diesen Schritt unterstützen, indem man sich zuerst ein Schaubild der Funktion mit Hilfe eines geeigneten Taschenrechners oder eines Computeralgebrasystems erzeugt.)
+Division von $P(x)$ durch $(x - 2)$ ergibt das Polynom $x^2 + 2x + 1$ bzw. $(x + 1)^2$. Dieses Polynom hat $x_2 = -1$ als doppelte Nullstelle.
+Gesamtergebnis ist, dass das Polynom $P(x)$ nur die Nullstellen $+2$ und $-1$ besitzt.
+
+\structhead{Aufgabe 1.5.2.3:}
+Polynomdivision ergibt die Darstellung
+\[ y = f(x) = 1 + \frac{2}{x^2 - 1} . \]
+Folglich nähert sich die Funktion der parallel zur $x$-Achse verlaufenden Geraden $y = 1$ an.
+
+\structhead{Aufgabe 1.5.4.5:}
+\[ \ln(x_0^2 - 3) = 0 \]
+ist gleichbedeutend mit $x_0^2 - 3 = 1$ bzw. $x_0^2 = 4$. $y = f(x)$ besitzt also die Nullstellen $-2$ und $+2$.
+
+\structhead{Aufgabe 1.6.2.6:}
+\begin{enumerate}[label=\alph*)]
+  \item $f'(x) = 2(1 \cdot e^x + x \cdot e^x) = 2(x + 1)e^x$
+  \item $f'(x) = \dfrac{1 \cdot (1 - x) - (1 + x) \cdot (-1)}{(1 - x)^2} = \dfrac{2}{(1 - x)^2}$
+\end{enumerate}
+
+\structhead{Aufgabe 1.6.3.3:}
+Als Gewinnfunktion ergibt sich:
+\[ G(x) = x \cdot (32 - 0{,}3x) - 0{,}2x^2 - 2x - 20 = -0{,}5x^2 + 30x - 20 \]
+Die Ableitung lautet
+\[ G'(x) = -x + 30 , \]
+deren einzige Nullstelle ist $x_0 = 30$.
+Wegen $G''(x) = -1 < 0$ handelt es sich hier um ein lokales Maximum.
+
+\structhead{Aufgabe 1.6.4.4:}
+Man erhält hier
+\[ \varepsilon_{K,x}(x) = \frac{0{,}06x^3 - 4x^2 + 80x}{0{,}02x^3 - 2x^2 + 80x + 12000} . \]
+Einsetzen von $x = 30$ liefert als Ergebnis ca. 0{,}032. Das bedeutet: Wird ausgehend von dem $x$-Wert 30 $x$ um ein Prozent erhöht (also auf 30{,}3), so erhöhen sich die Kosten um 0{,}032\,\%.
