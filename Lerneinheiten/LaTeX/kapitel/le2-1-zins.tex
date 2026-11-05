@@ -1,0 +1,306 @@
+\section{Zins und Zinseszins}
+
+\textbf{Zins} ist ein zentraler Begriff der Finanzmathematik. Einfach ausgedrückt handelt es sich um eine \emph{Leihgebühr für Geld}. In einer erweiterten und präziseren Definition kann man sagen: Zins ist das Entgelt für ein über einen bestimmten Zeitraum überlassenes Gut (oft Geld, es kann sich jedoch auch um irgendein Sachgut handeln) -- die beteiligten Akteure heißen \textbf{Schuldner} und \textbf{Gläubiger}.
+
+Im Folgenden wird der Begriff Zins nur im Sinne einer Gebühr für die zeitweilige Überlassung von Geld verwendet. Bei der Zinsrechnung geht es darum, die Höhe dieser Gebühr, die von einer Reihe von Größen abhängt, zu berechnen. Dabei werden die folgenden Grundbegriffe verwendet:
+\begin{itemize}
+  \item \textbf{Kapital:} Geldbetrag, der angelegt bzw. jemand anderem überlassen wird
+  \item \textbf{Laufzeit:} Dauer der Überlassung des Geldbetrages
+  \item \textbf{Zinsperiode:} Der vereinbarten Verzinsung zugrunde liegender Zeitrahmen, oft ein Jahr oder kürzer (Halbjahr, Quartal, Monat)
+  \item \textbf{Zinssatz:} Zinsbetrag in Geldeinheiten, der für ein Kapital von 100 Geldeinheiten in einer Zinsperiode zu zahlen ist (andere Bezeichnung: \textbf{Zinsfuß}) -- wird auch in Prozent angegeben
+  \item \textbf{Zinsrate:} Auf \emph{eine} Geldeinheit bezogener Zins, z.\,B. beträgt bei einem Zinssatz von 5\,\% die Zinsrate 0{,}05
+\end{itemize}
+
+Weitere Begriffe werden in den nachfolgenden Abschnitten definiert.
+
+\subsection{Einfache Zinsrechnung}
+
+Bei der \textbf{einfachen Zinsrechnung} geht man davon aus, dass die erzielten Zinsen $Z_t$ proportional vom Kapital $K$, der Laufzeit $t$ und dem Zinssatz $p$ bzw. der Zinsrate $i$ abhängen:
+\[ Z_t = K \cdot \frac{p}{100} \cdot t = K \cdot i \cdot t \]
+Hierbei ist die Laufzeit $t$ als Bruchteil oder auch Vielfaches der Zinsperiode zu verstehen.
+
+\subsubsection{Beispiel}
+
+Ein Kapital von 3.000\,€ wird zu einem jährlichen Zinssatz von 3\,\% angelegt. Nach einem Jahr ($t = 1$) betragen die Zinsen
+\[ Z_1 = 3.000 \cdot \frac{3}{100} \cdot 1 = 90\,€ . \]
+Nach zweieinhalb Jahren ergibt sich entsprechend:
+\[ Z_{2{,}5} = 3.000 \cdot \frac{3}{100} \cdot 2{,}5 = 225\,€ .\beispielende \]
+
+Da es üblich ist, \emph{tagesgenau} zu verzinsen, geht man noch einen Schritt weiter und ersetzt in der Formel die Laufzeit $t$ durch den Bruch $\dfrac{T}{365}$, wenn die Anzahl $T$ der Zinstage gegeben ist. Man schreibt dann:
+\[ Z_T = K \cdot \frac{p}{100} \cdot \frac{T}{365} \]
+
+\subsubsection{Fortsetzung von Beispiel 1.1.1.1}
+
+Wird das Kapital (aus obigem Beispiel) vom 4.~März bis zum 19.~August eines Jahres angelegt, so ergeben sich 168 Zinstage und somit als Zinsen:
+\[ Z_{168} = 3.000 \cdot \frac{3}{100} \cdot \frac{168}{365} = 41{,}42\,€ .\beispielende \]
+
+Die \textbf{Endwertformel der einfachen Zinsrechnung} ergibt sich nun, wenn das Kapital $K_t$ zum Zeitpunkt $t$ als Summe des Anfangskapitals $K_0$ und der im Zeitraum $t$ angefallenen Zinsen $Z_t$ dargestellt wird:
+\merkbox{\[ K_t = K_0 + K_0 \cdot i \cdot t = K_0 \cdot (1 + i \cdot t) \]}
+
+Die Formel enthält die vier Größen $K_t$, $K_0$, $i$ und $t$, wobei zunächst einmal davon ausgegangen wird, dass $K_t$ unbekannt und die anderen drei Größen bekannt sind. Generell kann jedoch jede dieser vier Größen berechnet werden, wenn die restlichen drei bekannt sind. Die nächsten Beispiele zeigen auf, dass sich solche Szenarien aus sinnvollen Fragestellungen ergeben können.
+
+\subsubsection{Beispiel}
+
+In drei Monaten ist eine Forderung von 5.000\,€ fällig. Wie viel ist bei einer Sofortzahlung fällig, wenn mit einem jährlichen Zinssatz von $p = 7\,\%$ gerechnet wird?
+
+Man erhält:
+\[ K_0 = \frac{K_t}{1 + i \cdot t} = \frac{5.000}{1 + 0{,}07 \cdot 0{,}25} = 4.914{,}01\,€ .\beispielende \]
+
+In dem letzten Beispiel wurde der \textbf{Barwert} der angesprochenen Forderung bestimmt. Der Begriff des Barwerts ist in der Finanzmathematik von zentraler Bedeutung -- er stellt den Gegenwartswert einer zukünftigen Zahlung dar. Die Bestimmung des Barwerts $K_0$ aus dem Endwert $K_t$ nennt man auch \textbf{Abzinsen} oder \textbf{Diskontieren}.
+
+\subsubsection{Beispiel}
+
+Für einen Kredit über 26.000\,€, der ein halbes Jahr in Anspruch genommen wurde, waren 910\,€ Zinsen zu zahlen. Mit wie viel Prozent jährlich wurde der Kredit verzinst?
+
+Hier ergibt sich die Gleichung
+\[ 910 = 26.000 \cdot i \cdot \tfrac{1}{2} . \]
+Mit Auflösen nach $i$ errechnet sich daraus $i = 0{,}07$, d.\,h. die Verzinsung erfolgte mit 7\,\%.\beispielende
+
+\subsubsection{Beispiel}
+
+In welcher Zeit wächst eine Spareinlage von 3.000\,€ bei 2\,\% jährlicher Verzinsung auf 3.045\,€ an?
+
+Hier ergibt sich aus der Endwertformel
+\[ t = \frac{\frac{K_t}{K_0} - 1}{i} . \]
+Einsetzen der gegebenen Werte liefert
+\[ t = \frac{\frac{3.045}{3.000} - 1}{0{,}02} = 0{,}75 . \]
+Das Ergebnis sind somit 9 Monate.\beispielende
+
+\subsubsection{Übungsaufgabe}
+
+\begin{graukasten}
+  Jemand muss in 5 Monaten 3.000\,€ und in 10 Monaten 2.000\,€ zurück zahlen. Wie groß ist die Gesamtschuld heute, wenn mit einer jährlichen Verzinsung von 7\,\% gerechnet wird?
+\end{graukasten}
+
+\subsection{Ein wichtiger Grundsatz sowie weitere Begriffe und Bezeichnungen}
+
+Der folgende Grundsatz, der bei genauerem Hinsehen auch schon im vorigen Abschnitt angewendet wurde, bildet die Basis der grundlegenden Finanzmathematik, wie sie in dieser Kurseinheit behandelt wird:
+\merkbox{\begin{itemize}
+  \item Der Wert einer Zahlung ist abhängig von dem Zeitpunkt, zu dem diese zu leisten ist.
+\end{itemize}}
+
+Am einfachen Beispiel: Wenn mir jemand 1.000\,€ schuldet, kann es mir nicht egal sein, ob er mir diese heute oder erst in einem Jahr zurück zahlt! Bekomme ich die 1.000\,€ nämlich heute, so kann ich sie zu 3\,\% anlegen und habe in einem Jahr 1.030\,€. Anders herum gesagt: 1.030\,€ in einem Jahr sind »dasselbe« wie 1.000\,€ (der Barwert) heute.
+
+Das \textbf{Äquivalenzprinzip} besagt nichts anderes, als dass diese zeitlichen Verschiebungen möglich sind und zu dem gleichen Ergebnis führen (eben »äquivalent« sind), sofern man stets die Verzinsung mit berücksichtigt. In dieser allgemeinen Formulierung bildet das Äquivalenzprinzip die Basis für viele finanzmathematische Berechnungen und zugleich den Schlüssel zur Bestimmung von Renditen und Effektivzinssätzen -- dazu später mehr.
+
+Es ist auch üblich, weil hilfreich, sich am \textbf{Zeitstrahl} eine Übersicht über Ein- und Auszahlungen zu verschaffen -- dies sieht dann folgendermaßen aus:
+
+\begin{center}
+  \begin{tikzpicture}[x=1.25cm]
+    \draw[-{Stealth}] (-1.2,0) -- (6.4,0) node[below] {Zeit $t$};
+    \node[left] at (-1.2,0.9) {Einnahmen};
+    \node[left] at (-1.2,-0.9) {Ausgaben};
+    \foreach \x/\lab in {0/0,1/1,2/2,4/$i$,6/$j$} { \draw (\x,-0.12) -- (\x,0.12); \node[below] at (\x,-0.15) {\lab}; }
+    \node at (3,0) {$\ldots$}; \node at (5,0) {$\ldots$};
+    \node[above] at (0,0.3) {$E_0$};
+    \node[above] at (6,0.3) {$E_j$};
+    \node[below] at (1,-0.5) {$A_1$};
+    \node[below] at (4,-0.5) {$A_i$};
+  \end{tikzpicture}
+\end{center}
+
+Das Verständnis ist dabei stets, dass gemäß dem Äquivalenzprinzip alle Einnahmen oder Ausgaben bei gegebener Form der Verzinsung und gegebenem Zinssatz entlang des Zeitstrahls ineinander umgerechnet werden können.
+
+\subsection{Zinseszinsrechnung}
+
+Man spricht von \textbf{Zinseszins}, wenn nach dem Ablauf einer Zinsperiode die erzielten Zinsen dem Kapital zugeschlagen und somit in der nächsten Zinsperiode mitverzinst werden. Dies ist die übliche Art der Verzinsung, die zum Beispiel bei einem Sparkonto angewendet wird. Das folgende Beispiel wurde bereits in der ersten Lerneinheit besprochen.
+
+\subsubsection{Beispiel}
+
+Herr K. legt 1.000\,€ auf einem Sparbuch an, welches jährlich 3\,\% Zinsen bietet. Die in einem Jahr erzielten Zinsen werden in den darauf folgenden Jahren mitverzinst (»Zinseszins«). Auf welchen Betrag wachsen die 1.000\,€ in 8 Jahren, wenn in dieser Zeit von dem Konto weder etwas abgehoben noch zusätzlich etwas eingezahlt wird?
+
+Der Schlüssel zur Beantwortung dieser Frage liegt in der folgenden Beobachtung:
+\begin{itemize}
+  \item Man addiert zu einem Betrag 3\,\% dieses Betrages hinzu, indem man den Betrag mit der Zahl 1{,}03 (dies ist ja dasselbe wie $1 + \tfrac{3}{100}$) multipliziert.
+\end{itemize}
+
+Dies bedeutet: Aus den 1.000\,€ werden in einem Jahr
+\[ 1.000 \cdot 1{,}03 = 1.030\,€ , \]
+nach zwei Jahren stehen
+\[ 1.030 \cdot 1{,}03 \text{ bzw. } 1.000 \cdot 1{,}03^2\,€ \]
+zur Verfügung (das sind 1.060{,}90\,€), nach $n$ Jahren sind es
+\[ 1.000 \cdot 1{,}03^n\,€ . \]
+Hier ist nach der Zahl
+\[ 1.000 \cdot 1{,}03^8 \]
+gefragt. Man kann entweder $1{,}03^8$ per Hand ausrechnen (das ist etwas mühsam) oder einen Taschenrechner benutzen -- Ergebnis ist (auf 6 Dezimalstellen gerundet) $1{,}26677$, d.\,h. die Antwort auf die Frage lautet: 1.266{,}77\,€.\beispielende
+
+Das Beispiel führt direkt zu der folgenden allgemeinen Formel:
+\merkbox{\[ K_n = K_0 \cdot q^n \]}
+
+Dabei bezeichnet $K_0$ das \textbf{Anfangskapital}, $K_n$ das \textbf{Kapital nach $n$ Verzinsungsperioden} (meist Jahre), und $q = 1 + i$ steht für den \textbf{Aufzinsungsfaktor}, der zu der Zinsrate $i$ gehört. Der Einfachheit halber sei zunächst angenommen, dass $n$ eine natürliche Zahl ist (also 1, 2, 3 oder 4 etc.), es sich anders gesagt um $n$ volle Verzinsungsperioden handelt -- der allgemeinere Fall wird später noch einmal angesprochen.
+
+Die Formel ist die Basis der gesamten Zinseszinsrechnung, allerdings muss sie oft bei komplexeren Fragestellungen in unterschiedlicher Weise angewendet werden, weshalb sich aus Gründen der Übersichtlichkeit eine Reihe weiterer Begriffe herausgebildet haben. Dies wird an den nun folgenden Beispielen deutlich.
+
+Da in dieser Formel -- wie bei der einfachen Zinsrechnung -- vier Größen vorkommen, ist auch hier klar: Sind drei dieser Größen bekannt, so kann die vierte ausgerechnet werden. Bei dieser Rechnung können neben den Grundrechenarten Potenzen, Wurzeln und Logarithmen auftreten. Ist $K_n$ gegeben, so nennt man die Berechnung von $K_0$ wie gewohnt die Bestimmung des \textbf{Barwerts}.
+
+\subsubsection{Beispiel}
+
+Jemand kauft abgezinste Sparbriefe im Nennwert von 6.000\,€, die bei einer Laufzeit von 4 Jahren mit 5\,\% p.\,a. verzinst werden. Wie viel hat er dafür zu zahlen?
+
+Der Barwert $K_0$ ergibt sich hier als:
+\[ K_0 = \frac{6.000}{1{,}05^4} = 4.936{,}21\,€ .\beispielende \]
+
+Die Beziehung zwischen Anfangskapital/Barwert und verzinstem Kapital ist am Zeitstrahl noch einmal verdeutlicht:
+
+\begin{center}
+  \begin{tikzpicture}[x=1.4cm]
+    \draw[-{Stealth}] (-0.2,0) -- (5.6,0) node[below] {Zeit};
+    \foreach \x/\lab in {0/0,1/1,2/2,4/$t$} { \draw (\x,-0.12) -- (\x,0.12); \node[below] at (\x,-0.15) {\lab}; }
+    \node at (3,0) {$\ldots$}; \node at (5.1,0) {$\ldots$};
+    \node[left] at (-0.1,0.2) {$K_0$};
+    \node at (4,0.45) {$K_t$};
+    \draw[dashed,-{Stealth}] (0.1,0.5) -- (3.8,0.5) node[midway,above] {Aufzinsen};
+    \draw[dashed,-{Stealth}] (3.8,-0.7) -- (0.1,-0.7) node[midway,below] {Abzinsen};
+  \end{tikzpicture}
+\end{center}
+
+Es folgen nun zwei Beispiele, in denen jeweils eine weitere der vier relevanten Größen berechnet werden muss.
+
+\subsubsection{Beispiel}
+
+Jemand kauft Zero-Bonds (auch Nullkuponanleihen genannt), bei denen zwischenzeitlich keine Zinsen gezahlt werden, sondern erst am Ende der Laufzeit die gesamte Zinszahlung erfolgt. Der Kunde zahlt für die Zero-Bonds bei einer Laufzeit von 5 Jahren und einem Nennwert von 6.000\,€ den Betrag von 4.462{,}46\,€. Welche Rendite (Verzinsung) ergibt sich daraus?
+
+Einsetzen der bekannten Werte in die Formel $K_n = K_0 \cdot q^n$ führt zu
+\[ 6.000 = 4.462{,}46 \cdot q^5 \]
+und ergibt durch Auflösen nach $q$:
+\[ q = \sqrt[5]{\frac{6.000}{4.462{,}46}} \approx 1{,}061 . \]
+Die Rendite beträgt folglich 6{,}1\,\% p.\,a.\beispielende
+
+Vor der Behandlung des nächsten Beispiels muss der folgende -- oben schon einmal angeklungene -- Punkt angesprochen werden: In der Praxis ist nicht nur die Verzinsung nach \emph{ganzen} Zinsperioden relevant -- beispielsweise darf man auf ein Sparkonto mit jährlichem Zinssatz eingezahlte 1.000\,€ auch nach einem Jahr und 69 Tagen wieder abheben! Das übliche Verfahren ist dann, dass nach Ausschöpfung der vollen Zinsperioden, in denen mit Zinseszins gerechnet wird, für den verbleibenden Rest \emph{einfach} verzinst wird -- man spricht von \textbf{gemischter Verzinsung}.
+
+Die Regeln sind also:
+\begin{itemize}
+  \item Für ganze Jahre werden Zinseszinsen berechnet. Der Zinszuschlag erfolgt jeweils zum Ende des Jahres.
+  \item Für Jahresbruchteile werden einfache Zinsen berechnet. Bezugsgröße ist das jeweilige Kapital zu Beginn des Jahres.
+\end{itemize}
+
+In dem folgenden Beispiel, bei dem die Laufzeit zu berechnen ist, kommt dies zum Tragen.
+
+\subsubsection{Beispiel}
+
+Jemand hat 3.500\,€ zur Verfügung und plant in den nächsten Jahren eine Anschaffung, die 5.000\,€ kosten wird. Das Geld kann zu 5\,\% p.\,a. angelegt werden. Wann sind daraus mit Zinsen 5.000\,€ geworden?
+
+Einsetzen in die Zinseszins-Grundformel liefert:
+\[ 5.000 = 3.500 \cdot 1{,}05^t \]
+(Für die zu berechnende Zeitgröße ist hier der Buchstabe $t$ statt $n$ verwendet, da sich voraussichtlich keine ganzzahlige Lösung ergeben wird.)
+
+Die umgestellte Gleichung
+\[ 1{,}05^t = \frac{5.000}{3.500} \]
+ergibt nach Logarithmieren und Auflösen nach $t$:
+\[ t = \frac{\ln(5.000) - \ln(3.500)}{\ln(1{,}05)} \approx 7{,}31 . \]
+Das Ergebnis sind also 7 Jahre plus einem Bruchteil eines weiteren Jahres. Die exakte Rechnung geht jetzt folgendermaßen weiter:
+
+Nach 7 vollen Jahren ist das Kapital gewachsen auf
+\[ 3.500 \cdot 1{,}05^7 = 4.924{,}85\,€ . \]
+Damit bleibt ein Rest von 75{,}15\,€, der sich mit einfacher Verzinsung ab Beginn des achten Jahres ergeben muss. Die Gleichung
+\[ 75{,}15 = 4.924{,}85 \cdot \frac{5}{100} \cdot \frac{T}{365} \]
+liefert
+\[ T \approx 111{,}39 , \]
+d.\,h. nach 112 Tagen des achten Jahres sind die 5.000\,€ erreicht.
+
+Ungefähr (aber nicht präzise) das gleiche Ergebnis kommt heraus, wenn bei dem obigen Resultat $t \approx 7{,}31$ einfach der Bruchteil 0{,}31 mit 365 Tagen multipliziert wird -- man erhält so 113 Tage.\beispielende
+
+\subsubsection{Übungsaufgabe}
+
+\begin{graukasten}
+  Auf welchen Betrag wachsen 2.000\,€ bei 3\,\% Zinsen p.\,a. in 4 Jahren und 117 Tagen an?
+\end{graukasten}
+
+Mit dem nächsten Beispiel, bei dem es um die Berechnung eines durchschnittlichen Zinssatzes geht, wird eine Brücke geschlagen -- zum Einen zum Thema \emph{Lösen von Gleichungen}, das in der ersten Lerneinheit angesprochen wurde, zum Anderen zum Thema \emph{Nullstellen von Funktionen}, welches noch mehrfach eine Rolle spielen wird.
+
+\subsubsection{Beispiel}
+
+Bei Bundesschatzbriefen von Typ A werden die Zinsen jährlich ausgezahlt. Herr K. hatte drei Jahre lang 10.000\,€ in solchen Schatzbriefen angelegt und erzielte damit folgende Renditen:
+\begin{enumerate}
+  \item Jahr: 4{,}75\,\%
+  \item Jahr: 5{,}75\,\%
+  \item Jahr: 6{,}75\,\%
+\end{enumerate}
+
+Welchen Zinssatz hat er insgesamt erzielt?
+
+Präziser formuliert, ist mit dieser Frage Folgendes gemeint: Welcher feste Zinssatz $i$ hätte nach drei Jahren Verzinsung (mit Zinseszins, also ohne jährliche Zinsauszahlung) des eingesetzten Kapitals zu genau demselben Ergebnis geführt? Man nennt diesen gesuchten Zinssatz den \textbf{effektiven Zinssatz}.
+
+Mit $q = 1 + i$ gelangt man für das gesuchte $q$ zu der folgenden Gleichung:
+\[ 10.000 = \frac{475}{q} + \frac{575}{q^2} + \frac{10.675}{q^3} \]
+Die Gleichung beruht auf der Überlegung, dass die Barwerte der zurückfließenden Einzelsummen sich zu 10.000\,€ aufaddieren müssen. Die mit $q^3$ multiplizierte Gleichung korrespondiert zur Betrachtung der Einzelbeträge am Ende der drei Jahre:
+\[ 10.000\,q^3 = 475\,q^2 + 575\,q + 10.675 \]
+Wie bestimmt man aus dieser Gleichung den Wert von $q$? Dies ist nicht ganz einfach -- mit einem guten Taschenrechner kommt man zum Ziel, das Ergebnis ist $q \approx 1{,}0571$, der gesuchte Zinssatz folglich 5{,}71\,\%.
+
+Beim Thema Nullstellen von Funktionen (nächste Lerneinheit) kommen wir auf das Problem noch einmal zurück.\beispielende
+
+\subsubsection{Übungsaufgabe}
+
+\begin{graukasten}
+  Beim Verkauf eines Grundstücks werden drei Angebote gemacht:
+  \begin{itemize}
+    \item Makler A bietet 140.000\,€ in bar;
+    \item Makler B bietet 100.000\,€ in bar und weitere 60.000\,€, zahlbar in 5 Jahren;
+    \item Makler C bietet 175.000\,€, zahlbar in 3 Jahren.
+  \end{itemize}
+  Welches Angebot ist am günstigsten, wenn man für die Verzinsung einen jährlichen Zinssatz von 8\,\% unterstellt?
+\end{graukasten}
+
+\subsection{Unterjährige Verzinsung und effektiver Zinssatz}
+
+Wie bereits gesagt, werden die Verzinsungsperioden meist in Jahren gerechnet. Stattdessen kann man selbstverständlich beliebige andere Zeiträume betrachten -- wenn man jeweils den passenden Zinssatz $i$ bzw. Aufzinsungsfaktor $q$ einsetzt, bleibt die Grundformel
+\[ K_n = K_0 \cdot q^n \]
+erhalten. Anders bei der \textbf{unterjährigen Verzinsung}: Hiermit wird der Umstand bezeichnet, dass zwar die Verzinsungsperiode (also der zugrunde liegende Zeitrahmen, für den ein Zinssatz angegeben wird) jeweils ein Jahr beträgt, jedoch der Zinszuschlag in kürzeren als jährlichen Zeitabständen (Halbjahre, Quartale, Monate) erfolgt und diese Zinsen stets sofort mitverzinst werden. Wird dann der angesetzte Jahreszinssatz proportional auf die kürzeren Zeitabstände verteilt, so ergibt sich ein erhöhter \textbf{effektiver Zinssatz}.
+
+\subsubsection{Beispiel}
+
+10.000\,€ werden zu 4\,\% p.\,a. angelegt, wobei die Zinsgutschrift nach jeweils einem Vierteljahr erfolgt. Pro Vierteljahr erfolgt also ein Zinszuschlag von 1\,\%. Am Ende des Jahres ergibt sich so ein Kapital von
+\[ K_1 = 10.000 \cdot 1{,}01^4 = 10.406{,}04\,€ . \]
+Der effektive Zinssatz beträgt also 4{,}06\,\%.\beispielende
+
+Allgemein verwendet man die folgenden Bezeichnungen:
+\begin{itemize}
+  \item $m$ = Anzahl der Zinsperioden pro Jahr (im obigen Beispiel 4)
+  \item $i_N$ = nomineller Jahreszinssatz (hier 4\,\%)
+  \item $i_R = \dfrac{i_N}{m}$ relativer Zinssatz (hier 1\,\%)
+  \item $i_E$ effektiver Zinssatz
+\end{itemize}
+
+Der effektive Zinssatz kann durch folgende Formel aus dem relativen Zinssatz und der Anzahl $m$ der Zinsperioden pro Jahr berechnet werden:
+\merkbox{\[ i_E = (1 + i_R)^m - 1 \]}
+
+Dies leitet sich daraus ab, dass für die zugehörigen Aufzinsungsfaktoren
+\[ q_E = 1 + i_E \quad \text{und} \quad q_R = 1 + i_R \]
+offenbar gelten muss:
+\[ q_E = q_R^{\,m} . \]
+Die obige Formel ergibt sich nun nach Einsetzen und Auflösen nach $i_E$.
+
+\subsubsection{Übungsaufgabe}
+
+\begin{graukasten}
+  Herr K. erhält folgende Angebote zur Anlage seines Kapitals:
+  \begin{itemize}
+    \item jährlicher Zinssatz von 6{,}1\,\%
+    \item nomineller Jahreszinssatz von 6\,\%, mit vierteljährlicher Verzinsung
+    \item monatlicher (relativer) Zinssatz von 0{,}5\,\%
+  \end{itemize}
+  Welches ist das beste Angebot?
+\end{graukasten}
+
+In dem obigen Beispiel 1.1.4.1 stellte sich heraus, dass ein jährlicher nomineller Zinssatz von 4\,\% bei vierteljährlicher Verzinsung ($m = 4$) zu einem effektiven Zinssatz von 4{,}06\,\% führt. Was ergäbe sich bei monatlicher Verzinsung?
+
+Man rechnet leicht aus:
+\[ i_E = \left(1 + \frac{0{,}04}{12}\right)^{12} - 1 \approx 0{,}0407 . \]
+Der effektive Zinssatz ist also 4{,}07\,\%.
+
+Wir gehen noch einen Schritt weiter: Was ergäbe sich bei \emph{täglicher} Verzinsung? Die Formel liefert:
+\[ i_E = \left(1 + \frac{0{,}04}{365}\right)^{365} - 1 \approx 0{,}0408 \text{ -- also 4{,}08\,\%.} \]
+Man könnte nun noch zu stündlicher, minütlicher, sekündlicher \ldots Verzinsung übergehen. Es stellt sich heraus, dass der effektive Zinssatz beim Übergang zur »Verzinsung in jedem Augenblick« (man spricht von \textbf{stetiger Verzinsung}) dem Wert
+\[ e^{0{,}04} - 1 \]
+zustrebt. Dabei steht »$e$« für die Eulersche Zahl, die ungefähr den Wert 2{,}718 hat -- die Zahl wurde auch in der ersten Lerneinheit schon einmal erwähnt.
+
+Im Zusammenhang mit stetiger Verzinsung wird die zu dem nominellen Zinssatz gehörende Zinsrate auch \textbf{Zinsintensität} genannt.
+
+\subsubsection{Beispiel}
+
+Welcher effektive Zinssatz ergibt sich bei stetiger Verzinsung und einer Zinsintensität von 0{,}06?
+
+Die Antwort lautet:
+\[ e^{0{,}06} - 1 \approx 0{,}0618 \text{ bzw. } 6{,}18\,\% .\beispielende \]
+
+Stetige Verzinsung ist zunächst einmal eine theoretische Konstruktion -- es ist nicht üblich, dass Banken diese Verzinsungsform für ein Sparbuch anbieten. In der fortgeschrittenen Finanzmathematik gibt es dafür jedoch Anwendungen, beispielsweise beim Berechnen des Wertes von Optionen.

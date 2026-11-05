@@ -1,0 +1,272 @@
+\section{Der Gauß-Algorithmus}
+
+\stepcounter{subsection}% Im Original steht vor den Beispielen kein eigener Unterabschnitt (Nummerierung 1.2.1.x)
+
+Betrachtet werden nun LGS beliebiger Größe mit $m$ Gleichungen und $n$ Unbekannten. Das kann man allgemein so hinschreiben:
+\begin{align*}
+  a_{11} x_1 + \ldots + a_{1n} x_n &= b_1\\
+  a_{21} x_1 + \ldots + a_{2n} x_n &= b_2\\
+  &\vdots\\
+  a_{m1} x_1 + \ldots + a_{mn} x_n &= b_m
+\end{align*}
+Die gegebenen Faktoren vor den Variablen werden \textbf{Koeffizienten} genannt und mit $a_{ij}$ bezeichnet. Dabei gibt $i$ die Gleichung und $j$ die Unbekannte an, vor der der betreffende Koeffizient steht. Im obigen Beispiel 1.1.1.3 ist $a_{31} = 6$.
+
+Wesentlich für die Arbeit mit LGS und Anwendung des (noch vorzustellenden) Lösungsalgorithmus ist, dass bei der Notierung eines LGS die Unbekannten stets in aufsteigender Reihenfolge ihrer Indizes hingeschrieben werden -- also z.\,B. NICHT
+\[ -2x_2 - x_3 - 5x_1 = -18 , \]
+SONDERN:
+\[ -5x_1 - 2x_2 - x_3 = -18 . \]
+Des Weiteren müssen in jeder Gleichung alle Unbekannten notiert werden. Dies erreicht man, in dem man für die nichtvorhandene Unbekannte $x_j$ den entsprechenden Koeffizienten $a_{ij}$ zu 0 setzt. Dies bedeutet z.\,B. für die Gleichung
+\[ 3x_1 + x_3 = 9 , \]
+in der die Variable $x_2$ nicht auftritt, dass man sie so notiert:
+\[ 3 \cdot x_1 + 0 \cdot x_2 + 1 \cdot x_3 = 9 . \]
+In der Matrix tritt somit hierzu die folgende Zeile auf:
+\[ \begin{pmatrix} 3 & 0 & 1 & | & 9 \end{pmatrix} \]
+
+Der \textbf{Gauß-Algorithmus}\footnote{Das Verfahren ist nach dem Mathematiker Carl Friedrich Gauß (1777--1855) benannt und wird als Gaußscher Algorithmus, Gauß-Algorithmus oder gelegentlich auch als Gaussalgorithmus bezeichnet.} ist die hier vorgestellte »Rechenvorschrift«, um LGS zu lösen. Als Ergebnis erhält man sowohl die Anzahl Lösungen als auch die konkrete Angabe der Lösung(en) -- wenn vorhanden.
+
+Der Algorithmus wird auf die Matrix $(A\,|\,b)$ angewandt. Er liefert eine Lösungsmatrix $L$. Beide Matrizen gehören zu äquivalenten LGS, besitzen also dieselben Lösungen.
+\begin{itemize}
+  \item Das Ziel: Aus den Einträgen der Matrix $L$ sind die Lösungen des LGS direkt -- oder zumindest leichter -- abzulesen.
+\end{itemize}
+
+Die drei möglichen Fälle, mit denen der Gauß-Algorithmus umzugehen hat, werden nun an Hand dreier Beispiele aufgezeigt. Anschließend wird der Algorithmus noch einmal allgemein formuliert.
+
+\subsubsection{Beispiel}
+
+Die Systemmatrix sehe so aus:
+\[ (A\,|\,b) = \left(\begin{array}{ccc|c} 1 & -1 & 2 & 9\\ 2 & 1 & 0 & 3\\ 1 & 2 & -1 & -3 \end{array}\right) \qquad \begin{array}{l} \text{I}\\ \text{II}\\ \text{III} \end{array} \]
+Um über die Zeilen »reden« zu können, steht wie vorher bei den Gleichungen rechts neben der Matrix eine Nummerierung.
+
+Im ersten Schritt ersetzt man die zweite Zeile durch »zweite Zeile minus 2 mal erste Zeile« und die dritte Zeile durch »dritte Zeile minus erste Zeile« -- die \emph{Absicht}, dies zu tun, wird wieder zunächst rechts notiert:
+\[ \left(\begin{array}{ccc|c} 1 & -1 & 2 & 9\\ 2 & 1 & 0 & 3\\ 1 & 2 & -1 & -3 \end{array}\right) \qquad \begin{array}{l} \text{I}\\ \text{II}-2\cdot\text{I}\\ \text{III}-\text{I} \end{array} \]
+Das Ergebnis ist hier zu sehen:
+\[ \left(\begin{array}{ccc|c} 1 & -1 & 2 & 9\\ 0 & 3 & -4 & -15\\ 0 & 3 & -3 & -12 \end{array}\right) \qquad \begin{array}{l} \text{I}\\ \text{II}\\ \text{III}-\text{II} \end{array} \]
+Wie man sieht, ist rechts bereits aufgeschrieben, dass im nächsten Schritt die dritte Zeile durch »dritte Zeile minus zweite Zeile« ersetzt werden soll -- Resultat:
+\[ \left(\begin{array}{ccc|c} 1 & -1 & 2 & 9\\ 0 & 3 & -4 & -15\\ 0 & 0 & 1 & 3 \end{array}\right) \]
+Das $3 \times 3$-Schema links des senkrechten Striches ist nun in »Dreiecksform« -- man meint damit, dass unterhalb der Diagonalen von links oben nach rechts unten nur noch Nullen stehen.
+
+An dieser Stelle geht man zurück zur Schreibweise als Gleichungen -- diese lauten nun:
+\begin{align*}
+  x_1 - x_2 + 2x_3 &= 9\\
+  3x_2 - 4x_3 &= -15\\
+  x_3 &= 3
+\end{align*}
+Nun kann man die Lösungen schnell bestimmen: $x_3 = 3$ steht schon da. Setzt man dies in die zweite Gleichung ein, bekommt man $x_2 = -1$. Einsetzen dieser beiden Werte für $x_2$ und $x_3$ in die erste Gleichung liefert schließlich $x_1 = 2$.
+
+Da wir zu Beginn des Beispiels gar nicht von einem Gleichungssystem mit Variablen $x_1$, $x_2$ und $x_3$, sondern direkt von der Systemmatrix ausgegangen sind, kann man das Ergebnis auch so formulieren: Lösung ist der \textbf{Vektor}
+\[ \begin{pmatrix} 2 \\ -1 \\ 3 \end{pmatrix} . \]
+Auf Vektoren wird später noch eingegangen.\beispielende
+
+Wie man in dem letzten Beispiel gesehen hat, besteht der Gauß-Algorithmus im Wesentlichen darin, die Spalten der Systemmatrix von links nach rechts zu durchlaufen und dabei mit Hilfe der erlaubten Rechenoperationen für Zeilen unterhalb der sogenannten \textbf{Hauptdiagonalen} (die von links oben nach rechts unten verläuft) lauter Nullen zu erzeugen. Ist dies nämlich geschafft, so kann die Lösung leicht (»von unten nach oben«) ausgerechnet werden.
+\begin{itemize}
+  \item Bei der Erzeugung von Nullen unterhalb eines Diagonalelements ist darauf zu achten, dass nur Vielfache der zu dem betreffenden Diagonalelement gehörenden Zeile zu den anderen darunter stehenden Zeilen addiert werden dürfen, um dort die gewünschten Nullen zu erhalten!
+\end{itemize}
+Diese Vorschrift stellt sicher, dass »geordnet« vorgegangen wird -- ansonsten bestünde die Gefahr, dass aus Versehen eine Gleichung wegfällt und die Lösungsmenge sich ändert.
+
+Im letzten Beispiel ist diese Vorschrift berücksichtigt: Im ersten Rechenschritt werden nur Vielfache der ersten Zeile zu den anderen Zeilen addiert, im zweiten wird ein Vielfaches der zweiten zur dritten addiert.
+
+Leider sind wir mit der Beschreibung des Gauß-Algorithmus noch nicht fertig. Wie wir bereits wissen, gibt es nämlich nicht nur den (im obigen Beispiel vorliegenden) Fall, dass eine eindeutige Lösung ausgerechnet werden kann, sondern es sind auch unendlich viele oder gar keine Lösung möglich. Bei der Umformung der Systemmatrix machen sich diese Fälle dadurch bemerkbar, dass man an neuberechneten Stellen Nullen bekommt, an denen man überhaupt keine haben wollte! Dazu zunächst wieder Beispiele.
+
+\subsubsection{Beispiel}
+
+Es wird von der folgenden Systemmatrix ausgegangen:
+\[ \left(\begin{array}{ccc|c} 0 & 1 & 2 & 9\\ -2 & 2 & 1 & 3\\ 2 & -1 & 1 & 6 \end{array}\right) \qquad \begin{array}{l} \text{I}\leftrightarrow\text{III}\\ \text{II}\\ \text{III}\leftrightarrow\text{I} \end{array} \]
+Ganz rechts ist bereits die Absicht bekundet, die erste und die dritte Zeile zu vertauschen. Dies begründet sich durch das allgemeine Ziel, in der Hauptdiagonalen (und also insbesondere links oben) von Null verschieden Zahlen und unter dieser Diagonalen Nullen zu platzieren. Nach dem Tausch hat man also:
+\[ \left(\begin{array}{ccc|c} 2 & -1 & 1 & 6\\ -2 & 2 & 1 & 3\\ 0 & 1 & 2 & 9 \end{array}\right) \qquad \begin{array}{l} \text{I}\\ \text{II}+\text{I}\\ \text{III} \end{array} \]
+Addition der ersten zur zweiten Zeile ergibt:
+\[ \left(\begin{array}{ccc|c} 2 & -1 & 1 & 6\\ 0 & 1 & 2 & 9\\ 0 & 1 & 2 & 9 \end{array}\right) \qquad \begin{array}{l} \text{I}\\ \text{II}\\ \text{III}-\text{II} \end{array} \]
+Nun wird von der dritten Zeile die zweite subtrahiert:
+\[ \left(\begin{array}{ccc|c} 2 & -1 & 1 & 6\\ 0 & 1 & 2 & 9\\ 0 & 0 & 0 & 0 \end{array}\right) \]
+Jetzt ist etwas Interessantes passiert: Man wollte eigentlich nur bei $a_{32}$ eine Null erzeugen, hat aber eine ganze Zeile mit lauter Nullen erhalten. Diese neue dritte Zeile trägt nichts zum Auffinden der Lösung bei, denn die Zeile bedeutet:
+\[ 0 \cdot x_1 + 0 \cdot x_2 + 0 \cdot x_3 = 0 . \]
+Dies ist jedoch für beliebige Werte der $x_i$ richtig und kann uns somit nicht helfen, die gesuchten Lösungen zu finden!
+
+Fazit: Man kann diese dritte Zeile weglassen, die neue Systemmatrix sieht so aus:
+\[ \left(\begin{array}{ccc|c} 2 & -1 & 1 & 6\\ 0 & 1 & 2 & 9 \end{array}\right) \]
+Da eine weitere Vereinfachung hier nicht möglich ist, kommt man zu dem Schluss, dass die dritte Variable (nennen wir sie wieder $x_3$) frei gewählt werden kann und die beiden anderen Variablen sich in Abhängigkeit dieser anfänglichen Wahl darstellen lassen.
+
+Man drückt dies so aus:\\
+Es wird $x_3 = t$ gesetzt mit beliebiger reeller Zahl $t$.
+
+Aus der zweiten Zeile der letzten Systemmatrix ergibt sich dann
+\[ x_2 + 2t = 9 \]
+bzw.
+\[ x_2 = 9 - 2t . \]
+Setzt man dies nun in die erste Gleichung ein, so folgt
+\[ 2x_1 - (9 - 2t) + t = 6 \]
+bzw.
+\[ x_1 = \frac{15}{2} - \frac{3}{2} t . \]
+In Vektorschreibweise sehen die Lösungen so aus:
+\[ \begin{pmatrix} x_1 \\ x_2 \\ x_3 \end{pmatrix} = \begin{pmatrix} \frac{15}{2} \\ 9 \\ 0 \end{pmatrix} + t \cdot \begin{pmatrix} -\frac{3}{2} \\ -2 \\ 1 \end{pmatrix} . \]
+Dies ist die »Parameterdarstellung« einer Geraden im dreidimensionalen Koordinatensystem\footnote{Diese Bemerkung \emph{muss} man nicht verstehen -- die Chance dazu besteht nur, wenn man sich schon einmal mit analytischer Geometrie beschäftigt hat.}.\beispielende
+
+Der letzte noch zu behandelnde Fall wird in dem folgenden Beispiel gezeigt.
+
+\subsubsection{Beispiel}
+
+Die Systemmatrix sei jetzt:
+\[ \left(\begin{array}{ccc|c} 2 & -1 & 1 & 6\\ -2 & 2 & 1 & 3\\ 0 & 1 & 2 & 8 \end{array}\right) \qquad \begin{array}{l} \text{I}\\ \text{II}+\text{I}\\ \text{III} \end{array} \]
+Da unten links bereits eine Null steht, wird im ersten Schritt nur zur zweiten Zeile die erste addiert:
+\[ \left(\begin{array}{ccc|c} 2 & -1 & 1 & 6\\ 0 & 1 & 2 & 9\\ 0 & 1 & 2 & 8 \end{array}\right) \qquad \begin{array}{l} \text{I}\\ \text{II}\\ \text{III}-\text{II} \end{array} \]
+Im nächsten Schritt wird die zweite Zeile von der dritten subtrahiert:
+\[ \left(\begin{array}{ccc|c} 2 & -1 & 1 & 6\\ 0 & 1 & 2 & 9\\ 0 & 0 & 0 & -1 \end{array}\right) \]
+Überraschenderweise hat sich jetzt eine neue dritte Zeile ergeben, in der links lauter Nullen und rechts des Trennungsstriches eine von Null verschiedene Zahl steht.
+Dies bedeutet, dass es \emph{keine} Lösung gibt! Die dritte Zeile bedeutet nämlich:
+\[ 0 \cdot x_1 + 0 \cdot x_2 + 0 \cdot x_3 = -1 . \]
+Letzteres ist \emph{niemals richtig} -- folglich kann es keine Werte für $x_1$, $x_2$ und $x_3$ geben, die alle Gleichungen des gegebenen LGS erfüllen. Das LGS ist \textbf{nicht lösbar} bzw. besitzt \textbf{keine Lösungen}.\beispielende
+
+Nun noch einmal allgemein zum Gauß-Algorithmus, der mittlerweile an Hand einer Reihe von Beispielen vorgeführt wurde. Auf eine ganz präzise Formulierung (wie in der Mathematik sonst üblich und letztlich auch nötig), die sich zahlreicher zusätzlicher Bezeichnungen und Fallunterscheidungen bedienen müsste, wird hier bewusst verzichtet. Stattdessen werden die Schritte noch einmal in Worten formuliert.
+
+Die Grundidee des Algorithmus ist folgende: Durch »geschickte Multiplikation« der Zeilen und anschließende Addition/Subtraktion der Zeilen untereinander versucht man, die Systemmatrix in »Dreiecksgestalt« zu bringen. Dies bedeutet, dass in der Hauptdiagonalen (von links oben nach rechts unten, so weit wie möglich) von Null verschiedene Einträge erzeugt werden und unterhalb dieser Diagonalen lauter Nullen stehen. Zwischendurch sich ergebende vollständige Nullzeilen werden weggelassen.
+
+Der Prozess endet mit einer von drei prinzipiellen Möglichkeiten:
+\begin{enumerate}
+  \item Es wurde eine quadratische Dreiecksmatrix mit lauter von Null verschiedenen Einträgen in den Diagonalen erzeugt (d.\,h. in der Matrix $A$ bzw. links vom Strich stehen genau so viele Spalten wie Zeilen), so dass eine eindeutige Lösung berechnet werden kann.
+  \item Der Diagonalisierungsprozess endet damit, dass in der letzten Zeile rechts vom Diagonalelement weitere Elemente stehen (eines oder mehrere); dies ist nur möglich, wenn in der Matrix $A$ (also links vom Strich) mehr Spalten als Zeilen vorhanden sind. Es gibt unendlich viele Lösungen: Eine oder mehrere Unbekannte können nun frei gewählt und die restlichen in Abhängigkeit von diesen ausgedrückt werden.
+  \item Es hat sich im Verlaufe der Rechnung eine Zeile ergeben, in der links lauter Nullen und rechts ein von Null verschiedener Wert steht. Es gibt keine Lösung für das LGS, die Rechnung kann abgebrochen werden.
+\end{enumerate}
+
+\subsubsection{Übungsaufgabe}
+
+\begin{graukasten}
+  Führen Sie den Gauß-Algorithmus für folgende Matrizen aus und geben Sie die Lösungen an:
+  \begin{enumerate}[label=\alph*)]
+    \item $\left(\begin{array}{ccc|c} 0 & 0 & 3 & -6\\ 0 & 1 & 0 & 3\\ 1 & 1 & 0 & 5 \end{array}\right)$
+    \item $\left(\begin{array}{ccccc|c} 0 & 0 & 0 & 3 & 6 & 12\\ 0 & 1 & 0 & 0 & 0 & -2\\ 1 & 0 & 3 & 0 & 0 & 2\\ 0 & 0 & 0 & 0 & 1 & 2 \end{array}\right)$
+  \end{enumerate}
+\end{graukasten}
+
+\section{Der Gauß-Algorithmus noch einmal anders}
+
+\stepcounter{subsection}% Nummerierung 1.3.1.x
+
+Es soll jetzt eine Variante des Gauß-Algorithmus vorgestellt werden, bei der man nicht nur versucht, die Systemmatrix in Dreiecksgestalt zu überführen -- vielmehr wird sogar das Ziel verfolgt, möglichst vielen Spalten außer einer Eins an einer Stelle sonst nur Nullen zu erzeugen. Dies bedeutet etwas mehr Rechenarbeit, allerdings können am Schluss die Lösungen (falls solche existieren) noch leichter abgelesen werden.
+
+Indem man die Spalten der Systemmatrix von links nach rechts »durchgeht«, wird mit Hilfe der erlaubten Umformungen versucht, Spalten zu erzeugen, die als Einträge nur eine Eins und sonst Nullen besitzen (wie in der obigen Lösungsmatrix). Dabei wird darauf geachtet, dass die in \emph{diesen} Spalten stehenden Einsen von links oben nach rechts unten verlaufen. Eine solche Spalte wird \textbf{Basis-} oder \textbf{Pivotspalte} genannt. Wir verwenden meist den Begriff Pivotspalte, da diese Spalten auch in der linearen Optimierung (später in dieser Lerneinheit) von Bedeutung sind. Die zugehörige Variable wird als \textbf{Basisvariable} bezeichnet.
+
+Hier ist ein Beispiel für eine $3 \times 5$-Matrix mit drei Pivotspalten:
+\[ (A\,|\,b) = \left(\begin{array}{cccc|c} 1 & 0 & 0 & 2 & 5\\ 0 & 1 & 0 & 5 & 3\\ 0 & 0 & 1 & -1 & 4 \end{array}\right) \]
+Es sind $x_1$, $x_2$ und $x_3$ Basisvariablen, und $x_4$ ist \textbf{Nichtbasisvariable}.
+
+Aber Vorsicht! Eine Spalte, die nur eine Eins und sonst Nullen besitzt, muss nicht notwendigerweise Pivotspalte sein! Beispielsweise sind in
+\[ (A\,|\,b) = \left(\begin{array}{cccccc|c} 1 & 1 & 0 & 0 & 2 & 5\\ 0 & 0 & 1 & 0 & 3 & 6\\ 0 & 0 & 0 & 1 & 4 & 7 \end{array}\right) \]
+nur die erste, die dritte und die vierte Spalte Pivotspalten -- die zweite Spalte ist keine Pivotspalte, da stets links begonnen und die erste Spalte Pivotspalte wird, so dass die zweite Spalte -- wäre sie ebenfalls Pivotspalte -- das Gesetz durchbrechen würde, dass die in den Pivotspalten stehenden Einsen von links oben nach rechts unten verlaufen. Auf diesen Punkt wird später noch einmal eingegangen.
+
+Folgendermaßen wird vorgegangen: Durch »geschickte Multiplikation« der Zeilen und anschließende Addition/Subtraktion der Zeilen untereinander berechnet man so viele Pivotspalten wie möglich. Dabei ist es -- wie gesagt -- wichtig, die Pivotspalten so anzuordnen, dass die Einträge mit »Eins« von links oben nach rechts unten verlaufen. Dies ist durch den Tausch von Zeilen möglich. Sind bereits eine oder mehrere Pivotspalten erzeugt, so dürfen im weiteren Verlauf nur Zeilen vertauscht werden, die sämtlich unterhalb der in den bisherigen Pivotspalten stehenden Einsen stehen -- andernfalls würden diese bisherigen Pivotspalten und ihre Anordnung (von links oben nach rechts unten) wieder »zerstört«.
+Erlaubte Zeilenoperationen sind:
+\begin{enumerate}
+  \item Tausch zweier Zeilen der Matrix
+  \item Multiplikation oder Division einer Zeile durch eine Zahl ungleich 0
+  \item Addition bzw. Subtraktion des Vielfachen einer Zeile zu/von einer anderen Zeile
+\end{enumerate}
+
+Der Algorithmus wird nun an mehreren Matrizen demonstriert.
+
+Die einzelnen Schritte des Algorithmus sind
+\begin{itemize}
+  \item Erzeuge von links ausgehend Pivotspalten durch die erlaubten Zeilenoperationen.
+  \item Fahre solange damit fort, bis die maximale Anzahl Pivotspalten erzeugt ist.
+\end{itemize}
+
+Zu jeder der oben genannten Zeilenoperationen folgt nun ein Beispiel zur Berechnung einer Lösungsmatrix mit Angabe der Lösung des LGS. (Die Zeilenoperationen, die zur nächsten Matrix führen, notiert man stets hinter der Zeile.)
+
+\subsubsection{Beispiel}
+
+1) Ist
+\[ (A\,|\,b) = \left(\begin{array}{ccc|c} 0 & 1 & 0 & 6\\ 1 & 0 & 0 & 2\\ 0 & 0 & 1 & -3 \end{array}\right) \qquad \begin{array}{l} \text{I}\leftrightarrow\text{II}\\ \text{II}\leftrightarrow\text{I} \end{array} \]
+gegeben, so werden nur die Zeilen I und II getauscht. Es ergibt sich eine Lösungsmatrix mit drei Pivotspalten und den Basisvariablen $x_1$, $x_2$ und $x_3$.
+\[ L = \left(\begin{array}{ccc|c} 1 & 0 & 0 & 2\\ 0 & 1 & 0 & 6\\ 0 & 0 & 1 & -3 \end{array}\right) \]
+Die eindeutige Lösung ist
+\[ \begin{pmatrix} x_1 \\ x_2 \\ x_3 \end{pmatrix} = \begin{pmatrix} 2 \\ 6 \\ -3 \end{pmatrix} . \]
+
+2) Ist
+\[ (A\,|\,b) = \left(\begin{array}{cccc|c} 3 & 0 & 0 & 0 & 5\\ 0 & 4 & 0 & 0 & 12\\ 0 & 0 & \frac{1}{2} & 2 & 7 \end{array}\right) \qquad \begin{array}{l} \text{I}/3\\ \text{II}/4\\ 2\cdot\text{III} \end{array} \]
+zu einem LGS mit 3 Gleichungen und 4 Unbekannten gegeben, so reicht die Multiplikation bzw. Division der Zeilen mit jeweils einer Zahl aus, um eine Lösungsmatrix zu berechnen.
+Zeile I wird durch 3, Zeile II durch 4 dividiert und Zeile III mit 2 multipliziert:
+\[ L = \left(\begin{array}{cccc|c} 1 & 0 & 0 & 0 & \frac{5}{3}\\ 0 & 1 & 0 & 0 & 3\\ 0 & 0 & 1 & 4 & 14 \end{array}\right) \]
+Das dazugehörige LGS besitzt die drei Basisvariablen $x_1$, $x_2$ und $x_3$ und die Nichtbasisvariable $x_4$. Die Nichtbasisvariable $x_4$ ist frei wählbar.
+\begin{align*}
+  x_1 &= \tfrac{5}{3} & \text{I}\\
+  x_2 &= 3 & \text{II}\\
+  x_3 + 4x_4 &= 14 & \text{III}
+\end{align*}
+Es ist $x_3 = 14 - 4x_4$. Aus Gleichung I und II liest man die eindeutigen Lösungen für $x_1$ und $x_2$ ab. Man erhält als Lösung
+\[ \begin{pmatrix} x_1 \\ x_2 \\ x_3 \\ x_4 \end{pmatrix} = \begin{pmatrix} \frac{5}{3} \\ 3 \\ 14 - 4x_4 \\ x_4 \end{pmatrix} . \]
+Es gibt somit unendlich viele Lösungen in Abhängigkeit des gewählten Wertes für $x_4$. Die »einfachste« Lösung erhält man, indem man die Nichtbasisvariable Null setzt:
+\[ \begin{pmatrix} x_1 \\ x_2 \\ x_3 \\ x_4 \end{pmatrix} = \begin{pmatrix} \frac{5}{3} \\ 3 \\ 14 \\ 0 \end{pmatrix} . \]
+Einige weitere Lösungen sind:
+\[ \begin{pmatrix} x_1 \\ x_2 \\ x_3 \\ x_4 \end{pmatrix} = \begin{pmatrix} \frac{5}{3} \\ 3 \\ 14 - 4 \cdot 1 \\ 1 \end{pmatrix} = \begin{pmatrix} \frac{5}{3} \\ 3 \\ 10 \\ 1 \end{pmatrix}, \quad \begin{pmatrix} \frac{5}{3} \\ 3 \\ -186 \\ 50 \end{pmatrix}, \quad \begin{pmatrix} \frac{5}{3} \\ 3 \\ 54 \\ -10 \end{pmatrix} . \]
+
+3) Ist
+\[ (A\,|\,b) = \left(\begin{array}{ccc|c} 1 & 0 & 0 & -18\\ 3 & 1 & 0 & 9\\ -5 & 0 & 0 & -21 \end{array}\right) \qquad \begin{array}{l} \text{II}-3\cdot\text{I}\\ \text{III}+5\cdot\text{I} \end{array} \]
+die Systemmatrix zu einem LGS mit drei Gleichungen und drei Unbekannten, so wird Spalte 1 durch folgende Zeilenoperationen zur Basisspalte: Man subtrahiert von Zeile II das 3-fache der Zeile I und addiert zu Zeile III das 5-fache der Zeile I:
+\[ L = \left(\begin{array}{ccc|c} 1 & 0 & 0 & -18\\ 0 & 1 & 0 & 63\\ 0 & 0 & 0 & -111 \end{array}\right) \]
+Nun taucht ein anderes Phänomen auf: Die neue Zeile III entspricht der Gleichung:
+\[ 0 \cdot x_3 = -111 . \]
+Da diese Gleichung niemals richtig sein kann, ist das LGS nicht lösbar.\beispielende
+
+Jetzt folgt eine Matrix, für die mehrere Schritte zum Umformen benötigt werden. Zur Übersichtlichkeit und der Nachvollziehbarkeit der Rechenschritte indiziert man die Matrizen.
+\[ (A\,|\,b)^0 = \left(\begin{array}{ccc|c} 3 & -2 & 0 & 8\\ 0 & -2 & 0 & -1\\ -12 & 8 & -2 & -24 \end{array}\right) \qquad \begin{array}{l} \text{I}/3\\ \text{II}/(-2)\\ \text{III}+4\cdot\text{I} \end{array} \]
+\[ (A\,|\,b)^1 = \left(\begin{array}{ccc|c} 1 & -\frac{2}{3} & 0 & \frac{8}{3}\\ 0 & 1 & 0 & \frac{1}{2}\\ 0 & 0 & -2 & 8 \end{array}\right) \qquad \begin{array}{l} \text{I}+\frac{2}{3}\cdot\text{II}\\ \text{III}/(-2) \end{array} \]
+\[ L = (A\,|\,b)^2 = \left(\begin{array}{ccc|c} 1 & 0 & 0 & 3\\ 0 & 1 & 0 & \frac{1}{2}\\ 0 & 0 & 1 & -4 \end{array}\right) \]
+Wie man bei der obigen Berechnung sieht, ist die Gefahr von Rechenfehlern groß. Durch Ausnutzen von Rechenvorteilen (z.\,B. die Anweisung »III+4$\cdot$I« beim Übergang von der ersten zur zweiten Matrix) ist es allerdings möglich, die Umrechnungen zu vereinfachen.
+
+Hier ist eine weitere Matrix, auf die der Algorithmus angewandt wird:
+\[ (A\,|\,b) = \left(\begin{array}{cccc|c} -2 & 0 & 10 & -20 & -6\\ 1 & 2 & -2 & 16 & -1\\ 0 & 2 & 3 & 6 & -4 \end{array}\right) \qquad \begin{array}{l} \text{I}\leftrightarrow\text{II}\\ \text{II}\leftrightarrow\text{I} \end{array} \]
+\[ (A\,|\,b)^1 = \left(\begin{array}{cccc|c} 1 & 2 & -2 & 16 & -1\\ -2 & 0 & 10 & -20 & -6\\ 0 & 2 & 3 & 6 & -4 \end{array}\right) \qquad \text{II}+2\cdot\text{I} \]
+\[ (A\,|\,b)^2 = \left(\begin{array}{cccc|c} 1 & 2 & -2 & 16 & -1\\ 0 & 4 & 6 & 12 & -8\\ 0 & 2 & 3 & 6 & -4 \end{array}\right) \qquad \text{III}-\tfrac{1}{2}\cdot\text{II} \]
+Als nächstes wird die erste Spalte zur Pivotspalte:
+\[ (A\,|\,b)^3 = \left(\begin{array}{cccc|c} 1 & 2 & -2 & 16 & -1\\ 0 & 4 & 6 & 12 & -8\\ 0 & 0 & 0 & 0 & 0 \end{array}\right) \]
+Ab jetzt darf die erste Zeile nicht mehr mit anderen getauscht werden, da dies die erste Pivotspalte »zerstören« würde!
+Die rechts vorgeschlagene Umformung führt nun auf die folgende Matrix mit einer Nullzeile:
+Die Nullzeile, die keine Information zum LGS beiträgt, kann gestrichen werden. Man berechnet dann weiter:
+\[ (A\,|\,b)^4 = \left(\begin{array}{cccc|c} 1 & 2 & -2 & 16 & -1\\ 0 & 4 & 6 & 12 & -8 \end{array}\right) \qquad \begin{array}{l} \text{I}-\tfrac{1}{2}\cdot\text{II}\\ \text{II}/4 \end{array} \]
+\[ L = (A\,|\,b)^5 = \left(\begin{array}{cccc|c} 1 & 0 & -5 & 10 & 3\\ 0 & 1 & \frac{3}{2} & 3 & -2 \end{array}\right) \]
+Als Lösung für das dazugehörige LGS mit zwei Basisvariablen $x_1$, $x_2$ und zwei Nichtbasisvariablen $x_3$, $x_4$ ergibt sich schließlich mit
+\begin{align*}
+  x_1 - 5x_3 + 10x_4 &= 3\\
+  x_2 + \tfrac{3}{2}x_3 + 3x_4 &= -2
+\end{align*}
+das Ergebnis
+\[ \begin{pmatrix} x_1 \\ x_2 \\ x_3 \\ x_4 \end{pmatrix} = \begin{pmatrix} 3 + 5x_3 - 10x_4 \\ -2 - \tfrac{3}{2}x_3 - 3x_4 \\ x_3 \\ x_4 \end{pmatrix} \]
+oder, wenn man wie üblich neue Symbole für die frei wählbaren Parameter einsetzt ($s$ für $x_3$ und $t$ für $x_4$):
+\[ \begin{pmatrix} x_1 \\ x_2 \\ x_3 \\ x_4 \end{pmatrix} = \begin{pmatrix} 3 + 5s - 10t \\ -2 - \tfrac{3}{2}s - 3t \\ s \\ t \end{pmatrix} . \]
+Berechnen Sie konkrete Lösungen für
+\[ (x_3 = 0, x_4 = 0), \quad (x_3 = 1, x_4 = 0), \quad (x_3 = 0, x_4 = 1), \quad (x_3 = -2, x_4 = 3), \quad (x_3 = 0, x_4 = 2), \quad (x_3 = -0{,}5, x_4 = 0{,}5) . \]
+Die hier vorgestellten Beispiele zum Algorithmus sind so gewählt, dass die Pivotspalten sich von links nach rechts direkt nebeneinander ergeben. Dies ist nicht zwangsweise so. An einem Beispiel wird die Lösungsbestimmung in einer solchen Situation dargestellt.
+
+Zu
+\[ (A\,|\,b) = \left(\begin{array}{ccc|c} 1 & 2 & 0 & 3\\ 3 & 6 & 1 & 7\\ -1 & -2 & 0 & -3 \end{array}\right) \]
+ist
+\[ L = \left(\begin{array}{ccc|c} 1 & 2 & 0 & 3\\ 0 & 0 & 1 & -2 \end{array}\right) . \]
+Die Matrix besitzt die Basisvariablen $x_1$, $x_3$ und die Nichtbasisvariable $x_2$. Die beiden Pivotspalten sind von links nach rechts angeordnet, dazwischen befindet sich jedoch eine Nichtpivotspalte.
+Das LGS besitzt unendlich viele Lösungen.
+Das Vorgehen ist: Nichtbasisvariable frei wählen, Basisvariablen in Abhängigkeit von Nichtbasisvariable berechnen.
+Also:
+\[ \begin{pmatrix} x_1 \\ x_2 \\ x_3 \end{pmatrix} = \begin{pmatrix} 3 - 2t \\ t \\ -2 \end{pmatrix} . \]
+Auf die allgemeine Beschreibung des Verfahrens wird hier verzichtet. Es folgt jedoch ein weiteres Beispiel.
+
+\subsubsection{Beispiel}
+
+Die berechnete Lösungsmatrix sei
+\[ L = \left(\begin{array}{cccccc|c} 1 & 0 & 1 & 0 & 0 & 0 & 1\\ 0 & 1 & 2 & 3 & 0 & 0 & 2\\ 0 & 0 & 0 & 0 & 1 & 0 & 3\\ 0 & 0 & 0 & 0 & 0 & 1 & 4 \end{array}\right) . \]
+Man spricht hier von der \textbf{Stufen-} oder \textbf{Treppenform} der Lösungsmatrix -- im nächsten Bild sind diese Stufen verdeutlicht:
+\[ L = \left(\begin{array}{cccccc|c} \boxed{1} & 0 & 1 & 0 & 0 & 0 & 1\\ 0 & \boxed{1} & 2 & 3 & 0 & 0 & 2\\ 0 & 0 & 0 & 0 & \boxed{1} & 0 & 3\\ 0 & 0 & 0 & 0 & 0 & \boxed{1} & 4 \end{array}\right) \]
+Wie man sieht, gibt es vier Stufen und vier Pivotspalten (Spalten 1, 2, 5 und 6); $x_3$ und $x_4$ sind die Nichtbasisvariablen und können frei gewählt werden.
+
+Auf einen weiteren Sonderfall wird hingewiesen: Der Gauß-Algorithmus berechnet für jede Eingangsmatrix eine Lösungsmatrix. Besitzt die Eingangsmatrix oder eine der durch Umformung erhaltenen Matrizen Nullspalten, so sind die dazugehörigen Variablen frei wählbar. Stehen bereits beim Start Nullspalten ganz links in der Eingangsmatrix, so wählt man bei Erzeugung der ersten Pivotspalte von links aus die erste Spalte mit einem Eintrag ungleich Null. Diese Phänomene können als Sonderfall der Treppenform angesehen werden, wie in der folgenden Lösungsmatrix angedeutet:
+\[ L = \left(\begin{array}{cccccc|c} 0 & 1 & 0 & 1 & 0 & 0 & 1\\ 0 & 0 & 1 & 2 & 0 & 0 & 2\\ 0 & 0 & 0 & 0 & 1 & 0 & 3\\ 0 & 0 & 0 & 0 & 0 & 1 & 4 \end{array}\right) \]
+Pivotspalten sind die Spalten 2, 3, 5 und 7. Die Spalten 1, 4 und 6 gehören zu Nichtbasisvariablen, die frei gewählt werden können.
+
+Bis jetzt wurden die Matrizen als »abkürzende« Schreibweise für LGS benutzt. Unter mathematischen Gesichtspunkten können Matrizen auf viele Eigenschaften hin untersucht werden.
+Im nächsten Abschnitt wird die Multiplikation von Matrizen vorgestellt, für die es zwei hier interessierende wichtige Anwendungen gibt. Zum einen können so Verkettungen von Produktionsprozessen abgebildet werden, zum anderen werden bei Analyse von Daten mit Hilfe der multiplen Regression (das wird in der Statistik betrachtet) Produkte von Matrizen benötigt.
+
+Zum Schluss noch einige Anmerkungen zum Gauß-Algorithmus:
+\begin{itemize}
+  \item Das Durchführen des Gauß-Algorithmus per Hand ist (leider) sehr fehleranfällig.
+  \item Bei manuellen Berechnungen sollte man auf »günstige, leichte Zahlenkombination« bei den Zeilenoperationen achten.
+  \item Verschiedene Rechenwege führen zum Ziel, die Reihenfolge der Zeilenoperationen ist nicht eindeutig bestimmt.
+  \item Man kann den Gauß-Algorithmus jedoch so formulieren, dass die Reihenfolge der Zeilenoperationen einem festen Schema unterliegt. Das heißt, es gibt eine eindeutige Rechenvorschrift, eben einen Algorithmus. In anderer Literatur finden Sie mitunter solche Darstellungen. Nur durch diese Vorgehensweise ist der Gauß-Algorithmus im Computer zu programmieren.
+  \item Durchführung per Hand ist nötig, wenn man wissen will, durch welche Berechnungen die zugehörige Matrix verändert wird und wie das Ergebnis schließlich zu interpretieren ist.
+  \item In technischen und wirtschaftlichen Anwendungen kommen oft lineare Gleichungssysteme mit hunderten von Gleichungen und Unbekannten vor. Solche Systeme könnte (und wollte) man \emph{nicht} per Hand lösen.
+\end{itemize}

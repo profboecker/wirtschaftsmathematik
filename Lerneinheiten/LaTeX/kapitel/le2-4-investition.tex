@@ -1,0 +1,204 @@
+\section{Investitionsrechnung}
+
+In der \textbf{Investitionsrechnung} geht es um Modelle, Methoden und Verfahren zur Beurteilung der Wirtschaftlichkeit von Investitionen. Die beiden bekanntesten Methoden zur Beurteilung »mehrperiodiger« Investitionen sind die \textbf{Kapitalwertmethode} und die \textbf{Methode des internen Zinsfußes}, die beide in diesem Abschnitt vorgestellt werden.
+
+\subsection{Kapitalwertmethode}
+
+Im Grunde handelt es sich bei dieser Methode lediglich um die Anwendung der Zinseszinsrechnung und des Äquivalenzprinzips auf Investitionsprobleme. Es geht um die Berechnung und den Vergleich von Barwerten. Am besten sieht man sich dazu zunächst wieder ein Beispiel an.
+
+\subsubsection{Beispiel}
+
+Familie B. verfügt über ein Kapital von 100.000\,€ und möchte dieses gewinnbringend anlegen.
+
+Es gibt die Möglichkeit, das Geld auf einem Sparbuch zu deponieren, wobei die Bank bei einer Festlegung auf 5 Jahre einen Zinssatz von 8\,\% p.\,a. gewährt. Nach diesen 5 Jahren würde so ein Betrag $K_5^{\text{Spar}}$ von
+\[ 100.000 \cdot 1{,}08^5 = 146.932{,}81\,€ \]
+zur Verfügung stehen.
+
+Der Berater der Bank schlägt der Familie eine interessante Alternative vor: den Kauf eines Ferienhauses in Spanien mit anschließender Vermietung an Urlauber. Nach fünf Jahren soll das Ferienhaus wieder verkauft werden. Dazwischen gibt es zusätzliche Ausgaben für das Projekt: Bauliche Ergänzungen, Reinigungs-, Wartungs- und Reparaturdienste, Wachpersonal und Werbung. Dagegen stehen Einnahmen durch ganzjährige Vermietung.
+
+Zur Herstellung einer Übersicht präsentiert der Berater der Familie B. die folgende Einnahmen-Ausgaben-Tabelle:
+
+\begin{center}
+  \centering
+  \begin{tabular}{llll}
+    \hline
+    Zeitpunkt (Jahresende) & Ausgaben im zu Ende gehenden Jahr & Einnahmen im zu Ende gehenden Jahr & Jahresüberschuss\\
+    \hline
+    0 & 100.000\,€ & 0\,€ & $-100.000$\,€\\
+    1 & 10.000\,€ & 12.000\,€ & 2.000\,€\\
+    2 & 7.000\,€ & 14.000\,€ & 7.000\,€\\
+    3 & 7.000\,€ & 16.000\,€ & 9.000\,€\\
+    4 & 8.000\,€ & 17.000\,€ & 9.000\,€\\
+    5 & 10.000\,€ & 130.000\,€ & 120.000\,€\\
+    \hline
+  \end{tabular}
+\end{center}
+
+Die erwarteten Einnahmen am Ende des fünften Jahres beinhalten in der Tabelle den Verkaufspreis.
+
+Wie kann man die beiden Varianten »Sparbuch« und »Ferienhaus« miteinander vergleichen? Naheliegend ist es, den oben bereits ausgerechneten Endbetrag der Sparvariante mit dem Endkapital $K_5^{\text{Ferienhaus}}$ der Ferienhaus-Variante zu vergleichen. Unter der Voraussetzung, dass der jeweilige Überschuss ebenfalls mit 8\,\% p.\,a. verzinst wird, berechnet sich das Endkapital folgendermaßen:
+\begin{align*}
+  K_5^{\text{Ferienhaus}} &= 2.000 \cdot 1{,}08^4 + 7.000 \cdot 1{,}08^3 + 9.000 \cdot 1{,}08^2\\
+  &\quad + 9.000 \cdot 1{,}08 + 120.000\\
+  &= 151.756{,}56
+\end{align*}
+Wie man sieht, ist das Endkapital von 151.756{,}56\,€ bei der Ferienhaus-Variante höher als der Kontostand nach fünf Jahren bei der Sparvariante, der 146.932{,}81\,€ beträgt. Die Differenz beträgt 4.823{,}75\,€. Damit hat sich aus Sicht von Familie B. die Ferienhaus-Variante als günstiger herausgestellt.\beispielende
+
+Aufgrund des Äquivalenzprinzips ist klar, dass man zum Vergleich der beiden zur Auswahl stehenden Varianten »Sparbuch« bzw. »Ferienhaus« ebenso gut die jeweiligen Barwerte hätte heranziehen können. Diese Barwerte sind die Grundlage der hier vorgestellten \textbf{Kapitalwertmethode}, wobei man die Differenz der beiden relevanten Barwerte als den \textbf{Kapitalwert} bezeichnet.
+
+\subsubsection{Fortsetzung des Beispiels 1.4.1.1}
+
+Es werden die Barwerte der beiden errechneten Endwerte verglichen, wobei der Barwert beim Sparen offensichtlich 100.000\,€ beträgt. Für den Barwert der Ferienhaus-Variante ergibt sich:
+\[ \text{Barwert}^{\text{Ferienhaus}} = \frac{K_5^{\text{Ferienhaus}}}{1{,}08^5} = \frac{151.756{,}56}{1{,}08^5} = 103.282{,}97 \]
+Da die Differenz $C = 3.282{,}97\,€$ aus dem Barwert der Investition »Ferienhaus« und dem Anschaffungspreis (hier gleich dem Barwert bei der »Sparvariante«) positiv ist, ist die Investition sinnvoll. (Man beachte: $C$ entspricht selbstverständlich dem Barwert der oben errechneten Differenz von 4.823{,}75\,€ der beiden Endwerte.)\beispielende
+
+Die Differenz $C$ zwischen dem Barwert einer Investition und dem Anschaffungspreis wird allgemein als \textbf{Kapitalwert} der Investition bezeichnet.
+
+\merkbox{Bei positivem Kapitalwert ist eine Investition sinnvoll.}
+
+Hiermit ist eigentlich alles gesagt. Der Vollständigkeit halber wird nun jedoch noch die übliche Darstellungsweise der \textbf{allgemeinen Kapitalwertmethode} skizziert. Dies ist vor allem deshalb sinnvoll, weil der Leser bzw. die Leserin beim Nachschlagen in anderer Literatur mit hoher Wahrscheinlichkeit auf die hierbei verwendeten Bezeichnungen stoßen wird.
+
+Ausgegangen wird von einer Tabelle mit Schätzungen der den Investitionen zuzurechnenden jährlichen Einnahmen und Ausgaben:
+
+\begin{center}
+  \centering
+  \begin{tabular}{llll}
+    \hline
+    Zeitpunkt (Jahresende) & Ausgaben im zu Ende gehenden Jahr & Einnahmen im zu Ende gehenden Jahr & Jahresüberschuss\\
+    \hline
+    0 & $A_0$ & 0 & $P_0 = -A_0$\\
+    1 & $A_1$ & $E_1$ & $P_1 = E_1 - A_1$\\
+    $\vdots$ & $\vdots$ & $\vdots$ & $\vdots$\\
+    $n$ & $A_n$ & $E_n$ & $P_n = E_n - A_n$\\
+    \hline
+  \end{tabular}
+\end{center}
+
+Aus der Differenz von Einnahmen und Ausgaben wird für die Dauer der Laufzeit $n$ und mit Hilfe des Kalkulationszinssatzes der Barwert des Kapitalendwertes (also der Kapitalwert) gebildet. Wird die Investition durch Eigenkapital finanziert, so wird als Kalkulationszinssatz ein Zinssatz gewählt, der bei Anlage bei einem Kreditinstitut erzielt werden könnte. Muss dagegen die Investition fremdfinanziert werden, so ist als Kalkulationszinssatz der Zinssatz zu wählen, der für den Kredit vereinbart wurde.
+
+Den Kapitalwert $C$ erhält man, wenn vom Barwert der Jahresüberschüsse $P_k$ (mit $k$ zwischen 1 und $n$) die Anfangsinvestition $A_0$ subtrahiert wird:
+\merkbox{\[ C = P_1 \cdot q^{-1} + P_2 \cdot q^{-2} + \ldots + P_n \cdot q^{-n} - A_0 = \sum_{k=1}^{n} P_k \cdot q^{-k} - A_0 \]}
+
+Für einen Kapitalwert $C$ größer oder gleich Null ($C \geq 0$) verspricht die untersuchte Investition einen Gewinn. Werden mehrere Investitionen nach der Kapitalwertmethode verglichen, so ist diejenige mit dem größten positiven Kapitalwert vorzuziehen.
+
+\subsubsection{Übungsaufgabe}
+
+\begin{graukasten}
+  Für eine Investition soll an Hand der Einnahme-Ausgaben-Tabelle eine Entscheidung über deren Realisierung getroffen werden, wobei ein Kalkulationszinssatz von 7\,\% angenommen wird. Bestimmen Sie den relevanten Kapitalwert durch Vervollständigung der hier abgebildeten Excel-Tabelle:
+
+  \begin{center}
+    \begin{tabular}{cllll}
+      \hline
+      Periode $k$ & Einnahmen $E_k$ & Ausgaben $A_k$ & Überschüsse $E_k - A_k$ & Barwerte der Überschüsse\\
+      \hline
+      0 & 0 & 435.000 & & \\
+      1 & 150.000 & 45.000 & & \\
+      2 & 180.000 & 60.000 & & \\
+      3 & 210.000 & 80.000 & & \\
+      4 & 190.000 & 70.000 & & \\
+      5 & 170.000 & 65.000 & & \\
+      \hline
+      \multicolumn{4}{r}{Kapitalwert $C$:} & \\
+    \end{tabular}
+  \end{center}
+  (Die Spalte »Barwerte« enthält jeweils $\dfrac{1}{1{,}07^k}$ multipliziert mit den Überschüssen.)
+\end{graukasten}
+
+\subsection{Methode des internen Zinsfußes}
+
+Die \textbf{Methode des internen Zinsfußes} setzt unmittelbar auf der Kapitalwertmethode auf, indem die Frage gestellt wird, bei welchem Zinssatz der Kapitalwert gerade den Wert Null ergibt. Dieser Zinssatz wird \textbf{interner Zinsfuß} genannt.
+
+Man kann es auch so sagen:
+\begin{itemize}
+  \item Unter Zugrundelegung des internen Zinsfußes entspricht der Barwert der Einnahmen genau dem Barwert der Ausgaben.
+\end{itemize}
+
+Der interne Zinsfuß $p$ bzw. der zugehörige Aufzinsungsfaktor $q$ ergibt sich damit rechnerisch als Lösung der Gleichung
+\[ C = 0 , \]
+was auf die Bestimmung einer Nullstelle eines Polynoms $n$-ten Grades hinaus läuft. Wie bereits mehrfach an anderen Stellen erwähnt, benötigt man hierzu im Allgemeinen einen Taschenrechner oder ein Computeralgebrasystem.
+
+Es folgt zunächst ein einfaches Beispiel, bei dem man wegen $n = 2$ mit der $p$-$q$-Formel zum Ziel kommt.
+
+\subsubsection{Beispiel}
+
+Gesucht ist der interne Zinsfuß einer Investition, die folgende Einnahmen und Ausgaben aufweist:
+
+\begin{center}
+  \centering
+  \begin{tabular}{rrrr}
+    \hline
+    Periode $k$ & Einnahmen $E_k$ & Ausgaben $A_k$ & Überschüsse $E_k - A_k$\\
+    \hline
+    0 & 0 & 48.200 & $-48.200$\\
+    1 & 52.000 & 23.000 & 29.000\\
+    2 & 56.000 & 26.000 & 30.000\\
+    \hline
+  \end{tabular}
+\end{center}
+
+Der Ansatz $C = 0$ liefert hier
+\[ \frac{29.000}{q} + \frac{30.000}{q^2} - 48.200 = 0 \]
+bzw. nach Multiplikation mit $q^2$:
+\[ -48.200\,q^2 + 29.000\,q + 30.000 = 0 \]
+Nun wird noch durch $(-48.200)$ dividiert, heraus kommt:
+\[ q^2 - 0{,}60166\,q - 0{,}62241 = 0 \]
+Als Lösungen erhält man:
+\begin{align*}
+  q_{1/2} &= 0{,}30083 \pm \sqrt{0{,}71291}\\
+  q_1 &= 1{,}14517\\
+  q_2 &= -0{,}54351
+\end{align*}
+Die zweite Lösung ist wegen ihres negativen Wertes hier nicht von Interesse. Aus der ersten Lösung resultiert der interne Zinsfuß von $p = 14{,}52\,\%$.\beispielende
+
+Was genau besagt der interne Zinsfuß?
+\begin{itemize}
+  \item Der interne Zinsfuß markiert die Grenze, unterhalb derer der angewendete Kalkulationszinsfuß zu einem positiven Ergebnis ($C > 0$) und oberhalb derer dieser zu einem negativen Ergebnis ($C < 0$) führt.
+\end{itemize}
+Anders gesagt:
+\begin{itemize}
+  \item Liegt der Kalkulationszinsfuß unterhalb des internen Zinsfußes, so wird die Investition als vorteilhaft eingeschätzt, im anderen Fall (also: Kalkulationszinsfuß oberhalb des internen Zinsfußes) als unvorteilhaft.
+\end{itemize}
+
+Es folgt nun noch ein Beispiel mit $n > 2$.
+
+\subsubsection{Beispiel}
+
+Ein Unternehmen steht vor der Entscheidung, eine Erweiterungsinvestition durchzuführen oder zu unterlassen. Die Planung der Investitionseinnahmen und -ausgaben führte zu den folgenden Werten (in Millionen Euro):
+
+\begin{center}
+  \centering
+  \begin{tabular}{rrr}
+    \hline
+    Jahr & Einnahmen & Ausgaben\\
+    \hline
+    0 & 0 & 60\\
+    1 & 15 & 10\\
+    2 & 33 & 2\\
+    3 & 45 & 6\\
+    \hline
+  \end{tabular}
+\end{center}
+
+Es soll der Kapitalwert der Investition für die beiden möglichen Kalkulationszinsfüße $p = 8\,\%$ und $p = 10\,\%$ berechnet werden, ferner der interne Zinsfuß.
+
+Der Kapitalwert
+\[ C = \frac{39}{q^3} + \frac{31}{q^2} + \frac{5}{q} - 60 \]
+ergibt für $q = 1{,}08$
+\[ C = 2{,}167 \]
+und für $q = 1{,}1$
+\[ C = -0{,}533 . \]
+Mithin ist die Investition bei einem Kalkulationszinssatz von $p = 8\,\%$ vorteilhaft, bei $p = 10\,\%$ sollte sie nicht getätigt werden. Der interne Zinsfuß muss zwischen 8\,\% und 10\,\% liegen.
+
+Die Bedingung $C = 0$ führt nach Multiplikation mit $(-q^3)$ zu folgender Gleichung:
+\[ 60\,q^3 - 5\,q^2 - 31\,q - 39 = 0 \]
+bzw.
+\[ q^3 - 0{,}08333\,q^2 - 0{,}51667\,q - 0{,}65 = 0 . \]
+Mit Hilfe eines Taschenrechners ermittelt man als einzige reelle Lösung:
+\[ q \approx 1{,}0959 . \]
+Dies entspricht einem internen Zinsfuß von $p = 9{,}59\,\%$.\beispielende
+
+\subsubsection{Übungsaufgabe}
+
+\begin{graukasten}
+  Bestimmen Sie für das Beispiel aus Übungsaufgabe 1.4.1.3 den internen Zinsfuß.
+\end{graukasten}

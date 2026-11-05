@@ -1,0 +1,218 @@
+\section{Ein kurzer Ausflug in die Matrizenrechnung}
+
+In den vorigen Abschnitten war gelegentlich von \textbf{Matrizen} und \textbf{Vektoren} die Rede. Dies wird in dem vorliegenden Abschnitt etwas ausgeweitet, insbesondere steht dabei die \textbf{Multiplikation} von Matrizen und Vektoren im Vordergrund. Wie in Beispielen zu sehen sein wird, können die Multiplikation von Matrizen wie auch die Multiplikation einer Matrix mit einem Vektor in der Anwendung direkt von Bedeutung sein. Auf der anderen Seite kann die Sprache der Matrizenrechnung auch bei der Aufstellung und Lösung eines LGS verwendet werden, um die Rechenoperationen »eleganter« zu formulieren -- dies steht hier jedoch nicht im Mittelpunkt. (Wenn Sie in die Literatur schauen, müssen Sie darauf allerdings gefasst sein.)
+
+\subsection{Rechnen mit Matrizen}
+
+Zuerst wird der Begriff der Matrix verallgemeinert:
+
+Eine $m \times n$-Matrix $A$ (gesprochen: »$m$ Kreuz $n$ Matrix«) ist ein Tableau mit $m$ Zeilen und $n$ Spalten:
+\[ A = \begin{pmatrix} a_{11} & \cdots & a_{1n} \\ \vdots & & \vdots \\ a_{m1} & \cdots & a_{mn} \end{pmatrix} \]
+Die einzelnen Elemente $a_{ij}$ heißen \textbf{Koeffizienten}; $i$ bezeichnet dabei die Zeile, $j$ die Spalte, in der das Element steht.
+
+Ein Beispiel:
+\[ A = \begin{pmatrix} 2 & 3 & -1 & 0{,}2 & -7 \\ 8 & 9 & -3 & 5 & 3{,}1 \\ 1{,}5 & 3{,}1 & -3{,}2 & 6 & -1 \end{pmatrix} . \]
+$A$ ist eine $3 \times 5$-Matrix. Die Koeffizienten der 3. Spalte sind: $a_{13} = -1$, $a_{23} = -3$ und $a_{33} = -3{,}2$.
+
+Besitzt die Matrix nur eine Spalte, so handelt es sich um einen \textbf{Spaltenvektor}. Die 3. Spalte der obigen Matrix $A$ ist der Vektor
+\[ \begin{pmatrix} -1 \\ -3 \\ -3{,}2 \end{pmatrix} . \]
+Beachten Sie: Die Lösungen der LGS wurden stets als Spaltenvektor notiert.
+
+Matrizen werden mit Großbuchstaben $A$, $B$, usw. bezeichnet, Vektoren dagegen mit kleinen Buchstaben plus Pfeil $\vec{v}$, $\vec{w}$ etc.
+
+Analog ist ein \textbf{Zeilenvektor} eine Matrix mit nur einer Zeile.
+
+Wie addiert man zwei Matrizen $A$ und $B$? Betrachtet wird zuerst der Spezialfall, dass zwei Vektoren mit gleicher Anzahl Zeilen addiert werden:
+\[ \vec{a} = \begin{pmatrix} a_1 \\ a_2 \\ a_3 \end{pmatrix} , \qquad \vec{b} = \begin{pmatrix} b_1 \\ b_2 \\ b_3 \end{pmatrix} \]
+Den Vektor $\vec{a} + \vec{b} = \vec{c}$ erhält man, indem man die Koeffizienten zeilenweise addiert:
+\[ \vec{c} = \begin{pmatrix} a_1 + b_1 \\ a_2 + b_2 \\ a_3 + b_3 \end{pmatrix} \]
+Ein Zahlenbeispiel:
+\[ \begin{pmatrix} -1 \\ -3 \\ -3{,}2 \end{pmatrix} + \begin{pmatrix} 6 \\ 1{,}5 \\ 1{,}2 \end{pmatrix} = \begin{pmatrix} 5 \\ -1{,}5 \\ -2 \end{pmatrix} \]
+
+Analog addiert man Matrizen mit gleicher Zeilen- und Spaltenanzahl koeffizientenweise.
+
+Um das Vielfache $n$ einer Matrix zu berechnen, multipliziert man jeden Koeffizienten der Matrix mit $n$. Das 3-fache des Vektors
+\[ \vec{v} = \begin{pmatrix} -1 \\ -3 \\ -3{,}2 \end{pmatrix} \]
+ist
+\[ 3\vec{v} = \begin{pmatrix} -3 \\ -9 \\ -9{,}6 \end{pmatrix} . \]
+Es gilt insbesondere:
+\[ \begin{pmatrix} 2 \\ 0 \\ 4 \end{pmatrix} + x_2 \begin{pmatrix} 3 \\ 1 \\ 0 \end{pmatrix} = \begin{pmatrix} 2 \\ 0 \\ 4 \end{pmatrix} + \begin{pmatrix} 3x_2 \\ x_2 \\ 0 \end{pmatrix} = \begin{pmatrix} 2 + 3x_2 \\ x_2 \\ 4 \end{pmatrix} . \]
+Lesen Sie diese Gleichung auch von »rechts nach links«, und beachten Sie die Angabe der Lösungen von LGS mit unendlich vielen Lösungen!
+
+\subsubsection{Übungsaufgabe}
+
+\begin{graukasten}
+  Berechnen Sie:
+  \begin{enumerate}[label=\alph*)]
+    \item $5 \cdot \begin{pmatrix} 0 & 0 & 3 & -6 \\ 0 & 1 & 0 & 3 \\ 1 & 1 & 0 & 5 \end{pmatrix}$, \quad $3x \cdot \begin{pmatrix} 6 & 0 \\ 0 & 2 \\ 4 & 1 \end{pmatrix}$
+    \item $\vec{v} + \vec{w}$ für $\vec{v} = \begin{pmatrix} 2 \\ 0{,}5 \\ -0{,}3 \end{pmatrix}$, $\vec{w} = \begin{pmatrix} -1 \\ 0 \\ 0{,}7 \end{pmatrix}$
+    \item $\begin{pmatrix} 2 \\ 0 \\ 1 \\ 8 \end{pmatrix} + \begin{pmatrix} x \\ 0 \\ 2x \\ -3 \end{pmatrix}$
+  \end{enumerate}
+\end{graukasten}
+
+Bevor die Multiplikation zweier Matrizen eingeführt wird, werden erst zwei Vektoren, die ja Spezialfälle von Matrizen sind, betrachtet. Das Produkt zweier Vektoren $\vec{a}$ und $\vec{b}$ ist eine Zahl (!), nämlich das \textbf{Skalarprodukt}. Es gilt für Vektoren mit drei Einträgen:
+\[ \vec{a} \cdot \vec{b} = \begin{pmatrix} a_1 \\ a_2 \\ a_3 \end{pmatrix} \cdot \begin{pmatrix} b_1 \\ b_2 \\ b_3 \end{pmatrix} = a_1 b_1 + a_2 b_2 + a_3 b_3 \]
+Am Beispiel:
+\[ \begin{pmatrix} 2 \\ -1 \\ 3 \end{pmatrix} \cdot \begin{pmatrix} 1 \\ 2 \\ 1 \end{pmatrix} = 2 \cdot 1 - 1 \cdot 2 + 3 \cdot 1 = 3 \]
+
+Um zwei Matrizen $A$ und $B$ zu multiplizieren, müssen sie nicht unbedingt quadratisch sein, aber die Anzahl der Spalten von $A$ muss mit der Zeilenanzahl von $B$ übereinstimmen. Die \textbf{Produktmatrix} $A \cdot B = C$ besitzt dann so viele Zeilen wie $A$ und so viele Spalten wie $B$.
+
+Zur Berechnung eines Koeffizienten $c_{ij}$ von $C$ wählt man die $i$-te Zeile von $A$ und die $j$-te Spalte von $B$ und bildet das Skalarprodukt der Zeile $i$ mit der Spalte $j$. Für $c_{21}$ müssen wir also beispielsweise die zweite Zeile von $A$ und die erste Spalte von $B$ betrachten:
+\[ \begin{pmatrix} 0 & 6 & -5 \end{pmatrix} \cdot \begin{pmatrix} 7 \\ 4 \\ -3 \end{pmatrix} = 0 \cdot 7 + 6 \cdot 4 + (-5) \cdot (-3) = 39 \]
+
+In Worten: Für jeden Koeffizienten der Produktmatrix $C$ wähle die entsprechende Zeile von $A$ und die entsprechende Spalte von $B$ und berechne das Skalarprodukt.
+\[ \begin{pmatrix} 3 & 2 & -4 \\ 0 & 6 & -5 \end{pmatrix} \cdot \begin{pmatrix} 7 & 0 \\ 4 & 1 \\ -3 & 0 \end{pmatrix} = \begin{pmatrix} 21+8+12 & 2 \\ 24+15 & 6 \end{pmatrix} = \begin{pmatrix} 41 & 2 \\ 39 & 6 \end{pmatrix} \]
+
+Warum ist die Multiplikation von Matrizen oder -- als Spezialfall -- das Produkt einer Matrix mit einem Vektor interessant? Hier hilft wieder ein Beispiel.
+
+\subsubsection{Beispiel}
+
+Bei einer Wahl zu einem Stadtrat treten die drei Parteien $A$, $B$ und $C$ an. Beim letzten Mal wurden folgende Ergebnisse erzielt:
+\[ A: \ 42\,\% \qquad B: \ 37\,\% \qquad C: \ 21\,\% \]
+Es wird mit folgenden Wählerwanderungen gerechnet:
+\begin{itemize}
+  \item Partei $A$ behält 90\,\% ihrer Wähler, 4\,\% wandern nach $B$ ab, 6\,\% nach $C$.
+  \item 85\,\% der Wähler von $B$ bleiben dabei, 8\,\% wandern nach $A$, 7\,\% nach $C$.
+  \item Partei $C$ behält 92\,\%, 1\,\% gehen zu $A$, 7\,\% zu $B$.
+\end{itemize}
+Mit welchem Wahlergebnis ist dieses Mal zu rechnen?
+
+Das Ergebnis der vorigen Wahl kann als »Wahlergebnisvektor« $\vec{w}$ dargestellt werden:
+\[ \vec{w} = \begin{pmatrix} 0{,}42 \\ 0{,}37 \\ 0{,}21 \end{pmatrix} \]
+Die angenommenen Wählerwanderungen werden durch die folgende \textbf{Übergangsmatrix} $\ddot{U}$ wieder gegeben:
+\[ \ddot{U} = \begin{pmatrix} 0{,}9 & 0{,}08 & 0{,}01 \\ 0{,}04 & 0{,}85 & 0{,}07 \\ 0{,}06 & 0{,}07 & 0{,}92 \end{pmatrix} \]
+Dabei muss man sich sowohl Zeilen als auch Spalten in der Reihenfolge $A$-$B$-$C$ nummeriert denken. Dann drückt jede Spalte aus, mit welchem Anteil die jeweiligen Wähler bei den drei Parteien (Zeilen) landen.
+
+Auf Folgendes wollen wir hinaus:
+\begin{itemize}
+  \item Der erwartete nächste Wahlergebnisvektor ist $\ddot{U} \cdot \vec{w}$.
+\end{itemize}
+Es ergibt sich also:
+\[ \ddot{U} \cdot \vec{w} = \begin{pmatrix} 0{,}9 & 0{,}08 & 0{,}01 \\ 0{,}04 & 0{,}85 & 0{,}07 \\ 0{,}06 & 0{,}07 & 0{,}92 \end{pmatrix} \cdot \begin{pmatrix} 0{,}42 \\ 0{,}37 \\ 0{,}21 \end{pmatrix} = \begin{pmatrix} 0{,}9 \cdot 0{,}42 + 0{,}08 \cdot 0{,}37 + 0{,}01 \cdot 0{,}21 \\ 0{,}04 \cdot 0{,}42 + 0{,}85 \cdot 0{,}37 + 0{,}07 \cdot 0{,}21 \\ 0{,}06 \cdot 0{,}42 + 0{,}07 \cdot 0{,}37 + 0{,}92 \cdot 0{,}21 \end{pmatrix} = \begin{pmatrix} 0{,}4097 \\ 0{,}3460 \\ 0{,}2443 \end{pmatrix} \]
+$A$ erzielt also 40{,}97\,\%, $B$ kommt auf 34{,}6\,\% und $C$ auf 24{,}43\,\%.\beispielende
+
+Im Allgemeinen ist die Multiplikation von Matrizen \textbf{nicht kommutativ}, d.\,h. es gilt nicht automatisch $A \cdot B = B \cdot A$.
+
+Für Matrizenmultiplikation gilt jedoch das \textbf{Assoziativgesetz}: Multipliziert man drei Matrizen $A, B, C$ miteinander, so ist die Reihenfolge beliebig: $(A \cdot B) \cdot C = A \cdot (B \cdot C)$.
+
+\subsubsection{Fortsetzung von Beispiel 1.4.1.2}
+
+Mit welchen Wahlergebnissen ist jeweils bei den nächsten Wahlen zu rechnen, wenn unterstellt wird, dass jedes Mal die oben aufgezählten prozentualen Wählerwanderungen eintreten? Man muss für jede neue Wahl den letzten Wahlergebnisvektor mit $\ddot{U}$ multiplizieren, um den neuen zu erhalten, also
+\[ \ddot{U} \cdot (\ddot{U} \cdot \vec{w}) , \quad \ddot{U} \cdot (\ddot{U} \cdot (\ddot{U} \cdot \vec{w})) \quad \text{usw.} \]
+bilden.
+
+Wegen des Assoziativgesetzes kann man auch sagen (mit der Schreibweise $\ddot{U}^n$ für das $n$-fache Produkt von $\ddot{U}$ mit sich selbst):
+\begin{itemize}
+  \item Der erwartete Wahlergebnisvektor bei der $n$-ten Wahl ist $\ddot{U}^n \cdot \vec{w}$.
+\end{itemize}
+In der mathematischen Theorie der Matrizen werden solche »potenzierten Matrizen« untersucht -- z.\,B. können dann Fragen beantwortet werden wie: Was passiert auf lange Sicht? (In unserem Beispiel: Mit welchen Wahlergebnissen ist langfristig zu rechnen? Gibt es irgendwann einen stabilen Zustand?) Hier kann darauf leider nicht weiter eingegangen werden.
+
+\subsubsection{Übungsaufgabe}
+
+\begin{graukasten}
+  Berechnen Sie folgende Produkte von Matrizen/Vektoren: $A \cdot \vec{b}$, $A \cdot C$, $C \cdot D$, $D \cdot F$. Mit
+  \[ A = \begin{pmatrix} 1 & 2 \\ 3 & 4 \end{pmatrix}, \quad \vec{b} = \begin{pmatrix} 3 \\ 5 \end{pmatrix}, \quad C = \begin{pmatrix} 1 & 0 & 0 \\ 0 & 1 & 6 \end{pmatrix}, \]
+  \[ D = \begin{pmatrix} 2 & 0 & 1 \\ 0 & 1 & 3 \\ 1 & 0 & 1 \end{pmatrix}, \quad F = \begin{pmatrix} 1 & 0 & 1 \\ 3 & 1 & -6 \\ -1 & 0 & 2 \end{pmatrix} . \]
+\end{graukasten}
+
+\subsection{Lineare Gleichungssysteme und Matrizenmultiplikation}
+
+Im Abschnitt 1.2 wurde die mit dem Gauß-Algorithmus berechnete Lösung eines LGS überprüft, indem man die Lösung in das ursprüngliche LGS einsetzte. Dies kann durch Multiplikation der Koeffizientenmatrix $A$ (ohne rechte Seite) mit dem Lösungsvektor ersetzt werden:
+
+Zunächst kann die »linke« Seite eines LGS als Produkt von Matrix $A$ mit Vektor $\vec{x} = \begin{pmatrix} x_1 \\ \vdots \\ x_n \end{pmatrix}$ notiert werden.
+
+Für das LGS
+\begin{align*}
+  -5x_1 - 2x_2 - x_3 &= -18\\
+  3x_1 + x_2 &= 9\\
+  -6x_1 - 2x_2 + x_3 &= 20
+\end{align*}
+ist die Systemmatrix $A$ und der Vektor $\vec{x}$:
+\[ A = \begin{pmatrix} -5 & -2 & -1 \\ 3 & 1 & 0 \\ -6 & -2 & 1 \end{pmatrix} , \qquad \vec{x} = \begin{pmatrix} x_1 \\ x_2 \\ x_3 \end{pmatrix} . \]
+Dann ergibt das Produkt von $A$ und $\vec{x}$
+\[ \begin{pmatrix} -5x_1 - 2x_2 - x_3 \\ 3x_1 + x_2 \\ -6x_1 - 2x_2 + x_3 \end{pmatrix} \]
+die linke Seite des LGS.
+
+Das LGS besitzt die Lösung
+\[ \vec{x} = \begin{pmatrix} x_1 \\ x_2 \\ x_3 \end{pmatrix} = \begin{pmatrix} 38 \\ -105 \\ 38 \end{pmatrix} . \]
+Multipliziert man die Matrix $A$ mit dem Lösungsvektor, so ergibt sich die rechte Seite des LGS:
+\[ \begin{pmatrix} -5 & -2 & -1 \\ 3 & 1 & 0 \\ -6 & -2 & 1 \end{pmatrix} \cdot \begin{pmatrix} 38 \\ -105 \\ 38 \end{pmatrix} = \begin{pmatrix} -18 \\ 9 \\ 20 \end{pmatrix} . \]
+
+Verallgemeinert man diesen Sachverhalt, so gilt:
+\merkbox{Ist ein LGS mit Systemmatrix $A$ und unbekanntem Lösungsvektor $\vec{x}$ gegeben, so kann man schreiben: $A \cdot \vec{x} = \vec{b}$. Ist somit ein konkreter Vektor $\vec{y}$ gegeben, für den $A \cdot \vec{y} = \vec{b}$ gilt, so ist $\vec{y}$ Lösung des LGS.}
+
+Überprüfen Sie diesen Sachverhalt an den behandelten LGS aus 1.2! Multiplizieren Sie
+\[ L = \begin{pmatrix} 1 & -3 & 0 \\ 0 & 0 & 1 \end{pmatrix} \quad \text{mit} \quad \vec{x} = \begin{pmatrix} 2 + 3x_2 \\ x_2 \\ 4 \end{pmatrix} \]
+und vergleichen Sie mit
+\[ L_e = \left(\begin{array}{ccc|c} 1 & -3 & 0 & 2 \\ 0 & 0 & 1 & 4 \end{array}\right) . \]
+
+\subsection{Übergangsmatrizen und Matrizenmultiplikation}
+
+\subsubsection{Beispiel}
+
+Auch bei der mathematischen Beschreibung der Verkettung von Produktionsschritten kann man die Matrizenmultiplikation gut gebrauchen. Dies wird an einem Beispiel illustriert.
+
+In einem Unternehmen werden die Produkte $E_1$, $E_2$ aus den Zwischenprodukten $Z_1$, $Z_2$, $Z_3$ hergestellt. Diese werden wiederum unter Einsatz der Rohstoffe $R_1$, $R_2$, $R_3$ gefertigt.
+
+Die hierfür benötigten Produktionskoeffizienten enthalten die folgenden Tabellen:
+
+\begin{center}
+  \begin{tabular}{l|ccc}
+     & $Z_1$ & $Z_2$ & $Z_3$\\
+    \hline
+    $R_1$ & 2 & 4 & 3\\
+    $R_2$ & 3 & 7 & 6\\
+    $R_3$ & 1 & 3 & 2
+  \end{tabular}
+  \qquad\qquad
+  \begin{tabular}{l|cc}
+     & $E_1$ & $E_2$\\
+    \hline
+    $Z_1$ & 4 & 11\\
+    $Z_2$ & 7 & 10\\
+    $Z_3$ & 3 & 2
+  \end{tabular}
+\end{center}
+
+$a_{32} = 3$ in der linken Tabelle bedeutet also den Verbrauch von 3 Einheiten des Rohstoffes $R_3$ für die Produktion einer Einheit von $Z_2$. Nun ergibt sich folgende Frage:
+\begin{itemize}
+  \item Welche Menge der Rohstoffe $R_1$, $R_2$, $R_3$ benötigt man für die Produktion, um 10 Einheiten $E_1$ und 15 Einheiten $E_2$ herzustellen?
+\end{itemize}
+
+Bevor Sie weiter lesen, berechnen Sie per Hand den Verbrauch an Rohstoffen für die Produktion von je einer Einheit $E_1$ bzw. $E_2$.
+
+Produziert man $e_1$ Einheiten von $E_1$ und $e_2$ Einheiten von $E_2$, so benötigt man
+\begin{align*}
+  4e_1 + 11e_2 &= z_1\\
+  7e_1 + 10e_2 &= z_2\\
+  3e_1 + 2e_2 &= z_3
+\end{align*}
+bzw.
+\[ \begin{pmatrix} 4 & 11 \\ 7 & 10 \\ 3 & 2 \end{pmatrix} \begin{pmatrix} e_1 \\ e_2 \end{pmatrix} = \begin{pmatrix} z_1 \\ z_2 \\ z_3 \end{pmatrix} \]
+$z_i$ Einheiten von $Z_i$, $i = 1..3$.
+
+Für 10 Einheiten von $E_1$ und 15 Einheiten von $E_2$ berechnet sich der Verbrauch zu
+\[ \begin{pmatrix} 4 & 11 \\ 7 & 10 \\ 3 & 2 \end{pmatrix} \cdot \begin{pmatrix} 10 \\ 15 \end{pmatrix} = \begin{pmatrix} 205 \\ 220 \\ 60 \end{pmatrix} , \]
+also
+\[ \begin{pmatrix} z_1 \\ z_2 \\ z_3 \end{pmatrix} = \begin{pmatrix} 205 \\ 220 \\ 60 \end{pmatrix} \text{ Einheiten.} \]
+
+Zur Produktion von $z_i$ Einheiten von $Z_i$, $i = 1..3$ benötigt man an Rohstoffen
+\begin{align*}
+  2z_1 + 4z_2 + 3z_3 &= r_1\\
+  3z_1 + 7z_2 + 6z_3 &= r_2\\
+  z_1 + 3z_2 + 2z_3 &= r_3
+\end{align*}
+bzw.
+\[ \begin{pmatrix} 2 & 4 & 3 \\ 3 & 7 & 6 \\ 1 & 3 & 2 \end{pmatrix} \begin{pmatrix} z_1 \\ z_2 \\ z_3 \end{pmatrix} = \begin{pmatrix} r_1 \\ r_2 \\ r_3 \end{pmatrix} . \]
+
+Zur Produktion von 205 Einheiten $Z_1$, 220 Einheiten $Z_2$ und 60 Einheiten $Z_3$ ergibt sich ein Verbrauch von
+\[ \begin{pmatrix} 2 & 4 & 3 \\ 3 & 7 & 6 \\ 1 & 3 & 2 \end{pmatrix} \begin{pmatrix} 205 \\ 220 \\ 60 \end{pmatrix} = \begin{pmatrix} 1470 \\ 2515 \\ 985 \end{pmatrix} \]
+Einheiten der Rohstoffe $R_1$, $R_2$, $R_3$.
+
+Zur Produktion von 10 Einheiten $E_1$ und 15 Einheiten von $E_2$ werden also $\begin{pmatrix} r_1 \\ r_2 \\ r_3 \end{pmatrix} = \begin{pmatrix} 1470 \\ 2515 \\ 985 \end{pmatrix}$ Einheiten des entsprechenden Rohstoffes benötigt.
+
+Fasst man die Ergebnisse der Teilschritte zusammen und wendet das Assoziativgesetz für Matrizenmultiplikation an, so ergibt sich:
+\[ \begin{pmatrix} r_1 \\ r_2 \\ r_3 \end{pmatrix} = \begin{pmatrix} 2 & 4 & 3 \\ 3 & 7 & 6 \\ 1 & 3 & 2 \end{pmatrix} \cdot \begin{pmatrix} 4 & 11 \\ 7 & 10 \\ 3 & 2 \end{pmatrix} \cdot \begin{pmatrix} e_1 \\ e_2 \end{pmatrix} = \begin{pmatrix} 45 & 68 \\ 79 & 115 \\ 31 & 45 \end{pmatrix} \cdot \begin{pmatrix} e_1 \\ e_2 \end{pmatrix} \]
+Die Rohstoffmengen ergeben sich damit als Produkt der Matrix mit dem entsprechenden Spaltenvektor der Endprodukte.
+Um z.\,B. $e_1 = 125$ und $e_2 = 37$ Einheiten herzustellen benötigt man
+\[ \begin{pmatrix} r_1 \\ r_2 \\ r_3 \end{pmatrix} = \begin{pmatrix} 45 & 68 \\ 79 & 115 \\ 31 & 45 \end{pmatrix} \cdot \begin{pmatrix} 125 \\ 37 \end{pmatrix} = \begin{pmatrix} 8.141 \\ 14.130 \\ 5.540 \end{pmatrix} . \]

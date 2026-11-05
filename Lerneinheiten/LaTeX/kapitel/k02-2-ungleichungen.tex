@@ -1,0 +1,221 @@
+\section{Ungleichungen}
+
+Nun zum Thema \textbf{Ungleichungen}. Im Rahmen des \textbf{Operations Research} geht es um die Lösung wirtschaftlicher Entscheidungsprobleme. Hierbei werden mathematische Methoden wie die \textbf{lineare Optimierung} angewandt. Bei der Lösung von Optimierungsaufgaben spielen die Ungleichungen eine bedeutende Rolle.
+
+Eine Aussage der Form $a \leq b$, $a \geq b$, $a < b$ oder $a > b$ heißt \textbf{Ungleichung}.
+
+Das Rechnen mit Ungleichungen basiert auf den \textbf{Ordnungsrelationen}, deren wichtigste Eigenschaft die \textbf{Transitivität} ist:
+\begin{align*}
+  &\text{Aus } a > b \text{ und } b > c \text{ folgt } a > c .\\
+  &\text{In Kurzschreibweise: } a > b,\ b > c \Rightarrow a > c\\
+  &\text{Aus } a < b \text{ und } b < c \text{ folgt } a < c .\\
+  &\text{In Kurzschreibweise: } a < b,\ b < c \Rightarrow a < c
+\end{align*}
+
+Durch die graphische Darstellung der reellen Zahlen als Punkte auf der Zahlengeraden ergibt sich für zwei beliebige reelle Zahlen $a$ und $b$ mit $a < b$, dass der Punkt $a$ stets links von $b$ liegt.
+
+\begin{center}
+  \begin{tikzpicture}[x=1.2cm]
+    \draw[-{Stealth}] (-0.3,0) -- (5.6,0);
+    \draw (1.5,-0.15) -- (1.5,0.15); \node[below] at (1.5,-0.15) {$a$};
+    \draw (3.5,-0.15) -- (3.5,0.15); \node[below] at (3.5,-0.15) {$b$};
+    \node at (2.5,0) {$<$};
+  \end{tikzpicture}
+\end{center}
+
+Für das Rechnen mit Ungleichungen gelten die folgenden Regeln. Es seien stets $a, b, c, d \in \mathbb{R}$.
+\begin{itemize}
+  \item \textbf{Addition einer Zahl zu einer Ungleichung:} Aus $a > b$ folgt für beliebige $c$: $a + c > b + c$.
+  \item \textbf{Addition zweier Ungleichungen:} Aus $a > b$ und $c > d$ folgt: $a + c > b + d$.
+  \item \textbf{Multiplikation einer Ungleichung mit einer positiven Zahl:} Aus $a > b$ folgt $a \cdot c > b \cdot c$, wenn $c > 0$.\\
+    (Bei Multiplikation mit positiven Zahlen bleiben Ungleichungen erhalten.)
+  \item \textbf{Multiplikation einer Ungleichung mit einer negativen Zahl:} Aus $a > b$ folgt $a \cdot c < b \cdot c$, wenn $c < 0$.\\
+    (Bei Multiplikation mit negativen Zahlen werden Ungleichungen »umgedreht«.)
+  \item \textbf{Multiplikation zweier Ungleichungen:} Es seien $a$, $b$, $c$ und $d$ positive Zahlen. Aus $a > b$ und $c > d$ folgt $a \cdot c > b \cdot d$.
+  \item \textbf{Subtraktion zweier Ungleichungen:} Da man jede Subtraktion $a - b$ als Addition $a + (-b)$ schreiben kann, kann die Subtraktion wie eine Addition behandelt werden. Aus $b < a$ und $c \leq d$ folgt $b - d < a - c$. Für die Subtraktion einer Ungleichung $b > c$ von einer reellen Zahl $a$ gilt $a - b < a - c$.
+  \item \textbf{Kehrwerte:} $a$ und $b$ seien positiv. Aus $a > b$ folgt $\dfrac{1}{a} < \dfrac{1}{b}$.
+  \item \textbf{Wurzeln:} $a$ und $b$ seien positiv. Aus $a > b$ folgt $\sqrt{a} > \sqrt{b}$.
+\end{itemize}
+
+Zum Schluss wollen wir zwei Arten der \textbf{Mittelwertbildung} erwähnen. Seien $a$ und $b$ zwei positive Zahlen. Die Zahl $\dfrac{a+b}{2}$ heißt \textbf{arithmetisches Mittel} der Zahlen $a$ und $b$. Die Zahl $\sqrt{ab}$ nennt man das \textbf{geometrische Mittel} der Zahlen $a$ und $b$.
+
+Es seien $a$ und $b$ reelle Zahlen mit $a < b$. Dann gilt immer
+\[ a < \frac{a+b}{2} < b . \]
+Ferner ist das arithmetische Mittel stets größer oder gleich dem geometrischen Mittel. Die Gleichheit gilt nur dann, wenn auch $a = b$ ist. Diese Aussage wurde bereits durch Euklid im zweiten Buch der »Elemente« bewiesen.
+
+\subsection{Übungsaufgaben zu Abschnitt 2.2}
+
+\begin{uebungsaufgaben}
+  \item Prof. Ernst Zahlenbeiß argumentiert: Für jede natürliche Zahl $n$ ergibt sich aus
+    \[ \left(\tfrac{1}{2}\right)^n > \left(\tfrac{1}{2}\right)^{n+1} \]
+    durch Logarithmieren die Ungleichung
+    \[ n \cdot \lg \tfrac{1}{2} > (n+1) \cdot \lg \tfrac{1}{2} . \]
+    Prof. Zahlenbeiß erhält damit das sensationelle Ergebnis: $n > n+1$.\\
+    Untersuchen Sie die Argumentation auf logische Schlüssigkeit.
+  \item Bestimmen Sie zu den folgenden Ungleichungen die Lösungsmengen.
+    \begin{enumerate}[label=\alph*)]
+      \item $8x - 3 < 2x + 9$
+      \item $(3x+1)(2x-1) < (5x-3)(2x-1)$
+      \item $x^2 - x - 6 \leq 2x + 4$
+      \item $\dfrac{x+1}{x-3} < \dfrac{x-1}{x+2}$
+      \item $\left|2 - 4x\right| \geq 1$
+      \item $\left|x^2 + 2x - 3\right| \leq 12$
+    \end{enumerate}
+  \item \begin{enumerate}[label=\alph*)]
+      \item Bestimmen Sie die größte reelle Zahl $x$, für die gilt: $\left|1 - x\right| \leq 2$
+      \item Bestimmen Sie die kleinste reelle Zahl $x$, für die gilt: $\left|x + 2\right| \leq 7$
+    \end{enumerate}
+  \item Lösen Sie folgende Gleichungen:
+    \begin{enumerate}[label=\alph*)]
+      \item $\left|x - 1\right| = \left|x - 3\right|$
+      \item $\left|x + 3\right| + \left|x + 4\right| = 9$
+    \end{enumerate}
+\end{uebungsaufgaben}
+
+\subsection{Lösungen der Übungsaufgaben zu 2.2}
+
+\loesung{2.2.1.1:}
+Aus $n \cdot \lg\tfrac{1}{2} > (n+1) \cdot \lg\tfrac{1}{2}$ folgt durch Multiplikation mit $\dfrac{1}{\lg \tfrac{1}{2}} < 0$:
+\[ n < n + 1 . \]
+Dieses Ergebnis ist nicht sensationell. Folgende Regel ist also zu beachten: Multiplikation einer Ungleichung mit einer negativen Zahl kehrt die Ungleichung um. Aus »größer« wird »kleiner« und umgekehrt.
+
+\loesung{2.2.1.2:}
+\begin{enumerate}[label=\alph*)]
+  \item \begin{align*}
+      8x - 3 &< 2x + 9 \rightarrow 8x - 3 - 2x - 9 < 0\\
+      &\rightarrow 6x - 12 < 0 \rightarrow 6x < 12 \rightarrow x < \frac{12}{6} \rightarrow x < 2
+    \end{align*}
+    Lösungsmenge: $(-\infty, 2)$
+  \item \begin{align*}
+      (3x+1)(2x-1) &< (5x-3)(2x-1)\\
+      &\rightarrow (3x+1)(2x-1) - (5x-3)(2x-1) < 0\\
+      &\rightarrow (2x-1)\left[(3x+1) - (5x-3)\right] < 0\\
+      &\rightarrow (2x-1)(3x+1-5x+3) < 0 \rightarrow (2x-1)(-2x+4) < 0
+    \end{align*}
+    \begin{align*}
+      &\text{Fall 1: } (2x-1 < 0 \text{ und } -2x+4 > 0) \quad \text{oder}\\
+      &\text{Fall 2: } (-2x+4 < 0 \text{ und } 2x-1 > 0)
+    \end{align*}
+    \textit{Fall 1:}
+    \begin{align*}
+      2x - 1 &< 0 \rightarrow 2x < 1 \rightarrow x < \tfrac{1}{2}\\
+      -2x + 4 &> 0 \rightarrow 4 > 2x \rightarrow x < 2\\
+      &\text{Also: } x < \tfrac{1}{2}
+    \end{align*}
+    \textit{Fall 2:}
+    \begin{align*}
+      -2x + 4 &< 0 \rightarrow 4 < 2x \rightarrow x > 2\\
+      2x - 1 &> 0 \rightarrow 2x > 1 \rightarrow x > \tfrac{1}{2}\\
+      &\text{Also: } x > 2
+    \end{align*}
+    Lösungsmenge: $\left(-\infty, \tfrac{1}{2}\right) \cup (2, \infty)$
+  \item \begin{align*}
+      x^2 - x - 6 &\leq 2x + 4 \rightarrow x^2 - x - 6 - 2x - 4 \leq 0\\
+      &\rightarrow x^2 - 3x - 10 \leq 0\\
+      &\text{Für welche } x \text{ ist } x^2 - 3x - 10 = 0 \text{ ?}\\
+      &\rightarrow x_{1/2} = \frac{3}{2} \pm \sqrt{\left(\frac{3}{2}\right)^2 - (-10)} = \frac{3}{2} \pm \sqrt{\frac{9}{4} + 10}\\
+      &\rightarrow x_{1/2} = \frac{3}{2} \pm \sqrt{\frac{49}{4}} = \frac{3}{2} \pm \frac{7}{2}\\
+      &\rightarrow x_1 = 5,\ x_2 = -2
+    \end{align*}
+    Lösungsmenge: $[-2, 5]$
+  \item \begin{align*}
+      &\frac{x+1}{x-3} < \frac{x-1}{x+2}\\
+      &\frac{x+1}{x-3} \text{ ist nur definiert für } x \neq 3\\
+      &\frac{x-1}{x+2} \text{ ist nur definiert für } x \neq -2
+    \end{align*}
+    \textit{Fall 1: } $x > 3$
+    \begin{align*}
+      (x+1)(x+2) &< (x-1)(x-3)\\
+      \rightarrow x^2 + 3x + 2 &< x^2 - 4x + 3\\
+      \rightarrow 7x &< 1 \rightarrow x < \tfrac{1}{7}\\
+      \rightarrow &\text{Dieser Fall kann nicht eintreten.}
+    \end{align*}
+    \textit{Fall 2: } $-2 < x < 3$
+    \begin{align*}
+      (x+1)(x+2) &> (x-1)(x-3)\\
+      \rightarrow x^2 + 3x + 2 &> x^2 - 4x + 3\\
+      \rightarrow 7x &> 1 \rightarrow x > \tfrac{1}{7}\\
+      \rightarrow &x \text{ muss in } \left(\tfrac{1}{7}, 3\right) \text{ liegen.}
+    \end{align*}
+    \textit{Fall 3: } $x < -2$
+    \begin{align*}
+      (x+1)(x+2) &< (x-1)(x-3)\\
+      \rightarrow x^2 + 3x + 2 &< x^2 - 4x + 3\\
+      \rightarrow 7x &< 1 \rightarrow x < \tfrac{1}{7}\\
+      \rightarrow &\text{Dies ist dann immer der Fall.}
+    \end{align*}
+    Lösungsmenge: $(-\infty, -2) \cup \left(\tfrac{1}{7}, 3\right)$
+  \item \begin{align*}
+      &\left|2 - 4x\right| \geq 1\\
+      &\text{Fall 1: } 2 - 4x \geq 0 \text{ bzw. } x \leq \tfrac{1}{2}:\\
+      &\rightarrow 2 - 4x \geq 1 \rightarrow 1 \geq 4x \rightarrow x \leq \tfrac{1}{4}\\
+      &\text{Fall 2: } 2 - 4x < 0 \text{ bzw. } x > \tfrac{1}{2}:\\
+      &\rightarrow -2 + 4x \geq 1 \rightarrow 4x \geq 3 \rightarrow x \geq \tfrac{3}{4}
+    \end{align*}
+    Lösungsmenge: $\left(-\infty, \tfrac{1}{4}\right] \cup \left[\tfrac{3}{4}, \infty\right)$
+  \item \begin{align*}
+      &\left|x^2 + 2x - 3\right| \leq 12\\
+      &\text{Fall 1: } x^2 + 2x - 3 \geq 0 \text{ bzw. } (x \leq -3 \text{ oder } x \geq 1):\\
+      &\rightarrow x^2 + 2x - 3 \leq 12 \rightarrow x^2 + 2x - 15 \leq 0\\
+      &\text{Für welche } x \text{ ist } x^2 + 2x - 15 = 0 \text{ ?}\\
+      &\rightarrow x_{1/2} = -1 \pm \sqrt{1 + 15} = -1 \pm 4\\
+      &\rightarrow x_1 = -5,\ x_2 = 3\\
+      &\text{In diesem Fall muss $x$ also zwischen $-5$ und $3$ liegen.}\\
+      &\text{Fall 2: } x^2 + 2x - 3 < 0 \text{ bzw. } (-3 < x < 1):\\
+      &\rightarrow -x^2 - 2x + 3 \leq 12 \rightarrow -x^2 - 2x - 9 \leq 0\\
+      &\rightarrow x^2 + 2x + 9 \geq 0 \rightarrow (x+1)^2 + 8 \geq 0\\
+      &\text{Dies ist immer richtig.}
+    \end{align*}
+    Lösungsmenge: $[-5, 3]$
+\end{enumerate}
+
+\loesung{2.2.1.3:}
+\begin{enumerate}[label=\alph*)]
+  \item \begin{align*}
+      &\left|1 - x\right| \leq 2\\
+      &\text{Fall 1: } 1 - x \geq 0 \text{ bzw. } x \leq 1:\\
+      &\rightarrow 1 - x \leq 2 \rightarrow -1 \leq x\\
+      &\text{Fall 2: } 1 - x < 0 \text{ bzw. } x > 1:\\
+      &\rightarrow x - 1 \leq 2 \rightarrow x \leq 3
+    \end{align*}
+    Lösungsmenge: $[-1, 3]$, Antwort: $x = 3$
+  \item \begin{align*}
+      &\left|x + 2\right| \leq 7\\
+      &\text{Fall 1: } x + 2 \geq 0 \text{ bzw. } x \geq -2:\\
+      &\rightarrow x + 2 \leq 7 \rightarrow x \leq 5\\
+      &\text{Fall 2: } x + 2 < 0 \text{ bzw. } x < -2:\\
+      &\rightarrow -x - 2 \leq 7 \rightarrow x \geq -9
+    \end{align*}
+    Lösungsmenge: $[-9, 5]$, Antwort: $x = -9$
+\end{enumerate}
+
+\loesung{2.2.1.4:}
+\begin{enumerate}[label=\alph*)]
+  \item Hier sind zunächst vier Fälle zu unterscheiden:
+    \begin{align*}
+      \text{Fall 1: } &x - 1 \geq 0 \text{ und } x - 3 \geq 0\\
+      \text{Fall 2: } &x - 1 \geq 0 \text{ und } x - 3 < 0\\
+      \text{Fall 3: } &x - 1 < 0 \text{ und } x - 3 \geq 0\\
+      \text{Fall 4: } &x - 1 < 0 \text{ und } x - 3 < 0
+    \end{align*}
+    Diese werden nun separat untersucht.\\
+    \textit{Fall 1: } $x - 1 = x - 3$. Dieser Fall kann offenbar nicht eintreten.\\
+    \textit{Fall 2: } $x - 1 = 3 - x \rightarrow 4 = 2x \rightarrow x = 2$\\
+    \textit{Fall 3: } Die Bedingungen $x < 1$ und $x \geq 3$ widersprechen sich. Dieser Fall kann nicht eintreten.\\
+    \textit{Fall 4: } $1 - x = 3 - x$. Auch dieser Fall kann nicht eintreten.\\
+    Einzige Lösung ist somit $x = 2$.
+  \item Da zwei Terme mit Beträgen im Spiel sind, sind wieder vier Fälle zu unterscheiden und separat zu untersuchen.
+    \begin{align*}
+      \text{Fall 1: } &x + 3 \geq 0 \text{ und } x + 4 \geq 0:\\
+      &x + 3 + x + 4 = 9 \rightarrow 2x + 7 = 9 \rightarrow x = 1\\
+      \text{Fall 2: } &x + 3 \geq 0 \text{ und } x + 4 < 0:\\
+      &x + 3 - x - 4 = 9 \rightarrow -1 = 9\\
+      &\text{Dieser Fall kann nicht eintreten.}\\
+      \text{Fall 3: } &x + 3 < 0 \text{ und } x + 4 \geq 0:\\
+      &-x - 3 + x + 4 = 9 \rightarrow 1 = 9\\
+      &\text{Auch dies kann nicht sein.}\\
+      \text{Fall 4: } &x + 3 < 0 \text{ und } x + 4 < 0:\\
+      &-x - 3 - x - 4 = 9 \rightarrow -2x = 16 \rightarrow x = -8
+    \end{align*}
+    Es gibt also zwei Lösungen: $x_1 = 1$ und $x_2 = -8$.
+\end{enumerate}
