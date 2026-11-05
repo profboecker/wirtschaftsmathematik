@@ -369,3 +369,11 @@ rsconnect/
 
 Literatur/KIBuch/
 .positai
+
+# Schriften (Microsoft-Schriften, nicht im Repository)
+Lerneinheiten/LaTeX/fonts
+Lerneinheiten/LaTeX_Vorlage/tex/fonts/
+*.ttf
+*.TTF
+*.ttc
+*.otf
