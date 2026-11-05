@@ -1,0 +1,135 @@
+\chapter{Einleitung}
+
+Herzlich willkommen in der \LaTeX{}"=Lehrbrief"=Vorlage. Diese können Sie verwenden, um in \LaTeX{} Lehrbriefe mit den üblichen Formatierungen (wie in der Word"=Vorlage) zu erstellen. Als \LaTeX{}"=Engine wird \XeLaTeX{} verwendet, das evtl.{} nicht in jeder Umgebung installiert ist.
+
+Aus \LaTeX{}"=Sicht ist das Dokument ein Buch (Dokumentklasse ¡scrbook¡), die oberste Hierarchie ist also ¡chapter¡, und Sie können Kapitel in separate Dateien (¡kapitel1.tex¡, ¡kapitel2.tex¡ etc.) auslagern: Das bietet den Vorteil, dass Sie mit ¡\includeonly¡ das Kompilieren auf einzelne Kapitel beschränken können.
+
+Mit ¡\marginnote¡ erzeugen Sie Randnoten im für Lehrbriefe üblichen Stil. Einige Makros erleichtern die Arbeit:
+
+\begin{itemize}
+\item ¡\memph{}¡ hebt ein Wort hervor (¡\emph¡) \emph{und} erzeugt eine identische \memph{Randnote}.
+\item ¡\imemph{}¡ hebt ein Wort hervor (¡\emph¡) \emph{und} erzeugt eine identische Randnote \emph{und} nimmt das Wort in den \imemph{Index} auf.
+\item ¡\iemph{}¡ hebt ein Wort hervor (¡\emph¡) \emph{und} nimmt das Wort in den \iemph{Index} auf.
+\item ¡\cmdindex{}¡ fügt einen Befehl ¡command¡\cmdindex{command} in Listing"=Schrift in den Index ein (interessant für Lehrbriefe, in denen es ums Programmieren geht). Zum Auszeichnen von Befehlen im Text können Sie \verb#¡# (das umgedrehte Ausrufezeichen) vor und hinter den Befehl stellen: \verb#¡command¡#\hspace{2mm}. Verwenden Sie nicht ¡\verb#...#¡, da dieser Befehl fehlerhafte Buchstabenabstände erzeugt.
+\item ¡\mcmd{}¡ setzt ein Wort in Listing"=Schrift\mcmd{Listing-Randnote} in eine Randnote.
+\item ¡\icmd{}¡ nimmt ein Wort via ¡\cmdindex¡ in Listing"=Schrift in den Index auf \emph{und} setzt es in Listing"=Schrift in eine Randnote.
+\end{itemize}
+
+
+Literatur wird wie üblich mit ¡\cite¡ zitiert \cite{esser:gdbs}.
+
+
+Das folgende Makefile können Sie auf Unix"=ähnlichen Systemen verwenden, um das Dokument zu bauen:
+
+\begin{lstlisting}[language={}]
+NME=lehrbrief-vorlage
+
+all:
+	xelatex $(NAME)
+	makeindex $(NAME)
+	bibtex $(NAME)
+	xelatex $(NAME)
+\end{lstlisting}
+
+(Die Einrückungen sind Tabulatorzeichen.) Für ein Dokument, das \emph{keine} Literaturverweise (¡\cite¡) enthält, ist der ¡bibtex¡"=Aufruf zu entfernen, weil das Tool sonst eine Fehlermeldung erzeugt.
+
+Abbildung~\ref{fig:beispiel} zeigt eine Beispielabbildung, die in voller Breite eingebaut wurde, Abbildung~\ref{fig:ls-mit-farbe} zeigt eine Abbildung, die auch die Randspalte mitnutzt. Dazu wird innerhalb der ¡figure¡"=Umgebung noch eine ¡wide¡"=Umgebung verwendet.
+
+\begin{figure}[t]
+\includegraphics[width=1.0\textwidth]{partitionen}
+\caption{Das ist eine Beispielabbildung.}
+\label{fig:beispiel}
+\end{figure}
+
+\begin{figure}[b!]
+\begin{wide}
+\includegraphics[width=\textwidth]{ls-mit-farbe}
+\caption{Beispiel mit voller Breite: Die Ausgabe von \textzz{ls} ist häufig farbkodiert.}
+\label{fig:ls-mit-farbe}
+\end{wide}
+\end{figure}
+
+
+Tabelle~\ref{tab:kbyte-mbyte-si} zeigt eine kleine Beispieltabelle.
+
+\begin{table}[b!]
+\centering
+ \renewcommand{\arraystretch}{1.15}
+\hspace{-2.5cm}
+\begin{tabular}{|l|l|llr|l|}
+\hline
+Einheit & Abk. & \multicolumn{3}{l|}{Größe in Byte} & hexadezimal \\
+\hline
+\hline
+Kilobyte (Kibibyte) & KByte & $2^{10} =\!\!\!\!$ & $1024^1 =\!\!\!\!$ & 1 024 & ¡0x00000400¡ \\
+\hline
+Megabyte (Mebibyte) & MByte & $2^{20} =\!\!\!\!$ & $1024^2 =\!\!\!\!$ & 1 048 576 & ¡0x00100000¡ \\
+\hline
+Gigabyte (Gibibyte) & MByte & $2^{30} =\!\!\!\!$ & $1024^3 =\!\!\!\!$ & 1 073 741 824 & ¡0x40000000¡ \\
+\hline
+\hline
+Kilobyte (SI) & kB & & $1000^1 =\!\!\!\!$ & 1 000 & ¡0x000003E8¡ \\
+\hline
+Megabyte (SI) & MB & & $1000^2 =\!\!\!\!$ & 1 000 000 & ¡0x000F4240¡ \\
+\hline
+Gigabyte (SI) & GB & & $1000^3 =\!\!\!\!$ & 1 000 000 000 & ¡0x3B9ACA00¡ \\
+\hline
+
+%Kilobyte (SI)  kB                10001 =                  1 000        0x000003E8
+%Megabyte (SI)  MB                10002 =          1 000 000    0x000F4240
+%Gigabyte (SI)  GB                10003 =  1 000 000 000        0x3B9ACA00
+\end{tabular}
+\caption{Klassische Einheiten und SI-Einheiten.}
+\label{tab:kbyte-mbyte-si}
+\end{table}
+
+
+Tastenkombinationen können Sie mit ¡\keys¡ erzeugen, z.\,B.
+
+\begin{itemize}
+\item \keys{A} (¡\keys{A}¡)
+\item \keys{Strg+C} (¡\keys{Strg+C}¡)
+\item \keys{Strg+Alt+Entf} (¡\keys{Strg+Alt+Entf}¡)
+\end{itemize}
+
+
+\section{Benötigte Fonts}
+
+Um das gewünschte Layout zu erzeugen, benötigen Sie die richtigen Font"=Dateien. Ich habe das nur unter MacOS und Linux getestet, das Dokument verwendet
+
+\begin{itemize}
+\item \iemph{Cambria} (Standard-Font)
+\item \iemph{Calibri} (\textsf{Sans-Serif-Font})
+\item \iemph{Menlo} (\textzz{Listing-Font})
+\end{itemize}
+\index{Schriftart!Cambria}%
+\index{Schriftart!Calibri}%
+\index{Schriftart!Menlo}%
+
+und sollte sich ohne weitere Konfiguration verwenden lassen, wenn diese drei Schriften vorhanden sind. 
+
+Linux"=Anwender können mit folgenden Schritten die Unterstützung für die Fonts aktivieren, die (in dieser Form) unter OpenSuse Leap 42.3 getestet wurden:
+
+\begin{enumerate}
+\item Benötigte Pakete mit
+\begin{lstlisting}[breaklines=true]
+sudo zypper in texlive-latex
+sudo zypper in texlive-sidecap texlive-bytefield texlive-mnsymbol texlive-background texlive-comicneue texlive-idxlayout texlive-menukeys texlive-adjmulticol 
+\end{lstlisting}
+nachinstallieren
+
+\item Dateien ¡Menlo.ttc¡ und ¡Courier New.ttf¡ (z.\,B.{} von einem Mac) besorgen und in den ¡tex¡"=Ordner legen, der das aktuelle Dokument enthält
+
+\item Am Anfang der Datei die Zeile
+
+¡\def\hasMenloFont{True}¡
+
+in
+
+¡\def\hasMenloFont{False}¡
+
+ändern
+\end{enumerate}
+
+
+

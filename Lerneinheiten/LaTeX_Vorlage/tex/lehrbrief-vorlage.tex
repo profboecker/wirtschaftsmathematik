@@ -1,0 +1,439 @@
+% !TEX TS-program = XeLaTeX
+%!TEX TS-program = xelatex
+%!TEX encoding = UTF-8 Unicode
+
+\documentclass[a4paper,DIV7,11pt,headincludem,numbers=noendperiod]{scrbook}
+
+\let\counterwithout\relax
+\let\counterwithin\relax
+
+\title{Lerneinheiten mit \textrm{\LaTeX{}}}
+\author{Prof. Dr. Stefan Böcker}
+\date{\today}
+
+\newcommand\IncludeChapters{
+\include{kapitel1}
+\include{kapitel2}
+}
+
+\def\hasMenloFont{False}
+
+\usepackage{geometry}                % See geometry.pdf to learn the layout options. There are lots.
+\geometry{a4paper,rmargin=7cm,lmargin=3cm,top=2cm,bottom=3cm}                   % ... or a4paper or a5paper or ... 
+\usepackage{graphicx}
+\graphicspath{{pics/}}
+\usepackage{amssymb}
+\usepackage[ngerman]{babel}
+\usepackage[usenames,dvipsnames]{xcolor}
+\usepackage[colorlinks=true,urlcolor=blue,linkcolor=Sepia,citecolor=Sepia]{hyperref}
+\usepackage{ifplatform}
+\usepackage{multicol}
+\usepackage{sidecap}  % erlaubt \begin{wide} in figure
+\usepackage{bytefield}
+\usepackage{MnSymbol}  % rhookswarrow
+
+\usepackage[hang]{footmisc}
+\renewcommand{\footnotemargin}{4mm}
+
+\usepackage{marginnote}  % Randnoten
+\renewcommand*{\marginfont}{\sffamily\fontsize{10.5}{13.5}\selectfont\noindent}
+
+%\usepackage{background}
+\usepackage[
+  contents={},
+  opacity=1,
+  scale=1.5,
+  color=black
+  ]{background}
+\usepackage{ifthen}
+\usepackage{tikz}
+\usepackage{ulem} % u.a. \sout zum Durchstreichen
+
+\usepackage{fontspec,xltxtra,xunicode}
+\defaultfontfeatures{Mapping=tex-text}
+\usepackage{comicneue}
+\setmainfont[Scale=0.97,Path=./fonts/cambria/]{Cambria.ttf}
+\setsansfont[Path=./fonts/calibri/]{Calibri.ttf}
+\usepackage{microtype}  % optischer Randausgleich
+
+\usepackage{listings}
+
+\lstset{basicstyle=\ttfamily}
+\lstset{extendedchars=true}
+\lstset{frame=none}
+\lstset{identifierstyle=\ttfamily}
+\lstset{language=Bash}
+\lstset{morekeywords={do,done}}
+\lstset{numbers=left,numberstyle=\tiny\color{blue}}
+\lstset{xleftmargin=6mm}
+\lstset{columns=fixed}
+\lstset{basewidth=0.55em}
+%\lstset{columns=flexible}
+\lstset{lineskip=-.5mm}
+\lstMakeShortInline[columns=fixed,basewidth=0.55em,language={},moredelim={[is][\bfseries\color{blue}]{<b>}{</b>}}]¡
+%\lstset{aboveskip=\floatsep,belowskip=\floatsep}
+\lstset{belowskip=\smallskipamount}
+%\lstset{belowskip=0.7mm}
+\lstset{moredelim=[is][\bfseries\color{blue}]{<b>}{</b>}}
+\lstset{moredelim=[is][\itshape]{<i>}{</i>}}
+
+\newcommand\blue{\textcolor{blue}}
+\lstset{keywordstyle=\bfseries\blue}
+\lstset{commentstyle=\itshape\textcolor{gray}}
+\lstset{literate=
+{`}{{\textbf{\char"60}}}1
+%{'}{{\textbf{\char"27}}}1
+%{"}{{\char"22}}1
+} % ordentliche Backticks ` und Ticks '
+
+\ifthenelse{\equal{\hasMenloFont}{True}}{%
+  \setmonofont[FakeStretch=.9,Scale=.85]{Menlo}
+}%
+{%
+  \setmonofont[
+    Path = ./, 
+    Extension = .ttc
+  ]{Menlo}
+  %\setmonofont[FakeStretch=.9,Scale=.85,ExternalLocation=./tex/]{Menlo.ttc}
+}%
+
+\renewcommand{\baselinestretch}{1.1}\normalsize
+
+\usepackage[os=win]{menukeys} %  \keys{Strg+F}
+\renewmenumacro{\keys}[+]{shadowedroundedkeys}
+
+
+\usepackage{longtable}
+
+\usepackage{enumitem} % Anpassungen an enumerate-Umgebungen
+
+\setcounter{secnumdepth}{4}
+\setcounter{tocdepth}{4}
+
+\usepackage{caption}
+\captionsetup{%
+   %justification=left,
+   format=hang,
+   labelfont=it,
+   font=it,
+   belowskip=3pt,
+  singlelinecheck=off
+}
+
+\ifthenelse{\equal{\hasMenloFont}{True}}{%
+\newcommand\textzz[1]{%
+{%
+\fontspec{Menlo}[FakeStretch=1,Scale=.85,Mapping=tex-text]%
+{#1}%
+}%
+}
+\newcommand\icmd[1]{\cmdindex{#1}\marginnote{\textzz{#1}}}
+}
+{
+\newcommand\textzz[1]{%
+{%
+\fontspec{Menlo.ttc}[FakeStretch=1,Scale=.85,Mapping=tex-text,Path=./fonts/]%
+{#1}%
+}%
+}
+\newcommand\icmd[1]{\cmdindex{#1}\marginnote{\textzz{#1}}}
+}
+
+\newcommand\mcmd[1]{\marginnote{\textzz{#1}}}
+
+%%%% Header/Footer wie im Lehrbrief
+\newcommand\textwhite[1]{\textbf{\textsf{\textcolor{white}{#1}}}}
+
+\makeatletter
+\newcommand{\rightorleftmark}{%
+  \begingroup\protected@edef\x{\rightmark}%
+  \ifx\x\@empty
+    \endgroup\leftmark
+  \else
+    \endgroup\rightmark
+  \fi}
+\makeatother
+
+% Breite 170,5 mm; war im Original 160,5
+\usepackage[automark]{scrlayer-scrpage}
+\lehead{\vspace*{6mm}\hspace*{-20mm}\colorbox[gray]{0.5}{\makebox[170.5mm][l]{\large \upshape \, \textwhite{\leftmark} $ _{ _ }$ \LARGE $ ^{ ^ }$ } } }
+\cehead{}
+\rehead{}
+\lohead{}
+\cohead{}
+\rohead{\phantom{zzzz}\colorbox[gray]{0.5}{\makebox[170.5mm][r]{\LARGE $ ^{ ^ }$ \large $ _{ _ }$ \upshape \textwhite{\rightorleftmark}\, }} }%
+
+\pagestyle{scrheadings}
+\setheadwidth{textwithmarginpar}
+\setfootwidth{textwithmarginpar}
+
+
+\usepackage{amsmath} % Mathe-Formeln
+\usepackage{unicode-math}
+%\usepackage{icomma}  % Komma als Dezimalkomma <- bei Cambria Math nicht benötigt!!
+\setmathfont[Scale=0.97,Path=./fonts/cambria/]{Cambria Math}
+
+
+\usepackage{layout}
+\usepackage{calc}
+\setlength{\voffset}{-1in}
+
+\setlength{\topmargin}{9mm}
+\setlength{\headheight}{13mm}
+\setlength{\headsep}{4mm}
+\setlength{\textheight}{245mm}
+\setlength{\footskip}{14mm}
+
+
+% bm seitenzahl in box jetzt grau hinterlegen
+\lefoot{\hspace{-20mm}\colorbox[gray]{0.5}{\makebox[22mm][r]{ \large \upshape \textwhite{\, \thepage} $ _{ _ }$ \LARGE $ ^{ ^ }$ \hfill}}}
+%\rofoot{\colorbox[gray]{0.5}{\makebox[22mm][r]{\Large \upshape \textwhite{\thepage}}}}
+\rofoot{}
+\cefoot{}\refoot{}\lofoot{}\cofoot{}
+\lofoot{\hspace*{155.2mm}\colorbox[gray]{0.5}{\makebox[22mm][r]{ $ _{ _ }$ \LARGE $ ^{ ^ }$ \large \upshape \textwhite{\thepage\, }}}}
+
+
+%%======================================================================
+
+
+% prepare for index generation
+\usepackage{makeidx}
+\usepackage[columns=2]{idxlayout}
+\makeindex
+
+% Changes to the Index layout
+% \usepackage{etoolbox}% already loaded by idxlayout
+\makeatletter
+\patchcmd{\theindex}{%
+  \begin{multicols}{\theidxcols}%
+}{%
+  \small%
+  \columnseprule=.4pt%
+  \begin{adjmulticols}{2}{0cm}{-5.2cm}%
+}{}{}
+\patchcmd{\endtheindex}{%
+  \end{multicols}%
+}{%
+  \end{adjmulticols}%
+}{}{}
+\makeatother
+
+
+%%======================================================================
+%%  Randstreifen von bm
+%%======================================================================
+% Hier die senkrechten Linien definieren
+%\usepackage{background}
+%\usepackage{ifoddpage}
+\newcommand\ActivateBG{
+\backgroundsetup{
+scale=1,
+opacity=1.0,
+angle=0,
+vshift=17mm,
+color=black,
+contents={%
+%\ifnum0<\thechapter
+%    \ifnum\thechapter<9
+        \checkoddpage
+        \ifoddpage
+            \begin{minipage}{169.6mm}\rule{.5pt}{260mm}\end{minipage}
+        \else
+            \begin{minipage}{169.6mm}\hspace*{\fill}\rule{.5pt}{260mm}\end{minipage}
+        \fi
+%    \fi
+%\fi
+}
+}
+}
+
+%%%% END: Header/Footer wie im Lehrbrief
+
+
+%%%% Überschriften: Text immer ab 2,0 cm, unabhängig von Breite der Kap.-Nr.
+\makeatletter
+\def\@seccntformat#1{\rlap{\csname the#1\endcsname}\hspace*{2.0cm}}
+\def\chapterformat{\mbox{\rlap{\thechapter\autodot}\hspace*{1.8cm}\enskip}}
+\def\sectionformat{\mbox{\rlap{\thesection\autodot}\hspace*{2.0cm}\enskip}}
+\def\subsectionformat{\mbox{\rlap{\thesubsection\autodot}\hspace*{2.0cm}\enskip}}
+\makeatother
+%%%% END: Überschriften: Text immer am 1,5 cm, unabhängig von Breite der Kap.-Nr.
+
+
+
+\usepackage{tocbasic}
+%\addtokomafont{disposition}{\rmfamily}
+%\setkomafont{chapterentry}{\usekomafont{chapter}}
+
+\newcommand\textHGEcontentBold[1]{\sffamily\textbf{\large #1}}
+\newcommand\textHGEcontent[1]{\sffamily\large #1}
+
+\DeclareTOCStyleEntry[%
+  entryformat={\textHGEcontentBold},%
+  entrynumberformat={\textHGEcontentBold},%
+  pagenumberformat={\textHGEcontentBold},%
+  numwidth=20mm,%
+  linefill={\dotfill},%
+  beforeskip=25pt%
+]{tocline}{chapter}
+\DeclareTOCStyleEntry[%
+  entryformat={\textHGEcontent},%
+  entrynumberformat={\textHGEcontent},%
+  pagenumberformat={\textHGEcontent},%
+  numwidth=20mm,%
+  linefill={\dotfill},%
+  beforeskip=5pt,%
+  indent=0pt%
+]{tocline}{section}
+\DeclareTOCStyleEntry[%
+  entryformat={\textHGEcontent},%
+  entrynumberformat={\textHGEcontent},%
+  pagenumberformat={\textHGEcontent},%
+  numwidth=20mm,%
+  linefill={\dotfill},%
+  beforeskip=-1pt,%
+  indent=0pt%
+]{tocline}{subsection}
+\DeclareTOCStyleEntry[%
+  entryformat={\textHGEcontent},%
+  entrynumberformat={\textHGEcontent},%
+  pagenumberformat={\textHGEcontent},%
+  numwidth=20mm,%
+  linefill={\dotfill},%
+  beforeskip=-1pt,%
+  indent=0pt%
+]{tocline}{subsubsection}
+
+\setcounter{tocdepth}{2}
+
+
+\usepackage{ragged2e} % für \RaggedRight : Flattersatz mit Silbentrennung
+
+\usepackage[final]{pdfpages}  % für \includepdf
+
+
+% Hurenkinder, Schusterjungen
+\clubpenalty = 10000
+\widowpenalty = 10000
+\displaywidowpenalty = 10000
+
+\setkomafont{chapter}{\sffamily\bfseries\large}
+\setkomafont{section}{\sffamily\bfseries\large}
+\setkomafont{subsection}{\sffamily\bfseries\large}
+\setkomafont{subsubsection}{\sffamily\bfseries\large}
+
+
+\renewcommand*{\chapterheadstartvskip}{}
+\renewcommand*{\chapterheadendvskip}{\vskip7pt}
+
+\usepackage{adjmulticol} % für \adjmulticols
+
+\newcommand\memph[1]{\marginnote{#1}\emph{#1}}  % kursiv und Randnote
+\newcommand\imemph[1]{\marginnote{#1}\index{#1}\emph{#1}}  % kursiv und Randnote und Index
+\newcommand\iemph[1]{\index{#1}\emph{#1}}  % kursiv und Randnote und Index
+\newcommand\cmdindex[1]{\index{#1@\lstinline{#1}}}
+\newcommand\varindex[1]{\index{#1@\lstinline{$#1}}}
+
+% durchgehende Fußnoten-Nummern:
+\usepackage{chngcntr}
+\counterwithout{footnote}{chapter}
+
+
+% Trennhilfen
+\input{include/trennungen.tex}
+
+\begin{document}
+\raggedbottom  % kein einheitlicher Rand unten (-> schönere Abstände zwischen Absätzen)
+\RaggedRight   % Flattersatz mit Trennungen
+\setlength{\parskip}{5pt}
+\setlength{\parindent}{0pt}
+\maketitle
+
+\renewcommand*\chapterpagestyle{scrheadings}
+
+\ActivateBG
+
+\begin{adjmulticols}{1}{0cm}{-5.2cm}
+
+\tableofcontents
+
+\end{adjmulticols}
+
+
+\IncludeChapters
+
+
+%----------------------------------------------------------------------------
+%----------------------------------------------------------------------------
+
+
+\backmatter
+
+\appendix
+
+%\addcontentsline{toc}{chapter}{Anhänge}
+%\addtocontents{toc}{\vspace{6mm}}
+%\addtocontents{toc}{\protect\pagebreak}
+\begin{adjmulticols}{1}{0cm}{-5.2cm}  % machs breiter
+\begingroup
+\let\cleardoublepage\relax
+\bibliographystyle{hge-is-alpha-de}
+\addcontentsline{toc}{chapter}{Anhänge}
+\addcontentsline{toc}{section}{Literaturverzeichnis}
+\bibliography{lit}
+\vspace{5mm}
+%\pagebreak
+\addcontentsline{toc}{section}{Abbildungsverzeichnis}
+\listoffigures
+\vspace{5mm}
+%\pagebreak
+\listoftables
+\addcontentsline{toc}{section}{Tabellenverzeichnis}
+\vspace{5mm}
+\lstlistoflistings
+\addcontentsline{toc}{section}{Listing-Verzeichnis}
+%\vspace{5mm}
+%\raggedright
+\endgroup
+
+\end{adjmulticols}
+
+\clearpage
+\let\originalstyle=\thispagestyle
+\def\thispagestyle#1{}
+%\addtocontents{toc}{\protect\enlargethispage{2cm}}
+\addcontentsline{toc}{section}{Index} % 2x, weil buggy. außerdem falsche Seitenzahl :(
+\addcontentsline{toc}{section}{Index}
+%\setmonofont[FakeStretch=1,Scale=.85,Mapping=tex-text]{Menlo}
+% Befehle im Index extra in Courier, weil sie so besser unterscheidbar sind. (Menlo ist der Lauftextschrift zu ähnlich)
+\ifthenelse{\equal{\hasMenloFont}{True}}{%
+\setmonofont[FakeStretch=1,FakeBold=4.5,Scale=.95,Mapping=tex-text]{Courier New}
+}{%
+\setmonofont[FakeStretch=1,FakeBold=4.5,Scale=.95,Mapping=tex-text,ExternalLocation=./fonts/]{Courier New.ttf}
+}
+\lstset{language={}}
+\printindex                                  % Typeset the actual Index.
+\let\thispagestyle=\originalstyle
+
+\end{document}
+
+
+
+%------------------------------------------------------------------------
+%------------------------------------------------------------------------
+
+% Installation unter OpenSuse Leap 42.3:
+%
+
+sudo su
+zypper in texlive-latex
+zypper in texlive-sidecap texlive-bytefield texlive-mnsymbol texlive-background texlive-comicneue texlive-idxlayout texlive-menukeys texlive-adjmulticol 
+
+Get "Menlo.ttc" and "Courier New.ttf" (e.g. from a Mac) and copy them to the tex directory
+
+change following line:
+
+\def\hasMenloFont{True}
+->
+\def\hasMenloFont{False}
+
