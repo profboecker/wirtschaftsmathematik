@@ -26,11 +26,11 @@ knitr::opts_chunk$set(echo=TRUE, message=FALSE, warning=FALSE, cache=FALSE,
 
 ## Aufgabe: Sparbetrag mit Zinseszins
 
-Frau Müller legt heute **€\,8.000** zu einem Zinssatz von $p = 3{,}5\,\%$ p.a. auf ein Festgeldkonto an.
+Frau Müller legt heute **8.000\ €** zu einem Zinssatz von $p = 3{,}5\,\%$ p.a. auf ein Festgeldkonto an.
 
 1. Wie viel Geld hat sie nach **10 Jahren**?
-2. Wie lange dauert es, bis der Betrag auf **€\,12.000** angewachsen ist?
-3. Welchen Betrag müsste sie heute anlegen, um nach 10 Jahren genau **€\,12.000** zu erhalten?
+2. Wie lange dauert es, bis der Betrag auf **12.000\ €** angewachsen ist?
+3. Welchen Betrag müsste sie heute anlegen, um nach 10 Jahren genau **12.000\ €** zu erhalten?
 
 ### Lösung zu (1): Endwert nach 10 Jahren
 
@@ -55,7 +55,7 @@ K10 <- K0 * q^n
 cat("Endwert nach 10 Jahren:", round(K10, 2), "€")
 ```
 
-Der Betrag wächst also von €\,8.000 auf **`r round(K10, 2)` €**.
+Der Betrag wächst also von 8.000\ € auf **`r round(K10, 2)` €**.
 
 ## Lösung (2): Laufzeit berechnen
 
@@ -94,13 +94,13 @@ K0_barwert <- K_ziel / q^n
 cat("Benötigter Anfangsbetrag:", round(K0_barwert, 2), "€")
 ```
 
-Frau Müller müsste also **`r round(K0_barwert, 2)` €** anlegen, um nach 10 Jahren €\,12.000 zu erhalten.
+Frau Müller müsste also **`r round(K0_barwert, 2)` €** anlegen, um nach 10 Jahren 12.000\ € zu erhalten.
 
 # Nachschüssige Rente: Sparplan
 
 ## Aufgabe: Altersvorsorgesparen
 
-Herr Schmidt möchte für sein Alter vorsorgen. Ab heute zahlt er am **Ende jedes Jahres** €\,2.400 in einen Sparvertrag ein, der mit $p = 4\,\%$ p.a. verzinst wird. Er spart **25 Jahre** lang.
+Herr Schmidt möchte für sein Alter vorsorgen. Ab heute zahlt er am **Ende jedes Jahres** 2.400\ € in einen Sparvertrag ein, der mit $p = 4\,\%$ p.a. verzinst wird. Er spart **25 Jahre** lang.
 
 1. Wie hoch ist der **Endwert** seines Sparplans?
 2. Wie hoch ist der **Barwert** aller eingezahlten Raten?
@@ -158,7 +158,7 @@ Der Unterschied beläuft sich hier auf **`r round(E_V - E_N, 2)` €**.
 
 ## Aufgabe: Immobilienfinanzierung
 
-Familie Berger kauft eine Wohnung für **€\,280.000**. Sie bringen **€\,80.000** Eigenkapital mit und müssen daher **€\,200.000** finanzieren.
+Familie Berger kauft eine Wohnung für **280.000\ €**. Sie bringen **80.000\ €** Eigenkapital mit und müssen daher **200.000\ €** finanzieren.
 
 Zwei Banken machen folgende Angebote (nachschüssige Jahreszahlung):
 
