@@ -371,17 +371,10 @@ Literatur/KIBuch/
 .positai
 
 # Schriften (Microsoft-Schriften, nicht im Repository)
-Lerneinheiten/LaTeX/fonts
-Lerneinheiten/LaTeX_Vorlage/tex/fonts/
 *.ttf
 *.TTF
 *.ttc
 *.otf
 
-# Originalskripte der Lerneinheiten (urheberrechtlich geschützt, nicht im Repository)
-Lerneinheiten/Wirtschaftsmathematik LE*.pdf
-
-# Kompilierte PDFs der Lerneinheiten und der Vorlage (werden lokal erzeugt)
-Lerneinheiten/LaTeX/*.pdf
-Lerneinheiten/LaTeX_Vorlage/**/*.pdf
-Lerneinheiten/LaTeX_Vorlage/*.pdf
+# Lerneinheiten (nicht im Repository)
+/Lerneinheiten/
